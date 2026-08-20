@@ -113,7 +113,7 @@ The palette is anchored to the measured colors of the supplied essay reference a
 
 ## Layout
 
-Desktop uses a split first viewport: personal introduction on the left and an oversized globe on the right. A dedicated, invisible-edged globe viewport reveals roughly 55–65% of the sphere and crops the rest inside the composition, independent of the browser edge. The globe never sits in a card. Its renderer is anchored inside that bounded frame and capped at a deliberate maximum size so wider viewports do not reveal the full sphere.
+Desktop uses a split first viewport: personal introduction on the left and an oversized globe on the right. A dedicated, invisible-edged globe viewport reveals roughly 60–70% of the sphere and crops the rest inside the composition, independent of the browser edge. The globe reaches into the right half of the reading field without obstructing the introduction. It never sits in a card, and its renderer is capped at a deliberate maximum size so wider viewports do not reveal the full sphere.
 
 Below `760px`, content becomes sequential: introduction first, globe second. The mobile sphere remains larger than its available frame and is cropped deliberately rather than scaled down into a conventional thumbnail. Horizontal page scrolling is never permitted.
 

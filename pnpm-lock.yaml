@@ -26,6 +26,9 @@ importers:
       '@vercel/speed-insights':
         specifier: ^1.0.9
         version: 1.0.9(next@16.0.10(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react@19.2.3)
+      d3-geo:
+        specifier: ^3.1.1
+        version: 3.1.1
       geist:
         specifier: 1.2.2
         version: 1.2.2(next@16.0.10(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
@@ -78,6 +81,9 @@ importers:
         specifier: ^2.0.2
         version: 2.0.2
     devDependencies:
+      '@types/d3-geo':
+        specifier: ^3.1.1
+        version: 3.1.1
       '@types/geojson':
         specifier: ^7946.0.16
         version: 7946.0.16
@@ -1112,6 +1118,9 @@ packages:
 
   '@tweenjs/tween.js@25.0.0':
     resolution: {integrity: sha512-XKLA6syeBUaPzx4j3qwMqzzq+V4uo72BnlbOjmuljLrRqdsd3qnzvZZoxvMHZ23ndsRS4aufU6JOZYpCbU6T1A==}
+
+  '@types/d3-geo@3.1.1':
+    resolution: {integrity: sha512-65Emv9fQiQQqphLlRkuQ5ypPsOmWPhtBGCMv61JDPEPMvsx+gzhGf74yw1a78xFKPj6zw4AgQICJoQv0vK9M2w==}
 
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
@@ -3081,6 +3090,10 @@ snapshots:
       tslib: 2.8.1
 
   '@tweenjs/tween.js@25.0.0': {}
+
+  '@types/d3-geo@3.1.1':
+    dependencies:
+      '@types/geojson': 7946.0.16
 
   '@types/debug@4.1.12':
     dependencies:

@@ -12,8 +12,9 @@ import {
   type ReactNode,
 } from 'react'
 import { useReducedMotion } from 'motion/react'
+import { geoOrthographic, geoPath } from 'd3-geo'
 import { Color, MeshBasicMaterial, ShaderMaterial } from 'three'
-import { feature } from 'topojson-client'
+import { feature, mesh } from 'topojson-client'
 import countriesTopology from 'world-atlas/countries-110m.json'
 import type { FeatureCollection, Geometry } from 'geojson'
 import type { GlobeMethods } from 'react-globe.gl'
@@ -64,6 +65,10 @@ const FALLBACK_RADIUS = 300
 const FALLBACK_CENTRE = FALLBACK_SIZE / 2
 const FALLBACK_LATITUDE = 38
 const FALLBACK_LONGITUDE = 18
+const FALLBACK_COUNTRY_MESH = mesh(
+  countriesTopology as never,
+  countriesTopology.objects.countries as never
+) as Geometry
 
 function projectFallbackPoint(
   coordinates: readonly number[],
@@ -91,41 +96,12 @@ function projectFallbackPoint(
   }
 }
 
-function countryOutlinePath(geometry: Geometry, centreLongitude: number) {
-  const rings =
-    geometry.type === 'Polygon'
-      ? geometry.coordinates
-      : geometry.type === 'MultiPolygon'
-        ? geometry.coordinates.flat()
-        : []
-
-  return rings
-    .map((ring) => {
-      let drawing = false
-      return ring
-        .map((coordinates) => {
-          const point = projectFallbackPoint(coordinates, centreLongitude)
-          if (!point.visible) {
-            drawing = false
-            return ''
-          }
-          const command = drawing ? 'L' : 'M'
-          drawing = true
-          return `${command}${point.x.toFixed(1)},${point.y.toFixed(1)}`
-        })
-        .join(' ')
-    })
-    .join(' ')
-}
-
 function FallbackGlobe({
-  countries,
   selectedPlace,
   reduceMotion,
   hasInteracted,
   onSelect,
 }: {
-  countries: CountryFeature[]
   selectedPlace: AtlasPlace | null
   reduceMotion: boolean
   hasInteracted: boolean
@@ -153,12 +129,19 @@ function FallbackGlobe({
     return () => cancelAnimationFrame(frame)
   }, [hasInteracted, reduceMotion])
 
-  const countryPaths = useMemo(
-    () =>
-      countries.map((country) =>
-        countryOutlinePath(country.geometry, centreLongitude)
-      ),
-    [centreLongitude, countries]
+  const countryPath = useMemo(
+    () => {
+      const projection = geoOrthographic()
+        .translate([FALLBACK_CENTRE, FALLBACK_CENTRE])
+        .scale(FALLBACK_RADIUS)
+        .rotate([-centreLongitude, -FALLBACK_LATITUDE])
+        .clipAngle(90)
+        .precision(0.4)
+      const path = geoPath(projection)
+
+      return path(FALLBACK_COUNTRY_MESH) ?? ''
+    },
+    [centreLongitude]
   )
 
   return (
@@ -194,13 +177,7 @@ function FallbackGlobe({
             rx={FALLBACK_RADIUS}
             ry={224}
           />
-          {countryPaths.map((path, index) => (
-            <path
-              key={index}
-              className="atlas-fallback-country"
-              d={path}
-            />
-          ))}
+          <path className="atlas-fallback-country" d={countryPath} />
         </g>
         <circle
           className="atlas-fallback-outline"
@@ -570,7 +547,6 @@ export function SoftAtlas() {
               onError={() => setIsReady(true)}
               fallback={
                 <FallbackGlobe
-                  countries={countries}
                   selectedPlace={selectedPlace}
                   reduceMotion={Boolean(reduceMotion)}
                   hasInteracted={hasInteracted}
@@ -606,7 +582,6 @@ export function SoftAtlas() {
             </GlobeRenderBoundary>
           ) : (
             <FallbackGlobe
-              countries={countries}
               selectedPlace={selectedPlace}
               reduceMotion={Boolean(reduceMotion)}
               hasInteracted={hasInteracted}

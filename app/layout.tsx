@@ -1,5 +1,9 @@
 import './global.css'
 import type { Metadata } from 'next'
+import {
+  Cormorant_Garamond,
+  Instrument_Serif,
+} from 'next/font/google'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Navbar } from './components/nav'
@@ -11,15 +15,15 @@ import { baseUrl } from './sitemap'
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Next.js Portfolio Starter',
-    template: '%s | Next.js Portfolio Starter',
+    default: 'Sara Kim',
+    template: '%s | Sara Kim',
   },
-  description: 'This is my portfolio.',
+  description: 'Writing, memory, and a small atlas of places by Sara Kim.',
   openGraph: {
-    title: 'My Portfolio',
-    description: 'This is my portfolio.',
+    title: 'Sara Kim',
+    description: 'Writing, memory, and a small atlas of places by Sara Kim.',
     url: baseUrl,
-    siteName: 'My Portfolio',
+    siteName: 'Sara Kim',
     locale: 'en_US',
     type: 'website',
   },
@@ -38,6 +42,20 @@ export const metadata: Metadata = {
 
 const cx = (...classes) => classes.filter(Boolean).join(' ')
 
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-instrument-serif',
+  display: 'swap',
+})
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '500'],
+  variable: '--font-cormorant-garamond',
+  display: 'swap',
+})
+
 export default function RootLayout({
   children,
 }: {
@@ -49,7 +67,9 @@ export default function RootLayout({
       className={cx(
         'text-black bg-white dark:text-white dark:bg-black',
         GeistSans.variable,
-        GeistMono.variable
+        GeistMono.variable,
+        instrumentSerif.variable,
+        cormorantGaramond.variable
       )}
     >
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">

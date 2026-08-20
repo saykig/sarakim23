@@ -16,8 +16,8 @@ type MemoryPageProps = {
   params: Promise<{ slug: string }>
 }
 
-export function generateStaticParams() {
-  return getPublishedMemorySlugs().map((slug) => ({ slug }))
+export async function generateStaticParams() {
+  return (await getPublishedMemorySlugs()).map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({

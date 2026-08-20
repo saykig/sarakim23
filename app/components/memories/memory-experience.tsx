@@ -189,6 +189,18 @@ export function MemoryExperience({ location, entries }: MemoryExperienceProps) {
     <div ref={rootRef} className="memory-experience">
       <div className="memory-stream">
         {entries.map((entry) => {
+          if (entry.type === 'section') {
+            return (
+              <div
+                key={entry.id}
+                className="memory-entry memory-section"
+                data-memory-item
+              >
+                <h2 className="memory-heading-kicker">{entry.name}</h2>
+              </div>
+            )
+          }
+
           if (entry.type === 'ephemera') {
             return (
               <div

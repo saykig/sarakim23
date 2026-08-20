@@ -1,3 +1,5 @@
+import europeMemories from '../../content/memories/europe/index.json'
+
 export type AtlasPlace = {
   slug: string
   name: string
@@ -10,7 +12,7 @@ export type AtlasPlace = {
   memorySlug?: string
 }
 
-export const atlasPlaces: AtlasPlace[] = [
+const places: AtlasPlace[] = [
   {
     slug: 'vancouver',
     name: 'Vancouver',
@@ -83,7 +85,6 @@ export const atlasPlaces: AtlasPlace[] = [
     lng: 7.8632,
     displayOffset: [-10, -38],
     type: 'visited',
-    memorySlug: 'interlaken',
   },
   {
     slug: 'toronto',
@@ -126,3 +127,14 @@ export const atlasPlaces: AtlasPlace[] = [
     type: 'visited',
   },
 ]
+
+const importedMemorySlugs = new Set(
+  europeMemories.locations
+    .filter((location) => location.photoCount > 0)
+    .map((location) => location.slug)
+)
+
+export const atlasPlaces: AtlasPlace[] = places.map((place) => ({
+  ...place,
+  ...(importedMemorySlugs.has(place.slug) ? { memorySlug: place.slug } : {}),
+}))

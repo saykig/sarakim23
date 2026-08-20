@@ -39,7 +39,13 @@ export type MemoryEphemera = {
   layout: string
 }
 
-export type MemoryEntry = MemoryPhoto | MemoryEphemera
+export type MemorySection = {
+  type: 'section'
+  id: string
+  name: string
+}
+
+export type MemoryEntry = MemoryPhoto | MemoryEphemera | MemorySection
 
 export type MemoryPage = {
   slug: string
@@ -50,10 +56,9 @@ export type MemoryPage = {
   entries: MemoryEntry[]
 }
 
-type ImportedPhoto = Omit<
-  MemoryPhoto,
-  'id' | 'layout' | 'parallax'
-> & { sourceAssetId: string }
+type ImportedPhoto = Omit<MemoryPhoto, 'id' | 'layout' | 'parallax'> & {
+  sourceAssetId: string
+}
 
 type ImportedProse = {
   type: 'prose'
@@ -66,7 +71,23 @@ type ImportedProse = {
 type ImportedLocation = {
   slug: string
   name: string
+  sourceHeading: {
+    text: string
+    kind: string
+    documentOrder: number
+  }
   entries: Array<ImportedPhoto | ImportedProse>
+}
+
+type ImportedCollectionLocation = {
+  slug: string
+  manifest: string
+  photoCount: number
+}
+
+type ImportedCollection = {
+  sourceDateLabel?: string
+  locations: ImportedCollectionLocation[]
 }
 
 type PresentationEntry = {
@@ -77,79 +98,149 @@ type PresentationEntry = {
 }
 
 type Presentation = {
-  published: boolean
   presentation: Record<string, PresentationEntry>
 }
 
-type ImportedCollection = {
-  sourceDateLabel?: string
+type MemoryDestination = {
+  slug: string
+  name: string
+  sources: ImportedLocation[]
 }
 
-const publishedMemories = ['interlaken'] as const
+const contentDirectory = path.join(
+  process.cwd(),
+  'content',
+  'memories',
+  'europe'
+)
+const defaultLayouts = [
+  'opening',
+  'left',
+  'right-narrow',
+  'left-narrow',
+  'right-wide',
+] as const
+const defaultParallax = [4, 7, 5, 6, 4] as const
 
-export function getPublishedMemorySlugs() {
-  return [...publishedMemories]
+async function readJson<T>(filePath: string): Promise<T> {
+  return JSON.parse(await readFile(filePath, 'utf8')) as T
 }
 
-export const getMemory = cache(async (slug: string): Promise<MemoryPage | null> => {
-  if (!publishedMemories.includes(slug as (typeof publishedMemories)[number])) {
-    return null
+async function readOptionalJson<T>(filePath: string): Promise<T | null> {
+  try {
+    return await readJson<T>(filePath)
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return null
+    throw error
+  }
+}
+
+const getMemoryCatalog = cache(async () => {
+  const collection = await readJson<ImportedCollection>(
+    path.join(contentDirectory, 'index.json')
+  )
+  const sources = await Promise.all(
+    collection.locations
+      .filter((location) => location.photoCount > 0)
+      .map((location) =>
+        readJson<ImportedLocation>(
+          path.join(contentDirectory, location.manifest)
+        )
+      )
+  )
+
+  const destinations: MemoryDestination[] = []
+  for (const source of sources) {
+    const startsDestination =
+      source.sourceHeading.kind === 'paragraph' || destinations.length === 0
+
+    if (startsDestination) {
+      destinations.push({
+        slug: source.slug,
+        name: source.name,
+        sources: [source],
+      })
+    } else {
+      destinations.at(-1)?.sources.push(source)
+    }
   }
 
-  const directory = path.join(
-    process.cwd(),
-    'content',
-    'memories',
-    'europe',
-    slug
-  )
-  const [collectionText, sourceText, pageText] = await Promise.all([
-    readFile(path.join(directory, '..', 'index.json'), 'utf8'),
-    readFile(path.join(directory, 'index.json'), 'utf8'),
-    readFile(path.join(directory, 'page.json'), 'utf8'),
-  ])
-  const collection = JSON.parse(collectionText) as ImportedCollection
-  const source = JSON.parse(sourceText) as ImportedLocation
-  const page = JSON.parse(pageText) as Presentation
+  return { collection, destinations }
+})
 
-  if (!page.published) return null
+export async function getPublishedMemorySlugs() {
+  const { destinations } = await getMemoryCatalog()
+  return destinations.map((destination) => destination.slug)
+}
 
-  const entries = source.entries.map<MemoryEntry>((entry) => {
-    if (entry.type === 'photo') {
-      const presentation = page.presentation[entry.sourceAssetId]
-      return {
-        ...entry,
-        id: entry.sourceAssetId,
-        layout: presentation?.layout ?? 'center',
-        parallax: presentation?.parallax ?? 0,
+export const getMemory = cache(
+  async (slug: string): Promise<MemoryPage | null> => {
+    const { collection, destinations } = await getMemoryCatalog()
+    const destination = destinations.find((candidate) => candidate.slug === slug)
+    if (!destination) return null
+
+    const page = await readOptionalJson<Presentation>(
+      path.join(contentDirectory, destination.slug, 'page.json')
+    )
+    const presentation = page?.presentation ?? {}
+    const entries: MemoryEntry[] = []
+    let photoIndex = 0
+
+    for (
+      let sourceIndex = 0;
+      sourceIndex < destination.sources.length;
+      sourceIndex += 1
+    ) {
+      const source = destination.sources[sourceIndex]
+      if (sourceIndex > 0) {
+        entries.push({
+          type: 'section',
+          id: `section:${source.slug}`,
+          name: source.name,
+        })
+      }
+
+      for (const entry of source.entries) {
+        if (entry.type === 'photo') {
+          const override = presentation[entry.sourceAssetId]
+          const defaultIndex = photoIndex % defaultLayouts.length
+          entries.push({
+            ...entry,
+            id: entry.sourceAssetId,
+            layout: override?.layout ?? defaultLayouts[defaultIndex],
+            parallax: override?.parallax ?? defaultParallax[defaultIndex],
+          })
+          photoIndex += 1
+          continue
+        }
+
+        const id = `prose:${entry.originalDocumentOrder}`
+        const override = presentation[id]
+        entries.push({
+          type: 'ephemera',
+          id,
+          noteType: override?.noteType ?? 'prose',
+          text: entry.text,
+          sourceJournal: entry.sourceJournal,
+          sourceUrl: entry.sourceUrl,
+          originalOrder: entry.originalDocumentOrder,
+          relatedPhoto: override?.relatedPhoto,
+          layout: override?.layout ?? 'note',
+        })
       }
     }
 
-    const id = `prose:${entry.originalDocumentOrder}`
-    const presentation = page.presentation[id]
+    const firstPhoto = entries.find(
+      (entry): entry is MemoryPhoto => entry.type === 'photo'
+    )
+
     return {
-      type: 'ephemera',
-      id,
-      noteType: presentation?.noteType ?? 'prose',
-      text: entry.text,
-      sourceJournal: entry.sourceJournal,
-      sourceUrl: entry.sourceUrl,
-      originalOrder: entry.originalDocumentOrder,
-      relatedPhoto: presentation?.relatedPhoto,
-      layout: presentation?.layout ?? 'note',
+      slug: destination.slug,
+      name: destination.name,
+      dateLabel: collection.sourceDateLabel,
+      sourceJournal: firstPhoto?.sourceJournal ?? '',
+      sourceUrl: firstPhoto?.sourceUrl ?? '',
+      entries,
     }
-  })
-
-  const firstEntry = entries.find(
-    (entry): entry is MemoryPhoto => entry.type === 'photo'
-  )
-
-  return {
-    slug: source.slug,
-    name: source.name,
-    dateLabel: collection.sourceDateLabel,
-    sourceJournal: firstEntry?.sourceJournal ?? '',
-    sourceUrl: firstEntry?.sourceUrl ?? '',
-    entries,
   }
-})
+)

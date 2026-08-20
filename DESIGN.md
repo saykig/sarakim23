@@ -53,7 +53,7 @@ components:
 
 Soft Atlas feels like a world map printed directly onto the page of a contemporary literary magazine. It uses a near-monochrome green vocabulary, flat light, calm motion, fine geographic contours, and expansive negative space. It borrows the measured paper-and-sage character of the `sarakim928` essay page without copying that site's composition.
 
-The visual system is quiet but not austere: Instrument Serif supplies a narrow, high-contrast editorial voice for the largest homepage language, while the incumbent Geist sans remains the practical voice for navigation, supporting copy, metadata, and labels. Cormorant Garamond provides Cyrillic coverage within rotating greetings. The globe relies on fine country contours and slight tonal variation rather than repeated surface texture or distressed overlays.
+The visual system is quiet but not austere: Instrument Serif supplies a narrow, high-contrast editorial voice for the largest homepage language, while the incumbent Geist sans remains the practical voice for navigation, supporting copy, metadata, and labels. Cormorant Garamond provides Cyrillic coverage within rotating greetings. The globe uses a procedural, non-repeating risograph grain clipped to land, with darker country contours for legibility.
 
 **Key characteristics:**
 
@@ -133,17 +133,17 @@ Navigation stays lightweight and text-only. It uses Geist, deep ink, and a restr
 
 ### Atlas Globe
 
-- **Surface:** matte Atlas Ocean sphere with visually unfilled land and defined Contour Green borders.
+- **Surface:** matte Atlas Ocean sphere with restrained dark-sage procedural grain clipped to land and defined Contour Green borders; never a hex, tiled, or halftone pattern.
 - **Motion:** extremely slow idle rotation; direct dragging suspends rotation; zoom and pan are disabled.
 - **Crop:** deliberately oversized and clipped inside a dedicated, invisible-edged globe viewport.
 - **Fallback:** the location index remains usable if WebGL is unavailable.
 
 ### Atlas Marker
 
-- **Shape:** small cream disc with a deep-green centre and fine outline.
+- **Shape:** a true geographic anchor, hairline leader, and small cream disc with a deep-green centre and fine outline.
 - **State:** hover grows subtly; selection updates the archive annotation.
 - **Tooltip:** opaque cream, square-to-soft corners, quiet sans-serif place name and metadata.
-- **Behavior:** no pulse, radar ring, arc, or glow.
+- **Behavior:** screen-space `displayOffset` values separate dense clusters without changing latitude/longitude; isolated markers use short stems. No pulse, radar ring, chunky pin, or glow.
 
 ## Do's and Don'ts
 
@@ -158,5 +158,5 @@ Navigation stays lightweight and text-only. It uses Geist, deep ink, and a restr
 
 - **Don't** introduce blue oceans, neon, atmosphere glow, cyber grids, or conventional NASA imagery.
 - **Don't** wrap the globe or annotation in a visible card system.
-- **Don't** add distressed paper filters, animated grain, or decorative shader noise.
+- **Don't** add full-page grain, distressed paper filters, animated grain, or decorative shader noise outside the land mask.
 - **Don't** make unfinished memory destinations look like working links.

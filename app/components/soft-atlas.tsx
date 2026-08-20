@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useReducedMotion } from 'motion/react'
-import { MeshBasicMaterial } from 'three'
+import { Color, MeshBasicMaterial, ShaderMaterial } from 'three'
 import { feature } from 'topojson-client'
 import countriesTopology from 'world-atlas/countries-110m.json'
 import type { FeatureCollection, Geometry } from 'geojson'
@@ -21,6 +21,70 @@ type CountryFeature = {
   properties: Record<string, unknown> | null
   geometry: Geometry
 }
+
+const LAND_VERTEX_SHADER = `
+  varying vec3 vGrainPosition;
+
+  void main() {
+    vGrainPosition = position;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  }
+`
+
+const LAND_FRAGMENT_SHADER = `
+  precision highp float;
+
+  uniform vec3 uBaseColor;
+  uniform vec3 uInkColor;
+  varying vec3 vGrainPosition;
+
+  float hash31(vec3 point) {
+    point = fract(point * 0.1031);
+    point += dot(point, point.yzx + 33.33);
+    return fract((point.x + point.y) * point.z);
+  }
+
+  float valueNoise(vec3 point) {
+    vec3 cell = floor(point);
+    vec3 local = fract(point);
+    local = local * local * (3.0 - 2.0 * local);
+
+    float n000 = hash31(cell + vec3(0.0, 0.0, 0.0));
+    float n100 = hash31(cell + vec3(1.0, 0.0, 0.0));
+    float n010 = hash31(cell + vec3(0.0, 1.0, 0.0));
+    float n110 = hash31(cell + vec3(1.0, 1.0, 0.0));
+    float n001 = hash31(cell + vec3(0.0, 0.0, 1.0));
+    float n101 = hash31(cell + vec3(1.0, 0.0, 1.0));
+    float n011 = hash31(cell + vec3(0.0, 1.0, 1.0));
+    float n111 = hash31(cell + vec3(1.0, 1.0, 1.0));
+
+    float nx00 = mix(n000, n100, local.x);
+    float nx10 = mix(n010, n110, local.x);
+    float nx01 = mix(n001, n101, local.x);
+    float nx11 = mix(n011, n111, local.x);
+    float nxy0 = mix(nx00, nx10, local.y);
+    float nxy1 = mix(nx01, nx11, local.y);
+    return mix(nxy0, nxy1, local.z);
+  }
+
+  void main() {
+    vec3 surface = normalize(vGrainPosition);
+    float inkDensity = 0.48 + valueNoise(surface * 21.0) * 0.52;
+    float softGrain = smoothstep(
+      0.62,
+      0.91,
+      valueNoise(surface * 360.0 + vec3(7.4, 2.1, 5.8))
+    );
+    float sparseFleck = smoothstep(
+      0.925,
+      0.995,
+      hash31(floor(surface * 1180.0 + vec3(3.0, 19.0, 11.0)))
+    );
+    float inkAmount = softGrain * inkDensity * 0.12 + sparseFleck * 0.11;
+    gl_FragColor = vec4(mix(uBaseColor, uInkColor, inkAmount), 1.0);
+    #include <colorspace_fragment>
+  }
+`
 
 function useElementSize<T extends HTMLElement>() {
   const ref = useRef<T>(null)
@@ -47,16 +111,46 @@ function useElementSize<T extends HTMLElement>() {
   return { ref, ...size }
 }
 
+function markerLeaderStyle(offset: readonly [number, number]) {
+  const distance = Math.hypot(offset[0], offset[1])
+  const headGap = Math.min(5, distance)
+
+  return {
+    width: `${Math.max(0, distance - headGap).toFixed(3)}px`,
+    transform: `rotate(${Math.atan2(-offset[1], -offset[0]).toFixed(5)}rad) translateX(${headGap.toFixed(3)}px)`,
+  }
+}
+
 function createMarkerElement(
   place: AtlasPlace,
   selected: boolean,
   onSelect: (place: AtlasPlace) => void
 ) {
+  const marker = document.createElement('div')
+  marker.className = 'atlas-marker'
+
   const button = document.createElement('button')
   button.type = 'button'
-  button.className = 'atlas-marker'
+  button.className = 'atlas-marker-button atlas-marker-offset'
   button.dataset.selected = String(selected)
   button.setAttribute('aria-label', `Explore ${place.name}`)
+
+  const offset = place.displayOffset ?? [0, 0]
+
+  const anchor = document.createElement('span')
+  anchor.className = 'atlas-marker-anchor'
+  anchor.setAttribute('aria-hidden', 'true')
+
+  button.style.left = `${offset[0]}px`
+  button.style.top = `${offset[1]}px`
+
+  if (offset[0] !== 0 || offset[1] !== 0) {
+    const leader = document.createElement('span')
+    leader.className = 'atlas-marker-leader'
+    leader.setAttribute('aria-hidden', 'true')
+    Object.assign(leader.style, markerLeaderStyle(offset))
+    button.appendChild(leader)
+  }
 
   const face = document.createElement('span')
   face.className = 'atlas-marker-face'
@@ -85,12 +179,13 @@ function createMarkerElement(
   tooltip.appendChild(action)
 
   button.append(face, tooltip)
+  marker.append(anchor, button)
   button.addEventListener('click', (event) => {
     event.stopPropagation()
     onSelect(place)
   })
 
-  return button
+  return marker
 }
 
 export function SoftAtlas() {
@@ -115,7 +210,27 @@ export function SoftAtlas() {
     []
   )
 
-  useEffect(() => () => globeMaterial.dispose(), [globeMaterial])
+  const landMaterial = useMemo(
+    () =>
+      new ShaderMaterial({
+        uniforms: {
+          uBaseColor: { value: new Color('#dfe4cf') },
+          uInkColor: { value: new Color('#5d694f') },
+        },
+        vertexShader: LAND_VERTEX_SHADER,
+        fragmentShader: LAND_FRAGMENT_SHADER,
+        toneMapped: false,
+      }),
+    []
+  )
+
+  useEffect(
+    () => () => {
+      globeMaterial.dispose()
+      landMaterial.dispose()
+    },
+    [globeMaterial, landMaterial]
+  )
 
   const focusPlace = useCallback(
     (place: AtlasPlace) => {
@@ -198,9 +313,9 @@ export function SoftAtlas() {
             animateIn={!reduceMotion}
             waitForGlobeReady
             polygonsData={countries}
-            polygonCapColor={() => '#dfe4cf'}
+            polygonCapMaterial={landMaterial}
             polygonSideColor={() => 'rgba(232, 234, 216, 0)'}
-            polygonStrokeColor={() => 'rgba(57, 78, 56, 0.78)'}
+            polygonStrokeColor={() => 'rgba(57, 78, 56, 0.9)'}
             polygonAltitude={0.004}
             polygonsTransitionDuration={0}
             htmlElementsData={markerData}

@@ -345,51 +345,86 @@ body:has(.soft-atlas-page) #nav a:hover {
 
 .atlas-marker {
   position: relative;
+  width: 0;
+  height: 0;
+  color: var(--atlas-ink);
+  pointer-events: none;
+}
+
+.atlas-marker-button {
+  position: absolute;
+  z-index: 2;
   display: grid;
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 2.25rem;
+  height: 2.25rem;
   place-items: center;
   border: 0;
+  border-radius: 50%;
   background: transparent;
-  color: var(--atlas-ink);
+  color: inherit;
   cursor: pointer;
   pointer-events: auto;
+  transform: translate(-50%, -50%);
+}
+
+.atlas-marker-anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 0.18rem;
+  height: 0.18rem;
+  border-radius: 50%;
+  background: var(--atlas-line);
+  transform: translate(-50%, -50%);
+}
+
+.atlas-marker-leader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  height: 1px;
+  background: rgb(57 78 56 / 58%);
+  pointer-events: none;
+  transform-origin: left center;
 }
 
 .atlas-marker-face {
   position: relative;
+  z-index: 2;
   display: grid;
-  width: 0.65rem;
-  height: 0.65rem;
+  width: 0.56rem;
+  height: 0.56rem;
   place-items: center;
-  border: 1px solid rgb(51 68 52 / 80%);
+  border: 1px solid rgb(51 68 52 / 86%);
   border-radius: 50%;
   background: var(--atlas-cream);
   transition: transform 180ms ease, background-color 180ms ease;
 }
 
 .atlas-marker-centre {
-  width: 0.19rem;
-  height: 0.19rem;
+  width: 0.15rem;
+  height: 0.15rem;
   border-radius: 50%;
   background: var(--atlas-ink);
 }
 
-.atlas-marker:hover .atlas-marker-face,
-.atlas-marker:focus-visible .atlas-marker-face,
-.atlas-marker[data-selected='true'] .atlas-marker-face {
-  transform: scale(1.22);
+.atlas-marker-button:hover .atlas-marker-face,
+.atlas-marker-button:focus-visible .atlas-marker-face,
+.atlas-marker-button[data-selected='true'] .atlas-marker-face {
+  transform: scale(1.24);
   background: #fffaf0;
 }
 
-.atlas-marker:focus-visible {
+.atlas-marker-button:focus-visible {
   outline: 1px solid var(--atlas-ink);
-  outline-offset: 3px;
+  outline-offset: 2px;
 }
 
 .atlas-marker-tooltip {
   position: absolute;
-  bottom: calc(100% + 0.55rem);
+  bottom: calc(100% + 0.3rem);
   left: 50%;
   display: grid;
   min-width: 10.5rem;
@@ -405,6 +440,7 @@ body:has(.soft-atlas-page) #nav a:hover {
   letter-spacing: 0.015em;
   opacity: 0;
   pointer-events: none;
+  z-index: 4;
   transform: translate(-50%, 0.3rem);
   transition: opacity 160ms ease, transform 160ms ease;
   white-space: nowrap;
@@ -418,8 +454,8 @@ body:has(.soft-atlas-page) #nav a:hover {
   letter-spacing: -0.012em;
 }
 
-.atlas-marker:hover .atlas-marker-tooltip,
-.atlas-marker:focus-visible .atlas-marker-tooltip {
+.atlas-marker-button:hover .atlas-marker-tooltip,
+.atlas-marker-button:focus-visible .atlas-marker-tooltip {
   opacity: 1;
   transform: translate(-50%, 0);
 }

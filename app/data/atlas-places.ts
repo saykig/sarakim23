@@ -3,6 +3,8 @@ export type AtlasPlace = {
   name: string
   lat: number
   lng: number
+  /** Screen-space presentation offset; the geographic anchor remains lat/lng. */
+  displayOffset?: readonly [number, number]
   years?: string
   type: 'home' | 'visited'
   memorySlug?: string
@@ -14,6 +16,7 @@ export const atlasPlaces: AtlasPlace[] = [
     name: 'Vancouver',
     lat: 49.2827,
     lng: -123.1207,
+    displayOffset: [-10, -8],
     type: 'home',
   },
   {
@@ -21,6 +24,7 @@ export const atlasPlaces: AtlasPlace[] = [
     name: 'Tashkent',
     lat: 41.2995,
     lng: 69.2401,
+    displayOffset: [10, -10],
     type: 'home',
   },
   {
@@ -28,6 +32,7 @@ export const atlasPlaces: AtlasPlace[] = [
     name: 'St. Petersburg',
     lat: 59.9311,
     lng: 30.3609,
+    displayOffset: [12, -12],
     years: '2008–2011',
     type: 'home',
   },
@@ -36,6 +41,7 @@ export const atlasPlaces: AtlasPlace[] = [
     name: 'Daejeon',
     lat: 36.3504,
     lng: 127.3845,
+    displayOffset: [10, -8],
     type: 'home',
   },
   {
@@ -43,6 +49,7 @@ export const atlasPlaces: AtlasPlace[] = [
     name: 'London',
     lat: 51.5072,
     lng: -0.1276,
+    displayOffset: [-26, -22],
     type: 'visited',
   },
   {
@@ -50,6 +57,7 @@ export const atlasPlaces: AtlasPlace[] = [
     name: 'Paris',
     lat: 48.8566,
     lng: 2.3522,
+    displayOffset: [-12, 16],
     type: 'visited',
   },
   {
@@ -57,6 +65,7 @@ export const atlasPlaces: AtlasPlace[] = [
     name: 'Orvieto',
     lat: 42.7185,
     lng: 12.1107,
+    displayOffset: [-42, 14],
     type: 'visited',
   },
   {
@@ -64,6 +73,7 @@ export const atlasPlaces: AtlasPlace[] = [
     name: 'Capri',
     lat: 40.5509,
     lng: 14.2429,
+    displayOffset: [24, 38],
     type: 'visited',
   },
   {
@@ -71,6 +81,7 @@ export const atlasPlaces: AtlasPlace[] = [
     name: 'Interlaken',
     lat: 46.6863,
     lng: 7.8632,
+    displayOffset: [-10, -38],
     type: 'visited',
   },
   {
@@ -78,6 +89,7 @@ export const atlasPlaces: AtlasPlace[] = [
     name: 'Toronto',
     lat: 43.6532,
     lng: -79.3832,
+    displayOffset: [-10, -8],
     type: 'home',
   },
   {
@@ -85,6 +97,7 @@ export const atlasPlaces: AtlasPlace[] = [
     name: 'Jungfraujoch',
     lat: 46.5475,
     lng: 7.9853,
+    displayOffset: [28, -18],
     type: 'visited',
   },
   {
@@ -92,6 +105,7 @@ export const atlasPlaces: AtlasPlace[] = [
     name: 'Mont St. Michel',
     lat: 48.636,
     lng: -1.5115,
+    displayOffset: [-38, 12],
     type: 'visited',
   },
   {
@@ -99,6 +113,7 @@ export const atlasPlaces: AtlasPlace[] = [
     name: 'San Gimignano',
     lat: 43.4677,
     lng: 11.0431,
+    displayOffset: [-4, 58],
     type: 'visited',
   },
   {
@@ -106,6 +121,7 @@ export const atlasPlaces: AtlasPlace[] = [
     name: 'Venice',
     lat: 45.4408,
     lng: 12.3155,
+    displayOffset: [38, 16],
     type: 'visited',
   },
 ]

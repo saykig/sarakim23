@@ -265,8 +265,8 @@ body:has(.soft-atlas-page) ::selection {
 }
 
 .atlas-experience {
-  --atlas-globe-size: clamp(50rem, 60vw, 55rem);
-  --atlas-window-width: clamp(33rem, 39vw, 37rem);
+  --atlas-globe-size: clamp(42rem, 50vw, 46rem);
+  --atlas-window-width: clamp(26rem, 31vw, 28.5rem);
   position: relative;
   z-index: 1;
   min-width: 0;
@@ -285,7 +285,7 @@ body:has(.soft-atlas-page) ::selection {
       )
     )
   );
-  height: min(var(--atlas-globe-size), 100%);
+  height: var(--atlas-globe-size);
   transform: translateY(-50%);
   overflow: hidden;
   isolation: isolate;
@@ -645,8 +645,8 @@ body:has(.soft-atlas-page) ::selection {
   }
 
   .atlas-experience {
-    --atlas-globe-size: clamp(46rem, 80vw, 51rem);
-    --atlas-window-width: clamp(29rem, 51vw, 34rem);
+    --atlas-globe-size: clamp(40rem, 68vw, 44rem);
+    --atlas-window-width: clamp(24rem, 41vw, 27rem);
   }
 
   .atlas-globe-viewport {
@@ -692,16 +692,16 @@ body:has(.soft-atlas-page) ::selection {
   }
 
   .atlas-experience {
-    --atlas-globe-size: 46rem;
+    --atlas-globe-size: 42rem;
     --atlas-window-width: 100%;
-    min-height: 35rem;
-    margin-top: 0.75rem;
+    min-height: 40rem;
+    margin-top: 1.5rem;
   }
 
   .atlas-globe-viewport {
     top: 0;
     width: 100%;
-    height: 34rem;
+    height: 38rem;
     transform: none;
   }
 

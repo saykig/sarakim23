@@ -6,9 +6,11 @@ import {
   Component,
   useCallback,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
+  type ErrorInfo,
   type ReactNode,
 } from 'react'
 import { useReducedMotion } from 'motion/react'
@@ -38,7 +40,7 @@ type CountryFeature = {
 type GlobeRenderBoundaryProps = {
   children: ReactNode
   fallback: ReactNode
-  onError: () => void
+  onError: (error: Error, info: ErrorInfo) => void
 }
 
 class GlobeRenderBoundary extends Component<
@@ -51,8 +53,8 @@ class GlobeRenderBoundary extends Component<
     return { failed: true }
   }
 
-  componentDidCatch() {
-    this.props.onError()
+  componentDidCatch(error: Error, info: ErrorInfo) {
+    this.props.onError(error, info)
   }
 
   render() {
@@ -306,18 +308,25 @@ const LAND_FRAGMENT_SHADER = `
 
 function useElementSize<T extends HTMLElement>() {
   const ref = useRef<T>(null)
-  const [size, setSize] = useState({ width: 720, height: 720 })
+  const [size, setSize] = useState({ width: 0, height: 0 })
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const element = ref.current
     if (!element) return
 
     const updateSize = () => {
       const rect = element.getBoundingClientRect()
-      setSize({
-        width: Math.max(1, Math.round(rect.width)),
-        height: Math.max(1, Math.round(rect.height)),
-      })
+      const nextSize = {
+        width: Math.round(rect.width),
+        height: Math.round(rect.height),
+      }
+
+      setSize((currentSize) =>
+        currentSize.width === nextSize.width &&
+        currentSize.height === nextSize.height
+          ? currentSize
+          : nextSize
+      )
     }
 
     updateSize()
@@ -409,12 +418,11 @@ function createMarkerElement(
 }
 
 export function SoftAtlas() {
-  const globeRef = useRef<GlobeMethods>()
+  const globeRef = useRef<GlobeMethods | undefined>(undefined)
   const reduceMotion = useReducedMotion()
   const [selectedPlace, setSelectedPlace] = useState<AtlasPlace | null>(null)
   const [hasInteracted, setHasInteracted] = useState(false)
   const [isReady, setIsReady] = useState(false)
-  const [webglAvailable, setWebglAvailable] = useState<boolean | null>(null)
   const { ref: frameRef, width, height } = useElementSize<HTMLDivElement>()
 
   const countries = useMemo(() => {
@@ -453,22 +461,6 @@ export function SoftAtlas() {
     [globeMaterial, landMaterial]
   )
 
-  useEffect(() => {
-    const canvas = document.createElement('canvas')
-    let context: WebGLRenderingContext | WebGL2RenderingContext | null = null
-    try {
-      context =
-        canvas.getContext('webgl2') ?? canvas.getContext('webgl')
-    } catch {
-      context = null
-    }
-
-    const available = Boolean(context)
-    context?.getExtension('WEBGL_lose_context')?.loseContext()
-    setWebglAvailable(available)
-    if (!available) setIsReady(true)
-  }, [])
-
   const focusPlace = useCallback(
     (place: AtlasPlace) => {
       setSelectedPlace(place)
@@ -501,8 +493,21 @@ export function SoftAtlas() {
   )
 
   const handleReady = useCallback(() => {
+    // react-kapsule may invoke this from the child's layout effect before its
+    // forwarded ref has been attached. Readiness must not depend on ref timing.
+    setIsReady(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isReady) return
+
     const globe = globeRef.current
-    if (!globe) return
+    if (!globe) {
+      if (process.env.NODE_ENV !== 'production') {
+        console.error('Soft Atlas became ready without an attached globe ref.')
+      }
+      return
+    }
 
     globe.pointOfView({ lat: 38, lng: 18, altitude: 1.72 }, 0)
     const controls = globe.controls()
@@ -510,16 +515,17 @@ export function SoftAtlas() {
     controls.enablePan = false
     controls.minPolarAngle = Math.PI * 0.16
     controls.maxPolarAngle = Math.PI * 0.84
-    controls.autoRotate = !reduceMotion
     controls.autoRotateSpeed = 0.12
     controls.enableDamping = true
     controls.dampingFactor = 0.08
-    controls.addEventListener('start', () => {
+    const handleInteractionStart = () => {
       controls.autoRotate = false
       setHasInteracted(true)
-    })
-    setIsReady(true)
-  }, [reduceMotion])
+    }
+    controls.addEventListener('start', handleInteractionStart)
+
+    return () => controls.removeEventListener('start', handleInteractionStart)
+  }, [isReady])
 
   useEffect(() => {
     const controls = globeRef.current?.controls()
@@ -531,19 +537,26 @@ export function SoftAtlas() {
     <div className="atlas-experience">
       <div
         className="atlas-globe-viewport"
+        data-testid="soft-atlas-globe-viewport"
         role="region"
         aria-label="Interactive atlas of places Sara has called home or visited"
       >
         <div
           ref={frameRef}
           className="atlas-globe-frame"
+          data-testid="soft-atlas-globe"
           data-ready={isReady}
         >
-          {webglAvailable === null ? (
+          {width === 0 || height === 0 ? (
             <div className="atlas-loading" aria-hidden="true" />
-          ) : webglAvailable ? (
+          ) : (
             <GlobeRenderBoundary
-              onError={() => setIsReady(true)}
+              onError={(error, info) => {
+                if (process.env.NODE_ENV !== 'production') {
+                  console.error('Soft Atlas WebGL renderer failed.', error, info)
+                }
+                setIsReady(true)
+              }}
               fallback={
                 <FallbackGlobe
                   selectedPlace={selectedPlace}
@@ -579,13 +592,6 @@ export function SoftAtlas() {
                 rendererConfig={{ antialias: true, alpha: true }}
               />
             </GlobeRenderBoundary>
-          ) : (
-            <FallbackGlobe
-              selectedPlace={selectedPlace}
-              reduceMotion={Boolean(reduceMotion)}
-              hasInteracted={hasInteracted}
-              onSelect={focusPlace}
-            />
           )}
 
           <svg

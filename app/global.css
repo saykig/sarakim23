@@ -176,14 +176,6 @@ body:has(.soft-atlas-page) ::selection {
   color: var(--atlas-cream);
 }
 
-body:has(.soft-atlas-page) #nav a {
-  color: var(--atlas-ink-soft);
-}
-
-body:has(.soft-atlas-page) #nav a:hover {
-  color: var(--atlas-ink);
-}
-
 .soft-atlas-page {
   width: 100vw;
   margin-inline: calc(50% - 50vw);
@@ -223,7 +215,7 @@ body:has(.soft-atlas-page) #nav a:hover {
   overflow: visible;
   font-family: var(--font-instrument-serif), var(--font-cormorant-garamond),
     'Iowan Old Style', Georgia, serif;
-  font-size: clamp(3.25rem, 5.7vw, 5.75rem);
+  font-size: clamp(4.25rem, 7vw, 6rem);
   font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 0.94;
@@ -261,14 +253,6 @@ body:has(.soft-atlas-page) #nav a:hover {
   line-height: 1.23;
   letter-spacing: -0.018em;
   text-wrap: balance;
-}
-
-.hero-current {
-  max-width: 52ch;
-  margin-top: 1.6rem;
-  color: var(--atlas-ink-soft);
-  font-size: clamp(0.95rem, 1.15vw, 1.08rem);
-  line-height: 1.65;
 }
 
 .hero-atlas-note {
@@ -503,16 +487,6 @@ body:has(.soft-atlas-page) #nav a:hover {
   transform: translate(-50%, 0);
 }
 
-.atlas-instruction {
-  position: absolute;
-  bottom: 1rem;
-  left: calc(100% - var(--atlas-window-width));
-  color: var(--atlas-ink-soft);
-  font-size: 0.67rem;
-  letter-spacing: 0.04em;
-  pointer-events: none;
-}
-
 .atlas-annotation {
   position: absolute;
   z-index: 3;
@@ -535,66 +509,6 @@ body:has(.soft-atlas-page) #nav a:hover {
   font-size: 1.28rem;
   line-height: 1.1;
   letter-spacing: -0.018em;
-}
-
-.atlas-place-index {
-  position: absolute;
-  z-index: 4;
-  bottom: 3.25rem;
-  left: 0;
-  width: min(26rem, 100%);
-  color: var(--atlas-ink-soft);
-  font-size: 0.7rem;
-}
-
-.atlas-place-index summary {
-  width: max-content;
-  cursor: pointer;
-  letter-spacing: 0.025em;
-  list-style: none;
-}
-
-.atlas-place-index summary::-webkit-details-marker {
-  display: none;
-}
-
-.atlas-place-index summary::after {
-  content: ' +';
-}
-
-.atlas-place-index[open] summary::after {
-  content: ' −';
-}
-
-.atlas-place-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 0.7rem;
-  padding-top: 0.75rem;
-}
-
-.atlas-place-list button {
-  border: 0;
-  background: transparent;
-  color: var(--atlas-ink-soft);
-  cursor: pointer;
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-underline-offset: 0.18em;
-  transition: color 160ms ease, text-decoration-color 160ms ease;
-}
-
-.atlas-place-list button:hover,
-.atlas-place-list button:focus-visible,
-.atlas-place-list button[data-selected='true'] {
-  color: var(--atlas-ink);
-  text-decoration-color: currentColor;
-}
-
-.atlas-place-list button:focus-visible,
-.atlas-place-index summary:focus-visible {
-  outline: 1px solid currentColor;
-  outline-offset: 3px;
 }
 
 .homepage-shell {
@@ -694,11 +608,6 @@ body:has(.soft-atlas-page) #nav a:hover {
   font-size: 0.92rem;
 }
 
-.homepage-writing {
-  width: min(100%, 36rem);
-  padding-block: 1rem 5rem;
-}
-
 @keyframes about-open {
   from {
     height: 0;
@@ -732,7 +641,7 @@ body:has(.soft-atlas-page) #nav a:hover {
   }
 
   .hero-greeting {
-    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-size: clamp(3.75rem, 7vw, 5.25rem);
   }
 
   .atlas-experience {
@@ -767,7 +676,7 @@ body:has(.soft-atlas-page) #nav a:hover {
 
   .hero-greeting {
     gap: 0.03em;
-    font-size: clamp(2.8rem, 14.5vw, 4.2rem);
+    font-size: clamp(3.4rem, 16vw, 5rem);
   }
 
   .greeting-rotate {
@@ -780,10 +689,6 @@ body:has(.soft-atlas-page) #nav a:hover {
 
   .hero-intro {
     font-size: clamp(1.5rem, 7vw, 2rem);
-  }
-
-  .hero-current {
-    margin-top: 1.4rem;
   }
 
   .atlas-experience {
@@ -806,19 +711,8 @@ body:has(.soft-atlas-page) #nav a:hover {
     transform: translateY(-50%);
   }
 
-  .atlas-instruction {
-    top: 0.5rem;
-    bottom: auto;
-    left: 0;
-  }
-
   .atlas-annotation {
     bottom: 4.5rem;
-    left: 0;
-  }
-
-  .atlas-place-index {
-    bottom: 1rem;
     left: 0;
   }
 
@@ -839,7 +733,6 @@ body:has(.soft-atlas-page) #nav a:hover {
   .atlas-globe-frame,
   .atlas-marker-face,
   .atlas-marker-tooltip,
-  .atlas-place-list button,
   .about-chevron,
   .about-links a {
     transition-duration: 0ms;

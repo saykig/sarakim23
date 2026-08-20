@@ -129,7 +129,7 @@ The dominant form is the globe itself. Geographic outlines are hairline and mark
 
 ### Navigation
 
-Navigation stays lightweight and text-only. It uses Geist, deep ink, and a restrained underline or color shift for hover and focus. Only the real home and blog destinations appear; generic template destinations are excluded.
+The homepage intentionally has no persistent top navigation. Its opening composition begins directly with Sara's greeting and atlas, without template chrome competing for attention.
 
 ### Atlas Globe
 

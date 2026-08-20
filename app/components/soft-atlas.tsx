@@ -589,9 +589,6 @@ export function SoftAtlas() {
             />
           )}
         </div>
-        <p className="atlas-instruction" aria-hidden="true">
-          drag the globe · select a place
-        </p>
       </div>
 
       <div className="atlas-annotation" aria-live="polite">
@@ -622,22 +619,6 @@ export function SoftAtlas() {
           )
         ) : null}
       </div>
-
-      <details className="atlas-place-index">
-        <summary>browse all {atlasPlaces.length} places</summary>
-        <div className="atlas-place-list">
-          {atlasPlaces.map((place) => (
-            <button
-              key={place.slug}
-              type="button"
-              data-selected={place.slug === selectedPlace?.slug}
-              onClick={() => focusPlace(place)}
-            >
-              {place.name}
-            </button>
-          ))}
-        </div>
-      </details>
     </div>
   )
 }

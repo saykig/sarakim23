@@ -2,7 +2,15 @@
 
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import {
+  Component,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react'
 import { useReducedMotion } from 'motion/react'
 import { Color, MeshBasicMaterial, ShaderMaterial } from 'three'
 import { feature } from 'topojson-client'
@@ -24,6 +32,181 @@ type CountryFeature = {
   type: 'Feature'
   properties: Record<string, unknown> | null
   geometry: Geometry
+}
+
+type GlobeRenderBoundaryProps = {
+  children: ReactNode
+  fallback: ReactNode
+  onError: () => void
+}
+
+class GlobeRenderBoundary extends Component<
+  GlobeRenderBoundaryProps,
+  { failed: boolean }
+> {
+  state = { failed: false }
+
+  static getDerivedStateFromError() {
+    return { failed: true }
+  }
+
+  componentDidCatch() {
+    this.props.onError()
+  }
+
+  render() {
+    return this.state.failed ? this.props.fallback : this.props.children
+  }
+}
+
+const FALLBACK_SIZE = 640
+const FALLBACK_RADIUS = 300
+const FALLBACK_CENTRE = FALLBACK_SIZE / 2
+const FALLBACK_LATITUDE = 38
+const FALLBACK_LONGITUDE = 18
+
+function projectFallbackPoint(coordinates: readonly number[]) {
+  const longitude = ((coordinates[0] - FALLBACK_LONGITUDE) * Math.PI) / 180
+  const latitude = (coordinates[1] * Math.PI) / 180
+  const centreLatitude = (FALLBACK_LATITUDE * Math.PI) / 180
+  const visibility =
+    Math.sin(centreLatitude) * Math.sin(latitude) +
+    Math.cos(centreLatitude) * Math.cos(latitude) * Math.cos(longitude)
+
+  return {
+    x:
+      FALLBACK_CENTRE +
+      FALLBACK_RADIUS * Math.cos(latitude) * Math.sin(longitude),
+    y:
+      FALLBACK_CENTRE -
+      FALLBACK_RADIUS *
+        (Math.cos(centreLatitude) * Math.sin(latitude) -
+          Math.sin(centreLatitude) *
+            Math.cos(latitude) *
+            Math.cos(longitude)),
+    visible: visibility > 0,
+  }
+}
+
+function countryOutlinePath(geometry: Geometry) {
+  const rings =
+    geometry.type === 'Polygon'
+      ? geometry.coordinates
+      : geometry.type === 'MultiPolygon'
+        ? geometry.coordinates.flat()
+        : []
+
+  return rings
+    .map((ring) => {
+      let drawing = false
+      return ring
+        .map((coordinates) => {
+          const point = projectFallbackPoint(coordinates)
+          if (!point.visible) {
+            drawing = false
+            return ''
+          }
+          const command = drawing ? 'L' : 'M'
+          drawing = true
+          return `${command}${point.x.toFixed(1)},${point.y.toFixed(1)}`
+        })
+        .join(' ')
+    })
+    .join(' ')
+}
+
+function FallbackGlobe({
+  countries,
+  selectedPlace,
+  onSelect,
+}: {
+  countries: CountryFeature[]
+  selectedPlace: AtlasPlace | null
+  onSelect: (place: AtlasPlace) => void
+}) {
+  return (
+    <div className="atlas-fallback-globe" aria-label="Soft Atlas globe">
+      <svg viewBox={`0 0 ${FALLBACK_SIZE} ${FALLBACK_SIZE}`} aria-hidden="true">
+        <defs>
+          <clipPath id="atlas-fallback-clip">
+            <circle
+              cx={FALLBACK_CENTRE}
+              cy={FALLBACK_CENTRE}
+              r={FALLBACK_RADIUS}
+            />
+          </clipPath>
+        </defs>
+        <circle
+          className="atlas-fallback-ocean"
+          cx={FALLBACK_CENTRE}
+          cy={FALLBACK_CENTRE}
+          r={FALLBACK_RADIUS}
+        />
+        <g clipPath="url(#atlas-fallback-clip)">
+          <ellipse
+            className="atlas-fallback-gridline"
+            cx={FALLBACK_CENTRE}
+            cy={FALLBACK_CENTRE}
+            rx={FALLBACK_RADIUS}
+            ry={112}
+          />
+          <ellipse
+            className="atlas-fallback-gridline"
+            cx={FALLBACK_CENTRE}
+            cy={FALLBACK_CENTRE}
+            rx={FALLBACK_RADIUS}
+            ry={224}
+          />
+          {countries.map((country, index) => (
+            <path
+              key={index}
+              className="atlas-fallback-country"
+              d={countryOutlinePath(country.geometry)}
+            />
+          ))}
+        </g>
+        <circle
+          className="atlas-fallback-outline"
+          cx={FALLBACK_CENTRE}
+          cy={FALLBACK_CENTRE}
+          r={FALLBACK_RADIUS}
+        />
+      </svg>
+
+      {atlasPlaces.map((place) => {
+        const point = projectFallbackPoint([place.lng, place.lat])
+        if (!point.visible) return null
+
+        return (
+          <button
+            key={place.slug}
+            type="button"
+            className="atlas-marker-button atlas-fallback-marker"
+            data-selected={String(place.slug === selectedPlace?.slug)}
+            aria-label={`Explore ${place.name}`}
+            style={{
+              left: `${(point.x / FALLBACK_SIZE) * 100}%`,
+              top: `${(point.y / FALLBACK_SIZE) * 100}%`,
+            }}
+            onClick={() => onSelect(place)}
+          >
+            <span className="atlas-marker-face" aria-hidden="true">
+              <span className="atlas-marker-centre" />
+            </span>
+            <span className="atlas-marker-tooltip" role="tooltip">
+              <strong>{place.name}</strong>
+              {place.years ? <span>{place.years}</span> : null}
+              <span>
+                {place.memorySlug
+                  ? 'discover memory →'
+                  : 'archive entry in progress'}
+              </span>
+            </span>
+          </button>
+        )
+      })}
+    </div>
+  )
 }
 
 const LAND_VERTEX_SHADER = `
@@ -201,6 +384,7 @@ export function SoftAtlas() {
     useState<AtlasPlace | null>(initialMemoryPlace)
   const [hasInteracted, setHasInteracted] = useState(false)
   const [isReady, setIsReady] = useState(false)
+  const [webglAvailable, setWebglAvailable] = useState<boolean | null>(null)
   const { ref: frameRef, width, height } = useElementSize<HTMLDivElement>()
 
   const countries = useMemo(() => {
@@ -238,6 +422,22 @@ export function SoftAtlas() {
     },
     [globeMaterial, landMaterial]
   )
+
+  useEffect(() => {
+    const canvas = document.createElement('canvas')
+    let context: WebGLRenderingContext | WebGL2RenderingContext | null = null
+    try {
+      context =
+        canvas.getContext('webgl2') ?? canvas.getContext('webgl')
+    } catch {
+      context = null
+    }
+
+    const available = Boolean(context)
+    context?.getExtension('WEBGL_lose_context')?.loseContext()
+    setWebglAvailable(available)
+    if (!available) setIsReady(true)
+  }, [])
 
   const focusPlace = useCallback(
     (place: AtlasPlace) => {
@@ -309,31 +509,52 @@ export function SoftAtlas() {
           className="atlas-globe-frame"
           data-ready={isReady}
         >
-          <Globe
-            ref={globeRef}
-            width={width}
-            height={height}
-            backgroundColor="rgba(232, 234, 216, 0)"
-            globeMaterial={globeMaterial}
-            showAtmosphere={false}
-            showGraticules={false}
-            animateIn={!reduceMotion}
-            waitForGlobeReady
-            polygonsData={countries}
-            polygonCapMaterial={landMaterial}
-            polygonSideColor={() => 'rgba(232, 234, 216, 0)'}
-            polygonStrokeColor={() => 'rgba(57, 78, 56, 0.9)'}
-            polygonAltitude={0.004}
-            polygonsTransitionDuration={0}
-            htmlElementsData={markerData}
-            htmlLat="lat"
-            htmlLng="lng"
-            htmlAltitude={0.014}
-            htmlElement={markerElement}
-            htmlTransitionDuration={0}
-            onGlobeReady={handleReady}
-            rendererConfig={{ antialias: true, alpha: true }}
-          />
+          {webglAvailable === null ? (
+            <div className="atlas-loading" aria-hidden="true" />
+          ) : webglAvailable ? (
+            <GlobeRenderBoundary
+              onError={() => setIsReady(true)}
+              fallback={
+                <FallbackGlobe
+                  countries={countries}
+                  selectedPlace={selectedPlace}
+                  onSelect={focusPlace}
+                />
+              }
+            >
+              <Globe
+                ref={globeRef}
+                width={width}
+                height={height}
+                backgroundColor="rgba(232, 234, 216, 0)"
+                globeMaterial={globeMaterial}
+                showAtmosphere={false}
+                showGraticules={false}
+                animateIn={!reduceMotion}
+                waitForGlobeReady
+                polygonsData={countries}
+                polygonCapMaterial={landMaterial}
+                polygonSideColor={() => 'rgba(232, 234, 216, 0)'}
+                polygonStrokeColor={() => 'rgba(57, 78, 56, 0.9)'}
+                polygonAltitude={0.004}
+                polygonsTransitionDuration={0}
+                htmlElementsData={markerData}
+                htmlLat="lat"
+                htmlLng="lng"
+                htmlAltitude={0.014}
+                htmlElement={markerElement}
+                htmlTransitionDuration={0}
+                onGlobeReady={handleReady}
+                rendererConfig={{ antialias: true, alpha: true }}
+              />
+            </GlobeRenderBoundary>
+          ) : (
+            <FallbackGlobe
+              countries={countries}
+              selectedPlace={selectedPlace}
+              onSelect={focusPlace}
+            />
+          )}
         </div>
         <p className="atlas-instruction" aria-hidden="true">
           drag the globe · select a place

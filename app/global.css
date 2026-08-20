@@ -176,6 +176,27 @@ body:has(.soft-atlas-page) ::selection {
   color: var(--atlas-cream);
 }
 
+body:has(.soft-atlas-page) > main > .site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  width: auto;
+  margin: 0;
+  padding: 0 0 1rem 1.25rem;
+  color: var(--atlas-sage);
+  font-family: var(--font-instrument-serif), var(--font-cormorant-garamond),
+    'Iowan Old Style', Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  pointer-events: none;
+}
+
+body:has(.soft-atlas-page) > main > .site-footer p {
+  color: inherit !important;
+}
+
 .soft-atlas-page {
   width: 100vw;
   margin-inline: calc(50% - 50vw);
@@ -398,8 +419,8 @@ body:has(.soft-atlas-page) ::selection {
   position: absolute;
   z-index: 2;
   display: grid;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2rem;
+  height: 2rem;
   place-items: center;
   border: 0;
   border-radius: 50%;
@@ -415,10 +436,10 @@ body:has(.soft-atlas-page) ::selection {
   top: 0;
   left: 0;
   z-index: 1;
-  width: 0.18rem;
-  height: 0.18rem;
+  width: 0.16rem;
+  height: 0.16rem;
   border-radius: 50%;
-  background: var(--atlas-line);
+  background: var(--atlas-sage);
   transform: translate(-50%, -50%);
 }
 
@@ -428,7 +449,7 @@ body:has(.soft-atlas-page) ::selection {
   left: 50%;
   z-index: 0;
   height: 1px;
-  background: rgb(57 78 56 / 58%);
+  background: color-mix(in srgb, var(--atlas-sage) 52%, transparent);
   pointer-events: none;
   transform-origin: left center;
 }
@@ -437,32 +458,44 @@ body:has(.soft-atlas-page) ::selection {
   position: relative;
   z-index: 2;
   display: grid;
-  width: 0.56rem;
-  height: 0.56rem;
+  width: 0.625rem;
+  height: 0.625rem;
   place-items: center;
-  border: 1px solid rgb(51 68 52 / 86%);
+  border: 1px solid color-mix(in srgb, var(--atlas-sage) 68%, transparent);
   border-radius: 50%;
-  background: var(--atlas-cream);
-  transition: transform 180ms ease, background-color 180ms ease;
+  background: transparent;
+  transition: transform 200ms ease, border-color 200ms ease;
 }
 
 .atlas-marker-centre {
-  width: 0.15rem;
-  height: 0.15rem;
+  width: 0.25rem;
+  height: 0.25rem;
   border-radius: 50%;
-  background: var(--atlas-ink);
+  background: var(--atlas-ink-soft);
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+
+.atlas-marker-button[data-selected='true'] .atlas-marker-face {
+  border-color: var(--atlas-line);
+}
+
+.atlas-marker-button[data-selected='true'] .atlas-marker-centre {
+  background: var(--atlas-line);
 }
 
 .atlas-marker-button:hover .atlas-marker-face,
-.atlas-marker-button:focus-visible .atlas-marker-face,
-.atlas-marker-button[data-selected='true'] .atlas-marker-face {
-  transform: scale(1.24);
-  background: #fffaf0;
+.atlas-marker-button:focus-visible .atlas-marker-face {
+  border-color: color-mix(in srgb, var(--atlas-sage) 48%, transparent);
+  transform: scale(1.3);
+}
+
+.atlas-marker-button:hover .atlas-marker-centre,
+.atlas-marker-button:focus-visible .atlas-marker-centre {
+  transform: scale(0.86);
 }
 
 .atlas-marker-button:focus-visible {
-  outline: 1px solid var(--atlas-ink);
-  outline-offset: 2px;
+  outline: none;
 }
 
 .atlas-marker-tooltip {
@@ -767,6 +800,7 @@ body:has(.soft-atlas-page) ::selection {
 @media (prefers-reduced-motion: reduce) {
   .atlas-globe-frame,
   .atlas-marker-face,
+  .atlas-marker-centre,
   .atlas-marker-tooltip,
   .about-chevron,
   .about-links a {

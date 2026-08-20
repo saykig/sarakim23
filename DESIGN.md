@@ -35,10 +35,11 @@ spacing:
   section: "clamp(5rem, 10vw, 9rem)"
 components:
   atlas-marker:
-    backgroundColor: "{colors.atlas-cream}"
-    textColor: "{colors.atlas-ink}"
+    backgroundColor: "transparent"
+    ringColor: "{colors.atlas-sage}"
+    centerColor: "{colors.atlas-ink-soft}"
     rounded: "{rounded.marker}"
-    size: "0.55rem"
+    size: "0.625rem"
   atlas-tooltip:
     backgroundColor: "{colors.atlas-cream}"
     textColor: "{colors.atlas-ink}"
@@ -58,7 +59,7 @@ The visual system is quiet but not austere: Instrument Serif supplies a narrow, 
 **Key characteristics:**
 
 - Paper-green page and globe ocean behave as one continuous surface.
-- Near-paper land, deep green outlines, and cream marker details form a compact palette.
+- Near-paper land, deep green outlines, and sage registration markers form a compact palette.
 - Typography carries hierarchy; cards, shadows, glows, and chrome are avoided.
 - One oversized globe deliberately exceeds its bounded visual frame.
 - Motion is slow, interruptible, and never required for comprehension.
@@ -71,7 +72,7 @@ The palette is anchored to the measured colors of the supplied essay reference a
 
 - **Atlas Paper** (`#e8ead8`): page background; the continuous paper field.
 - **Atlas Ocean** (`#dfe4cf`): a near-paper sage tint that keeps the sphere legible over open water.
-- **Atlas Ink** (`#334434`): primary text, focus indicators, and marker centres.
+- **Atlas Ink** (`#334434`): primary text and focus indicators.
 
 ### Secondary
 
@@ -141,8 +142,8 @@ The homepage intentionally has no persistent top navigation. Its opening composi
 
 ### Atlas Marker
 
-- **Shape:** a true geographic anchor, hairline leader, and small cream disc with a deep-green centre and fine outline.
-- **State:** hover grows subtly; selection updates the archive annotation.
+- **Shape:** a true geographic anchor, hairline leader, and tiny transparent registration mark with a printed-sage ring and deep-sage centre.
+- **State:** hover expands the hairline ring once; selection quietly deepens the mark and updates the archive annotation.
 - **Tooltip:** opaque cream, square-to-soft corners, quiet sans-serif place name and metadata.
 - **Behavior:** screen-space `displayOffset` values separate dense clusters without changing latitude/longitude; isolated markers use short stems. No pulse, radar ring, chunky pin, or glow.
 

@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 
 const greetings = [
-  { word: 'Salom!', hold: 450, transition: 0.28 },
-  { word: 'Merhaba!', hold: 450, transition: 0.28 },
-  { word: '안녕하세요!', hold: 550, transition: 0.34 },
-  { word: 'Привет!', hold: 600, transition: 0.38 },
-  { word: 'Hello!', hold: null, transition: 1.1 },
+  { word: 'Salom!', hold: 320, transition: 0.24 },
+  { word: 'Merhaba!', hold: 320, transition: 0.24 },
+  { word: '안녕하세요!', hold: 400, transition: 0.28 },
+  { word: 'Привет!', hold: 420, transition: 0.3 },
+  { word: 'Hello!', hold: null, transition: 0.75 },
 ] as const
 
 export function WordRotate() {

@@ -176,6 +176,7 @@ function FallbackGlobe({
       {atlasPlaces.map((place) => {
         const point = projectFallbackPoint([place.lng, place.lat])
         if (!point.visible) return null
+        const offset = place.displayOffset ?? [0, 0]
 
         return (
           <button
@@ -185,8 +186,8 @@ function FallbackGlobe({
             data-selected={String(place.slug === selectedPlace?.slug)}
             aria-label={`Explore ${place.name}`}
             style={{
-              left: `${(point.x / FALLBACK_SIZE) * 100}%`,
-              top: `${(point.y / FALLBACK_SIZE) * 100}%`,
+              left: `calc(${(point.x / FALLBACK_SIZE) * 100}% + ${offset[0]}px)`,
+              top: `calc(${(point.y / FALLBACK_SIZE) * 100}% + ${offset[1]}px)`,
             }}
             onClick={() => onSelect(place)}
           >

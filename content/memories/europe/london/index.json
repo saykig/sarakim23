@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "slug": "london",
+  "name": "London",
+  "sourceHeading": {
+    "text": "London",
+    "kind": "paragraph",
+    "documentOrder": 0
+  },
+  "entries": [
+    {
+      "type": "photo",
+      "location": "London",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e10961d4c6ab11201eb08aa/vsco5e10961e285b6.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10961d4c6ab11201eb08aa/vsco5e10961e285b6.jpg?w=3840",
+      "sourceAssetId": "5e10961d4c6ab11201eb08aa",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10961d4c6ab11201eb08aa/vsco5e10961e285b6.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10961d4c6ab11201eb08aa/vsco5e10961e285b6.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10961d4c6ab11201eb08aa/vsco5e10961e285b6.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10961d4c6ab11201eb08aa/vsco5e10961e285b6.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10961d4c6ab11201eb08aa/vsco5e10961e285b6.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10961d4c6ab11201eb08aa/vsco5e10961e285b6.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10961d4c6ab11201eb08aa/vsco5e10961e285b6.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10961d4c6ab11201eb08aa/vsco5e10961e285b6.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/london/001-5e10961d4c6ab11201eb08aa.jpg",
+      "originalOrder": 1,
+      "locationOrder": 1,
+      "width": 1529,
+      "height": 2049,
+      "mimeType": "image/jpeg",
+      "bytes": 543798,
+      "sha256": "8c19e78517ae127c3784bae99df34d100e2795541d9d95cd915c721ca2184762"
+    },
+    {
+      "type": "photo",
+      "location": "London",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e1096204c6ab11201eb08ab/vsco5e1096211381d.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096204c6ab11201eb08ab/vsco5e1096211381d.jpg?w=3840",
+      "sourceAssetId": "5e1096204c6ab11201eb08ab",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096204c6ab11201eb08ab/vsco5e1096211381d.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096204c6ab11201eb08ab/vsco5e1096211381d.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096204c6ab11201eb08ab/vsco5e1096211381d.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096204c6ab11201eb08ab/vsco5e1096211381d.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096204c6ab11201eb08ab/vsco5e1096211381d.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096204c6ab11201eb08ab/vsco5e1096211381d.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096204c6ab11201eb08ab/vsco5e1096211381d.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096204c6ab11201eb08ab/vsco5e1096211381d.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/london/002-5e1096204c6ab11201eb08ab.jpg",
+      "originalOrder": 2,
+      "locationOrder": 2,
+      "width": 1254,
+      "height": 2049,
+      "mimeType": "image/jpeg",
+      "bytes": 656717,
+      "sha256": "762699853a47c32dd0ad531b9fef8dd72afbd8746ae37a3e16dd5dc7e90d1750"
+    },
+    {
+      "type": "photo",
+      "location": "London",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e1096244c6ab11201eb08ac/vsco5e109625a1a40.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096244c6ab11201eb08ac/vsco5e109625a1a40.jpg?w=3840",
+      "sourceAssetId": "5e1096244c6ab11201eb08ac",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096244c6ab11201eb08ac/vsco5e109625a1a40.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096244c6ab11201eb08ac/vsco5e109625a1a40.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096244c6ab11201eb08ac/vsco5e109625a1a40.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096244c6ab11201eb08ac/vsco5e109625a1a40.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096244c6ab11201eb08ac/vsco5e109625a1a40.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096244c6ab11201eb08ac/vsco5e109625a1a40.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096244c6ab11201eb08ac/vsco5e109625a1a40.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096244c6ab11201eb08ac/vsco5e109625a1a40.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/london/003-5e1096244c6ab11201eb08ac.jpg",
+      "originalOrder": 3,
+      "locationOrder": 3,
+      "width": 1152,
+      "height": 2049,
+      "mimeType": "image/jpeg",
+      "bytes": 1115838,
+      "sha256": "80d006b0a828c3f129007975d757679c59dfde8a6ffc9b07f7c3bb320cdc3f37"
+    },
+    {
+      "type": "photo",
+      "location": "London",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e10962b4c6ab11201eb08ae/vsco5e10962cbb3fa.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962b4c6ab11201eb08ae/vsco5e10962cbb3fa.jpg?w=3840",
+      "sourceAssetId": "5e10962b4c6ab11201eb08ae",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962b4c6ab11201eb08ae/vsco5e10962cbb3fa.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962b4c6ab11201eb08ae/vsco5e10962cbb3fa.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962b4c6ab11201eb08ae/vsco5e10962cbb3fa.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962b4c6ab11201eb08ae/vsco5e10962cbb3fa.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962b4c6ab11201eb08ae/vsco5e10962cbb3fa.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962b4c6ab11201eb08ae/vsco5e10962cbb3fa.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962b4c6ab11201eb08ae/vsco5e10962cbb3fa.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962b4c6ab11201eb08ae/vsco5e10962cbb3fa.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/london/004-5e10962b4c6ab11201eb08ae.jpg",
+      "originalOrder": 4,
+      "locationOrder": 4,
+      "width": 1152,
+      "height": 1730,
+      "mimeType": "image/jpeg",
+      "bytes": 590361,
+      "sha256": "33c69866fe1cf4692ed3c1981905ef8d9a851569b05e0cb399b2df3908657c6b"
+    }
+  ]
+}

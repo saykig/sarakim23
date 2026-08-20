@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "slug": "verona",
+  "name": "Verona",
+  "sourceHeading": {
+    "text": "Verona",
+    "kind": "paragraph",
+    "documentOrder": 29
+  },
+  "entries": [
+    {
+      "type": "photo",
+      "location": "Verona",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e13946665b7eb5695fa174c/vsco5e1394691b847.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946665b7eb5695fa174c/vsco5e1394691b847.jpg?w=3840",
+      "sourceAssetId": "5e13946665b7eb5695fa174c",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946665b7eb5695fa174c/vsco5e1394691b847.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946665b7eb5695fa174c/vsco5e1394691b847.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946665b7eb5695fa174c/vsco5e1394691b847.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946665b7eb5695fa174c/vsco5e1394691b847.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946665b7eb5695fa174c/vsco5e1394691b847.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946665b7eb5695fa174c/vsco5e1394691b847.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946665b7eb5695fa174c/vsco5e1394691b847.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946665b7eb5695fa174c/vsco5e1394691b847.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/verona/025-5e13946665b7eb5695fa174c.jpg",
+      "originalOrder": 25,
+      "locationOrder": 1,
+      "width": 1364,
+      "height": 2049,
+      "mimeType": "image/jpeg",
+      "bytes": 756321,
+      "sha256": "ec7366bb6153f3cdf1e3fd2e44cfdbcf4428e30a098417c012b0422fe5d34d48"
+    },
+    {
+      "type": "photo",
+      "location": "Verona",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e13946b65b7eb5695fa174d/vsco5e13946d7645f.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946b65b7eb5695fa174d/vsco5e13946d7645f.jpg?w=3840",
+      "sourceAssetId": "5e13946b65b7eb5695fa174d",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946b65b7eb5695fa174d/vsco5e13946d7645f.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946b65b7eb5695fa174d/vsco5e13946d7645f.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946b65b7eb5695fa174d/vsco5e13946d7645f.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946b65b7eb5695fa174d/vsco5e13946d7645f.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946b65b7eb5695fa174d/vsco5e13946d7645f.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946b65b7eb5695fa174d/vsco5e13946d7645f.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946b65b7eb5695fa174d/vsco5e13946d7645f.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13946b65b7eb5695fa174d/vsco5e13946d7645f.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/verona/026-5e13946b65b7eb5695fa174d.jpg",
+      "originalOrder": 26,
+      "locationOrder": 2,
+      "width": 1219,
+      "height": 2048,
+      "mimeType": "image/jpeg",
+      "bytes": 665413,
+      "sha256": "e31de17978d5ff4108e54609fe12b9303b4e16aa4a80b911997448e66f262573"
+    },
+    {
+      "type": "photo",
+      "location": "Verona",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e1396d065b7eb5695fa1755/vsco5e1396d440a46.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1396d065b7eb5695fa1755/vsco5e1396d440a46.jpg?w=3840",
+      "sourceAssetId": "5e1396d065b7eb5695fa1755",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1396d065b7eb5695fa1755/vsco5e1396d440a46.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1396d065b7eb5695fa1755/vsco5e1396d440a46.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1396d065b7eb5695fa1755/vsco5e1396d440a46.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1396d065b7eb5695fa1755/vsco5e1396d440a46.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1396d065b7eb5695fa1755/vsco5e1396d440a46.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1396d065b7eb5695fa1755/vsco5e1396d440a46.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1396d065b7eb5695fa1755/vsco5e1396d440a46.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1396d065b7eb5695fa1755/vsco5e1396d440a46.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/verona/027-5e1396d065b7eb5695fa1755.jpg",
+      "originalOrder": 27,
+      "locationOrder": 3,
+      "width": 1444,
+      "height": 2049,
+      "mimeType": "image/jpeg",
+      "bytes": 1230314,
+      "sha256": "97e59841c16b9ddeae370e6d268ee76953d4e0d82e5f1dd493b1e523c536225a"
+    }
+  ]
+}

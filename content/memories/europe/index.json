@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "slug": "europe",
+  "title": "europe",
+  "sourceJournal": "saykig / europe (VSCO journal)",
+  "sourceUrl": "https://vsco.co/saykig/journal/europe",
+  "sourcePublishedDate": "2020-01-04",
+  "sourceDateLabel": "2019-20",
+  "importer": {
+    "name": "scripts/import-vsco-europe.mjs",
+    "version": 1,
+    "extractionMethod": "Playwright-rendered DOM and browser-captured image responses",
+    "imagePolicy": {
+      "width": 2048,
+      "quality": 90
+    }
+  },
+  "locationCount": 14,
+  "photoCount": 63,
+  "locations": [
+    {
+      "slug": "london",
+      "name": "London",
+      "originalOrder": 1,
+      "entryCount": 4,
+      "photoCount": 4,
+      "manifest": "./london/index.json"
+    },
+    {
+      "slug": "mont-st-michel",
+      "name": "Mont St Michel",
+      "originalOrder": 2,
+      "entryCount": 3,
+      "photoCount": 3,
+      "manifest": "./mont-st-michel/index.json"
+    },
+    {
+      "slug": "paris",
+      "name": "Paris",
+      "originalOrder": 3,
+      "entryCount": 6,
+      "photoCount": 6,
+      "manifest": "./paris/index.json"
+    },
+    {
+      "slug": "louvre-museum",
+      "name": "louvre museum",
+      "originalOrder": 4,
+      "entryCount": 6,
+      "photoCount": 6,
+      "manifest": "./louvre-museum/index.json"
+    },
+    {
+      "slug": "interlaken",
+      "name": "Interlaken",
+      "originalOrder": 5,
+      "entryCount": 6,
+      "photoCount": 5,
+      "manifest": "./interlaken/index.json"
+    },
+    {
+      "slug": "verona",
+      "name": "Verona",
+      "originalOrder": 6,
+      "entryCount": 3,
+      "photoCount": 3,
+      "manifest": "./verona/index.json"
+    },
+    {
+      "slug": "venice",
+      "name": "Venice",
+      "originalOrder": 7,
+      "entryCount": 7,
+      "photoCount": 7,
+      "manifest": "./venice/index.json"
+    },
+    {
+      "slug": "florence",
+      "name": "florence",
+      "originalOrder": 8,
+      "entryCount": 2,
+      "photoCount": 2,
+      "manifest": "./florence/index.json"
+    },
+    {
+      "slug": "san-gimignano",
+      "name": "San Gimignano",
+      "originalOrder": 9,
+      "entryCount": 1,
+      "photoCount": 1,
+      "manifest": "./san-gimignano/index.json"
+    },
+    {
+      "slug": "orvieto",
+      "name": "Orvieto",
+      "originalOrder": 10,
+      "entryCount": 4,
+      "photoCount": 4,
+      "manifest": "./orvieto/index.json"
+    },
+    {
+      "slug": "pompei",
+      "name": "Pompei",
+      "originalOrder": 11,
+      "entryCount": 3,
+      "photoCount": 3,
+      "manifest": "./pompei/index.json"
+    },
+    {
+      "slug": "sorrento",
+      "name": "Sorrento",
+      "originalOrder": 12,
+      "entryCount": 5,
+      "photoCount": 5,
+      "manifest": "./sorrento/index.json"
+    },
+    {
+      "slug": "capri",
+      "name": "Capri",
+      "originalOrder": 13,
+      "entryCount": 5,
+      "photoCount": 5,
+      "manifest": "./capri/index.json"
+    },
+    {
+      "slug": "rome",
+      "name": "Rome",
+      "originalOrder": 14,
+      "entryCount": 9,
+      "photoCount": 9,
+      "manifest": "./rome/index.json"
+    }
+  ]
+}

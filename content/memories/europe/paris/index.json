@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "slug": "paris",
+  "name": "Paris",
+  "sourceHeading": {
+    "text": "Paris",
+    "kind": "paragraph",
+    "documentOrder": 9
+  },
+  "entries": [
+    {
+      "type": "photo",
+      "location": "Paris",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e1096404c6ab11201eb08b4/vsco5e109640f1cc0.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096404c6ab11201eb08b4/vsco5e109640f1cc0.jpg?w=3840",
+      "sourceAssetId": "5e1096404c6ab11201eb08b4",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096404c6ab11201eb08b4/vsco5e109640f1cc0.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096404c6ab11201eb08b4/vsco5e109640f1cc0.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096404c6ab11201eb08b4/vsco5e109640f1cc0.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096404c6ab11201eb08b4/vsco5e109640f1cc0.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096404c6ab11201eb08b4/vsco5e109640f1cc0.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096404c6ab11201eb08b4/vsco5e109640f1cc0.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096404c6ab11201eb08b4/vsco5e109640f1cc0.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096404c6ab11201eb08b4/vsco5e109640f1cc0.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/paris/008-5e1096404c6ab11201eb08b4.jpg",
+      "originalOrder": 8,
+      "locationOrder": 1,
+      "width": 1537,
+      "height": 1310,
+      "mimeType": "image/jpeg",
+      "bytes": 484820,
+      "sha256": "68ebcace7d27d149194169d94ec7fb9041bf099d3545b789d408e398d6a6f58f"
+    },
+    {
+      "type": "photo",
+      "location": "Paris",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e1096434c6ab11201eb08b5/vsco5e109643d3d9c.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096434c6ab11201eb08b5/vsco5e109643d3d9c.jpg?w=3840",
+      "sourceAssetId": "5e1096434c6ab11201eb08b5",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096434c6ab11201eb08b5/vsco5e109643d3d9c.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096434c6ab11201eb08b5/vsco5e109643d3d9c.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096434c6ab11201eb08b5/vsco5e109643d3d9c.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096434c6ab11201eb08b5/vsco5e109643d3d9c.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096434c6ab11201eb08b5/vsco5e109643d3d9c.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096434c6ab11201eb08b5/vsco5e109643d3d9c.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096434c6ab11201eb08b5/vsco5e109643d3d9c.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096434c6ab11201eb08b5/vsco5e109643d3d9c.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/paris/009-5e1096434c6ab11201eb08b5.jpg",
+      "originalOrder": 9,
+      "locationOrder": 2,
+      "width": 1536,
+      "height": 1525,
+      "mimeType": "image/jpeg",
+      "bytes": 578862,
+      "sha256": "07f6dd0f9f16bcfd57c8c6c75b58dc603efeff6629bd8cc70b493b6521c4b022"
+    },
+    {
+      "type": "photo",
+      "location": "Paris",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e1096494c6ab11201eb08b6/vsco5e10964b1ed02.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096494c6ab11201eb08b6/vsco5e10964b1ed02.jpg?w=3840",
+      "sourceAssetId": "5e1096494c6ab11201eb08b6",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096494c6ab11201eb08b6/vsco5e10964b1ed02.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096494c6ab11201eb08b6/vsco5e10964b1ed02.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096494c6ab11201eb08b6/vsco5e10964b1ed02.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096494c6ab11201eb08b6/vsco5e10964b1ed02.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096494c6ab11201eb08b6/vsco5e10964b1ed02.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096494c6ab11201eb08b6/vsco5e10964b1ed02.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096494c6ab11201eb08b6/vsco5e10964b1ed02.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096494c6ab11201eb08b6/vsco5e10964b1ed02.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/paris/010-5e1096494c6ab11201eb08b6.jpg",
+      "originalOrder": 10,
+      "locationOrder": 3,
+      "width": 1536,
+      "height": 2049,
+      "mimeType": "image/jpeg",
+      "bytes": 1137972,
+      "sha256": "825e990b668c844cf800117024f26049c9a6316e45783f2d9069ed5a5baa12d8"
+    },
+    {
+      "type": "photo",
+      "location": "Paris",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e10964d4c6ab11201eb08b7/vsco5e10964e368e6.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10964d4c6ab11201eb08b7/vsco5e10964e368e6.jpg?w=3840",
+      "sourceAssetId": "5e10964d4c6ab11201eb08b7",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10964d4c6ab11201eb08b7/vsco5e10964e368e6.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10964d4c6ab11201eb08b7/vsco5e10964e368e6.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10964d4c6ab11201eb08b7/vsco5e10964e368e6.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10964d4c6ab11201eb08b7/vsco5e10964e368e6.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10964d4c6ab11201eb08b7/vsco5e10964e368e6.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10964d4c6ab11201eb08b7/vsco5e10964e368e6.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10964d4c6ab11201eb08b7/vsco5e10964e368e6.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10964d4c6ab11201eb08b7/vsco5e10964e368e6.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/paris/011-5e10964d4c6ab11201eb08b7.jpg",
+      "originalOrder": 11,
+      "locationOrder": 4,
+      "width": 1439,
+      "height": 2049,
+      "mimeType": "image/jpeg",
+      "bytes": 606598,
+      "sha256": "b6e2c0df960b9f0881da5d3795dbeebcba5ba28f7007f1ffec2399722ca8bbd1"
+    },
+    {
+      "type": "photo",
+      "location": "Paris",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e1096564c6ab11201eb08b9/vsco5e10965777e26.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096564c6ab11201eb08b9/vsco5e10965777e26.jpg?w=3840",
+      "sourceAssetId": "5e1096564c6ab11201eb08b9",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096564c6ab11201eb08b9/vsco5e10965777e26.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096564c6ab11201eb08b9/vsco5e10965777e26.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096564c6ab11201eb08b9/vsco5e10965777e26.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096564c6ab11201eb08b9/vsco5e10965777e26.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096564c6ab11201eb08b9/vsco5e10965777e26.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096564c6ab11201eb08b9/vsco5e10965777e26.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096564c6ab11201eb08b9/vsco5e10965777e26.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096564c6ab11201eb08b9/vsco5e10965777e26.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/paris/012-5e1096564c6ab11201eb08b9.jpg",
+      "originalOrder": 12,
+      "locationOrder": 5,
+      "width": 1536,
+      "height": 1516,
+      "mimeType": "image/jpeg",
+      "bytes": 370975,
+      "sha256": "3a64bf22e71e39ef7c1e66f5753d23b376500a80d6bb4e4914a957dd2ca6b02b"
+    },
+    {
+      "type": "photo",
+      "location": "Paris",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e1096594c6ab11201eb08ba/vsco5e10965b35da8.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096594c6ab11201eb08ba/vsco5e10965b35da8.jpg?w=3840",
+      "sourceAssetId": "5e1096594c6ab11201eb08ba",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096594c6ab11201eb08ba/vsco5e10965b35da8.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096594c6ab11201eb08ba/vsco5e10965b35da8.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096594c6ab11201eb08ba/vsco5e10965b35da8.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096594c6ab11201eb08ba/vsco5e10965b35da8.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096594c6ab11201eb08ba/vsco5e10965b35da8.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096594c6ab11201eb08ba/vsco5e10965b35da8.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096594c6ab11201eb08ba/vsco5e10965b35da8.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096594c6ab11201eb08ba/vsco5e10965b35da8.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/paris/013-5e1096594c6ab11201eb08ba.jpg",
+      "originalOrder": 13,
+      "locationOrder": 6,
+      "width": 1536,
+      "height": 2049,
+      "mimeType": "image/jpeg",
+      "bytes": 514707,
+      "sha256": "2db98616e5785b71bdf1b90745b8908fe4d8388d65d553adcf57841abba7d152"
+    }
+  ]
+}

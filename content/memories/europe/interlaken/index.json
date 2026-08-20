@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "slug": "interlaken",
+  "name": "Interlaken",
+  "sourceHeading": {
+    "text": "Interlaken",
+    "kind": "paragraph",
+    "documentOrder": 22
+  },
+  "entries": [
+    {
+      "type": "photo",
+      "location": "Interlaken",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e1096644c6ab11201eb08bc/vsco5e10966904fd4.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096644c6ab11201eb08bc/vsco5e10966904fd4.jpg?w=3840",
+      "sourceAssetId": "5e1096644c6ab11201eb08bc",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096644c6ab11201eb08bc/vsco5e10966904fd4.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096644c6ab11201eb08bc/vsco5e10966904fd4.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096644c6ab11201eb08bc/vsco5e10966904fd4.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096644c6ab11201eb08bc/vsco5e10966904fd4.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096644c6ab11201eb08bc/vsco5e10966904fd4.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096644c6ab11201eb08bc/vsco5e10966904fd4.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096644c6ab11201eb08bc/vsco5e10966904fd4.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096644c6ab11201eb08bc/vsco5e10966904fd4.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/interlaken/020-5e1096644c6ab11201eb08bc.jpg",
+      "originalOrder": 20,
+      "locationOrder": 1,
+      "width": 1536,
+      "height": 2049,
+      "mimeType": "image/jpeg",
+      "bytes": 763194,
+      "sha256": "a63a6177c94ed88eaf0943282a34df8f6d277d358e360aa139e5911f81e287a0"
+    },
+    {
+      "type": "photo",
+      "location": "Interlaken",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e10966b4c6ab11201eb08bd/vsco5e10966c937b5.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966b4c6ab11201eb08bd/vsco5e10966c937b5.jpg?w=3840",
+      "sourceAssetId": "5e10966b4c6ab11201eb08bd",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966b4c6ab11201eb08bd/vsco5e10966c937b5.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966b4c6ab11201eb08bd/vsco5e10966c937b5.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966b4c6ab11201eb08bd/vsco5e10966c937b5.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966b4c6ab11201eb08bd/vsco5e10966c937b5.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966b4c6ab11201eb08bd/vsco5e10966c937b5.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966b4c6ab11201eb08bd/vsco5e10966c937b5.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966b4c6ab11201eb08bd/vsco5e10966c937b5.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966b4c6ab11201eb08bd/vsco5e10966c937b5.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/interlaken/021-5e10966b4c6ab11201eb08bd.jpg",
+      "originalOrder": 21,
+      "locationOrder": 2,
+      "width": 1366,
+      "height": 2049,
+      "mimeType": "image/jpeg",
+      "bytes": 533200,
+      "sha256": "e1da13431dd54a222d39356f51033fb1ebca501ad39331a33326f8b260468f8d"
+    },
+    {
+      "type": "photo",
+      "location": "Interlaken",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e13958365b7eb5695fa1754/vsco5e13958688e2f.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13958365b7eb5695fa1754/vsco5e13958688e2f.jpg?w=3840",
+      "sourceAssetId": "5e13958365b7eb5695fa1754",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13958365b7eb5695fa1754/vsco5e13958688e2f.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13958365b7eb5695fa1754/vsco5e13958688e2f.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13958365b7eb5695fa1754/vsco5e13958688e2f.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13958365b7eb5695fa1754/vsco5e13958688e2f.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13958365b7eb5695fa1754/vsco5e13958688e2f.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13958365b7eb5695fa1754/vsco5e13958688e2f.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13958365b7eb5695fa1754/vsco5e13958688e2f.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e13958365b7eb5695fa1754/vsco5e13958688e2f.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/interlaken/022-5e13958365b7eb5695fa1754.jpg",
+      "originalOrder": 22,
+      "locationOrder": 3,
+      "width": 1420,
+      "height": 2049,
+      "mimeType": "image/jpeg",
+      "bytes": 353370,
+      "sha256": "af575731c2b26d3f374e36ce7d6b63c5e625f7b9d8bdbf989e3457f48e42aefc"
+    },
+    {
+      "type": "prose",
+      "text": "At the top of Europe",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://vsco.co/saykig/journal/europe",
+      "originalDocumentOrder": 26
+    },
+    {
+      "type": "photo",
+      "location": "Interlaken",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e10966e4c6ab11201eb08be/vsco5e10966ff1f64.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966e4c6ab11201eb08be/vsco5e10966ff1f64.jpg?w=3840",
+      "sourceAssetId": "5e10966e4c6ab11201eb08be",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966e4c6ab11201eb08be/vsco5e10966ff1f64.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966e4c6ab11201eb08be/vsco5e10966ff1f64.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966e4c6ab11201eb08be/vsco5e10966ff1f64.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966e4c6ab11201eb08be/vsco5e10966ff1f64.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966e4c6ab11201eb08be/vsco5e10966ff1f64.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966e4c6ab11201eb08be/vsco5e10966ff1f64.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966e4c6ab11201eb08be/vsco5e10966ff1f64.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10966e4c6ab11201eb08be/vsco5e10966ff1f64.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/interlaken/023-5e10966e4c6ab11201eb08be.jpg",
+      "originalOrder": 23,
+      "locationOrder": 4,
+      "width": 1536,
+      "height": 2049,
+      "mimeType": "image/jpeg",
+      "bytes": 754898,
+      "sha256": "ae9c4202365b74e77ff404c92d0e83982ba28a94e640f2355eda650e7405e368"
+    },
+    {
+      "type": "photo",
+      "location": "Interlaken",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e1096724c6ab11201eb08bf/vsco5e10967345bd9.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096724c6ab11201eb08bf/vsco5e10967345bd9.jpg?w=3840",
+      "sourceAssetId": "5e1096724c6ab11201eb08bf",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096724c6ab11201eb08bf/vsco5e10967345bd9.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096724c6ab11201eb08bf/vsco5e10967345bd9.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096724c6ab11201eb08bf/vsco5e10967345bd9.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096724c6ab11201eb08bf/vsco5e10967345bd9.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096724c6ab11201eb08bf/vsco5e10967345bd9.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096724c6ab11201eb08bf/vsco5e10967345bd9.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096724c6ab11201eb08bf/vsco5e10967345bd9.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096724c6ab11201eb08bf/vsco5e10967345bd9.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/interlaken/024-5e1096724c6ab11201eb08bf.jpg",
+      "originalOrder": 24,
+      "locationOrder": 5,
+      "width": 1536,
+      "height": 1086,
+      "mimeType": "image/jpeg",
+      "bytes": 217566,
+      "sha256": "2a11d5714e5d6b8e7828dc03712e8d88e82ba2bbd46a3a03661c47e214b2bfe9"
+    }
+  ]
+}

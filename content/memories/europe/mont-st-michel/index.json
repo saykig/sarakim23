@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "slug": "mont-st-michel",
+  "name": "Mont St Michel",
+  "sourceHeading": {
+    "text": "Mont St Michel",
+    "kind": "paragraph",
+    "documentOrder": 5
+  },
+  "entries": [
+    {
+      "type": "photo",
+      "location": "Mont St Michel",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e10962f4c6ab11201eb08af/vsco5e1096312ab7f.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962f4c6ab11201eb08af/vsco5e1096312ab7f.jpg?w=3840",
+      "sourceAssetId": "5e10962f4c6ab11201eb08af",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962f4c6ab11201eb08af/vsco5e1096312ab7f.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962f4c6ab11201eb08af/vsco5e1096312ab7f.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962f4c6ab11201eb08af/vsco5e1096312ab7f.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962f4c6ab11201eb08af/vsco5e1096312ab7f.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962f4c6ab11201eb08af/vsco5e1096312ab7f.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962f4c6ab11201eb08af/vsco5e1096312ab7f.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962f4c6ab11201eb08af/vsco5e1096312ab7f.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10962f4c6ab11201eb08af/vsco5e1096312ab7f.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/mont-st-michel/005-5e10962f4c6ab11201eb08af.jpg",
+      "originalOrder": 5,
+      "locationOrder": 1,
+      "width": 1536,
+      "height": 2049,
+      "mimeType": "image/jpeg",
+      "bytes": 460983,
+      "sha256": "cb56740aadac887a59530f58bea884da0764743b3f8140fd6a9c86708f042313"
+    },
+    {
+      "type": "photo",
+      "location": "Mont St Michel",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e1096354c6ab11201eb08b0/vsco5e1096364a3f6.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096354c6ab11201eb08b0/vsco5e1096364a3f6.jpg?w=3840",
+      "sourceAssetId": "5e1096354c6ab11201eb08b0",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096354c6ab11201eb08b0/vsco5e1096364a3f6.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096354c6ab11201eb08b0/vsco5e1096364a3f6.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096354c6ab11201eb08b0/vsco5e1096364a3f6.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096354c6ab11201eb08b0/vsco5e1096364a3f6.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096354c6ab11201eb08b0/vsco5e1096364a3f6.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096354c6ab11201eb08b0/vsco5e1096364a3f6.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096354c6ab11201eb08b0/vsco5e1096364a3f6.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1096354c6ab11201eb08b0/vsco5e1096364a3f6.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/mont-st-michel/006-5e1096354c6ab11201eb08b0.jpg",
+      "originalOrder": 6,
+      "locationOrder": 2,
+      "width": 1536,
+      "height": 1969,
+      "mimeType": "image/jpeg",
+      "bytes": 368619,
+      "sha256": "1df581999498868975729e8a29ce344863934d2f37973a3827f8b537d0143590"
+    },
+    {
+      "type": "photo",
+      "location": "Mont St Michel",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e10963b4c6ab11201eb08b2/vsco5e10963c9286b.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10963b4c6ab11201eb08b2/vsco5e10963c9286b.jpg?w=3840",
+      "sourceAssetId": "5e10963b4c6ab11201eb08b2",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10963b4c6ab11201eb08b2/vsco5e10963c9286b.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10963b4c6ab11201eb08b2/vsco5e10963c9286b.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10963b4c6ab11201eb08b2/vsco5e10963c9286b.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10963b4c6ab11201eb08b2/vsco5e10963c9286b.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10963b4c6ab11201eb08b2/vsco5e10963c9286b.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10963b4c6ab11201eb08b2/vsco5e10963c9286b.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10963b4c6ab11201eb08b2/vsco5e10963c9286b.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e10963b4c6ab11201eb08b2/vsco5e10963c9286b.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/mont-st-michel/007-5e10963b4c6ab11201eb08b2.jpg",
+      "originalOrder": 7,
+      "locationOrder": 3,
+      "width": 1152,
+      "height": 2049,
+      "mimeType": "image/jpeg",
+      "bytes": 843515,
+      "sha256": "39a9f81596d572fcd5f073b7694999fd9cac5835d3cc970a155335b1f98b1a53"
+    }
+  ]
+}

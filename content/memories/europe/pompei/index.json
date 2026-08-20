@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "slug": "pompei",
+  "name": "Pompei",
+  "sourceHeading": {
+    "text": "Pompei",
+    "kind": "paragraph",
+    "documentOrder": 51
+  },
+  "entries": [
+    {
+      "type": "photo",
+      "location": "Pompei",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e1668ae91eb7b0e50ffafce/vsco5e1668b0803a5.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1668ae91eb7b0e50ffafce/vsco5e1668b0803a5.jpg?w=3840",
+      "sourceAssetId": "5e1668ae91eb7b0e50ffafce",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1668ae91eb7b0e50ffafce/vsco5e1668b0803a5.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1668ae91eb7b0e50ffafce/vsco5e1668b0803a5.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1668ae91eb7b0e50ffafce/vsco5e1668b0803a5.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1668ae91eb7b0e50ffafce/vsco5e1668b0803a5.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1668ae91eb7b0e50ffafce/vsco5e1668b0803a5.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1668ae91eb7b0e50ffafce/vsco5e1668b0803a5.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1668ae91eb7b0e50ffafce/vsco5e1668b0803a5.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e1668ae91eb7b0e50ffafce/vsco5e1668b0803a5.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/pompei/042-5e1668ae91eb7b0e50ffafce.jpg",
+      "originalOrder": 42,
+      "locationOrder": 1,
+      "width": 1096,
+      "height": 1567,
+      "mimeType": "image/jpeg",
+      "bytes": 360154,
+      "sha256": "b37802735d445b53cbfcdd164567802be8f3f6b926d168dd392f50308f71c195"
+    },
+    {
+      "type": "photo",
+      "location": "Pompei",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e166a6c91eb7b0e50ffafd6/vsco5e166a6ebf8f2.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a6c91eb7b0e50ffafd6/vsco5e166a6ebf8f2.jpg?w=3840",
+      "sourceAssetId": "5e166a6c91eb7b0e50ffafd6",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a6c91eb7b0e50ffafd6/vsco5e166a6ebf8f2.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a6c91eb7b0e50ffafd6/vsco5e166a6ebf8f2.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a6c91eb7b0e50ffafd6/vsco5e166a6ebf8f2.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a6c91eb7b0e50ffafd6/vsco5e166a6ebf8f2.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a6c91eb7b0e50ffafd6/vsco5e166a6ebf8f2.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a6c91eb7b0e50ffafd6/vsco5e166a6ebf8f2.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a6c91eb7b0e50ffafd6/vsco5e166a6ebf8f2.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a6c91eb7b0e50ffafd6/vsco5e166a6ebf8f2.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/pompei/043-5e166a6c91eb7b0e50ffafd6.jpg",
+      "originalOrder": 43,
+      "locationOrder": 2,
+      "width": 1536,
+      "height": 2049,
+      "mimeType": "image/jpeg",
+      "bytes": 528451,
+      "sha256": "ea04bbd4e337b84e7e15ed3b7caf7b76dd7bcd8443e80a4f73135de9fdf469d1"
+    },
+    {
+      "type": "photo",
+      "location": "Pompei",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e166a7191eb7b0e50ffafd7/vsco5e166a745cd78.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a7191eb7b0e50ffafd7/vsco5e166a745cd78.jpg?w=3840",
+      "sourceAssetId": "5e166a7191eb7b0e50ffafd7",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a7191eb7b0e50ffafd7/vsco5e166a745cd78.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a7191eb7b0e50ffafd7/vsco5e166a745cd78.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a7191eb7b0e50ffafd7/vsco5e166a745cd78.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a7191eb7b0e50ffafd7/vsco5e166a745cd78.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a7191eb7b0e50ffafd7/vsco5e166a745cd78.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a7191eb7b0e50ffafd7/vsco5e166a745cd78.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a7191eb7b0e50ffafd7/vsco5e166a745cd78.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e166a7191eb7b0e50ffafd7/vsco5e166a745cd78.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/pompei/044-5e166a7191eb7b0e50ffafd7.jpg",
+      "originalOrder": 44,
+      "locationOrder": 3,
+      "width": 2048,
+      "height": 1535,
+      "mimeType": "image/jpeg",
+      "bytes": 1241201,
+      "sha256": "7ea20218fc878d884014281e16cd3c35eb874900e3b7095985b321e6cda361ff"
+    }
+  ]
+}

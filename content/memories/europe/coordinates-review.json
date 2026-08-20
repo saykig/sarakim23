@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "sourceUrl": "https://vsco.co/saykig/journal/europe",
+  "note": "Coordinates are absent from the source journal and require manual review.",
+  "locations": [
+    {
+      "slug": "london",
+      "name": "London",
+      "lat": null,
+      "lng": null,
+      "status": "needs-review"
+    },
+    {
+      "slug": "mont-st-michel",
+      "name": "Mont St Michel",
+      "lat": null,
+      "lng": null,
+      "status": "needs-review"
+    },
+    {
+      "slug": "paris",
+      "name": "Paris",
+      "lat": null,
+      "lng": null,
+      "status": "needs-review"
+    },
+    {
+      "slug": "louvre-museum",
+      "name": "louvre museum",
+      "lat": null,
+      "lng": null,
+      "status": "needs-review"
+    },
+    {
+      "slug": "interlaken",
+      "name": "Interlaken",
+      "lat": null,
+      "lng": null,
+      "status": "needs-review"
+    },
+    {
+      "slug": "verona",
+      "name": "Verona",
+      "lat": null,
+      "lng": null,
+      "status": "needs-review"
+    },
+    {
+      "slug": "venice",
+      "name": "Venice",
+      "lat": null,
+      "lng": null,
+      "status": "needs-review"
+    },
+    {
+      "slug": "florence",
+      "name": "florence",
+      "lat": null,
+      "lng": null,
+      "status": "needs-review"
+    },
+    {
+      "slug": "san-gimignano",
+      "name": "San Gimignano",
+      "lat": null,
+      "lng": null,
+      "status": "needs-review"
+    },
+    {
+      "slug": "orvieto",
+      "name": "Orvieto",
+      "lat": null,
+      "lng": null,
+      "status": "needs-review"
+    },
+    {
+      "slug": "pompei",
+      "name": "Pompei",
+      "lat": null,
+      "lng": null,
+      "status": "needs-review"
+    },
+    {
+      "slug": "sorrento",
+      "name": "Sorrento",
+      "lat": null,
+      "lng": null,
+      "status": "needs-review"
+    },
+    {
+      "slug": "capri",
+      "name": "Capri",
+      "lat": null,
+      "lng": null,
+      "status": "needs-review"
+    },
+    {
+      "slug": "rome",
+      "name": "Rome",
+      "lat": null,
+      "lng": null,
+      "status": "needs-review"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "slug": "san-gimignano",
+  "name": "San Gimignano",
+  "sourceHeading": {
+    "text": "San Gimignano",
+    "kind": "paragraph",
+    "documentOrder": 44
+  },
+  "entries": [
+    {
+      "type": "photo",
+      "location": "San Gimignano",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e14f38f1a477e3140a443a2/vsco5e14f3952b37a.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14f38f1a477e3140a443a2/vsco5e14f3952b37a.jpg?w=3840",
+      "sourceAssetId": "5e14f38f1a477e3140a443a2",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14f38f1a477e3140a443a2/vsco5e14f3952b37a.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14f38f1a477e3140a443a2/vsco5e14f3952b37a.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14f38f1a477e3140a443a2/vsco5e14f3952b37a.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14f38f1a477e3140a443a2/vsco5e14f3952b37a.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14f38f1a477e3140a443a2/vsco5e14f3952b37a.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14f38f1a477e3140a443a2/vsco5e14f3952b37a.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14f38f1a477e3140a443a2/vsco5e14f3952b37a.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14f38f1a477e3140a443a2/vsco5e14f3952b37a.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/san-gimignano/037-5e14f38f1a477e3140a443a2.jpg",
+      "originalOrder": 37,
+      "locationOrder": 1,
+      "width": 1354,
+      "height": 1706,
+      "mimeType": "image/jpeg",
+      "bytes": 302942,
+      "sha256": "4ba4546f5482d30cf0531bf634271485becc11c0292a50264c6cfec568721530"
+    }
+  ]
+}

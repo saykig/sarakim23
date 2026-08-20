@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "slug": "florence",
+  "name": "florence",
+  "sourceHeading": {
+    "text": "florence",
+    "kind": "paragraph",
+    "documentOrder": 41
+  },
+  "entries": [
+    {
+      "type": "photo",
+      "location": "florence",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e14fe503316d031659eafb2/vsco5e14fe52e09df.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fe503316d031659eafb2/vsco5e14fe52e09df.jpg?w=3840",
+      "sourceAssetId": "5e14fe503316d031659eafb2",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fe503316d031659eafb2/vsco5e14fe52e09df.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fe503316d031659eafb2/vsco5e14fe52e09df.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fe503316d031659eafb2/vsco5e14fe52e09df.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fe503316d031659eafb2/vsco5e14fe52e09df.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fe503316d031659eafb2/vsco5e14fe52e09df.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fe503316d031659eafb2/vsco5e14fe52e09df.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fe503316d031659eafb2/vsco5e14fe52e09df.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fe503316d031659eafb2/vsco5e14fe52e09df.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/florence/035-5e14fe503316d031659eafb2.jpg",
+      "originalOrder": 35,
+      "locationOrder": 1,
+      "width": 1105,
+      "height": 2049,
+      "mimeType": "image/jpeg",
+      "bytes": 468511,
+      "sha256": "400c2b21463fd1bf5bf1f519c5efaa7edcb82861dff32cf83919b2a99d7b7f02"
+    },
+    {
+      "type": "photo",
+      "location": "florence",
+      "sourceJournal": "saykig / europe (VSCO journal)",
+      "sourceUrl": "https://img.vsco.co/cdn-cgi/image/width=2048,quality=90/73bb5f/79925510/5e14fff6bb9fb0344993506c/vsco5e14fff9401a7.jpg",
+      "sourceJournalUrl": "https://vsco.co/saykig/journal/europe",
+      "sourceOriginalUrl": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fff6bb9fb0344993506c/vsco5e14fff9401a7.jpg?w=3840",
+      "sourceAssetId": "5e14fff6bb9fb0344993506c",
+      "sourceCandidates": [
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fff6bb9fb0344993506c/vsco5e14fff9401a7.jpg?w=3840",
+          "width": 3840
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fff6bb9fb0344993506c/vsco5e14fff9401a7.jpg?w=2048",
+          "width": 2048
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fff6bb9fb0344993506c/vsco5e14fff9401a7.jpg?w=1920",
+          "width": 1920
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fff6bb9fb0344993506c/vsco5e14fff9401a7.jpg?w=1200",
+          "width": 1200
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fff6bb9fb0344993506c/vsco5e14fff9401a7.jpg?w=1080",
+          "width": 1080
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fff6bb9fb0344993506c/vsco5e14fff9401a7.jpg?w=828",
+          "width": 828
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fff6bb9fb0344993506c/vsco5e14fff9401a7.jpg?w=750",
+          "width": 750
+        },
+        {
+          "url": "https://im.vsco.co/aws-us-west-2/73bb5f/79925510/5e14fff6bb9fb0344993506c/vsco5e14fff9401a7.jpg?w=640",
+          "width": 640
+        }
+      ],
+      "localPath": "/memories/europe/florence/036-5e14fff6bb9fb0344993506c.jpg",
+      "originalOrder": 36,
+      "locationOrder": 2,
+      "width": 1537,
+      "height": 1631,
+      "mimeType": "image/jpeg",
+      "bytes": 418698,
+      "sha256": "e1f96cd047c672ac6d5aa7965ce013d885f662b45b31ff36b1fea8b4bda603c8"
+    }
+  ]
+}

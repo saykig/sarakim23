@@ -379,7 +379,8 @@ body:has(.soft-atlas-page) #nav a:hover {
   stroke-width: 1.2;
 }
 
-.atlas-fallback-marker {
+.atlas-marker.atlas-fallback-marker {
+  position: absolute;
   z-index: 3;
 }
 

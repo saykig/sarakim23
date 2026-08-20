@@ -65,8 +65,11 @@ const FALLBACK_CENTRE = FALLBACK_SIZE / 2
 const FALLBACK_LATITUDE = 38
 const FALLBACK_LONGITUDE = 18
 
-function projectFallbackPoint(coordinates: readonly number[]) {
-  const longitude = ((coordinates[0] - FALLBACK_LONGITUDE) * Math.PI) / 180
+function projectFallbackPoint(
+  coordinates: readonly number[],
+  centreLongitude = FALLBACK_LONGITUDE
+) {
+  const longitude = ((coordinates[0] - centreLongitude) * Math.PI) / 180
   const latitude = (coordinates[1] * Math.PI) / 180
   const centreLatitude = (FALLBACK_LATITUDE * Math.PI) / 180
   const visibility =
@@ -88,7 +91,7 @@ function projectFallbackPoint(coordinates: readonly number[]) {
   }
 }
 
-function countryOutlinePath(geometry: Geometry) {
+function countryOutlinePath(geometry: Geometry, centreLongitude: number) {
   const rings =
     geometry.type === 'Polygon'
       ? geometry.coordinates
@@ -101,7 +104,7 @@ function countryOutlinePath(geometry: Geometry) {
       let drawing = false
       return ring
         .map((coordinates) => {
-          const point = projectFallbackPoint(coordinates)
+          const point = projectFallbackPoint(coordinates, centreLongitude)
           if (!point.visible) {
             drawing = false
             return ''
@@ -118,12 +121,46 @@ function countryOutlinePath(geometry: Geometry) {
 function FallbackGlobe({
   countries,
   selectedPlace,
+  reduceMotion,
+  hasInteracted,
   onSelect,
 }: {
   countries: CountryFeature[]
   selectedPlace: AtlasPlace | null
+  reduceMotion: boolean
+  hasInteracted: boolean
   onSelect: (place: AtlasPlace) => void
 }) {
+  const [centreLongitude, setCentreLongitude] = useState(FALLBACK_LONGITUDE)
+
+  useEffect(() => {
+    if (reduceMotion || hasInteracted) return
+
+    let frame = 0
+    let previousUpdate = performance.now()
+    const rotate = (now: number) => {
+      const elapsed = now - previousUpdate
+      if (elapsed >= 40) {
+        setCentreLongitude(
+          (longitude) => ((longitude + elapsed * 0.00022 + 540) % 360) - 180
+        )
+        previousUpdate = now
+      }
+      frame = requestAnimationFrame(rotate)
+    }
+
+    frame = requestAnimationFrame(rotate)
+    return () => cancelAnimationFrame(frame)
+  }, [hasInteracted, reduceMotion])
+
+  const countryPaths = useMemo(
+    () =>
+      countries.map((country) =>
+        countryOutlinePath(country.geometry, centreLongitude)
+      ),
+    [centreLongitude, countries]
+  )
+
   return (
     <div className="atlas-fallback-globe" aria-label="Soft Atlas globe">
       <svg viewBox={`0 0 ${FALLBACK_SIZE} ${FALLBACK_SIZE}`} aria-hidden="true">
@@ -157,11 +194,11 @@ function FallbackGlobe({
             rx={FALLBACK_RADIUS}
             ry={224}
           />
-          {countries.map((country, index) => (
+          {countryPaths.map((path, index) => (
             <path
               key={index}
               className="atlas-fallback-country"
-              d={countryOutlinePath(country.geometry)}
+              d={path}
             />
           ))}
         </g>
@@ -174,36 +211,52 @@ function FallbackGlobe({
       </svg>
 
       {atlasPlaces.map((place) => {
-        const point = projectFallbackPoint([place.lng, place.lat])
+        const point = projectFallbackPoint(
+          [place.lng, place.lat],
+          centreLongitude
+        )
         if (!point.visible) return null
         const offset = place.displayOffset ?? [0, 0]
 
         return (
-          <button
+          <div
             key={place.slug}
-            type="button"
-            className="atlas-marker-button atlas-fallback-marker"
-            data-selected={String(place.slug === selectedPlace?.slug)}
-            aria-label={`Explore ${place.name}`}
+            className="atlas-marker atlas-fallback-marker"
             style={{
-              left: `calc(${(point.x / FALLBACK_SIZE) * 100}% + ${offset[0]}px)`,
-              top: `calc(${(point.y / FALLBACK_SIZE) * 100}% + ${offset[1]}px)`,
+              left: `${(point.x / FALLBACK_SIZE) * 100}%`,
+              top: `${(point.y / FALLBACK_SIZE) * 100}%`,
             }}
-            onClick={() => onSelect(place)}
           >
-            <span className="atlas-marker-face" aria-hidden="true">
-              <span className="atlas-marker-centre" />
-            </span>
-            <span className="atlas-marker-tooltip" role="tooltip">
-              <strong>{place.name}</strong>
-              {place.years ? <span>{place.years}</span> : null}
-              <span>
-                {place.memorySlug
-                  ? 'discover memory →'
-                  : 'archive entry in progress'}
+            <span className="atlas-marker-anchor" aria-hidden="true" />
+            <button
+              type="button"
+              className="atlas-marker-button atlas-marker-offset"
+              data-selected={String(place.slug === selectedPlace?.slug)}
+              aria-label={`Explore ${place.name}`}
+              style={{ left: `${offset[0]}px`, top: `${offset[1]}px` }}
+              onClick={() => onSelect(place)}
+            >
+              {offset[0] !== 0 || offset[1] !== 0 ? (
+                <span
+                  className="atlas-marker-leader"
+                  aria-hidden="true"
+                  style={markerLeaderStyle(offset)}
+                />
+              ) : null}
+              <span className="atlas-marker-face" aria-hidden="true">
+                <span className="atlas-marker-centre" />
               </span>
-            </span>
-          </button>
+              <span className="atlas-marker-tooltip" role="tooltip">
+                <strong>{place.name}</strong>
+                {place.years ? <span>{place.years}</span> : null}
+                <span>
+                  {place.memorySlug
+                    ? 'discover memory →'
+                    : 'archive entry in progress'}
+                </span>
+              </span>
+            </button>
+          </div>
         )
       })}
     </div>
@@ -519,6 +572,8 @@ export function SoftAtlas() {
                 <FallbackGlobe
                   countries={countries}
                   selectedPlace={selectedPlace}
+                  reduceMotion={Boolean(reduceMotion)}
+                  hasInteracted={hasInteracted}
                   onSelect={focusPlace}
                 />
               }
@@ -553,6 +608,8 @@ export function SoftAtlas() {
             <FallbackGlobe
               countries={countries}
               selectedPlace={selectedPlace}
+              reduceMotion={Boolean(reduceMotion)}
+              hasInteracted={hasInteracted}
               onSelect={focusPlace}
             />
           )}

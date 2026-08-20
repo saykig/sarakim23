@@ -26,8 +26,8 @@ const Globe = dynamic(() => import('react-globe.gl'), {
   loading: () => <div className="atlas-loading" aria-hidden="true" />,
 })
 
-const initialMemoryPlace =
-  atlasPlaces.find((place) => place.memorySlug === 'interlaken') ?? null
+const globeCaption =
+  "hover to discover the places i've called home and travelled to!"
 
 type CountryFeature = {
   type: 'Feature'
@@ -411,8 +411,7 @@ function createMarkerElement(
 export function SoftAtlas() {
   const globeRef = useRef<GlobeMethods>()
   const reduceMotion = useReducedMotion()
-  const [selectedPlace, setSelectedPlace] =
-    useState<AtlasPlace | null>(initialMemoryPlace)
+  const [selectedPlace, setSelectedPlace] = useState<AtlasPlace | null>(null)
   const [hasInteracted, setHasInteracted] = useState(false)
   const [isReady, setIsReady] = useState(false)
   const [webglAvailable, setWebglAvailable] = useState<boolean | null>(null)
@@ -588,6 +587,45 @@ export function SoftAtlas() {
               onSelect={focusPlace}
             />
           )}
+
+          <svg
+            className="atlas-globe-caption"
+            viewBox="0 0 1000 1000"
+            preserveAspectRatio="xMidYMid meet"
+            role="img"
+            aria-labelledby="atlas-globe-caption-title"
+            focusable="false"
+          >
+            <title id="atlas-globe-caption-title">{globeCaption}</title>
+            <defs>
+              <path
+                id="atlas-caption-arc-desktop"
+                d="M 80 575 Q 340 825 610 675"
+              />
+              <path
+                id="atlas-caption-arc-mobile"
+                d="M -45 610 Q 265 795 635 615"
+              />
+            </defs>
+            <text className="atlas-caption-text atlas-caption-text-desktop">
+              <textPath
+                href="#atlas-caption-arc-desktop"
+                startOffset="50%"
+                textAnchor="middle"
+              >
+                {globeCaption}
+              </textPath>
+            </text>
+            <text className="atlas-caption-text atlas-caption-text-mobile">
+              <textPath
+                href="#atlas-caption-arc-mobile"
+                startOffset="50%"
+                textAnchor="middle"
+              >
+                {globeCaption}
+              </textPath>
+            </text>
+          </svg>
         </div>
       </div>
 

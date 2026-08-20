@@ -26,10 +26,6 @@ export default function Page() {
                 i study power, security, and the strange ways people organize
                 the world around them.
               </p>
-              <p className="hero-atlas-note">
-                an atlas of places i’ve called home and places that stayed with
-                me.
-              </p>
             </div>
           </div>
 

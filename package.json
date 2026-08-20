@@ -5,6 +5,8 @@
     "build": "next build",
     "start": "next start",
     "test:e2e": "node tests/globe-first-load.mjs",
+    "deployment:verify:pre": "node scripts/verify-deployment.mjs pre",
+    "deployment:verify:post": "node scripts/verify-deployment.mjs post",
     "memories:import:europe": "node scripts/import-vsco-europe.mjs",
     "memories:validate:europe": "node scripts/validate-vsco-europe.mjs"
   },

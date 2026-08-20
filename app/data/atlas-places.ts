@@ -83,6 +83,7 @@ export const atlasPlaces: AtlasPlace[] = [
     lng: 7.8632,
     displayOffset: [-10, -38],
     type: 'visited',
+    memorySlug: 'interlaken',
   },
   {
     slug: 'toronto',

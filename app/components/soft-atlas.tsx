@@ -1,6 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useReducedMotion } from 'motion/react'
 import { Color, MeshBasicMaterial, ShaderMaterial } from 'three'
@@ -15,6 +16,9 @@ const Globe = dynamic(() => import('react-globe.gl'), {
   ssr: false,
   loading: () => <div className="atlas-loading" aria-hidden="true" />,
 })
+
+const initialMemoryPlace =
+  atlasPlaces.find((place) => place.memorySlug === 'interlaken') ?? null
 
 type CountryFeature = {
   type: 'Feature'
@@ -175,7 +179,9 @@ function createMarkerElement(
   }
 
   const action = document.createElement('span')
-  action.textContent = 'archive entry in progress'
+  action.textContent = place.memorySlug
+    ? 'discover memory →'
+    : 'archive entry in progress'
   tooltip.appendChild(action)
 
   button.append(face, tooltip)
@@ -191,7 +197,8 @@ function createMarkerElement(
 export function SoftAtlas() {
   const globeRef = useRef<GlobeMethods>()
   const reduceMotion = useReducedMotion()
-  const [selectedPlace, setSelectedPlace] = useState<AtlasPlace | null>(null)
+  const [selectedPlace, setSelectedPlace] =
+    useState<AtlasPlace | null>(initialMemoryPlace)
   const [hasInteracted, setHasInteracted] = useState(false)
   const [isReady, setIsReady] = useState(false)
   const { ref: frameRef, width, height } = useElementSize<HTMLDivElement>()
@@ -335,16 +342,30 @@ export function SoftAtlas() {
 
       <div className="atlas-annotation" aria-live="polite">
         {selectedPlace ? (
-          <>
-            <p className="atlas-annotation-kicker">
-              {selectedPlace.type === 'home' ? 'called home' : 'visited'}
-            </p>
-            <p className="atlas-annotation-name">{selectedPlace.name}</p>
-            <p className="atlas-annotation-meta">
-              {selectedPlace.years ? `${selectedPlace.years} · ` : ''}
-              memory archive in progress
-            </p>
-          </>
+          selectedPlace.memorySlug ? (
+            <Link
+              href={`/memories/${selectedPlace.memorySlug}`}
+              className="atlas-memory-teaser"
+            >
+              <span className="atlas-annotation-kicker">
+                {selectedPlace.type === 'home' ? 'called home' : 'visited'}
+              </span>
+              <span className="atlas-annotation-name">{selectedPlace.name}</span>
+              <span className="atlas-memory-status">memory archive</span>
+              <span className="atlas-memory-action">discover memory →</span>
+            </Link>
+          ) : (
+            <>
+              <p className="atlas-annotation-kicker">
+                {selectedPlace.type === 'home' ? 'called home' : 'visited'}
+              </p>
+              <p className="atlas-annotation-name">{selectedPlace.name}</p>
+              <p className="atlas-annotation-meta">
+                {selectedPlace.years ? `${selectedPlace.years} · ` : ''}
+                memory archive in progress
+              </p>
+            </>
+          )
         ) : null}
       </div>
 

@@ -807,3 +807,421 @@ body:has(.soft-atlas-page) #nav a:hover {
     animation-duration: 1ms;
   }
 }
+
+/* Place memories */
+
+.atlas-memory-teaser {
+  position: relative;
+  display: grid;
+  min-width: 12rem;
+  min-height: 7.5rem;
+  align-content: end;
+  padding: 0.9rem 2.25rem 0.9rem 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.atlas-memory-teaser .atlas-annotation-name,
+.atlas-memory-teaser .atlas-annotation-kicker,
+.atlas-memory-status,
+.atlas-memory-action {
+  display: block;
+}
+
+.atlas-memory-status,
+.atlas-memory-action {
+  grid-area: 3 / 1;
+  color: var(--atlas-ink-soft);
+  font-size: 0.68rem;
+  line-height: 1.5;
+  letter-spacing: 0.035em;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.atlas-memory-action {
+  opacity: 0;
+  transform: translateY(0.25rem);
+}
+
+.atlas-memory-teaser:hover .atlas-memory-status,
+.atlas-memory-teaser:focus-visible .atlas-memory-status {
+  opacity: 0;
+  transform: translateY(-0.2rem);
+}
+
+.atlas-memory-teaser:hover .atlas-memory-action,
+.atlas-memory-teaser:focus-visible .atlas-memory-action {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.atlas-memory-teaser:focus-visible {
+  outline: 1px solid var(--atlas-ink);
+  outline-offset: 0.35rem;
+}
+
+html:has(.memory-page) {
+  overflow-x: clip;
+  background: var(--atlas-paper) !important;
+  color-scheme: light;
+}
+
+body:has(.memory-page) {
+  background: var(--atlas-paper) !important;
+  color: var(--atlas-ink) !important;
+}
+
+body:has(.memory-page) > main > aside,
+body:has(.memory-page) > main > footer {
+  display: none;
+}
+
+body:has(.memory-page) ::selection {
+  background: var(--atlas-ink);
+  color: var(--atlas-cream);
+}
+
+.memory-page {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  overflow: clip;
+  background: var(--atlas-paper);
+  color: var(--atlas-ink);
+}
+
+.memory-header {
+  position: relative;
+  display: grid;
+  min-height: clamp(34rem, 76svh, 48rem);
+  align-items: center;
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 5vw, 5rem);
+}
+
+.memory-back-link {
+  position: absolute;
+  top: clamp(1.5rem, 4vw, 3rem);
+  left: clamp(1.25rem, 5vw, 5rem);
+  padding-block: 0.35rem;
+  color: var(--atlas-ink-soft);
+  font-size: 0.72rem;
+  letter-spacing: 0.045em;
+  text-decoration: none;
+}
+
+.memory-back-link:hover,
+.memory-back-link:focus-visible,
+.memory-footer a:hover,
+.memory-footer a:focus-visible {
+  color: var(--atlas-ink);
+  text-decoration-color: currentColor;
+}
+
+.memory-back-link:focus-visible,
+.memory-footer a:focus-visible,
+.memory-photo-trigger:focus-visible,
+.memory-dialog-close:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 5px;
+}
+
+.memory-heading {
+  width: min(78rem, 100%);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.memory-heading-kicker,
+.memory-heading-date,
+.memory-scroll-cue {
+  color: var(--atlas-ink-soft);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.memory-heading h1 {
+  margin-block: 0.5rem 0.2rem;
+  font-family: var(--font-instrument-serif), var(--font-cormorant-garamond),
+    Georgia, serif;
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.82;
+  text-transform: uppercase;
+}
+
+.memory-scroll-cue {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-transform: lowercase;
+}
+
+.memory-experience {
+  position: relative;
+  padding-block: 2rem clamp(8rem, 16vw, 15rem);
+}
+
+.memory-stream {
+  width: min(100%, 100rem);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 4rem);
+}
+
+.memory-entry {
+  position: relative;
+  margin-top: clamp(8rem, 17vw, 16rem);
+}
+
+.memory-entry:first-child {
+  margin-top: 0;
+}
+
+.memory-photo[data-layout='opening'] {
+  width: min(60rem, 66vw);
+  margin-left: 6vw;
+}
+
+.memory-photo[data-layout='left'] {
+  width: min(31rem, 35vw);
+  margin-left: 3vw;
+}
+
+.memory-photo[data-layout='right-narrow'] {
+  width: min(27rem, 29vw);
+  margin-top: clamp(-18rem, -15vw, -9rem);
+  margin-left: auto;
+  margin-right: 6vw;
+}
+
+.memory-photo[data-layout='left-narrow'] {
+  width: min(29rem, 31vw);
+  margin-left: 12vw;
+}
+
+.memory-photo[data-layout='right-wide'] {
+  width: min(55rem, 59vw);
+  margin-left: auto;
+  margin-right: 1vw;
+}
+
+.memory-photo-trigger {
+  position: relative;
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: zoom-in;
+  text-align: left;
+}
+
+.memory-photo-window {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--atlas-ocean);
+}
+
+.memory-photo-parallax {
+  display: block;
+  width: 100%;
+  will-change: transform;
+}
+
+.memory-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.memory-photo-index {
+  position: absolute;
+  right: -1.9rem;
+  bottom: 0;
+  color: var(--atlas-ink-soft);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.59rem;
+  letter-spacing: 0.04em;
+  writing-mode: vertical-rl;
+}
+
+.memory-entry-note[data-layout='note-overlap'] {
+  z-index: 2;
+  width: min(20rem, 28vw);
+  margin-top: clamp(-4rem, -5vw, -2rem);
+  margin-left: 57%;
+}
+
+.ephemera-note {
+  position: relative;
+  padding: clamp(1.8rem, 3vw, 2.6rem);
+  background: var(--atlas-cream);
+  color: var(--atlas-ink);
+  transform: rotate(-1.2deg);
+}
+
+.ephemera-note-mark {
+  position: absolute;
+  top: -0.7rem;
+  left: 50%;
+  width: 3.8rem;
+  height: 1.35rem;
+  background: rgb(242 235 206 / 68%);
+  transform: translateX(-50%) rotate(1.6deg);
+}
+
+.ephemera-note p {
+  font-family: var(--font-instrument-serif), var(--font-cormorant-garamond),
+    Georgia, serif;
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+.memory-dialog {
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: rgb(38 49 38 / 96%);
+  color: var(--atlas-cream);
+}
+
+.memory-dialog::backdrop {
+  background: rgb(38 49 38 / 72%);
+}
+
+.memory-dialog-image {
+  position: absolute;
+  inset: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.memory-dialog-image img {
+  object-fit: contain;
+}
+
+.memory-dialog-close {
+  position: absolute;
+  z-index: 2;
+  top: 1.2rem;
+  right: 1.4rem;
+  min-width: 4.5rem;
+  min-height: 2.75rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.memory-footer {
+  display: flex;
+  min-height: 45vh;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.25rem;
+}
+
+.memory-footer a {
+  color: var(--atlas-ink-soft);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.3em;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .atlas-memory-status {
+    opacity: 0;
+  }
+
+  .atlas-memory-action {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .atlas-memory-status {
+    opacity: 0;
+  }
+
+  .atlas-memory-action {
+    opacity: 1;
+    transform: none;
+  }
+
+  .memory-header {
+    min-height: 68svh;
+  }
+
+  .memory-heading h1 {
+    font-size: clamp(3.5rem, 20vw, 6rem);
+  }
+
+  .memory-stream {
+    padding-inline: 1.25rem;
+  }
+
+  .memory-entry,
+  .memory-photo[data-layout='right-narrow'] {
+    margin-top: 7.5rem;
+  }
+
+  .memory-entry:first-child {
+    margin-top: 0;
+  }
+
+  .memory-photo[data-layout] {
+    width: min(88vw, 34rem);
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .memory-photo[data-layout='right-narrow'],
+  .memory-photo[data-layout='right-wide'] {
+    margin-left: auto;
+  }
+
+  .memory-photo[data-layout='left'],
+  .memory-photo[data-layout='left-narrow'] {
+    width: min(76vw, 27rem);
+  }
+
+  .memory-entry-note[data-layout='note-overlap'] {
+    width: min(15.5rem, 67vw);
+    margin-top: -2rem;
+    margin-left: auto;
+    margin-right: 4vw;
+  }
+
+  .memory-photo-index {
+    right: -1.15rem;
+  }
+
+  .memory-dialog-image {
+    inset: 4.5rem 0.8rem 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atlas-memory-status,
+  .atlas-memory-action {
+    transition-duration: 0ms;
+  }
+
+  .memory-photo-parallax {
+    transform: none !important;
+  }
+}

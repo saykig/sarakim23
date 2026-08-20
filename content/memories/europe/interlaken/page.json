@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "published": true,
+  "presentation": {
+    "5e1096644c6ab11201eb08bc": {
+      "layout": "opening",
+      "parallax": 4
+    },
+    "5e10966b4c6ab11201eb08bd": {
+      "layout": "left",
+      "parallax": 7
+    },
+    "5e13958365b7eb5695fa1754": {
+      "layout": "right-narrow",
+      "parallax": 5
+    },
+    "prose:26": {
+      "layout": "note-overlap",
+      "noteType": "prose",
+      "relatedPhoto": "5e13958365b7eb5695fa1754"
+    },
+    "5e10966e4c6ab11201eb08be": {
+      "layout": "left-narrow",
+      "parallax": 6
+    },
+    "5e1096724c6ab11201eb08bf": {
+      "layout": "right-wide",
+      "parallax": 4
+    }
+  }
+}

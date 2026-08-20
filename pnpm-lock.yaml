@@ -29,6 +29,9 @@ importers:
       geist:
         specifier: 1.2.2
         version: 1.2.2(next@16.0.10(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+      gsap:
+        specifier: ^3.15.0
+        version: 3.15.0
       lucide-react:
         specifier: ^1.31.0
         version: 1.31.0(react@19.2.3)
@@ -1408,6 +1411,9 @@ packages:
   globe.gl@2.46.1:
     resolution: {integrity: sha512-h+OvX52EBIPLtM0/2JkM+JZ9gPAhPJ4y3+hxUwD5Ey/O0Zk2ockuTiJ71bZbnNBGmNiIZzA5Vr3TMT0b3d35IQ==}
     engines: {node: '>=12'}
+
+  gsap@3.15.0:
+    resolution: {integrity: sha512-dMW4CWBTUK1AEEDeZc1g4xpPGIrSf9fJF960qbTZmN/QwZIWY5wgliS6JWl9/25fpTGJrMRtSjGtOmPnfjZB+A==}
 
   h3-js@4.5.0:
     resolution: {integrity: sha512-uKmdPc+DuarnR+XqZxEuWOMw7KzzKROrx3MLeJpFnMOs78S9M5eZ+X5RieS9UcSFQqbeXzbfWuX/W9Pyajinqw==}
@@ -3356,6 +3362,8 @@ snapshots:
       three-render-objects: 1.42.0(three@0.185.1)
     transitivePeerDependencies:
       - preact-render-to-string
+
+  gsap@3.15.0: {}
 
   h3-js@4.5.0: {}
 

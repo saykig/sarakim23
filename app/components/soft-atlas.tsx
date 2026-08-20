@@ -360,9 +360,8 @@ function projectGlobeSilhouette(
   camera.updateProjectionMatrix()
 
   const worldCenter = new Vector3(0, 0, 0)
-  const projectedCenter = worldCenter.clone().project(camera)
-  const centerX = ((projectedCenter.x + 1) * width) / 2
-  const centerY = ((1 - projectedCenter.y) * height) / 2
+  const centerX = width / 2
+  const centerY = height / 2
   const cameraSpaceCenter = worldCenter
     .clone()
     .applyMatrix4(camera.matrixWorldInverse)

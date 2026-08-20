@@ -44,14 +44,26 @@ async function assertGlobe(page, label) {
 
   const state = await globe.evaluate((element) => {
     const canvas = element.querySelector('canvas')
+    const caption = element.querySelector('.atlas-caption-text')
     const frameRect = element.getBoundingClientRect()
     const canvasRect = canvas?.getBoundingClientRect()
+    const captionRect = caption?.getBoundingClientRect()
+    const captionSvg = element.querySelector('.atlas-globe-caption')
     return {
       ready: element.getAttribute('data-ready'),
       frameWidth: frameRect.width,
       frameHeight: frameRect.height,
       canvasWidth: canvasRect?.width ?? 0,
       canvasHeight: canvasRect?.height ?? 0,
+      caption: caption?.textContent?.trim() ?? '',
+      captionCenterX: Number(captionSvg?.getAttribute('data-globe-center-x')),
+      captionCenterY: Number(captionSvg?.getAttribute('data-globe-center-y')),
+      captionVisible:
+        Boolean(captionRect) &&
+        captionRect.right > 0 &&
+        captionRect.bottom > 0 &&
+        captionRect.left < window.innerWidth &&
+        captionRect.top < window.innerHeight,
       opacity: getComputedStyle(element).opacity,
     }
   })
@@ -62,6 +74,12 @@ async function assertGlobe(page, label) {
     state.frameHeight <= 0 ||
     state.canvasWidth <= 0 ||
     state.canvasHeight <= 0 ||
+    !state.caption ||
+    state.captionCenterX < 0 ||
+    state.captionCenterX > state.frameWidth ||
+    state.captionCenterY < 0 ||
+    state.captionCenterY > state.frameHeight ||
+    !state.captionVisible ||
     Number(state.opacity) <= 0
   ) {
     throw new Error(`${label}: globe was not visibly ready: ${JSON.stringify(state)}`)

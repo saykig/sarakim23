@@ -15,7 +15,7 @@ import {
 } from 'react'
 import { useReducedMotion } from 'motion/react'
 import { geoOrthographic, geoPath } from 'd3-geo'
-import { Color, MeshBasicMaterial, ShaderMaterial } from 'three'
+import { Color, MeshBasicMaterial, ShaderMaterial, Vector3 } from 'three'
 import { feature, mesh } from 'topojson-client'
 import countriesTopology from 'world-atlas/countries-110m.json'
 import type { FeatureCollection, Geometry } from 'geojson'
@@ -31,10 +31,20 @@ const Globe = dynamic(() => import('react-globe.gl'), {
 const globeCaption =
   "hover to discover the places i've called home and travelled to!"
 
+const CAPTION_GAP_PX = 16
+const CAPTION_START_ANGLE = 160
+const CAPTION_END_ANGLE = 72
+
 type CountryFeature = {
   type: 'Feature'
   properties: Record<string, unknown> | null
   geometry: Geometry
+}
+
+type GlobeScreenGeometry = {
+  centerX: number
+  centerY: number
+  radius: number
 }
 
 type GlobeRenderBoundaryProps = {
@@ -338,6 +348,86 @@ function useElementSize<T extends HTMLElement>() {
   return { ref, ...size }
 }
 
+function projectGlobeSilhouette(
+  globe: GlobeMethods,
+  width: number,
+  height: number
+): GlobeScreenGeometry | null {
+  const camera = globe.camera()
+  const globeRadius = globe.getGlobeRadius()
+
+  camera.updateMatrixWorld()
+  camera.updateProjectionMatrix()
+
+  const worldCenter = new Vector3(0, 0, 0)
+  const projectedCenter = worldCenter.clone().project(camera)
+  const centerX = ((projectedCenter.x + 1) * width) / 2
+  const centerY = ((1 - projectedCenter.y) * height) / 2
+  const cameraSpaceCenter = worldCenter
+    .clone()
+    .applyMatrix4(camera.matrixWorldInverse)
+
+  let radius: number
+
+  if (camera.type === 'PerspectiveCamera') {
+    const distance = cameraSpaceCenter.length()
+    if (distance <= globeRadius) return null
+
+    const tangentSlope = globeRadius / Math.sqrt(distance ** 2 - globeRadius ** 2)
+    radius =
+      (height / 2) * camera.projectionMatrix.elements[5] * tangentSlope
+  } else if (camera.type === 'OrthographicCamera') {
+    radius =
+      (height / 2) * camera.projectionMatrix.elements[5] * globeRadius
+  } else {
+    return null
+  }
+
+  return { centerX, centerY, radius }
+}
+
+function pointOnCircle(
+  centerX: number,
+  centerY: number,
+  radius: number,
+  angle: number
+) {
+  const radians = (angle * Math.PI) / 180
+  return {
+    x: centerX + radius * Math.cos(radians),
+    y: centerY + radius * Math.sin(radians),
+  }
+}
+
+function circularArcPath(
+  geometry: GlobeScreenGeometry,
+  radius: number,
+  startAngle: number,
+  endAngle: number
+) {
+  const start = pointOnCircle(
+    geometry.centerX,
+    geometry.centerY,
+    radius,
+    startAngle
+  )
+  const end = pointOnCircle(
+    geometry.centerX,
+    geometry.centerY,
+    radius,
+    endAngle
+  )
+  const angularSpan = Math.abs(endAngle - startAngle) % 360
+  const largeArcFlag = angularSpan > 180 ? 1 : 0
+  const sweepFlag = endAngle > startAngle ? 1 : 0
+
+  return [
+    `M ${start.x.toFixed(3)} ${start.y.toFixed(3)}`,
+    `A ${radius.toFixed(3)} ${radius.toFixed(3)} 0 ${largeArcFlag} ${sweepFlag}`,
+    `${end.x.toFixed(3)} ${end.y.toFixed(3)}`,
+  ].join(' ')
+}
+
 function markerLeaderStyle(offset: readonly [number, number]) {
   const distance = Math.hypot(offset[0], offset[1])
   const headGap = Math.min(5, distance)
@@ -423,7 +513,31 @@ export function SoftAtlas() {
   const [selectedPlace, setSelectedPlace] = useState<AtlasPlace | null>(null)
   const [hasInteracted, setHasInteracted] = useState(false)
   const [isReady, setIsReady] = useState(false)
+  const [projectedGlobe, setProjectedGlobe] =
+    useState<GlobeScreenGeometry | null>(null)
+  const [showGeometryDebug, setShowGeometryDebug] = useState(false)
   const { ref: frameRef, width, height } = useElementSize<HTMLDivElement>()
+
+  const globeGeometry =
+    projectedGlobe ??
+    (width > 0 && height > 0
+      ? {
+          centerX: width / 2,
+          centerY: height / 2,
+          radius: (Math.min(width, height) * FALLBACK_RADIUS) / FALLBACK_SIZE,
+        }
+      : null)
+  const captionRadius = globeGeometry
+    ? globeGeometry.radius + CAPTION_GAP_PX
+    : 0
+  const captionPath = globeGeometry
+    ? circularArcPath(
+        globeGeometry,
+        captionRadius,
+        CAPTION_START_ANGLE,
+        CAPTION_END_ANGLE
+      )
+    : ''
 
   const countries = useMemo(() => {
     const collection = feature(
@@ -533,6 +647,31 @@ export function SoftAtlas() {
     controls.autoRotate = !reduceMotion && !hasInteracted
   }, [hasInteracted, isReady, reduceMotion])
 
+  useEffect(() => {
+    if (!isReady || width <= 0 || height <= 0) return
+
+    const globe = globeRef.current
+    if (!globe) return
+
+    const nextGeometry = projectGlobeSilhouette(globe, width, height)
+    setProjectedGlobe((currentGeometry) => {
+      if (!currentGeometry || !nextGeometry) return nextGeometry
+
+      const unchanged =
+        Math.abs(currentGeometry.centerX - nextGeometry.centerX) < 0.01 &&
+        Math.abs(currentGeometry.centerY - nextGeometry.centerY) < 0.01 &&
+        Math.abs(currentGeometry.radius - nextGeometry.radius) < 0.01
+      return unchanged ? currentGeometry : nextGeometry
+    })
+  }, [height, isReady, width])
+
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'production') return
+    setShowGeometryDebug(
+      new URLSearchParams(window.location.search).has('debugAtlasGeometry')
+    )
+  }, [])
+
   return (
     <div className="atlas-experience">
       <div
@@ -596,35 +735,37 @@ export function SoftAtlas() {
 
           <svg
             className="atlas-globe-caption"
-            viewBox="0 0 1000 1000"
-            preserveAspectRatio="xMidYMid meet"
+            viewBox={`0 0 ${Math.max(width, 1)} ${Math.max(height, 1)}`}
+            preserveAspectRatio="none"
             role="img"
             aria-labelledby="atlas-globe-caption-title"
             focusable="false"
+            data-globe-center-x={globeGeometry?.centerX.toFixed(3)}
+            data-globe-center-y={globeGeometry?.centerY.toFixed(3)}
+            data-globe-radius={globeGeometry?.radius.toFixed(3)}
+            data-caption-radius={captionRadius.toFixed(3)}
           >
             <title id="atlas-globe-caption-title">{globeCaption}</title>
             <defs>
-              <path
-                id="atlas-caption-arc-desktop"
-                d="M 5 665 Q 275 1070 650 1010"
-              />
-              <path
-                id="atlas-caption-arc-mobile"
-                d="M -70 700 Q 220 1070 625 1010"
-              />
+              <path id="atlas-caption-arc" d={captionPath} />
             </defs>
-            <text className="atlas-caption-text atlas-caption-text-desktop">
+            {showGeometryDebug && globeGeometry ? (
+              <g aria-hidden="true" className="atlas-geometry-debug">
+                <circle
+                  cx={globeGeometry.centerX}
+                  cy={globeGeometry.centerY}
+                  r={globeGeometry.radius}
+                />
+                <circle
+                  cx={globeGeometry.centerX}
+                  cy={globeGeometry.centerY}
+                  r={captionRadius}
+                />
+              </g>
+            ) : null}
+            <text className="atlas-caption-text">
               <textPath
-                href="#atlas-caption-arc-desktop"
-                startOffset="50%"
-                textAnchor="middle"
-              >
-                {globeCaption}
-              </textPath>
-            </text>
-            <text className="atlas-caption-text atlas-caption-text-mobile">
-              <textPath
-                href="#atlas-caption-arc-mobile"
+                href="#atlas-caption-arc"
                 startOffset="50%"
                 textAnchor="middle"
               >

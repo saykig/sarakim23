@@ -339,7 +339,7 @@ body:has(.soft-atlas-page) > main > .site-footer p {
   overflow: visible;
   color: var(--atlas-ink-soft);
   font-family: var(--font-geist-sans), Arial, sans-serif;
-  font-size: 16px;
+  font-size: calc(var(--atlas-globe-size) * 0.016);
   font-weight: 400;
   letter-spacing: 0.06em;
   pointer-events: none;
@@ -350,8 +350,12 @@ body:has(.soft-atlas-page) > main > .site-footer p {
   fill: currentColor;
 }
 
-.atlas-caption-text-mobile {
-  display: none;
+.atlas-geometry-debug {
+  fill: none;
+  stroke: var(--atlas-line);
+  stroke-dasharray: 3 4;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
 }
 
 .atlas-loading {
@@ -766,16 +770,8 @@ body:has(.soft-atlas-page) > main > .site-footer p {
   }
 
   .atlas-globe-caption {
-    font-size: 19px;
+    font-size: calc(var(--atlas-globe-size) * 0.019);
     letter-spacing: 0.045em;
-  }
-
-  .atlas-caption-text-desktop {
-    display: none;
-  }
-
-  .atlas-caption-text-mobile {
-    display: initial;
   }
 
   .atlas-annotation {

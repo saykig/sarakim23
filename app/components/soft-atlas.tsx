@@ -600,11 +600,11 @@ export function SoftAtlas() {
             <defs>
               <path
                 id="atlas-caption-arc-desktop"
-                d="M 80 575 Q 340 825 610 675"
+                d="M 5 665 Q 275 1070 650 1010"
               />
               <path
                 id="atlas-caption-arc-mobile"
-                d="M -45 610 Q 265 795 635 615"
+                d="M -70 700 Q 220 1070 625 1010"
               />
             </defs>
             <text className="atlas-caption-text atlas-caption-text-desktop">

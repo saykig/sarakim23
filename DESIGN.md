@@ -137,7 +137,7 @@ The homepage intentionally has no persistent top navigation. Its opening composi
 - **Surface:** matte Atlas Ocean sphere with restrained dark-sage procedural grain clipped to land and defined Contour Green borders; never a hex, tiled, or halftone pattern.
 - **Motion:** extremely slow idle rotation; direct dragging suspends rotation; zoom and pan are disabled.
 - **Crop:** deliberately oversized and clipped inside a dedicated, invisible-edged globe viewport.
-- **Caption:** a small Geist annotation follows the lower visible circumference through a responsive SVG text path; it remains readable inside the crop and never intercepts globe interaction.
+- **Caption:** a small Geist annotation follows an SVG text path just outside the globe's lower visible circumference; the crop reserves space for it, and it never intercepts globe interaction.
 - **Fallback:** the location index remains usable if WebGL is unavailable.
 
 ### Atlas Marker

@@ -178,6 +178,7 @@ table {
   --atlas-land: #dfe4cf;
   --atlas-line: #394e38;
   --atlas-cream: #f8f4e7;
+  --tooltip-card-radius: 0.45rem;
 }
 
 html:has(.soft-atlas-page) {
@@ -282,6 +283,7 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   width: 15rem;
   overflow: hidden;
   border: 1px solid rgb(80 99 75 / 24%);
+  border-radius: var(--tooltip-card-radius);
   background: var(--atlas-cream);
   box-shadow: 0 0.45rem 1.2rem rgb(51 68 52 / 12%);
   color: var(--atlas-ink-soft);
@@ -330,6 +332,7 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   width: 13rem;
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--atlas-sage) 38%, transparent);
+  border-radius: var(--tooltip-card-radius);
   background: var(--atlas-cream);
   box-shadow: 0 0.4rem 1rem rgb(51 68 52 / 10%);
   color: var(--atlas-ink-soft);

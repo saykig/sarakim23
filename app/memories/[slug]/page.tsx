@@ -42,7 +42,12 @@ export default async function MemoryPage({ params }: MemoryPageProps) {
   return (
     <article className="memory-page">
       <header className="memory-header">
-        <Link href="/" className="memory-back-link">
+        <Link
+          href="/"
+          className="memory-back-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <span aria-hidden="true">←</span> atlas
         </Link>
         <div className="memory-heading">
@@ -60,7 +65,9 @@ export default async function MemoryPage({ params }: MemoryPageProps) {
       <MemoryExperience location={memory.name} entries={memory.entries} />
 
       <footer className="memory-footer">
-        <Link href="/">return to the atlas <span aria-hidden="true">↗</span></Link>
+        <Link href="/" target="_blank" rel="noopener noreferrer">
+          return to the atlas <span aria-hidden="true">↗</span>
+        </Link>
       </footer>
     </article>
   )

@@ -76,7 +76,13 @@ export function AboutSection() {
           <p className="about-links" aria-label="Places to find Sara online">
             email <span aria-hidden="true">·</span> linkedin{' '}
             <span aria-hidden="true">·</span>{' '}
-            <a href="https://github.com/saykig">github</a>{' '}
+            <a
+              href="https://github.com/saykig"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              github
+            </a>{' '}
             <span aria-hidden="true">·</span> substack
           </p>
           <p className="about-signoff">thanks for dropping by :)</p>

@@ -31,17 +31,22 @@ function CustomLink(props) {
 
   if (href.startsWith('/')) {
     return (
-      <Link href={href} {...props}>
+      <Link
+        href={href}
+        {...props}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {props.children}
       </Link>
     )
   }
 
   if (href.startsWith('#')) {
-    return <a {...props} />
+    return <a {...props} target="_blank" rel="noopener noreferrer" />
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />
+  return <a {...props} target="_blank" rel="noopener noreferrer" />
 }
 
 function RoundedImage(props) {
@@ -75,6 +80,8 @@ function createHeading(level) {
           href: `#${slug}`,
           key: `link-${slug}`,
           className: 'anchor',
+          target: '_blank',
+          rel: 'noopener noreferrer',
         }),
       ],
       children

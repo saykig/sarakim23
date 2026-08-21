@@ -781,12 +781,13 @@ export function SoftAtlas() {
             <Link
               href={`/memories/${selectedPlace.memorySlug}`}
               className="atlas-memory-teaser"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <span className="atlas-annotation-kicker">
                 {selectedPlace.type === 'home' ? 'called home' : 'visited'}
               </span>
               <span className="atlas-annotation-name">{selectedPlace.name}</span>
-              <span className="atlas-memory-status">memory archive</span>
               <span className="atlas-memory-action">discover memory →</span>
             </Link>
           ) : (

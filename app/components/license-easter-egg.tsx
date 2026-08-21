@@ -34,6 +34,8 @@ export function LicenseEasterEgg() {
       <a
         className="license-easter-egg-link"
         href={VIDEO_URL}
+        target="_blank"
+        rel="noopener noreferrer"
         aria-describedby={tooltipId}
         onPointerEnter={(event) => {
           if (event.pointerType !== 'mouse') return

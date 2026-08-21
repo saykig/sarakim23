@@ -290,6 +290,10 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   pointer-events: none;
 }
 
+.contact-tooltip-card[data-interactive='true'] {
+  pointer-events: auto;
+}
+
 .contact-tooltip-content {
   display: block;
   padding: 0.72rem 0.82rem;
@@ -824,6 +828,62 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
 
 .about-copy > p + p {
   margin-top: 1.65rem;
+}
+
+.about-inline-tooltip {
+  display: inline;
+}
+
+.about-inline-easter-egg {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 52%, transparent);
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.16em;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.about-inline-easter-egg:hover,
+.about-inline-easter-egg:focus-visible {
+  color: var(--atlas-ink);
+  text-decoration-color: currentColor;
+}
+
+.about-inline-easter-egg:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 0.18rem;
+}
+
+.about-inline-tooltip .contact-tooltip-content {
+  line-height: 1.45;
+  white-space: normal;
+}
+
+.about-tooltip-copy {
+  display: block;
+}
+
+.about-tooltip-source {
+  color: var(--atlas-ink);
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 52%, transparent);
+  text-underline-offset: 0.16em;
+}
+
+.about-tooltip-source:hover,
+.about-tooltip-source:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+.about-tooltip-source:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 0.14rem;
 }
 
 .about-signoff {

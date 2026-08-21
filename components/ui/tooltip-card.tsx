@@ -3,6 +3,7 @@
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import {
   cloneElement,
+  useEffect,
   useId,
   useLayoutEffect,
   useRef,
@@ -17,8 +18,13 @@ const POINTER_OFFSET = 12
 
 type TooltipProps = {
   content: ReactNode
-  children: ReactElement<{ 'aria-describedby'?: string }>
+  children: ReactElement<{
+    'aria-controls'?: string
+    'aria-describedby'?: string
+    'aria-expanded'?: boolean
+  }>
   containerClassName?: string
+  interactive?: boolean
 }
 
 function clamp(value: number, min: number, max: number) {
@@ -29,9 +35,11 @@ export function Tooltip({
   content,
   children,
   containerClassName,
+  interactive = false,
 }: TooltipProps) {
   const tooltipId = useId()
   const cardRef = useRef<HTMLSpanElement>(null)
+  const hideTimeoutRef = useRef<number | null>(null)
   const reduceMotion = useReducedMotion()
   const [isVisible, setIsVisible] = useState(false)
   const [height, setHeight] = useState(0)
@@ -40,6 +48,20 @@ export function Tooltip({
     left: VIEWPORT_GUTTER,
     top: VIEWPORT_GUTTER,
   })
+
+  const cancelScheduledHide = () => {
+    if (hideTimeoutRef.current === null) return
+    window.clearTimeout(hideTimeoutRef.current)
+    hideTimeoutRef.current = null
+  }
+
+  const scheduleHide = () => {
+    cancelScheduledHide()
+    hideTimeoutRef.current = window.setTimeout(() => {
+      setIsVisible(false)
+      hideTimeoutRef.current = null
+    }, 160)
+  }
 
   const placeCard = (x: number, y: number, cardHeight = height) => {
     const maxLeft = Math.max(
@@ -69,6 +91,8 @@ export function Tooltip({
     placeCard(anchor.x, anchor.y, nextHeight)
   }, [anchor.x, anchor.y, content, isVisible])
 
+  useEffect(() => cancelScheduledHide, [])
+
   return (
     <span
       className={['tooltip-card-trigger', containerClassName]
@@ -76,6 +100,7 @@ export function Tooltip({
         .join(' ')}
       onPointerEnter={(event) => {
         if (event.pointerType !== 'mouse') return
+        cancelScheduledHide()
         placeCard(event.clientX, event.clientY)
         setIsVisible(true)
       }}
@@ -84,10 +109,11 @@ export function Tooltip({
         placeCard(event.clientX, event.clientY)
       }}
       onPointerLeave={(event) => {
-        if (event.pointerType === 'mouse') setIsVisible(false)
+        if (event.pointerType === 'mouse') scheduleHide()
       }}
       onPointerDown={(event) => {
         if (event.pointerType === 'mouse') return
+        if ((event.target as Element).closest('a')) return
         event.preventDefault()
         const rect = event.currentTarget.getBoundingClientRect()
         if (!isVisible) placeCard(rect.left + rect.width / 2, rect.top)
@@ -99,19 +125,31 @@ export function Tooltip({
         placeCard(rect.left + rect.width / 2, rect.top)
         setIsVisible(true)
       }}
-      onBlur={() => setIsVisible(false)}
+      onBlur={(event) => {
+        if (event.currentTarget.contains(event.relatedTarget as Node | null)) return
+        setIsVisible(false)
+      }}
       onKeyDown={(event) => {
         if (event.key === 'Escape') setIsVisible(false)
       }}
     >
-      {cloneElement(children, { 'aria-describedby': tooltipId })}
+      {cloneElement(
+        children,
+        interactive
+          ? {
+              'aria-controls': tooltipId,
+              'aria-expanded': isVisible,
+            }
+          : { 'aria-describedby': tooltipId }
+      )}
       <AnimatePresence>
         {isVisible ? (
           <motion.span
             id={tooltipId}
             ref={cardRef}
-            role="tooltip"
+            role={interactive ? 'dialog' : 'tooltip'}
             className="contact-tooltip-card"
+            data-interactive={interactive ? 'true' : 'false'}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height, opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}

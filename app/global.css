@@ -197,6 +197,79 @@ body:has(.soft-atlas-page) > main > .site-footer p {
   color: inherit !important;
 }
 
+.license-easter-egg {
+  display: inline;
+}
+
+.license-easter-egg-link {
+  color: inherit;
+  pointer-events: auto;
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 52%, transparent);
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.16em;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.license-easter-egg-link:hover,
+.license-easter-egg-link:focus-visible {
+  color: var(--atlas-ink);
+  text-decoration-color: currentColor;
+}
+
+.license-easter-egg-link:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 0.2rem;
+}
+
+.license-tooltip-card {
+  position: fixed;
+  z-index: 50;
+  display: grid;
+  width: 13rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--atlas-sage) 38%, transparent);
+  background: var(--atlas-cream);
+  box-shadow: 0 0.4rem 1rem rgb(51 68 52 / 10%);
+  color: var(--atlas-ink-soft);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.35rem) scale(0.985);
+  transform-origin: bottom left;
+  visibility: hidden;
+  transition:
+    opacity 180ms ease,
+    transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s linear 220ms;
+}
+
+.license-tooltip-card[data-visible='true'] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.license-tooltip-thumbnail {
+  display: block;
+  width: 100%;
+  height: 6.9rem;
+  object-fit: cover;
+}
+
+.license-tooltip-caption {
+  padding: 0.48rem 0.58rem 0.54rem;
+  font: inherit;
+  line-height: 1.15;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .license-easter-egg-link,
+  .license-tooltip-card {
+    transition-duration: 0.01ms;
+  }
+}
+
 .soft-atlas-page {
   width: 100vw;
   margin-inline: calc(50% - 50vw);

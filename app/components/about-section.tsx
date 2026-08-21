@@ -58,7 +58,7 @@ export function AboutSection() {
                 </a>{' '}
                 <span aria-hidden="true">·</span> substack
               </p>
-              <p className="about-signoff">thanks for dropping by :)</p>
+              <p className="about-signoff">Thanks for dropping by :)</p>
             </div>
           </AccordionContent>
         </AccordionItem>

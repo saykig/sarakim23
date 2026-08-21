@@ -48,7 +48,7 @@ export default async function MemoryPage({ params }: MemoryPageProps) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span aria-hidden="true">←</span> atlas
+          <span aria-hidden="true">←</span> home
         </Link>
         <div className="memory-heading">
           <p className="memory-heading-kicker">place memory</p>

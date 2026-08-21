@@ -27,7 +27,7 @@ export function AboutSection() {
               </p>
               <p>
                 Since then, I have lived in Daejeon, Tashkent, St. Petersburg,
-                Vancouver, and Toronto. I have been living in Toronto for uni, and am
+                Vancouver, and Toronto. I have been in Toronto for uni, and am
                 currently a master’s student at the Munk School of Global Affairs and
                 Public Policy at the University of Toronto. I hope to write my thesis
                 on the ways in which powerful people make decisions about the

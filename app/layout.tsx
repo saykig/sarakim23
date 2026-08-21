@@ -1,11 +1,6 @@
 import './global.css'
 import type { Metadata } from 'next'
-import {
-  Cormorant_Garamond,
-  Instrument_Serif,
-} from 'next/font/google'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
+import { Newsreader, Source_Sans_3 } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
@@ -41,17 +36,18 @@ export const metadata: Metadata = {
 
 const cx = (...classes) => classes.filter(Boolean).join(' ')
 
-const instrumentSerif = Instrument_Serif({
+const newsreader = Newsreader({
   subsets: ['latin'],
-  weight: '400',
-  variable: '--font-instrument-serif',
+  weight: 'variable',
+  variable: '--font-newsreader',
   display: 'swap',
 })
 
-const cormorantGaramond = Cormorant_Garamond({
-  subsets: ['latin', 'cyrillic'],
-  weight: ['400', '500'],
-  variable: '--font-cormorant-garamond',
+const sourceSans = Source_Sans_3({
+  subsets: ['latin'],
+  weight: 'variable',
+  style: ['normal', 'italic'],
+  variable: '--font-source-sans',
   display: 'swap',
 })
 
@@ -65,10 +61,9 @@ export default function RootLayout({
       lang="en"
       className={cx(
         'text-black bg-white dark:text-white dark:bg-black',
-        GeistSans.variable,
-        GeistMono.variable,
-        instrumentSerif.variable,
-        cormorantGaramond.variable
+        sourceSans.className,
+        sourceSans.variable,
+        newsreader.variable
       )}
     >
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">

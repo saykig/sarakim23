@@ -33,6 +33,21 @@ html {
   min-width: 360px;
 }
 
+body {
+  font-family: var(--font-source-sans), Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: 0.005em;
+}
+
+body h1,
+body h2,
+body h3,
+body h4 {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-weight: 500;
+}
+
 .prose .anchor {
   @apply absolute invisible no-underline;
 
@@ -185,9 +200,9 @@ body:has(.soft-atlas-page) > main > .site-footer {
   margin: 0;
   padding: 0 0 1rem 1.25rem;
   color: var(--atlas-sage);
-  font-family: var(--font-instrument-serif), var(--font-cormorant-garamond),
-    'Iowan Old Style', Georgia, serif;
+  font-family: var(--font-source-sans), Arial, sans-serif;
   font-size: 0.72rem;
+  font-weight: 400;
   letter-spacing: 0.01em;
   line-height: 1;
   pointer-events: none;
@@ -307,11 +322,10 @@ body:has(.soft-atlas-page) > main > .site-footer p {
   width: 100%;
   gap: 0.01em;
   overflow: visible;
-  font-family: var(--font-instrument-serif), var(--font-cormorant-garamond),
-    'Iowan Old Style', Georgia, serif;
+  font-family: var(--font-newsreader), Georgia, serif;
   font-size: clamp(4.25rem, 7vw, 6rem);
-  font-weight: 400;
-  letter-spacing: -0.03em;
+  font-weight: 450;
+  letter-spacing: -0.022em;
   line-height: 0.94;
   text-wrap: nowrap;
 }
@@ -342,10 +356,11 @@ body:has(.soft-atlas-page) > main > .site-footer p {
 
 .hero-intro {
   max-width: 35ch;
-  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-family: var(--font-source-sans), Arial, sans-serif;
   font-size: clamp(1.55rem, 2.25vw, 2.15rem);
+  font-weight: 300;
   line-height: 1.23;
-  letter-spacing: -0.018em;
+  letter-spacing: 0.002em;
   text-wrap: balance;
 }
 
@@ -411,7 +426,7 @@ body:has(.soft-atlas-page) > main > .site-footer p {
   height: 100%;
   overflow: visible;
   color: var(--atlas-ink-soft);
-  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-family: var(--font-source-sans), Arial, sans-serif;
   font-size: calc(var(--atlas-globe-size) * 0.016);
   font-weight: 400;
   letter-spacing: 0.06em;
@@ -587,7 +602,7 @@ body:has(.soft-atlas-page) > main > .site-footer p {
   border: 1px solid rgb(80 99 75 / 24%);
   background: var(--atlas-cream);
   color: var(--atlas-ink-soft);
-  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-family: var(--font-source-sans), Arial, sans-serif;
   font-size: 0.66rem;
   font-weight: 400;
   line-height: 1.4;
@@ -602,10 +617,10 @@ body:has(.soft-atlas-page) > main > .site-footer p {
 
 .atlas-marker-tooltip strong {
   color: var(--atlas-ink);
-  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-family: var(--font-source-sans), Arial, sans-serif;
   font-size: 0.94rem;
-  font-weight: 520;
-  letter-spacing: -0.012em;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 .atlas-marker-button:hover .atlas-marker-tooltip,
@@ -627,16 +642,18 @@ body:has(.soft-atlas-page) > main > .site-footer p {
 .atlas-annotation-meta {
   color: var(--atlas-ink-soft);
   font-size: 0.68rem;
+  font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.035em;
 }
 
 .atlas-annotation-name {
   margin-block: 0.12rem;
-  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-family: var(--font-source-sans), Arial, sans-serif;
   font-size: 1.28rem;
+  font-weight: 400;
   line-height: 1.1;
-  letter-spacing: -0.018em;
+  letter-spacing: 0;
 }
 
 .homepage-shell {
@@ -661,11 +678,10 @@ body:has(.soft-atlas-page) > main > .site-footer p {
   padding-block: 1rem;
   color: inherit;
   cursor: pointer;
-  font-family: var(--font-instrument-serif), var(--font-cormorant-garamond),
-    Georgia, serif;
+  font-family: var(--font-newsreader), Georgia, serif;
   font-size: clamp(1.35rem, 2vw, 1.65rem);
   font-weight: 500;
-  letter-spacing: -0.018em;
+  letter-spacing: -0.01em;
   text-align: left;
 }
 
@@ -705,7 +721,8 @@ body:has(.soft-atlas-page) > main > .site-footer p {
   padding-block: 2.5rem 1rem;
   color: var(--atlas-ink-soft);
   font-size: clamp(1.03rem, 1.5vw, 1.16rem);
-  line-height: 1.75;
+  font-weight: 300;
+  line-height: 1.62;
 }
 
 .about-copy > p + p {
@@ -716,6 +733,7 @@ body:has(.soft-atlas-page) > main > .site-footer p {
   padding-top: 1.5rem;
   color: var(--atlas-ink-soft);
   font-size: 0.92rem;
+  font-weight: 350;
 }
 
 .about-links a {
@@ -907,6 +925,7 @@ body:has(.soft-atlas-page) > main > .site-footer p {
   grid-area: 3 / 1;
   color: var(--atlas-ink-soft);
   font-size: 0.68rem;
+  font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.035em;
   opacity: 1;
@@ -961,6 +980,7 @@ body:has(.memory-page) ::selection {
   padding-block: 0.35rem;
   color: var(--atlas-ink-soft);
   font-size: 0.72rem;
+  font-weight: 400;
   letter-spacing: 0.045em;
   text-decoration: none;
 }
@@ -991,8 +1011,9 @@ body:has(.memory-page) ::selection {
 .memory-heading-date,
 .memory-scroll-cue {
   color: var(--atlas-ink-soft);
-  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-family: var(--font-source-sans), Arial, sans-serif;
   font-size: 0.68rem;
+  font-weight: 400;
   letter-spacing: 0.09em;
   line-height: 1.4;
   text-transform: uppercase;
@@ -1000,11 +1021,10 @@ body:has(.memory-page) ::selection {
 
 .memory-heading h1 {
   margin-block: 0.5rem 0.2rem;
-  font-family: var(--font-instrument-serif), var(--font-cormorant-garamond),
-    Georgia, serif;
+  font-family: var(--font-newsreader), Georgia, serif;
   font-size: clamp(4rem, 12vw, 10rem);
-  font-weight: 400;
-  letter-spacing: -0.045em;
+  font-weight: 450;
+  letter-spacing: -0.025em;
   line-height: 0.82;
   text-transform: uppercase;
 }
@@ -1100,8 +1120,9 @@ body:has(.memory-page) ::selection {
   right: -1.9rem;
   bottom: 0;
   color: var(--atlas-ink-soft);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-source-sans), Arial, sans-serif;
   font-size: 0.59rem;
+  font-weight: 400;
   letter-spacing: 0.04em;
   writing-mode: vertical-rl;
 }
@@ -1132,10 +1153,10 @@ body:has(.memory-page) ::selection {
 }
 
 .ephemera-note p {
-  font-family: var(--font-instrument-serif), var(--font-cormorant-garamond),
-    Georgia, serif;
+  font-family: var(--font-newsreader), Georgia, serif;
   font-size: clamp(1.35rem, 2.5vw, 2rem);
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   line-height: 1.12;
   text-wrap: balance;
 }
@@ -1192,6 +1213,7 @@ body:has(.memory-page) ::selection {
 .memory-footer a {
   color: var(--atlas-ink-soft);
   font-size: 0.75rem;
+  font-weight: 400;
   letter-spacing: 0.04em;
   text-decoration: underline;
   text-decoration-color: transparent;
@@ -1204,7 +1226,7 @@ body:has(.memory-page) ::selection {
   }
 
   .memory-heading h1 {
-    font-size: clamp(3.5rem, 20vw, 6rem);
+    font-size: clamp(3.5rem, 15vw, 6rem);
   }
 
   .memory-stream {

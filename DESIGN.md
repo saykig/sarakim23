@@ -12,18 +12,18 @@ colors:
   atlas-cream: "#f8f4e7"
 typography:
   display:
-    fontFamily: "Instrument Serif, Cormorant Garamond, Iowan Old Style, Georgia, serif"
+    fontFamily: "Newsreader, Georgia, serif"
     fontSize: "clamp(3.25rem, 5.7vw, 5.75rem)"
     fontWeight: 400
     lineHeight: 0.94
     letterSpacing: "-0.03em"
   body:
-    fontFamily: "Geist, Arial, sans-serif"
+    fontFamily: "Source Sans 3, Arial, sans-serif"
     fontSize: "clamp(1.55rem, 2.25vw, 2.15rem)"
-    fontWeight: 400
-    lineHeight: 1.65
+    fontWeight: 300
+    lineHeight: 1.62
   label:
-    fontFamily: "Geist, Arial, sans-serif"
+    fontFamily: "Source Sans 3, Arial, sans-serif"
     fontSize: "0.66rem–0.78rem"
     fontWeight: 500
     lineHeight: 1.4
@@ -54,7 +54,7 @@ components:
 
 Soft Atlas feels like a world map printed directly onto the page of a contemporary literary magazine. It uses a near-monochrome green vocabulary, flat light, calm motion, fine geographic contours, and expansive negative space. It borrows the measured paper-and-sage character of the `sarakim928` essay page without copying that site's composition.
 
-The visual system is quiet but not austere: Instrument Serif supplies a narrow, high-contrast editorial voice for the largest homepage language, while the incumbent Geist sans remains the practical voice for navigation, supporting copy, metadata, and labels. Cormorant Garamond provides Cyrillic coverage within rotating greetings. The globe uses a procedural, non-repeating risograph grain clipped to land, with darker country contours for legibility.
+The visual system is quiet but not austere: Newsreader supplies a broad, soft editorial voice for the largest homepage language, while Source Sans 3 stays light and understated across navigation, supporting copy, metadata, and labels. Generic serif fallbacks cover rotating greeting scripts that Newsreader does not include. The globe uses a procedural, non-repeating risograph grain clipped to land, with darker country contours for legibility.
 
 **Key characteristics:**
 
@@ -93,18 +93,20 @@ The palette is anchored to the measured colors of the supplied essay reference a
 
 ## Typography
 
-**Display Font:** Instrument Serif (with Cormorant Garamond for Cyrillic, then Iowan Old Style and Georgia fallbacks)  
-**Body Font:** Geist (with Arial and sans-serif fallbacks)  
-**Label Font:** Geist
+**Display Font:** Newsreader (with Georgia and generic serif fallbacks)
 
-**Character:** Instrument Serif gives the hero the expressive, high-contrast tension of an editorial publication. Geist stays deliberately anonymous and functional for introductory support copy, navigation, geography, dates, annotations, and controls. The display serif remains scoped to the homepage rather than imposed across the blog.
+**Body Font:** Source Sans 3 (with Arial and sans-serif fallbacks)
+
+**Label Font:** Source Sans 3
+
+**Character:** Newsreader gives major headings a broad, soft literary presence. Source Sans 3 stays light and functional for introductory support copy, reading text, navigation, geography, dates, annotations, and controls. The same pairing carries across the homepage, memories, and blog.
 
 ### Hierarchy
 
-- **Display** (400, `clamp(3.25rem, 5.7vw, 5.75rem)`, 0.94; mobile from `2.8rem`): homepage greeting and primary editorial statement.
-- **Intro** (400, `clamp(1.55rem, 2.25vw, 2.15rem)`, 1.23): the lead supporting statement.
-- **Supporting body** (400, `0.92rem–1.16rem`, 1.65–1.75): biography and context, kept near 65 characters per line.
-- **Label** (400–500, `0.66rem–0.78rem`, up to `0.04em` tracking): map instructions, place types, and metadata.
+- **Display** (400–500, `clamp(3.25rem, 5.7vw, 5.75rem)`, 0.94; mobile from `2.8rem`): homepage greeting and primary editorial statement.
+- **Intro** (300, `clamp(1.55rem, 2.25vw, 2.15rem)`, 1.23): the lead supporting statement.
+- **Supporting body** (300, `0.92rem–1.16rem`, 1.55–1.65): biography and context, kept near 65 characters per line.
+- **Label** (350–400, `0.66rem–0.78rem`, up to `0.04em` tracking): map instructions, place types, and metadata.
 - **Annotation** (400, `1.28rem`, 1.1): a selected place name only.
 - **Section title** (500, `clamp(1.35rem, 2vw, 1.65rem)`): occasional editorial section headings.
 
@@ -137,7 +139,7 @@ The homepage intentionally has no persistent top navigation. Its opening composi
 - **Surface:** matte Atlas Ocean sphere with restrained dark-sage procedural grain clipped to land and defined Contour Green borders; never a hex, tiled, or halftone pattern.
 - **Motion:** extremely slow idle rotation; direct dragging suspends rotation; zoom and pan are disabled.
 - **Crop:** deliberately oversized and clipped inside a dedicated, invisible-edged globe viewport.
-- **Caption:** a small Geist annotation follows an SVG text path just outside the globe's lower visible circumference; the crop reserves space for it, and it never intercepts globe interaction.
+- **Caption:** a small Source Sans 3 annotation follows an SVG text path just outside the globe's lower visible circumference; the crop reserves space for it, and it never intercepts globe interaction.
 - **Fallback:** the location index remains usable if WebGL is unavailable.
 
 ### Atlas Marker

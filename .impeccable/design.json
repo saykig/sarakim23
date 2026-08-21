@@ -13,9 +13,9 @@
       "atlas-cream": { "role": "neutral", "displayName": "Archive Cream", "canonical": "#f8f4e7", "tonalRamp": ["#fffdf6", "#f8f4e7", "#e7dfcb"] }
     },
     "typographyMeta": {
-      "display": { "displayName": "Instrument Editorial Display", "purpose": "Homepage greeting and occasional major editorial section titles." },
-      "body": { "displayName": "Reading Body", "purpose": "Introductions and long-form supporting copy." },
-      "label": { "displayName": "Atlas Label", "purpose": "Navigation, dates, place types, and interaction guidance." }
+      "display": { "displayName": "Newsreader Editorial Display", "purpose": "Homepage greeting and major editorial section titles." },
+      "body": { "displayName": "Source Sans 3 Reading Body", "purpose": "Introductions and long-form supporting copy." },
+      "label": { "displayName": "Source Sans 3 Atlas Label", "purpose": "Navigation, dates, place types, and interaction guidance." }
     },
     "shadows": [],
     "motion": [

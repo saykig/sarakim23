@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 
 const greetings = [
-  { word: 'Salom!', hold: 320, transition: 0.24 },
   { word: 'Merhaba!', hold: 320, transition: 0.24 },
   { word: '안녕하세요!', hold: 400, transition: 0.28 },
   { word: 'Привет!', hold: 420, transition: 0.3 },

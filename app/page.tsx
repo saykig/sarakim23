@@ -1,4 +1,5 @@
 import { AboutSection } from './components/about-section'
+import { ContactLinks } from './components/contact-links'
 import { SoftAtlas } from './components/soft-atlas'
 import { WordRotate } from './components/word-rotate'
 
@@ -15,6 +16,10 @@ export default function Page() {
     <section className="soft-atlas-page">
       <section className="soft-atlas-hero" aria-labelledby="homepage-greeting">
         <div className="soft-atlas-hero-inner">
+          <div className="homepage-contact-links">
+            <ContactLinks />
+          </div>
+
           <div className="hero-copy">
             <h1 id="homepage-greeting" className="hero-greeting">
               <WordRotate />

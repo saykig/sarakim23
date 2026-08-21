@@ -223,7 +223,7 @@ body:has(.soft-atlas-page) > main > .site-footer p {
 body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   width: min(100%, 80rem);
   margin-inline: auto;
-  padding: 0 clamp(2rem, 4.5vw, 4.5rem) 1rem;
+  padding: 0 clamp(2rem, 4.5vw, 4.5rem);
 }
 
 .site-footer-inner {
@@ -233,7 +233,7 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   gap: 0.75rem;
 }
 
-.footer-contact-links {
+.personal-contact-links {
   display: flex;
   align-items: baseline;
   gap: 0.42rem;
@@ -243,14 +243,14 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   line-height: 1.4;
 }
 
-.footer-contact-links a,
-.footer-contact-email {
+.personal-contact-links a,
+.personal-contact-email {
   color: inherit;
   text-decoration: none;
   transition: color 180ms ease;
 }
 
-.footer-contact-email {
+.personal-contact-email {
   appearance: none;
   border: 0;
   background: transparent;
@@ -259,15 +259,15 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   font: inherit;
 }
 
-.footer-contact-links a:hover,
-.footer-contact-links a:focus-visible,
-.footer-contact-email:hover,
-.footer-contact-email:focus-visible {
+.personal-contact-links a:hover,
+.personal-contact-links a:focus-visible,
+.personal-contact-email:hover,
+.personal-contact-email:focus-visible {
   color: var(--atlas-ink);
 }
 
-.footer-contact-links a:focus-visible,
-.footer-contact-email:focus-visible {
+.personal-contact-links a:focus-visible,
+.personal-contact-email:focus-visible {
   outline: 1px solid currentColor;
   outline-offset: 0.2rem;
 }
@@ -397,6 +397,13 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   grid-template-columns: minmax(29rem, 0.92fr) minmax(0, 1.08fr);
   margin-inline: auto;
   padding: clamp(2.5rem, 4.5vh, 4rem) clamp(2rem, 4.5vw, 4.5rem) 3.5rem;
+}
+
+.homepage-contact-links {
+  position: absolute;
+  top: clamp(2.5rem, 4.5vh, 4rem);
+  left: clamp(2rem, 4.5vw, 4.5rem);
+  z-index: 4;
 }
 
 .hero-copy {
@@ -849,8 +856,14 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
     padding: 2.25rem 1.25rem 2.5rem;
   }
 
+  .homepage-contact-links {
+    top: 2.25rem;
+    left: 1.25rem;
+  }
+
   .hero-copy {
     min-height: auto;
+    padding-top: 2.5rem;
   }
 
   .hero-greeting {
@@ -926,8 +939,8 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   .atlas-marker-face,
   .atlas-marker-centre,
   .atlas-marker-tooltip,
-  .footer-contact-links a,
-  .footer-contact-email {
+  .personal-contact-links a,
+  .personal-contact-email {
     transition-duration: 0ms;
   }
 }

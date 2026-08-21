@@ -4,9 +4,9 @@ import { Tooltip } from '@/components/ui/tooltip-card'
 
 export function ContactLinks() {
   return (
-    <nav className="footer-contact-links" aria-label="Find Sara online">
-      <Tooltip content="email: sarakim203@gmail.com">
-        <button type="button" className="footer-contact-email">
+    <nav className="personal-contact-links" aria-label="Find Sara online">
+      <Tooltip content="sarakim203@gmail.com">
+        <button type="button" className="personal-contact-email">
           email
         </button>
       </Tooltip>

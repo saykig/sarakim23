@@ -72,7 +72,10 @@ export function LicenseEasterEgg() {
           height="360"
         />
         <span className="license-tooltip-caption">
-          some fruit for thought. 18:42-21:11 and 8:38-9:20 : )
+          <span>some fruit for thought.</span>
+          <span className="license-tooltip-timestamps">
+            18:42-21:11 and 8:38-9:20 : )
+          </span>
         </span>
       </span>
     </span>

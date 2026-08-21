@@ -670,56 +670,70 @@ body:has(.soft-atlas-page) > main > .site-footer p {
   padding-block: 0 clamp(6rem, 11vw, 9rem);
 }
 
+.about-accordion {
+  color: var(--atlas-ink-soft);
+}
+
+.about-accordion > :not(:first-child) {
+  border-color: rgb(51 68 52 / 18%);
+  transition: border-color 180ms ease;
+}
+
+.about-accordion > :not(:first-child):hover {
+  border-color: rgb(51 68 52 / 32%);
+}
+
 .about-trigger {
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: space-between;
-  padding-block: 1rem;
-  color: inherit;
+  justify-content: flex-start;
+  gap: 0.58rem;
+  border: 0;
+  background: transparent;
+  color: var(--atlas-ink-soft);
   cursor: pointer;
   font-family: var(--font-newsreader), Georgia, serif;
   font-size: clamp(1.35rem, 2vw, 1.65rem);
   font-weight: 500;
   letter-spacing: -0.01em;
   text-align: left;
+  transition: color 180ms ease;
+}
+
+.about-trigger:hover {
+  color: var(--atlas-ink);
 }
 
 .about-trigger:focus-visible {
-  outline: 1px solid currentColor;
-  outline-offset: 5px;
+  outline: 1px solid var(--atlas-ink);
+  outline-offset: 4px;
 }
 
-.about-chevron {
+.accordion-trigger-chevron {
   display: inline-flex;
   flex: none;
   align-items: center;
   justify-content: center;
-  opacity: 0.45;
-  transition: opacity 180ms ease;
+  color: currentColor;
+  opacity: 0.62;
+  transition: opacity 180ms ease, transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
 }
 
-.about-trigger:hover .about-chevron {
-  opacity: 0.78;
+.about-trigger:hover .accordion-trigger-chevron {
+  opacity: 0.9;
 }
 
-.about-content {
-  overflow: hidden;
-}
-
-.about-content[data-state='open'] {
-  animation: about-open 520ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.about-content[data-state='closed'] {
-  animation: about-close 380ms cubic-bezier(0.4, 0, 1, 1);
+.about-trigger[data-expanded] .accordion-trigger-chevron {
+  transform: rotate(180deg);
 }
 
 .about-copy {
   max-width: 68ch;
   padding-block: 2.5rem 1rem;
   color: var(--atlas-ink-soft);
+  font-family: var(--font-source-sans), Arial, sans-serif;
   font-size: clamp(1.03rem, 1.5vw, 1.16rem);
   font-weight: 300;
   line-height: 1.62;
@@ -756,32 +770,6 @@ body:has(.soft-atlas-page) > main > .site-footer p {
 .about-signoff {
   color: var(--atlas-sage);
   font-size: 0.92rem;
-}
-
-@keyframes about-open {
-  from {
-    height: 0;
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-  to {
-    height: var(--radix-collapsible-content-height);
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes about-close {
-  from {
-    height: var(--radix-collapsible-content-height);
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    height: 0;
-    opacity: 0;
-    transform: translateY(-4px);
-  }
 }
 
 @media (max-width: 1040px) {
@@ -891,14 +879,9 @@ body:has(.soft-atlas-page) > main > .site-footer p {
   .atlas-marker-face,
   .atlas-marker-centre,
   .atlas-marker-tooltip,
-  .about-chevron,
+  .accordion-trigger-chevron,
   .about-links a {
     transition-duration: 0ms;
-  }
-
-  .about-content[data-state='open'],
-  .about-content[data-state='closed'] {
-    animation-duration: 1ms;
   }
 }
 

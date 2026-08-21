@@ -12,7 +12,7 @@ colors:
   atlas-cream: "#f8f4e7"
 typography:
   display:
-    fontFamily: "Newsreader, Georgia, serif"
+    fontFamily: "Instrument Serif, Georgia, serif"
     fontSize: "clamp(3.25rem, 5.7vw, 5.75rem)"
     fontWeight: 400
     lineHeight: 0.94
@@ -54,7 +54,7 @@ components:
 
 Soft Atlas feels like a world map printed directly onto the page of a contemporary literary magazine. It uses a near-monochrome green vocabulary, flat light, calm motion, fine geographic contours, and expansive negative space. It borrows the measured paper-and-sage character of the `sarakim928` essay page without copying that site's composition.
 
-The visual system is quiet but not austere: Newsreader supplies a broad, soft editorial voice for the largest homepage language, while Source Sans 3 stays light and understated across navigation, supporting copy, metadata, and labels. Generic serif fallbacks cover rotating greeting scripts that Newsreader does not include. The globe uses a procedural, non-repeating risograph grain clipped to land, with darker country contours for legibility.
+The visual system is quiet but not austere: Instrument Serif supplies a dense, ink-like editorial voice for the largest homepage language, with a restrained 1.02 horizontal scale that very slightly relieves its compressed proportions. Source Sans 3 stays light and understated across navigation, supporting copy, metadata, and labels. Generic serif fallbacks cover rotating greeting scripts that Instrument Serif does not include. The globe uses a procedural, non-repeating risograph grain clipped to land, with darker country contours for legibility.
 
 **Key characteristics:**
 
@@ -93,17 +93,17 @@ The palette is anchored to the measured colors of the supplied essay reference a
 
 ## Typography
 
-**Display Font:** Newsreader (with Georgia and generic serif fallbacks)
+**Display Font:** Instrument Serif Regular (with Georgia and generic serif fallbacks)
 
 **Body Font:** Source Sans 3 (with Arial and sans-serif fallbacks)
 
 **Label Font:** Source Sans 3
 
-**Character:** Newsreader gives major headings a broad, soft literary presence. Source Sans 3 stays light and functional for introductory support copy, reading text, navigation, geography, dates, annotations, and controls. The same pairing carries across the homepage, memories, and blog.
+**Character:** Instrument Serif gives major headings an expressive, slightly old-fashioned ink-on-paper presence. It stays upright at Regular 400, near-neutral tracking, and only 2% horizontal widening. Source Sans 3 stays light and functional for introductory support copy, reading text, navigation, geography, dates, annotations, and controls. The same pairing carries across the homepage, memories, and blog.
 
 ### Hierarchy
 
-- **Display** (400–500, `clamp(3.25rem, 5.7vw, 5.75rem)`, 0.94; mobile from `2.8rem`): homepage greeting and primary editorial statement.
+- **Display** (400, `clamp(3.25rem, 5.7vw, 5.75rem)`, 0.94; mobile from `2.8rem`; `scaleX(1.02)`): homepage greeting and primary editorial statement.
 - **Intro** (300, `clamp(1.55rem, 2.25vw, 2.15rem)`, 1.23): the lead supporting statement.
 - **Supporting body** (300, `0.92rem–1.16rem`, 1.55–1.65): biography and context, kept near 65 characters per line.
 - **Label** (350–400, `0.66rem–0.78rem`, up to `0.04em` tracking): map instructions, place types, and metadata.

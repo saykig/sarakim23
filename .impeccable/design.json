@@ -13,7 +13,7 @@
       "atlas-cream": { "role": "neutral", "displayName": "Archive Cream", "canonical": "#f8f4e7", "tonalRamp": ["#fffdf6", "#f8f4e7", "#e7dfcb"] }
     },
     "typographyMeta": {
-      "display": { "displayName": "Newsreader Editorial Display", "purpose": "Homepage greeting and major editorial section titles." },
+      "display": { "displayName": "Instrument Serif Editorial Display", "purpose": "Homepage greeting and major editorial section titles at Regular 400 with restrained 1.02 horizontal widening." },
       "body": { "displayName": "Source Sans 3 Reading Body", "purpose": "Introductions and long-form supporting copy." },
       "label": { "displayName": "Source Sans 3 Atlas Label", "purpose": "Navigation, dates, place types, and interaction guidance." }
     },

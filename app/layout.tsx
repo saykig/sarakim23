@@ -1,6 +1,6 @@
 import './global.css'
 import type { Metadata } from 'next'
-import { Newsreader, Source_Sans_3 } from 'next/font/google'
+import { Instrument_Serif, Source_Sans_3 } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
@@ -36,10 +36,11 @@ export const metadata: Metadata = {
 
 const cx = (...classes) => classes.filter(Boolean).join(' ')
 
-const newsreader = Newsreader({
+const instrumentSerif = Instrument_Serif({
   subsets: ['latin'],
-  weight: 'variable',
-  variable: '--font-newsreader',
+  weight: '400',
+  style: 'normal',
+  variable: '--font-instrument-serif',
   display: 'swap',
 })
 
@@ -63,7 +64,7 @@ export default function RootLayout({
         'text-black bg-white dark:text-white dark:bg-black',
         sourceSans.className,
         sourceSans.variable,
-        newsreader.variable
+        instrumentSerif.variable
       )}
     >
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">

@@ -737,6 +737,15 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   font-weight: 400;
 }
 
+.atlas-marker-action {
+  display: block;
+  margin-top: 0.16rem;
+  color: var(--atlas-ink-soft);
+  font-size: 0.66rem;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+}
+
 .atlas-marker-tooltip strong {
   color: var(--atlas-ink);
   font-family: var(--font-source-sans), Arial, sans-serif;

@@ -237,7 +237,7 @@ function FallbackGlobe({
               <span
                 className="atlas-marker-tooltip"
                 role="tooltip"
-                aria-label={`${place.name} • ${place.type}`}
+                aria-label={`${place.name} • ${place.type}${place.memorySlug ? '. Discover memory' : ''}`}
               >
                 <span className="atlas-marker-label">
                   <strong>{place.name}</strong>
@@ -247,6 +247,11 @@ function FallbackGlobe({
                   />
                   <span className="atlas-marker-type">{place.type}</span>
                 </span>
+                {place.memorySlug ? (
+                  <span className="atlas-marker-action">
+                    Discover memory →
+                  </span>
+                ) : null}
               </span>
             </button>
           </div>
@@ -483,7 +488,10 @@ function createMarkerElement(
   const tooltip = document.createElement('span')
   tooltip.className = 'atlas-marker-tooltip'
   tooltip.setAttribute('role', 'tooltip')
-  tooltip.setAttribute('aria-label', `${place.name} • ${place.type}`)
+  tooltip.setAttribute(
+    'aria-label',
+    `${place.name} • ${place.type}${place.memorySlug ? '. Discover memory' : ''}`
+  )
 
   const label = document.createElement('span')
   label.className = 'atlas-marker-label'
@@ -501,6 +509,13 @@ function createMarkerElement(
 
   label.append(name, node, type)
   tooltip.appendChild(label)
+
+  if (place.memorySlug) {
+    const action = document.createElement('span')
+    action.className = 'atlas-marker-action'
+    action.textContent = 'Discover memory →'
+    tooltip.appendChild(action)
+  }
 
   button.append(face, tooltip)
   marker.append(anchor, button)

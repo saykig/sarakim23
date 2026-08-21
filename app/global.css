@@ -754,6 +754,11 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   letter-spacing: 0.025em;
 }
 
+.atlas-marker-action[data-clickable='true'] {
+  cursor: pointer;
+  pointer-events: auto;
+}
+
 .atlas-marker-tooltip strong {
   color: var(--atlas-ink);
   font-family: var(--font-source-sans), Arial, sans-serif;

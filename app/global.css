@@ -223,7 +223,7 @@ body:has(.soft-atlas-page) > main > .site-footer p {
 body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   width: min(100%, 80rem);
   margin-inline: auto;
-  padding: 0 clamp(2rem, 4.5vw, 4.5rem);
+  padding: 0 clamp(2rem, 4.5vw, 4.5rem) 0.65rem;
 }
 
 .site-footer-inner {

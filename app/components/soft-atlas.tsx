@@ -237,7 +237,7 @@ function FallbackGlobe({
               <span
                 className="atlas-marker-tooltip"
                 role="tooltip"
-                aria-label={`${place.name} • ${place.type}${place.memorySlug ? '. Discover memory' : ''}`}
+                aria-label={`${place.name} • ${place.type}. ${place.memorySlug ? 'Discover memory' : 'Memory in progress'}`}
               >
                 <span className="atlas-marker-label">
                   <strong>{place.name}</strong>
@@ -247,11 +247,11 @@ function FallbackGlobe({
                   />
                   <span className="atlas-marker-type">{place.type}</span>
                 </span>
-                {place.memorySlug ? (
-                  <span className="atlas-marker-action">
-                    Discover memory →
-                  </span>
-                ) : null}
+                <span className="atlas-marker-action">
+                  {place.memorySlug
+                    ? 'Discover memory →'
+                    : 'Memory in progress'}
+                </span>
               </span>
             </button>
           </div>
@@ -490,7 +490,7 @@ function createMarkerElement(
   tooltip.setAttribute('role', 'tooltip')
   tooltip.setAttribute(
     'aria-label',
-    `${place.name} • ${place.type}${place.memorySlug ? '. Discover memory' : ''}`
+    `${place.name} • ${place.type}. ${place.memorySlug ? 'Discover memory' : 'Memory in progress'}`
   )
 
   const label = document.createElement('span')
@@ -510,12 +510,12 @@ function createMarkerElement(
   label.append(name, node, type)
   tooltip.appendChild(label)
 
-  if (place.memorySlug) {
-    const action = document.createElement('span')
-    action.className = 'atlas-marker-action'
-    action.textContent = 'Discover memory →'
-    tooltip.appendChild(action)
-  }
+  const action = document.createElement('span')
+  action.className = 'atlas-marker-action'
+  action.textContent = place.memorySlug
+    ? 'Discover memory →'
+    : 'Memory in progress'
+  tooltip.appendChild(action)
 
   button.append(face, tooltip)
   marker.append(anchor, button)

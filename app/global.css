@@ -718,13 +718,15 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
 
 .atlas-marker-label {
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  justify-content: center;
   gap: 0.42rem;
 }
 
 .atlas-marker-label-node {
   width: 0.18rem;
   height: 0.18rem;
+  align-self: center;
   flex: none;
   border-radius: 50%;
   background: var(--atlas-sage);

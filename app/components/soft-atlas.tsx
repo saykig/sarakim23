@@ -671,6 +671,22 @@ export function SoftAtlas() {
     )
   }, [])
 
+  useEffect(() => {
+    const clearSelectedPlace = (event: MouseEvent) => {
+      const target = event.target
+      if (
+        target instanceof Element &&
+        target.closest('.atlas-marker-button')
+      ) {
+        return
+      }
+      setSelectedPlace(null)
+    }
+
+    document.addEventListener('click', clearSelectedPlace)
+    return () => document.removeEventListener('click', clearSelectedPlace)
+  }, [])
+
   return (
     <div className="atlas-experience">
       <div

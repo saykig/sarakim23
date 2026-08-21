@@ -609,7 +609,8 @@ body:has(.soft-atlas-page) > main > .site-footer p {
 }
 
 .atlas-marker-button:hover .atlas-marker-tooltip,
-.atlas-marker-button:focus-visible .atlas-marker-tooltip {
+.atlas-marker-button:focus-visible .atlas-marker-tooltip,
+.atlas-marker-button[data-selected='true'] .atlas-marker-tooltip {
   opacity: 1;
   transform: translate(-50%, 0);
 }

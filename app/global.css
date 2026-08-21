@@ -679,22 +679,13 @@ body:has(.soft-atlas-page) > main > .site-footer p {
   color: var(--atlas-ink-soft);
 }
 
-.about-accordion > :not(:first-child) {
-  border-color: rgb(51 68 52 / 18%);
-  transition: border-color 180ms ease;
-}
-
-.about-accordion > :not(:first-child):hover {
-  border-color: rgb(51 68 52 / 32%);
-}
-
 .about-trigger {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.58rem;
   border: 0;
+  border-bottom: 1px solid rgb(51 68 52 / 18%);
   background: transparent;
   color: var(--atlas-ink-soft);
   cursor: pointer;
@@ -717,25 +708,6 @@ body:has(.soft-atlas-page) > main > .site-footer p {
 .about-trigger:focus-visible {
   outline: 1px solid var(--atlas-ink);
   outline-offset: 4px;
-}
-
-.accordion-trigger-chevron {
-  display: inline-flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-  color: currentColor;
-  opacity: 0.62;
-  transition: opacity 180ms ease, transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
-}
-
-.about-trigger:hover .accordion-trigger-chevron {
-  opacity: 0.9;
-}
-
-.about-trigger[data-expanded] .accordion-trigger-chevron {
-  transform: rotate(180deg);
 }
 
 .about-copy {
@@ -888,7 +860,6 @@ body:has(.soft-atlas-page) > main > .site-footer p {
   .atlas-marker-face,
   .atlas-marker-centre,
   .atlas-marker-tooltip,
-  .accordion-trigger-chevron,
   .about-links a {
     transition-duration: 0ms;
   }

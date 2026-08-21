@@ -10,7 +10,7 @@ import {
 export function AboutSection() {
   return (
     <section className="about-section" aria-label="Explore more about Sara">
-      <Accordion className="about-accordion flex w-full flex-col divide-y">
+      <Accordion className="about-accordion flex w-full flex-col">
         <AccordionItem value="about">
           <AccordionTrigger className="about-trigger w-full py-0.5 text-left">
             A little about me

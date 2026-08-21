@@ -1,6 +1,5 @@
 'use client'
 
-import { ChevronDown } from 'lucide-react'
 import {
   AnimatePresence,
   MotionConfig,
@@ -144,9 +143,6 @@ function AccordionTrigger({ children, className }: AccordionTriggerProps) {
       {...(isExpanded ? { 'data-expanded': '' } : { 'data-closed': '' })}
     >
       {children}
-      <span className="accordion-trigger-chevron" aria-hidden="true">
-        <ChevronDown size={18} strokeWidth={1.5} />
-      </span>
     </button>
   )
 }

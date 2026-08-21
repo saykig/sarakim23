@@ -3,7 +3,7 @@
 import { useId, useState } from 'react'
 
 const VIDEO_URL =
-  'https://youtu.be/KmDYXaaT9sA?si=2KCwlrTAKfrai52E&t=517'
+  'https://youtu.be/KmDYXaaT9sA?si=kEu3XmRfQvMqb482&t=1122'
 const THUMBNAIL_URL = 'https://i.ytimg.com/vi/KmDYXaaT9sA/hqdefault.jpg'
 const CARD_WIDTH = 208
 const CARD_HEIGHT = 150
@@ -71,7 +71,9 @@ export function LicenseEasterEgg() {
           width="480"
           height="360"
         />
-        <span className="license-tooltip-caption">Some fruit for thought</span>
+        <span className="license-tooltip-caption">
+          some fruit for thought. 18:42-21:11 and 8:38-9:20 : )
+        </span>
       </span>
     </span>
   )

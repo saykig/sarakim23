@@ -66,7 +66,7 @@ export default async function MemoryPage({ params }: MemoryPageProps) {
 
       <footer className="memory-footer">
         <Link href="/" target="_blank" rel="noopener noreferrer">
-          return to the atlas <span aria-hidden="true">↗</span>
+          return to home <span aria-hidden="true">↗</span>
         </Link>
       </footer>
     </article>

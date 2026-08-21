@@ -224,8 +224,6 @@ function FallbackGlobe({
                   ? `/memories/${place.memorySlug}`
                   : undefined
               }
-              target={place.memorySlug ? '_blank' : undefined}
-              rel={place.memorySlug ? 'noopener noreferrer' : undefined}
               className="atlas-marker-button atlas-marker-offset"
               data-selected={String(place.slug === selectedPlace?.slug)}
               aria-label={`Explore ${place.name}`}
@@ -480,8 +478,6 @@ function createMarkerElement(
     : document.createElement('button')
   if (control instanceof HTMLAnchorElement) {
     control.href = `/memories/${place.memorySlug}`
-    control.target = '_blank'
-    control.rel = 'noopener noreferrer'
   } else {
     control.type = 'button'
   }

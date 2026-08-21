@@ -1,4 +1,5 @@
 import europeMemories from '../../content/memories/europe/index.json'
+import asiaMemories from '../../content/memories/asia/index.json'
 
 export type AtlasPlace = {
   slug: string
@@ -45,6 +46,14 @@ const places: AtlasPlace[] = [
     lng: 127.3845,
     displayOffset: [10, -8],
     type: 'home',
+  },
+  {
+    slug: 'tokyo',
+    name: 'Tokyo',
+    lat: 35.6762,
+    lng: 139.6503,
+    displayOffset: [14, 10],
+    type: 'visited',
   },
   {
     slug: 'london',
@@ -129,8 +138,14 @@ const places: AtlasPlace[] = [
 ]
 
 const importedMemorySlugs = new Set(
-  europeMemories.locations
-    .filter((location) => location.photoCount > 0)
+  [...europeMemories.locations, ...asiaMemories.locations]
+    .filter(
+      (location) =>
+        location.photoCount > 0 ||
+        ('videoCount' in location &&
+          typeof location.videoCount === 'number' &&
+          location.videoCount > 0)
+    )
     .map((location) => location.slug)
 )
 

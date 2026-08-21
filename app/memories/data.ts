@@ -25,6 +25,28 @@ export type MemoryPhoto = {
   height: number
   layout: string
   parallax: number
+  crop?: {
+    aspectRatio: number
+    objectPosition: string
+  }
+}
+
+export type MemoryVideo = {
+  type: 'video'
+  id: string
+  location: string
+  sourceJournal: string
+  sourceUrl: string
+  localPath: string
+  poster?: string
+  originalOrder: number
+  locationOrder: number
+  caption?: string
+  ariaLabel?: string
+  width: number
+  height: number
+  layout: string
+  parallax: number
 }
 
 export type MemoryEphemera = {
@@ -45,7 +67,11 @@ export type MemorySection = {
   name: string
 }
 
-export type MemoryEntry = MemoryPhoto | MemoryEphemera | MemorySection
+export type MemoryEntry =
+  | MemoryPhoto
+  | MemoryVideo
+  | MemoryEphemera
+  | MemorySection
 
 export type MemoryPage = {
   slug: string
@@ -58,6 +84,17 @@ export type MemoryPage = {
 
 type ImportedPhoto = Omit<MemoryPhoto, 'id' | 'layout' | 'parallax'> & {
   sourceAssetId: string
+}
+
+type ImportedVideo = Omit<MemoryVideo, 'id' | 'layout' | 'parallax'> & {
+  sourceAssetId: string
+}
+
+type ImportedSection = {
+  type: 'section'
+  id: string
+  name: string
+  originalDocumentOrder: number
 }
 
 type ImportedProse = {
@@ -76,13 +113,14 @@ type ImportedLocation = {
     kind: string
     documentOrder: number
   }
-  entries: Array<ImportedPhoto | ImportedProse>
+  entries: Array<ImportedPhoto | ImportedVideo | ImportedProse | ImportedSection>
 }
 
 type ImportedCollectionLocation = {
   slug: string
   manifest: string
   photoCount: number
+  videoCount?: number
 }
 
 type ImportedCollection = {
@@ -95,24 +133,28 @@ type PresentationEntry = {
   parallax?: number
   noteType?: EphemeraType
   relatedPhoto?: string
+  crop?: {
+    aspectRatio: number
+    objectPosition: string
+  }
 }
 
 type Presentation = {
+  excludedPhotos?: string[]
+  photoOrder?: string[]
   presentation: Record<string, PresentationEntry>
 }
 
 type MemoryDestination = {
   slug: string
   name: string
+  dateLabel?: string
+  presentationDirectory: string
   sources: ImportedLocation[]
 }
 
-const contentDirectory = path.join(
-  process.cwd(),
-  'content',
-  'memories',
-  'europe'
-)
+const memoriesDirectory = path.join(process.cwd(), 'content', 'memories')
+const collectionDirectories = ['europe', 'asia'] as const
 const defaultLayouts = [
   'opening',
   'left',
@@ -149,53 +191,67 @@ async function readOptionalJson<T>(filePath: string): Promise<T | null> {
 }
 
 const getMemoryCatalog = cache(async () => {
-  const collection = await readJson<ImportedCollection>(
-    path.join(contentDirectory, 'index.json')
-  )
-  const sources = await Promise.all(
-    collection.locations
-      .filter((location) => location.photoCount > 0)
-      .map((location) =>
-        readJson<ImportedLocation>(
-          path.join(contentDirectory, location.manifest)
-        )
-      )
-  )
-
   const destinations: MemoryDestination[] = []
-  for (const source of sources) {
-    const startsDestination =
-      source.sourceHeading.kind === 'paragraph' || destinations.length === 0
 
-    if (startsDestination) {
-      destinations.push({
-        slug: source.slug,
-        name: formatImportedDisplayText(source.name),
-        sources: [source],
-      })
-    } else {
-      destinations.at(-1)?.sources.push(source)
+  for (const collectionDirectory of collectionDirectories) {
+    const directory = path.join(memoriesDirectory, collectionDirectory)
+    const collection = await readJson<ImportedCollection>(
+      path.join(directory, 'index.json')
+    )
+    const sources = await Promise.all(
+      collection.locations
+        .filter(
+          (location) => location.photoCount > 0 || (location.videoCount ?? 0) > 0
+        )
+        .map((location) =>
+          readJson<ImportedLocation>(
+            path.join(directory, location.manifest)
+          )
+        )
+    )
+
+    const collectionDestinations: MemoryDestination[] = []
+    for (const source of sources) {
+      const startsDestination =
+        source.sourceHeading.kind === 'paragraph' ||
+        collectionDestinations.length === 0
+
+      if (startsDestination) {
+        collectionDestinations.push({
+          slug: source.slug,
+          name: formatImportedDisplayText(source.name),
+          dateLabel: collection.sourceDateLabel,
+          presentationDirectory: path.join(directory, source.slug),
+          sources: [source],
+        })
+      } else {
+        collectionDestinations.at(-1)?.sources.push(source)
+      }
     }
+
+    destinations.push(...collectionDestinations)
   }
 
-  return { collection, destinations }
+  return destinations
 })
 
 export async function getPublishedMemorySlugs() {
-  const { destinations } = await getMemoryCatalog()
+  const destinations = await getMemoryCatalog()
   return destinations.map((destination) => destination.slug)
 }
 
 export const getMemory = cache(
   async (slug: string): Promise<MemoryPage | null> => {
-    const { collection, destinations } = await getMemoryCatalog()
+    const destinations = await getMemoryCatalog()
     const destination = destinations.find((candidate) => candidate.slug === slug)
     if (!destination) return null
 
     const page = await readOptionalJson<Presentation>(
-      path.join(contentDirectory, destination.slug, 'page.json')
+      path.join(destination.presentationDirectory, 'page.json')
     )
     const presentation = page?.presentation ?? {}
+    const excludedPhotos = new Set(page?.excludedPhotos ?? [])
+    const requestedPhotoOrder = page?.photoOrder ?? []
     const entries: MemoryEntry[] = []
     let photoIndex = 0
 
@@ -213,8 +269,46 @@ export const getMemory = cache(
         })
       }
 
-      for (const entry of source.entries) {
+      const orderedPhotos = requestedPhotoOrder
+        .map((id) =>
+          source.entries.find(
+            (entry): entry is ImportedPhoto =>
+              entry.type === 'photo' && entry.sourceAssetId === id
+          )
+        )
+        .filter((entry): entry is ImportedPhoto => Boolean(entry))
+      const orderedPhotoIds = new Set(
+        orderedPhotos.map((entry) => entry.sourceAssetId)
+      )
+      const sourceEntries = [
+        ...orderedPhotos,
+        ...source.entries.filter(
+          (entry) =>
+            entry.type !== 'photo' || !orderedPhotoIds.has(entry.sourceAssetId)
+        ),
+      ]
+
+      for (const entry of sourceEntries) {
         if (entry.type === 'photo') {
+          if (excludedPhotos.has(entry.sourceAssetId)) continue
+
+          const override = presentation[entry.sourceAssetId]
+          const defaultIndex = photoIndex % defaultLayouts.length
+          entries.push({
+            ...entry,
+            id: entry.sourceAssetId,
+            caption: entry.caption
+              ? formatImportedDisplayText(entry.caption)
+              : undefined,
+            layout: override?.layout ?? defaultLayouts[defaultIndex],
+            parallax: override?.parallax ?? defaultParallax[defaultIndex],
+            crop: override?.crop,
+          })
+          photoIndex += 1
+          continue
+        }
+
+        if (entry.type === 'video') {
           const override = presentation[entry.sourceAssetId]
           const defaultIndex = photoIndex % defaultLayouts.length
           entries.push({
@@ -227,6 +321,15 @@ export const getMemory = cache(
             parallax: override?.parallax ?? defaultParallax[defaultIndex],
           })
           photoIndex += 1
+          continue
+        }
+
+        if (entry.type === 'section') {
+          entries.push({
+            type: 'section',
+            id: entry.id,
+            name: formatImportedDisplayText(entry.name),
+          })
           continue
         }
 
@@ -246,16 +349,35 @@ export const getMemory = cache(
       }
     }
 
-    const firstPhoto = entries.find(
-      (entry): entry is MemoryPhoto => entry.type === 'photo'
+    for (const note of entries.filter(
+      (entry): entry is MemoryEphemera =>
+        entry.type === 'ephemera' && Boolean(entry.relatedPhoto)
+    )) {
+      const noteIndex = entries.findIndex((entry) => entry.id === note.id)
+      if (noteIndex < 0) continue
+      entries.splice(noteIndex, 1)
+
+      const photoIndex = entries.findIndex(
+        (entry) => entry.type === 'photo' && entry.id === note.relatedPhoto
+      )
+      if (photoIndex < 0) {
+        entries.splice(noteIndex, 0, note)
+        continue
+      }
+      entries.splice(photoIndex + 1, 0, note)
+    }
+
+    const firstMedia = entries.find(
+      (entry): entry is MemoryPhoto | MemoryVideo =>
+        entry.type === 'photo' || entry.type === 'video'
     )
 
     return {
       slug: destination.slug,
       name: destination.name,
-      dateLabel: collection.sourceDateLabel,
-      sourceJournal: firstPhoto?.sourceJournal ?? '',
-      sourceUrl: firstPhoto?.sourceUrl ?? '',
+      dateLabel: destination.dateLabel,
+      sourceJournal: firstMedia?.sourceJournal ?? '',
+      sourceUrl: firstMedia?.sourceUrl ?? '',
       entries,
     }
   }

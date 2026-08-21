@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "slug": "asia",
+  "title": "asia",
+  "sourceJournal": "Personal archive",
+  "sourceUrl": "",
+  "locationCount": 1,
+  "photoCount": 1,
+  "videoCount": 1,
+  "locations": [
+    {
+      "slug": "tokyo",
+      "name": "Tokyo",
+      "originalOrder": 1,
+      "entryCount": 3,
+      "photoCount": 1,
+      "videoCount": 1,
+      "manifest": "./tokyo/index.json"
+    }
+  ]
+}

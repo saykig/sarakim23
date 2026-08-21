@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "presentation": {
+    "5e14f38f1a477e3140a443a2": {
+      "layout": "opening",
+      "parallax": 0,
+      "crop": {
+        "aspectRatio": 0.92,
+        "objectPosition": "50% 0%"
+      }
+    }
+  }
+}

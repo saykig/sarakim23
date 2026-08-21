@@ -1,16 +1,37 @@
 'use client'
 
 import Image from 'next/image'
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+} from 'react'
 import { gsap } from 'gsap'
 import { Flip } from 'gsap/Flip'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import type { MemoryEntry, MemoryPhoto } from '../../memories/data'
+import type {
+  MemoryEntry,
+  MemoryPhoto,
+  MemoryVideo,
+} from '../../memories/data'
 import { EphemeraNote } from './ephemera-note'
+import { MemoryVideoEntry } from './memory-video'
 
 type MemoryExperienceProps = {
   location: string
   entries: MemoryEntry[]
+}
+
+function cropStyle(photo: MemoryPhoto): CSSProperties | undefined {
+  if (!photo.crop) return undefined
+
+  return {
+    '--memory-crop-ratio': String(photo.crop.aspectRatio),
+    '--memory-crop-position': photo.crop.objectPosition,
+  } as CSSProperties
 }
 
 export function MemoryExperience({ location, entries }: MemoryExperienceProps) {
@@ -25,6 +46,10 @@ export function MemoryExperience({ location, entries }: MemoryExperienceProps) {
   const [activePhoto, setActivePhoto] = useState<MemoryPhoto | null>(null)
   const photos = entries.filter(
     (entry): entry is MemoryPhoto => entry.type === 'photo'
+  )
+  const mediaEntries = entries.filter(
+    (entry): entry is MemoryPhoto | MemoryVideo =>
+      entry.type === 'photo' || entry.type === 'video'
   )
 
   useEffect(() => {
@@ -214,14 +239,28 @@ export function MemoryExperience({ location, entries }: MemoryExperienceProps) {
             )
           }
 
+          if (entry.type === 'video') {
+            const mediaNumber =
+              mediaEntries.findIndex((media) => media.id === entry.id) + 1
+            return (
+              <MemoryVideoEntry
+                key={entry.id}
+                entry={entry}
+                mediaNumber={mediaNumber}
+              />
+            )
+          }
+
           const photoNumber = photos.findIndex((photo) => photo.id === entry.id) + 1
           return (
             <figure
               key={entry.id}
               className="memory-entry memory-photo"
               data-layout={entry.layout}
+              data-cropped={entry.crop ? 'true' : undefined}
               data-parallax={entry.parallax}
               data-memory-item
+              style={cropStyle(entry)}
             >
               <button
                 type="button"
@@ -280,18 +319,22 @@ export function MemoryExperience({ location, entries }: MemoryExperienceProps) {
             >
               Close <span aria-hidden="true">×</span>
             </button>
-            <div
-              className="memory-dialog-image"
-              data-memory-preview
-              data-flip-id={activePhoto.id}
-            >
-              <Image
-                src={activePhoto.localPath}
-                alt={activePhoto.alt ?? `Photograph from ${location}`}
-                fill
-                sizes="(max-width: 700px) calc(100vw - 1.6rem), (max-width: 1100px) 86vw, calc(100vw - 11rem)"
-                loading="eager"
-              />
+            <div className="memory-dialog-image">
+              <div
+                className="memory-dialog-frame"
+                data-cropped={activePhoto.crop ? 'true' : undefined}
+                data-memory-preview
+                data-flip-id={activePhoto.id}
+                style={cropStyle(activePhoto)}
+              >
+                <Image
+                  src={activePhoto.localPath}
+                  alt={activePhoto.alt ?? `Photograph from ${location}`}
+                  fill
+                  sizes="(max-width: 700px) calc(100vw - 1.6rem), (max-width: 1100px) 86vw, calc(100vw - 11rem)"
+                  loading="eager"
+                />
+              </div>
             </div>
           </>
         ) : null}

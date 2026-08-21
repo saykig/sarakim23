@@ -42,12 +42,7 @@ export default async function MemoryPage({ params }: MemoryPageProps) {
   return (
     <article className="memory-page">
       <header className="memory-header">
-        <Link
-          href="/"
-          className="memory-back-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Link href="/" className="memory-back-link">
           <span aria-hidden="true">←</span> Home
         </Link>
         <div className="memory-heading">
@@ -65,9 +60,7 @@ export default async function MemoryPage({ params }: MemoryPageProps) {
       <MemoryExperience location={memory.name} entries={memory.entries} />
 
       <footer className="memory-footer">
-        <Link href="/" target="_blank" rel="noopener noreferrer">
-          Return to home <span aria-hidden="true">↗</span>
-        </Link>
+        <Link href="/">Return to home</Link>
       </footer>
     </article>
   )

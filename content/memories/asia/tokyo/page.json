@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "presentation": {
+    "tokyo-teamlab-photo-413d09c1": {
+      "layout": "left",
+      "parallax": 5
+    },
+    "tokyo-teamlab-video-aed4bf35": {
+      "layout": "right-narrow",
+      "parallax": 3
+    }
+  }
+}

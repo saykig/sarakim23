@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "presentation": {
+    "5e1668bf91eb7b0e50ffafd3": {
+      "layout": "portrait-narrow",
+      "parallax": 0,
+      "crop": {
+        "aspectRatio": 0.43,
+        "objectPosition": "100% 50%"
+      }
+    }
+  }
+}

@@ -131,7 +131,7 @@ try {
         await page.goto(`${baseUrl}/memories/interlaken`, {
           waitUntil: 'domcontentloaded',
         })
-        await page.getByText('return to the atlas').click()
+        await page.getByText('Return to home').click()
         await page.waitForURL(`${baseUrl}/`)
       })
     }

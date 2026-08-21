@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "excludedPhotos": [
+    "5e1096564c6ab11201eb08b9"
+  ],
+  "photoOrder": [
+    "5e1096594c6ab11201eb08ba"
+  ],
+  "presentation": {
+    "5e10964d4c6ab11201eb08b7": {
+      "layout": "right-wide",
+      "parallax": 0,
+      "crop": {
+        "aspectRatio": 1.16,
+        "objectPosition": "50% 0%"
+      }
+    }
+  }
+}

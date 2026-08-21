@@ -15,9 +15,9 @@
       "parallax": 5
     },
     "prose:26": {
-      "layout": "note-overlap",
+      "layout": "note-overlap-compact",
       "noteType": "prose",
-      "relatedPhoto": "5e13958365b7eb5695fa1754"
+      "relatedPhoto": "5e10966e4c6ab11201eb08be"
     },
     "5e10966e4c6ab11201eb08be": {
       "layout": "left-narrow",

@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "slug": "tokyo",
+  "name": "Tokyo",
+  "sourceHeading": {
+    "text": "Tokyo",
+    "kind": "paragraph",
+    "documentOrder": 1
+  },
+  "entries": [
+    {
+      "type": "section",
+      "id": "section:teamlab-exhibition",
+      "name": "TeamLab Exhibition",
+      "originalDocumentOrder": 1
+    },
+    {
+      "type": "photo",
+      "location": "Tokyo",
+      "sourceJournal": "Personal archive",
+      "sourceUrl": "",
+      "sourceAssetId": "tokyo-teamlab-photo-413d09c1",
+      "sourceFileName": "1FF02824-9138-4783-A36D-225421A25572_1_201_a.jpeg",
+      "localPath": "/memories/asia/tokyo/001-teamlab-exhibition.jpeg",
+      "originalOrder": 1,
+      "locationOrder": 1,
+      "alt": "Colorful projected lights across the floor of a dark TeamLab exhibition.",
+      "width": 770,
+      "height": 1078,
+      "mimeType": "image/jpeg",
+      "bytes": 91081,
+      "sha256": "413d09c1cbc1b04759911a881ec4f5ccba939131c581c325c4e93a69f98800b1"
+    },
+    {
+      "type": "video",
+      "location": "Tokyo",
+      "sourceJournal": "Personal archive",
+      "sourceUrl": "",
+      "sourceAssetId": "tokyo-teamlab-video-aed4bf35",
+      "sourceFileName": "My Movie.mp4",
+      "localPath": "/memories/asia/tokyo/002-teamlab-exhibition.mp4",
+      "poster": "/memories/asia/tokyo/001-teamlab-exhibition.jpeg",
+      "originalOrder": 2,
+      "locationOrder": 2,
+      "ariaLabel": "TeamLab Exhibition video from Tokyo",
+      "width": 770,
+      "height": 1078,
+      "mimeType": "video/mp4",
+      "durationSeconds": 16.042,
+      "bytes": 7158749,
+      "sha256": "aed4bf351d477e69bda739dd0937482c851c03d0320b8392611eaf36e3879fd6"
+    }
+  ]
+}

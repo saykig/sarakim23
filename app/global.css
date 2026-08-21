@@ -173,6 +173,7 @@ table {
   --atlas-paper: #e8ead8;
   --atlas-ocean: #dfe4cf;
   --atlas-ink: #334434;
+  --atlas-copy: #4f5d47;
   --atlas-ink-soft: #5d694f;
   --atlas-sage: #758064;
   --atlas-land: #dfe4cf;
@@ -462,6 +463,7 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
 
 .hero-intro {
   max-width: 35ch;
+  color: var(--atlas-copy);
   font-family: var(--font-source-sans), Arial, sans-serif;
   font-size: clamp(1.55rem, 2.25vw, 2.15rem);
   font-weight: 300;
@@ -819,7 +821,7 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
 .about-copy {
   max-width: 68ch;
   padding-block: 1.5rem 1rem;
-  color: var(--atlas-ink-soft);
+  color: var(--atlas-copy);
   font-family: var(--font-source-sans), Arial, sans-serif;
   font-size: clamp(1.03rem, 1.5vw, 1.16rem);
   font-weight: 300;

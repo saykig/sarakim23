@@ -8,6 +8,7 @@
       "atlas-ocean": { "role": "neutral", "displayName": "Atlas Ocean", "canonical": "#dfe4cf", "tonalRamp": ["#e8ead8", "#dfe4cf", "#cfd7bc"] },
       "atlas-land": { "role": "neutral", "displayName": "Atlas Land", "canonical": "#dfe4cf", "tonalRamp": ["#e8ead8", "#dfe4cf", "#cfd7bc"] },
       "atlas-ink": { "role": "primary", "displayName": "Atlas Ink", "canonical": "#334434", "tonalRamp": ["#5d694f", "#334434", "#223025"] },
+      "atlas-copy": { "role": "primary", "displayName": "Reading Ink", "canonical": "#4f5d47", "tonalRamp": ["#6b765f", "#4f5d47", "#394a38"] },
       "atlas-sage": { "role": "secondary", "displayName": "Printed Sage", "canonical": "#758064", "tonalRamp": ["#aab49b", "#758064", "#50634b"] },
       "atlas-line": { "role": "secondary", "displayName": "Contour Green", "canonical": "#394e38", "tonalRamp": ["#5d694f", "#394e38", "#223025"] },
       "atlas-cream": { "role": "neutral", "displayName": "Archive Cream", "canonical": "#f8f4e7", "tonalRamp": ["#fffdf6", "#f8f4e7", "#e7dfcb"] }

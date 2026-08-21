@@ -5,6 +5,7 @@ colors:
   atlas-paper: "#e8ead8"
   atlas-ocean: "#dfe4cf"
   atlas-ink: "#334434"
+  atlas-copy: "#4f5d47"
   atlas-ink-soft: "#5d694f"
   atlas-sage: "#758064"
   atlas-land: "#dfe4cf"
@@ -73,6 +74,7 @@ The palette is anchored to the measured colors of the supplied essay reference a
 - **Atlas Paper** (`#e8ead8`): page background; the continuous paper field.
 - **Atlas Ocean** (`#dfe4cf`): a near-paper sage tint that keeps the sphere legible over open water.
 - **Atlas Ink** (`#334434`): primary text and focus indicators.
+- **Reading Ink** (`#4f5d47`): sustained introductory and biographical copy that needs softer contrast than display ink without sacrificing readability.
 
 ### Secondary
 
@@ -82,7 +84,7 @@ The palette is anchored to the measured colors of the supplied essay reference a
 
 ### Neutral
 
-- **Soft Ink** (`#5d694f`): body copy and metadata on paper.
+- **Soft Ink** (`#5d694f`): metadata, captions, and secondary interface copy on paper.
 - **Archive Cream** (`#f8f4e7`): marker faces and selected annotations.
 
 ### Named Rules

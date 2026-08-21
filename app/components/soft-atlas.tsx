@@ -1,7 +1,6 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import Link from 'next/link'
 import {
   Component,
   useCallback,
@@ -235,13 +234,18 @@ function FallbackGlobe({
               <span className="atlas-marker-face" aria-hidden="true">
                 <span className="atlas-marker-centre" />
               </span>
-              <span className="atlas-marker-tooltip" role="tooltip">
-                <strong>{place.name}</strong>
-                {place.years ? <span>{place.years}</span> : null}
-                <span>
-                  {place.memorySlug
-                    ? 'Discover memory →'
-                    : 'Archive entry in progress'}
+              <span
+                className="atlas-marker-tooltip"
+                role="tooltip"
+                aria-label={`${place.name} • ${place.type}`}
+              >
+                <span className="atlas-marker-label">
+                  <strong>{place.name}</strong>
+                  <span
+                    className="atlas-marker-label-node"
+                    aria-hidden="true"
+                  />
+                  <span className="atlas-marker-type">{place.type}</span>
                 </span>
               </span>
             </button>
@@ -479,22 +483,24 @@ function createMarkerElement(
   const tooltip = document.createElement('span')
   tooltip.className = 'atlas-marker-tooltip'
   tooltip.setAttribute('role', 'tooltip')
+  tooltip.setAttribute('aria-label', `${place.name} • ${place.type}`)
+
+  const label = document.createElement('span')
+  label.className = 'atlas-marker-label'
 
   const name = document.createElement('strong')
   name.textContent = place.name
-  tooltip.appendChild(name)
 
-  if (place.years) {
-    const years = document.createElement('span')
-    years.textContent = place.years
-    tooltip.appendChild(years)
-  }
+  const node = document.createElement('span')
+  node.className = 'atlas-marker-label-node'
+  node.setAttribute('aria-hidden', 'true')
 
-  const action = document.createElement('span')
-  action.textContent = place.memorySlug
-    ? 'Discover memory →'
-    : 'Archive entry in progress'
-  tooltip.appendChild(action)
+  const type = document.createElement('span')
+  type.className = 'atlas-marker-type'
+  type.textContent = place.type
+
+  label.append(name, node, type)
+  tooltip.appendChild(label)
 
   button.append(face, tooltip)
   marker.append(anchor, button)
@@ -791,35 +797,6 @@ export function SoftAtlas() {
         </div>
       </div>
 
-      <div className="atlas-annotation" aria-live="polite">
-        {selectedPlace ? (
-          selectedPlace.memorySlug ? (
-            <Link
-              href={`/memories/${selectedPlace.memorySlug}`}
-              className="atlas-memory-teaser"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="atlas-annotation-kicker">
-                {selectedPlace.type === 'home' ? 'Called home' : 'Visited'}
-              </span>
-              <span className="atlas-annotation-name">{selectedPlace.name}</span>
-              <span className="atlas-memory-action">Discover memory →</span>
-            </Link>
-          ) : (
-            <>
-              <p className="atlas-annotation-kicker">
-                {selectedPlace.type === 'home' ? 'Called home' : 'Visited'}
-              </p>
-              <p className="atlas-annotation-name">{selectedPlace.name}</p>
-              <p className="atlas-annotation-meta">
-                {selectedPlace.years ? `${selectedPlace.years} · ` : ''}
-                Memory archive in progress
-              </p>
-            </>
-          )
-        ) : null}
-      </div>
     </div>
   )
 }

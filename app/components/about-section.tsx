@@ -76,24 +76,25 @@ export function AboutSection() {
                 If you’re in political science, metascience, neuroeconomics,
                 astrophysics, or some wonderfully specific niche thing that you are
                 passionate about, then you’re probably in the right place. I find
-                that people who take their curiosities seriously and are constantly
-                in awe of whatever they uncover or create next as the{' '}
+                people who take their curiosities seriously and stay in awe of
+                whatever they uncover to be one of the{' '}
                 <Tooltip
                   containerClassName="about-inline-tooltip"
                   content={
                     <span className="about-tooltip-copy">
-                      Lapis lazuli has long been associated with wisdom, truth,
-                      royalty, and something almost divine. Its deep blue flecked with
-                      gold is often represented as the starry night sky, one of the
-                      things I’m fascinated by.
+                      When people say ‘hidden gems’ of the world, I like to think of
+                      those people as lapis lazuli. It’s a stone associated with
+                      wisdom, truth, and something almost divine, and I’ve always
+                      liked how its deep blue and little flecks of gold look almost
+                      like a tiny night sky.
                     </span>
                   }
                 >
                   <button type="button" className="about-inline-easter-egg">
-                    lapis lazulis
+                    best parts of society
                   </button>
-                </Tooltip>{' '}
-                of society.
+                </Tooltip>
+                .
               </p>
               <p>
                 If you care about doing good and are deeply passionate something,

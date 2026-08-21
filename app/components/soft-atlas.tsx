@@ -205,6 +205,7 @@ function FallbackGlobe({
         )
         if (!point.visible) return null
         const offset = place.displayOffset ?? [0, 0]
+        const MarkerControl = place.memorySlug ? 'a' : 'button'
 
         return (
           <div
@@ -216,13 +217,30 @@ function FallbackGlobe({
             }}
           >
             <span className="atlas-marker-anchor" aria-hidden="true" />
-            <button
-              type="button"
+            <MarkerControl
+              type={place.memorySlug ? undefined : 'button'}
+              href={
+                place.memorySlug
+                  ? `/memories/${place.memorySlug}`
+                  : undefined
+              }
+              target={place.memorySlug ? '_blank' : undefined}
+              rel={place.memorySlug ? 'noopener noreferrer' : undefined}
               className="atlas-marker-button atlas-marker-offset"
               data-selected={String(place.slug === selectedPlace?.slug)}
               aria-label={`Explore ${place.name}`}
               style={{ left: `${offset[0]}px`, top: `${offset[1]}px` }}
-              onClick={() => onSelect(place)}
+              onClick={(event) => {
+                if (
+                  place.memorySlug &&
+                  event.target instanceof Element &&
+                  event.target.closest('.atlas-marker-action')
+                ) {
+                  return
+                }
+                event.preventDefault()
+                onSelect(place)
+              }}
             >
               {offset[0] !== 0 || offset[1] !== 0 ? (
                 <span
@@ -247,13 +265,16 @@ function FallbackGlobe({
                   />
                   <span className="atlas-marker-type">{place.type}</span>
                 </span>
-                <span className="atlas-marker-action">
+                <span
+                  className="atlas-marker-action"
+                  data-clickable={String(Boolean(place.memorySlug))}
+                >
                   {place.memorySlug
                     ? 'Discover memory →'
                     : 'Memory in progress'}
                 </span>
               </span>
-            </button>
+            </MarkerControl>
           </div>
         )
       })}
@@ -454,11 +475,19 @@ function createMarkerElement(
   const marker = document.createElement('div')
   marker.className = 'atlas-marker'
 
-  const button = document.createElement('button')
-  button.type = 'button'
-  button.className = 'atlas-marker-button atlas-marker-offset'
-  button.dataset.selected = String(selected)
-  button.setAttribute('aria-label', `Explore ${place.name}`)
+  const control = place.memorySlug
+    ? document.createElement('a')
+    : document.createElement('button')
+  if (control instanceof HTMLAnchorElement) {
+    control.href = `/memories/${place.memorySlug}`
+    control.target = '_blank'
+    control.rel = 'noopener noreferrer'
+  } else {
+    control.type = 'button'
+  }
+  control.className = 'atlas-marker-button atlas-marker-offset'
+  control.dataset.selected = String(selected)
+  control.setAttribute('aria-label', `Explore ${place.name}`)
 
   const offset = place.displayOffset ?? [0, 0]
 
@@ -466,15 +495,15 @@ function createMarkerElement(
   anchor.className = 'atlas-marker-anchor'
   anchor.setAttribute('aria-hidden', 'true')
 
-  button.style.left = `${offset[0]}px`
-  button.style.top = `${offset[1]}px`
+  control.style.left = `${offset[0]}px`
+  control.style.top = `${offset[1]}px`
 
   if (offset[0] !== 0 || offset[1] !== 0) {
     const leader = document.createElement('span')
     leader.className = 'atlas-marker-leader'
     leader.setAttribute('aria-hidden', 'true')
     Object.assign(leader.style, markerLeaderStyle(offset))
-    button.appendChild(leader)
+    control.appendChild(leader)
   }
 
   const face = document.createElement('span')
@@ -512,15 +541,24 @@ function createMarkerElement(
 
   const action = document.createElement('span')
   action.className = 'atlas-marker-action'
+  action.dataset.clickable = String(Boolean(place.memorySlug))
   action.textContent = place.memorySlug
     ? 'Discover memory →'
     : 'Memory in progress'
   tooltip.appendChild(action)
 
-  button.append(face, tooltip)
-  marker.append(anchor, button)
-  button.addEventListener('click', (event) => {
+  control.append(face, tooltip)
+  marker.append(anchor, control)
+  control.addEventListener('click', (event) => {
     event.stopPropagation()
+    if (
+      place.memorySlug &&
+      event.target instanceof Element &&
+      event.target.closest('.atlas-marker-action')
+    ) {
+      return
+    }
+    event.preventDefault()
     onSelect(place)
   })
 

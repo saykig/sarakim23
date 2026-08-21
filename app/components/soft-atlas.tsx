@@ -788,7 +788,6 @@ export function SoftAtlas() {
                 {selectedPlace.type === 'home' ? 'called home' : 'visited'}
               </span>
               <span className="atlas-annotation-name">{selectedPlace.name}</span>
-              <span className="atlas-memory-status">memory archive</span>
               <span className="atlas-memory-action">discover memory →</span>
             </Link>
           ) : (

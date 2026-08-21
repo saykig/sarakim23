@@ -898,36 +898,17 @@ body:has(.soft-atlas-page) > main > .site-footer p {
 
 .atlas-memory-teaser .atlas-annotation-name,
 .atlas-memory-teaser .atlas-annotation-kicker,
-.atlas-memory-status,
 .atlas-memory-action {
   display: block;
 }
 
-.atlas-memory-status,
 .atlas-memory-action {
   grid-area: 3 / 1;
   color: var(--atlas-ink-soft);
   font-size: 0.68rem;
   line-height: 1.5;
   letter-spacing: 0.035em;
-  transition: opacity 180ms ease, transform 180ms ease;
-}
-
-.atlas-memory-action {
-  opacity: 0;
-  transform: translateY(0.25rem);
-}
-
-.atlas-memory-teaser:hover .atlas-memory-status,
-.atlas-memory-teaser:focus-visible .atlas-memory-status {
-  opacity: 0;
-  transform: translateY(-0.2rem);
-}
-
-.atlas-memory-teaser:hover .atlas-memory-action,
-.atlas-memory-teaser:focus-visible .atlas-memory-action {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .atlas-memory-teaser:focus-visible {
@@ -1216,27 +1197,7 @@ body:has(.memory-page) ::selection {
   text-underline-offset: 0.3em;
 }
 
-@media (hover: none), (pointer: coarse) {
-  .atlas-memory-status {
-    opacity: 0;
-  }
-
-  .atlas-memory-action {
-    opacity: 1;
-    transform: none;
-  }
-}
-
 @media (max-width: 700px) {
-  .atlas-memory-status {
-    opacity: 0;
-  }
-
-  .atlas-memory-action {
-    opacity: 1;
-    transform: none;
-  }
-
   .memory-header {
     min-height: 68svh;
   }
@@ -1291,11 +1252,6 @@ body:has(.memory-page) ::selection {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .atlas-memory-status,
-  .atlas-memory-action {
-    transition-duration: 0ms;
-  }
-
   .memory-photo-parallax {
     transform: none !important;
   }

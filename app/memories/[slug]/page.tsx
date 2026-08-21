@@ -28,7 +28,7 @@ export async function generateMetadata({
   if (!memory) return {}
 
   return {
-    title: `${memory.name} memory`,
+    title: `${memory.name} Memory`,
     description: `A photographic memory from ${memory.name}, ${memory.dateLabel ?? ''}.`.trim(),
     alternates: { canonical: `/memories/${memory.slug}` },
   }
@@ -48,17 +48,17 @@ export default async function MemoryPage({ params }: MemoryPageProps) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span aria-hidden="true">←</span> home
+          <span aria-hidden="true">←</span> Home
         </Link>
         <div className="memory-heading">
-          <p className="memory-heading-kicker">place memory</p>
+          <p className="memory-heading-kicker">Place memory</p>
           <h1>{memory.name}</h1>
           {memory.dateLabel ? (
             <p className="memory-heading-date">{memory.dateLabel}</p>
           ) : null}
         </div>
         <p className="memory-scroll-cue" aria-hidden="true">
-          scroll to unfold
+          Scroll to unfold
         </p>
       </header>
 
@@ -66,7 +66,7 @@ export default async function MemoryPage({ params }: MemoryPageProps) {
 
       <footer className="memory-footer">
         <Link href="/" target="_blank" rel="noopener noreferrer">
-          return to home <span aria-hidden="true">↗</span>
+          Return to home <span aria-hidden="true">↗</span>
         </Link>
       </footer>
     </article>

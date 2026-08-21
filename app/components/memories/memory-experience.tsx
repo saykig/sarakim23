@@ -278,7 +278,7 @@ export function MemoryExperience({ location, entries }: MemoryExperienceProps) {
               className="memory-dialog-close"
               onClick={requestClose}
             >
-              close <span aria-hidden="true">×</span>
+              Close <span aria-hidden="true">×</span>
             </button>
             <div
               className="memory-dialog-image"

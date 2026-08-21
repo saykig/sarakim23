@@ -29,7 +29,7 @@ const Globe = dynamic(() => import('react-globe.gl'), {
 })
 
 const globeCaption =
-  "hover to discover the places i've called home and travelled to!"
+  "Hover to discover the places I've called home and travelled to!"
 
 const CAPTION_GAP_PX = 16
 const CAPTION_START_ANGLE = 160
@@ -240,8 +240,8 @@ function FallbackGlobe({
                 {place.years ? <span>{place.years}</span> : null}
                 <span>
                   {place.memorySlug
-                    ? 'discover memory →'
-                    : 'archive entry in progress'}
+                    ? 'Discover memory →'
+                    : 'Archive entry in progress'}
                 </span>
               </span>
             </button>
@@ -492,8 +492,8 @@ function createMarkerElement(
 
   const action = document.createElement('span')
   action.textContent = place.memorySlug
-    ? 'discover memory →'
-    : 'archive entry in progress'
+    ? 'Discover memory →'
+    : 'Archive entry in progress'
   tooltip.appendChild(action)
 
   button.append(face, tooltip)
@@ -801,20 +801,20 @@ export function SoftAtlas() {
               rel="noopener noreferrer"
             >
               <span className="atlas-annotation-kicker">
-                {selectedPlace.type === 'home' ? 'called home' : 'visited'}
+                {selectedPlace.type === 'home' ? 'Called home' : 'Visited'}
               </span>
               <span className="atlas-annotation-name">{selectedPlace.name}</span>
-              <span className="atlas-memory-action">discover memory →</span>
+              <span className="atlas-memory-action">Discover memory →</span>
             </Link>
           ) : (
             <>
               <p className="atlas-annotation-kicker">
-                {selectedPlace.type === 'home' ? 'called home' : 'visited'}
+                {selectedPlace.type === 'home' ? 'Called home' : 'Visited'}
               </p>
               <p className="atlas-annotation-name">{selectedPlace.name}</p>
               <p className="atlas-annotation-meta">
                 {selectedPlace.years ? `${selectedPlace.years} · ` : ''}
-                memory archive in progress
+                Memory archive in progress
               </p>
             </>
           )

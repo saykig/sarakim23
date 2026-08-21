@@ -18,12 +18,12 @@ export default function Page() {
           <div className="hero-copy">
             <h1 id="homepage-greeting" className="hero-greeting">
               <WordRotate />
-              <span className="hero-name">i’m Sara.</span>
+              <span className="hero-name">I’m Sara.</span>
             </h1>
 
             <div className="hero-support">
               <p className="hero-intro">
-                i study power, security, and the strange ways people organize
+                I study power, security, and the strange ways people organize
                 the world around them.
               </p>
             </div>

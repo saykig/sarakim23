@@ -71,7 +71,7 @@ export function LicenseEasterEgg() {
           width="480"
           height="360"
         />
-        <span className="license-tooltip-caption">some fruit for thought</span>
+        <span className="license-tooltip-caption">Some fruit for thought</span>
       </span>
     </span>
   )

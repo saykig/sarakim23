@@ -121,6 +121,19 @@ const defaultLayouts = [
   'right-wide',
 ] as const
 const defaultParallax = [4, 7, 5, 6, 4] as const
+const importedDisplayOverrides: Readonly<Record<string, string>> = {
+  florence: 'Florence',
+  'louvre museum': 'Louvre Museum',
+  'sistine chapel': 'Sistine Chapel',
+  'the colosseum': 'The Colosseum',
+}
+
+function formatImportedDisplayText(value: string) {
+  return (
+    importedDisplayOverrides[value.toLowerCase()] ??
+    value.replace(/^\p{Ll}/u, (letter) => letter.toUpperCase())
+  )
+}
 
 async function readJson<T>(filePath: string): Promise<T> {
   return JSON.parse(await readFile(filePath, 'utf8')) as T
@@ -157,7 +170,7 @@ const getMemoryCatalog = cache(async () => {
     if (startsDestination) {
       destinations.push({
         slug: source.slug,
-        name: source.name,
+        name: formatImportedDisplayText(source.name),
         sources: [source],
       })
     } else {
@@ -196,7 +209,7 @@ export const getMemory = cache(
         entries.push({
           type: 'section',
           id: `section:${source.slug}`,
-          name: source.name,
+          name: formatImportedDisplayText(source.name),
         })
       }
 
@@ -207,6 +220,9 @@ export const getMemory = cache(
           entries.push({
             ...entry,
             id: entry.sourceAssetId,
+            caption: entry.caption
+              ? formatImportedDisplayText(entry.caption)
+              : undefined,
             layout: override?.layout ?? defaultLayouts[defaultIndex],
             parallax: override?.parallax ?? defaultParallax[defaultIndex],
           })
@@ -220,7 +236,7 @@ export const getMemory = cache(
           type: 'ephemera',
           id,
           noteType: override?.noteType ?? 'prose',
-          text: entry.text,
+          text: formatImportedDisplayText(entry.text),
           sourceJournal: entry.sourceJournal,
           sourceUrl: entry.sourceUrl,
           originalOrder: entry.originalDocumentOrder,

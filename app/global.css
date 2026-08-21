@@ -255,7 +255,7 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   border: 0;
   background: transparent;
   padding: 0;
-  cursor: help;
+  cursor: pointer;
   font: inherit;
 }
 

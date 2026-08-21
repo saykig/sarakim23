@@ -65,12 +65,10 @@ export function AboutSection() {
                 .
               </p>
               <p>
-                This website is my way of presenting the digital version of myself
-                while the physical one remains very much a work in progress:
+                This website is still a work in progress, much like I am:
                 constantly learning things, changing my mind, making things,
                 collecting thoughts, and meeting people who are genuinely excited
-                about what they do and want to see change in the world as much as I
-                do.
+                about what they do
               </p>
               <p>
                 If you’re in political science, metascience, neuroeconomics,

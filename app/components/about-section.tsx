@@ -32,7 +32,7 @@ export function AboutSection() {
                 Public Policy at the University of Toronto. I hope to write my thesis
                 on the ways in which powerful people make decisions about the
                 world—decisions that are often, if not most of the time, difficult to
-                understand on why they even did it.
+                understand.
               </p>
               <p>
                 I’m curious about where this little journey across the pale blue dot

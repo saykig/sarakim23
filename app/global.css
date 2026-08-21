@@ -241,10 +241,8 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
 .footer-contact-links a,
 .footer-contact-email {
   color: inherit;
-  text-decoration: underline;
-  text-decoration-color: rgb(80 99 75 / 45%);
-  text-underline-offset: 0.2em;
-  transition: color 180ms ease, text-decoration-color 180ms ease;
+  text-decoration: none;
+  transition: color 180ms ease;
 }
 
 .footer-contact-email {
@@ -261,7 +259,6 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
 .footer-contact-email:hover,
 .footer-contact-email:focus-visible {
   color: var(--atlas-ink);
-  text-decoration-color: currentColor;
 }
 
 .footer-contact-links a:focus-visible,
@@ -770,7 +767,7 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   color: var(--atlas-ink-soft);
   cursor: pointer;
   font-family: var(--font-instrument-serif), Georgia, serif;
-  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  font-size: clamp(1.18rem, 1.55vw, 1.38rem);
   font-style: normal;
   font-weight: 400;
   font-synthesis: none;
@@ -792,7 +789,7 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
 
 .about-copy {
   max-width: 68ch;
-  padding-block: 2.5rem 1rem;
+  padding-block: 1.5rem 1rem;
   color: var(--atlas-ink-soft);
   font-family: var(--font-source-sans), Arial, sans-serif;
   font-size: clamp(1.03rem, 1.5vw, 1.16rem);
@@ -912,7 +909,7 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   }
 
   .about-copy {
-    padding-top: 2rem;
+    padding-top: 1.25rem;
   }
 }
 

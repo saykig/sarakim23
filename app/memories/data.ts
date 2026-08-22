@@ -1,6 +1,7 @@
 import { cache } from 'react'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
+import { groupedMemoryDestinations } from './destinations'
 
 export type EphemeraType =
   | 'poem'
@@ -149,8 +150,11 @@ type MemoryDestination = {
   slug: string
   name: string
   dateLabel?: string
-  presentationDirectory: string
-  sources: ImportedLocation[]
+  sectionEverySource?: boolean
+  sources: Array<{
+    content: ImportedLocation
+    presentationDirectory: string
+  }>
 }
 
 const memoriesDirectory = path.join(process.cwd(), 'content', 'memories')
@@ -209,9 +213,42 @@ const getMemoryCatalog = cache(async () => {
           )
         )
     )
+    const sourcesBySlug = new Map(sources.map((source) => [source.slug, source]))
+    const collectionGroups = groupedMemoryDestinations.filter(
+      (group) => group.collection === collectionDirectory
+    )
+    const groupedSourceSlugs = new Set<string>(
+      collectionGroups.flatMap((group) => [...group.sourceSlugs])
+    )
 
     const collectionDestinations: MemoryDestination[] = []
     for (const source of sources) {
+      const group = collectionGroups.find(
+        (candidate) => candidate.sourceSlugs[0] === source.slug
+      )
+      if (group) {
+        collectionDestinations.push({
+          slug: group.slug,
+          name: group.name,
+          dateLabel: collection.sourceDateLabel,
+          sectionEverySource: group.sectionEverySource,
+          sources: group.sourceSlugs.map((sourceSlug) => {
+            const groupedSource = sourcesBySlug.get(sourceSlug)
+            if (!groupedSource) {
+              throw new Error(
+                `Missing ${sourceSlug} source for ${group.slug} memory`
+              )
+            }
+            return {
+              content: groupedSource,
+              presentationDirectory: path.join(directory, sourceSlug),
+            }
+          }),
+        })
+        continue
+      }
+      if (groupedSourceSlugs.has(source.slug)) continue
+
       const startsDestination =
         source.sourceHeading.kind === 'paragraph' ||
         collectionDestinations.length === 0
@@ -221,11 +258,18 @@ const getMemoryCatalog = cache(async () => {
           slug: source.slug,
           name: formatImportedDisplayText(source.name),
           dateLabel: collection.sourceDateLabel,
-          presentationDirectory: path.join(directory, source.slug),
-          sources: [source],
+          sources: [
+            {
+              content: source,
+              presentationDirectory: path.join(directory, source.slug),
+            },
+          ],
         })
       } else {
-        collectionDestinations.at(-1)?.sources.push(source)
+        collectionDestinations.at(-1)?.sources.push({
+          content: source,
+          presentationDirectory: path.join(directory, source.slug),
+        })
       }
     }
 
@@ -246,12 +290,6 @@ export const getMemory = cache(
     const destination = destinations.find((candidate) => candidate.slug === slug)
     if (!destination) return null
 
-    const page = await readOptionalJson<Presentation>(
-      path.join(destination.presentationDirectory, 'page.json')
-    )
-    const presentation = page?.presentation ?? {}
-    const excludedPhotos = new Set(page?.excludedPhotos ?? [])
-    const requestedPhotoOrder = page?.photoOrder ?? []
     const entries: MemoryEntry[] = []
     let photoIndex = 0
 
@@ -260,8 +298,16 @@ export const getMemory = cache(
       sourceIndex < destination.sources.length;
       sourceIndex += 1
     ) {
-      const source = destination.sources[sourceIndex]
-      if (sourceIndex > 0) {
+      const destinationSource = destination.sources[sourceIndex]
+      const source = destinationSource.content
+      const page = await readOptionalJson<Presentation>(
+        path.join(destinationSource.presentationDirectory, 'page.json')
+      )
+      const presentation = page?.presentation ?? {}
+      const excludedPhotos = new Set(page?.excludedPhotos ?? [])
+      const requestedPhotoOrder = page?.photoOrder ?? []
+
+      if (sourceIndex > 0 || destination.sectionEverySource) {
         entries.push({
           type: 'section',
           id: `section:${source.slug}`,

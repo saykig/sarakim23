@@ -50,7 +50,7 @@ export function AboutSection() {
 
         <AccordionItem className="homepage-accordion-item" value="projects">
           <AccordionTrigger className="about-trigger w-full py-0.5">
-            Project
+            Working
           </AccordionTrigger>
           <AccordionContent className="homepage-accordion-content">
             <ProjectsTransitionPanel />

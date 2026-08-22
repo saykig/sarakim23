@@ -340,7 +340,7 @@ body:has(.soft-atlas-page) ::selection {
   display: flex;
   align-items: baseline;
   gap: 0.42rem;
-  color: var(--atlas-ink);
+  color: var(--atlas-ink-soft);
   font-size: 0.92rem;
   font-weight: 350;
   line-height: 1.4;
@@ -763,7 +763,7 @@ body:has(.soft-atlas-page) ::selection {
   position: relative;
   width: 0;
   height: 0;
-  color: var(--atlas-ink-soft);
+  color: var(--atlas-ink);
   pointer-events: none;
 }
 

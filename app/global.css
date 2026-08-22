@@ -874,6 +874,71 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   outline-offset: 4px;
 }
 
+.homepage-accordion-content {
+  width: 100%;
+  max-width: 34rem;
+  color: var(--atlas-copy);
+  font-family: var(--font-source-sans), Arial, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.55;
+}
+
+.homepage-accordion-content > * {
+  padding: 0.7rem 0 1.1rem;
+}
+
+.homepage-accordion-entry + .homepage-accordion-entry {
+  margin-top: 1.15rem;
+}
+
+.homepage-accordion-title {
+  color: var(--atlas-ink-soft);
+  font-family: var(--font-source-sans), Arial, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+a.homepage-accordion-title:hover,
+a.homepage-accordion-title:focus-visible,
+.homepage-accordion-links a:hover,
+.homepage-accordion-links a:focus-visible {
+  color: var(--atlas-ink);
+  text-decoration-color: currentColor;
+}
+
+a.homepage-accordion-title:focus-visible,
+.homepage-accordion-links a:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 3px;
+}
+
+.homepage-accordion-entry p {
+  margin-top: 0.22rem;
+}
+
+.homepage-accordion-tooltip .contact-tooltip-content {
+  line-height: 1.45;
+  white-space: normal;
+}
+
+.homepage-accordion-links {
+  display: flex;
+  gap: 0.85rem;
+  margin-top: 0.42rem !important;
+}
+
+.homepage-accordion-links a {
+  color: var(--atlas-ink-soft);
+  font-size: 0.78rem;
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.18em;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
 html:has(.about-page) {
   overflow-x: clip;
   background: var(--atlas-paper) !important;

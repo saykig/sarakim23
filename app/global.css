@@ -765,6 +765,17 @@ body:has(.soft-atlas-page) ::selection {
   pointer-events: none;
 }
 
+/*
+ * The tooltip is inside an isolated marker control. Elevating the marker root
+ * (not only the tooltip) keeps it above neighbouring marker stacking contexts
+ * in both the WebGL HTML overlay and the SVG fallback.
+ */
+.atlas-marker:has(.atlas-marker-button:hover),
+.atlas-marker:has(.atlas-marker-button:focus-visible),
+.atlas-marker:has(.atlas-marker-button[data-selected='true']) {
+  z-index: 100;
+}
+
 .atlas-marker-button {
   position: absolute;
   z-index: 2;
@@ -847,6 +858,12 @@ body:has(.soft-atlas-page) ::selection {
 
 .atlas-marker-button:focus-visible {
   outline: none;
+}
+
+.atlas-marker-button:hover,
+.atlas-marker-button:focus-visible,
+.atlas-marker-button[data-selected='true'] {
+  z-index: 100;
 }
 
 .atlas-marker-tooltip {

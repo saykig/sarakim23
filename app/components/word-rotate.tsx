@@ -5,7 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { Tooltip } from '@/components/ui/tooltip-card'
 
 const greetings = [
-  { word: 'Merhaba!', hold: 320, transition: 0.24 },
+  { word: 'Salom!', hold: 320, transition: 0.24 },
   { word: '안녕하세요!', hold: 400, transition: 0.28 },
   { word: 'Привет!', hold: 420, transition: 0.3 },
   { word: 'Hello!', hold: null, transition: 0.75 },

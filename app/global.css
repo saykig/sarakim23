@@ -340,7 +340,7 @@ body:has(.soft-atlas-page) ::selection {
   display: flex;
   align-items: baseline;
   gap: 0.42rem;
-  color: var(--atlas-ink-soft);
+  color: var(--atlas-ink);
   font-size: 0.92rem;
   font-weight: 350;
   line-height: 1.4;
@@ -763,7 +763,7 @@ body:has(.soft-atlas-page) ::selection {
   position: relative;
   width: 0;
   height: 0;
-  color: var(--atlas-ink);
+  color: var(--atlas-ink-soft);
   pointer-events: none;
 }
 
@@ -1347,11 +1347,7 @@ body:has(.about-page) ::selection {
 }
 
 .mindscape-tab {
-  --mindscape-tab-color: color-mix(
-    in srgb,
-    var(--atlas-sage) 22%,
-    var(--atlas-paper)
-  );
+  --mindscape-tab-color: #e6eedf;
   display: flex;
   width: calc(100% - 0.75rem);
   min-height: 3rem;
@@ -1360,7 +1356,7 @@ body:has(.about-page) ::selection {
   border-left: 0;
   border-radius: 0 0.55rem 0.55rem 0;
   background: var(--mindscape-tab-color);
-  color: var(--atlas-ink-soft);
+  color: var(--atlas-ink);
   cursor: pointer;
   font-family: var(--font-source-sans), Arial, sans-serif;
   font-size: clamp(0.78rem, 1.2vw, 0.9rem);
@@ -1379,40 +1375,37 @@ body:has(.about-page) ::selection {
 }
 
 .mindscape-tab:nth-child(2) {
-  --mindscape-tab-color: color-mix(
-    in srgb,
-    var(--atlas-sage) 27%,
-    var(--atlas-paper)
-  );
+  --mindscape-tab-color: #d8e5cf;
 }
 
 .mindscape-tab:nth-child(3) {
-  --mindscape-tab-color: color-mix(
-    in srgb,
-    var(--atlas-sage) 32%,
-    var(--atlas-paper)
-  );
+  --mindscape-tab-color: #c8d8bd;
 }
 
 .mindscape-tab:nth-child(4) {
-  --mindscape-tab-color: color-mix(
-    in srgb,
-    var(--atlas-sage) 25%,
-    var(--atlas-paper)
-  );
+  --mindscape-tab-color: #b5c8a8;
 }
 
 .mindscape-tab:nth-child(5) {
-  --mindscape-tab-color: color-mix(
-    in srgb,
-    var(--atlas-sage) 29%,
-    var(--atlas-paper)
-  );
+  --mindscape-tab-color: #9db488;
 }
 
-.mindscape-tab:hover,
+.mindscape-tab:hover {
+  background: color-mix(
+    in srgb,
+    var(--mindscape-tab-color) 94%,
+    var(--atlas-sage)
+  );
+  color: var(--atlas-ink);
+  transform: translateX(0.2rem);
+}
+
 .mindscape-tab[data-state='active'] {
-  background: color-mix(in srgb, var(--atlas-sage) 45%, var(--atlas-paper));
+  background: color-mix(
+    in srgb,
+    var(--mindscape-tab-color) 88%,
+    var(--atlas-sage)
+  );
   color: var(--atlas-ink);
   transform: translateX(0.2rem);
 }

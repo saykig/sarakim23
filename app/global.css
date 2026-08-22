@@ -754,7 +754,6 @@ body:has(.soft-atlas-page) ::selection {
 
 .atlas-marker.atlas-fallback-marker {
   position: absolute;
-  z-index: 3;
 }
 
 .atlas-marker {
@@ -765,20 +764,8 @@ body:has(.soft-atlas-page) ::selection {
   pointer-events: none;
 }
 
-/*
- * The tooltip is inside an isolated marker control. Elevating the marker root
- * (not only the tooltip) keeps it above neighbouring marker stacking contexts
- * in both the WebGL HTML overlay and the SVG fallback.
- */
-.atlas-marker:has(.atlas-marker-button:hover),
-.atlas-marker:has(.atlas-marker-button:focus-visible),
-.atlas-marker:has(.atlas-marker-button[data-selected='true']) {
-  z-index: 100;
-}
-
 .atlas-marker-button {
   position: absolute;
-  z-index: 2;
   display: grid;
   width: 2rem;
   height: 2rem;
@@ -788,37 +775,12 @@ body:has(.soft-atlas-page) ::selection {
   background: transparent;
   color: inherit;
   cursor: pointer;
-  isolation: isolate;
   pointer-events: auto;
   transform: translate(-50%, -50%);
 }
 
-.atlas-marker-anchor {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 0.16rem;
-  height: 0.16rem;
-  border-radius: 50%;
-  background: var(--atlas-sage);
-  transform: translate(-50%, -50%);
-}
-
-.atlas-marker-leader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 0;
-  height: 1px;
-  background: color-mix(in srgb, var(--atlas-sage) 52%, transparent);
-  pointer-events: none;
-  transform-origin: left center;
-}
-
 .atlas-marker-face {
   position: relative;
-  z-index: 1;
   display: grid;
   width: 0.625rem;
   height: 0.625rem;
@@ -846,31 +808,32 @@ body:has(.soft-atlas-page) ::selection {
 }
 
 .atlas-marker-button:hover .atlas-marker-face,
-.atlas-marker-button:focus-visible .atlas-marker-face {
+.atlas-marker-button:focus-visible .atlas-marker-face,
+.atlas-marker-button[data-selected='true'] .atlas-marker-face {
   border-color: color-mix(in srgb, var(--atlas-sage) 48%, transparent);
-  transform: scale(1.3);
+  transform: scale(1.22);
 }
 
 .atlas-marker-button:hover .atlas-marker-centre,
-.atlas-marker-button:focus-visible .atlas-marker-centre {
-  transform: scale(0.86);
+.atlas-marker-button:focus-visible .atlas-marker-centre,
+.atlas-marker-button[data-selected='true'] .atlas-marker-centre {
+  transform: scale(0.92);
 }
 
 .atlas-marker-button:focus-visible {
   outline: none;
 }
 
-.atlas-marker-button:hover,
-.atlas-marker-button:focus-visible,
-.atlas-marker-button[data-selected='true'] {
-  z-index: 100;
+.atlas-tooltip-layer {
+  position: absolute;
+  z-index: 12;
+  inset: 0;
+  pointer-events: none;
 }
 
-.atlas-marker-tooltip {
+.atlas-tooltip-card {
   position: absolute;
-  bottom: calc(100% + 0.3rem);
-  left: 50%;
-  z-index: 3;
+  z-index: 1;
   display: grid;
   min-width: 10.5rem;
   justify-items: center;
@@ -884,21 +847,20 @@ body:has(.soft-atlas-page) ::selection {
   font-weight: 400;
   line-height: 1.3;
   letter-spacing: 0.015em;
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, 0.3rem);
+  pointer-events: auto;
+  transform: translate(-50%, -100%);
   transition: opacity 160ms ease, transform 160ms ease;
   white-space: nowrap;
 }
 
-.atlas-marker-label {
+.atlas-tooltip-label {
   display: flex;
   align-items: baseline;
   justify-content: center;
   gap: 0.42rem;
 }
 
-.atlas-marker-label-node {
+.atlas-tooltip-label-node {
   width: 0.18rem;
   height: 0.18rem;
   align-self: center;
@@ -908,13 +870,13 @@ body:has(.soft-atlas-page) ::selection {
   opacity: 0.72;
 }
 
-.atlas-marker-type {
+.atlas-tooltip-type {
   color: var(--atlas-ink-soft);
   font-size: 0.68rem;
   font-weight: 400;
 }
 
-.atlas-marker-action {
+.atlas-tooltip-action {
   display: block;
   width: 100%;
   margin-top: 0.08rem;
@@ -925,24 +887,30 @@ body:has(.soft-atlas-page) ::selection {
   text-align: center;
 }
 
-.atlas-marker-action[data-clickable='true'] {
+.atlas-tooltip-action[href] {
+  color: var(--atlas-ink-soft);
   cursor: pointer;
-  pointer-events: auto;
+  text-decoration: none;
 }
 
-.atlas-marker-tooltip strong {
+.atlas-tooltip-action[href]:hover,
+.atlas-tooltip-action[href]:focus-visible {
+  color: var(--atlas-ink);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.atlas-tooltip-action[href]:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 3px;
+}
+
+.atlas-tooltip-card strong {
   color: var(--atlas-ink);
   font-family: var(--font-source-sans), Arial, sans-serif;
   font-size: 0.94rem;
   font-weight: 400;
   letter-spacing: 0;
-}
-
-.atlas-marker-button:hover .atlas-marker-tooltip,
-.atlas-marker-button:focus-visible .atlas-marker-tooltip,
-.atlas-marker-button[data-selected='true'] .atlas-marker-tooltip {
-  opacity: 1;
-  transform: translate(-50%, 0);
 }
 
 .homepage-shell {
@@ -1713,7 +1681,7 @@ body:has(.about-page) ::selection {
   .atlas-globe-frame,
   .atlas-marker-face,
   .atlas-marker-centre,
-  .atlas-marker-tooltip,
+  .atlas-tooltip-card,
   .personal-contact-links a,
   .personal-contact-email {
     transition-duration: 0ms;

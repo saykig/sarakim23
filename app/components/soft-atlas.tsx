@@ -46,6 +46,11 @@ type GlobeScreenGeometry = {
   radius: number
 }
 
+type TooltipPosition = {
+  x: number
+  y: number
+}
+
 type GlobeRenderBoundaryProps = {
   children: ReactNode
   fallback: ReactNode
@@ -112,11 +117,15 @@ function FallbackGlobe({
   reduceMotion,
   hasInteracted,
   onSelect,
+  onMarkerEnter,
+  onMarkerLeave,
 }: {
   selectedPlace: AtlasPlace | null
   reduceMotion: boolean
   hasInteracted: boolean
   onSelect: (place: AtlasPlace) => void
+  onMarkerEnter: (place: AtlasPlace) => void
+  onMarkerLeave: () => void
 }) {
   const [centreLongitude, setCentreLongitude] = useState(FALLBACK_LONGITUDE)
 
@@ -204,7 +213,6 @@ function FallbackGlobe({
           centreLongitude
         )
         if (!point.visible) return null
-        const offset = place.displayOffset ?? [0, 0]
         const MarkerControl = place.memorySlug ? 'a' : 'button'
 
         return (
@@ -216,7 +224,6 @@ function FallbackGlobe({
               top: `${(point.y / FALLBACK_SIZE) * 100}%`,
             }}
           >
-            <span className="atlas-marker-anchor" aria-hidden="true" />
             <MarkerControl
               type={place.memorySlug ? undefined : 'button'}
               href={
@@ -224,53 +231,21 @@ function FallbackGlobe({
                   ? `/memories/${place.memorySlug}`
                   : undefined
               }
-              className="atlas-marker-button atlas-marker-offset"
+              className="atlas-marker-button"
               data-selected={String(place.slug === selectedPlace?.slug)}
+              data-atlas-place={place.slug}
               aria-label={`Explore ${place.name}`}
-              style={{ left: `${offset[0]}px`, top: `${offset[1]}px` }}
+              onMouseEnter={() => onMarkerEnter(place)}
+              onMouseLeave={onMarkerLeave}
+              onFocus={() => onMarkerEnter(place)}
+              onBlur={onMarkerLeave}
               onClick={(event) => {
-                if (
-                  place.memorySlug &&
-                  event.target instanceof Element &&
-                  event.target.closest('.atlas-marker-action')
-                ) {
-                  return
-                }
                 event.preventDefault()
                 onSelect(place)
               }}
             >
-              {offset[0] !== 0 || offset[1] !== 0 ? (
-                <span
-                  className="atlas-marker-leader"
-                  aria-hidden="true"
-                  style={markerLeaderStyle(offset)}
-                />
-              ) : null}
               <span className="atlas-marker-face" aria-hidden="true">
                 <span className="atlas-marker-centre" />
-              </span>
-              <span
-                className="atlas-marker-tooltip"
-                role="tooltip"
-                aria-label={`${place.name} • ${place.type}. ${place.memorySlug ? 'Discover memory' : 'Memory in progress'}`}
-              >
-                <span className="atlas-marker-label">
-                  <strong>{place.name}</strong>
-                  <span
-                    className="atlas-marker-label-node"
-                    aria-hidden="true"
-                  />
-                  <span className="atlas-marker-type">{place.type}</span>
-                </span>
-                <span
-                  className="atlas-marker-action"
-                  data-clickable={String(Boolean(place.memorySlug))}
-                >
-                  {place.memorySlug
-                    ? 'Discover memory →'
-                    : 'Memory in progress'}
-                </span>
               </span>
             </MarkerControl>
           </div>
@@ -455,20 +430,12 @@ function circularArcPath(
   ].join(' ')
 }
 
-function markerLeaderStyle(offset: readonly [number, number]) {
-  const distance = Math.hypot(offset[0], offset[1])
-  const headGap = Math.min(5, distance)
-
-  return {
-    width: `${Math.max(0, distance - headGap).toFixed(3)}px`,
-    transform: `rotate(${Math.atan2(-offset[1], -offset[0]).toFixed(5)}rad) translateX(${headGap.toFixed(3)}px)`,
-  }
-}
-
 function createMarkerElement(
   place: AtlasPlace,
   selected: boolean,
-  onSelect: (place: AtlasPlace) => void
+  onSelect: (place: AtlasPlace) => void,
+  onMarkerEnter: (place: AtlasPlace) => void,
+  onMarkerLeave: () => void
 ) {
   const marker = document.createElement('div')
   marker.className = 'atlas-marker'
@@ -481,26 +448,10 @@ function createMarkerElement(
   } else {
     control.type = 'button'
   }
-  control.className = 'atlas-marker-button atlas-marker-offset'
+  control.className = 'atlas-marker-button'
   control.dataset.selected = String(selected)
+  control.dataset.atlasPlace = place.slug
   control.setAttribute('aria-label', `Explore ${place.name}`)
-
-  const offset = place.displayOffset ?? [0, 0]
-
-  const anchor = document.createElement('span')
-  anchor.className = 'atlas-marker-anchor'
-  anchor.setAttribute('aria-hidden', 'true')
-
-  control.style.left = `${offset[0]}px`
-  control.style.top = `${offset[1]}px`
-
-  if (offset[0] !== 0 || offset[1] !== 0) {
-    const leader = document.createElement('span')
-    leader.className = 'atlas-marker-leader'
-    leader.setAttribute('aria-hidden', 'true')
-    Object.assign(leader.style, markerLeaderStyle(offset))
-    control.appendChild(leader)
-  }
 
   const face = document.createElement('span')
   face.className = 'atlas-marker-face'
@@ -510,50 +461,14 @@ function createMarkerElement(
   centre.className = 'atlas-marker-centre'
   face.appendChild(centre)
 
-  const tooltip = document.createElement('span')
-  tooltip.className = 'atlas-marker-tooltip'
-  tooltip.setAttribute('role', 'tooltip')
-  tooltip.setAttribute(
-    'aria-label',
-    `${place.name} • ${place.type}. ${place.memorySlug ? 'Discover memory' : 'Memory in progress'}`
-  )
-
-  const label = document.createElement('span')
-  label.className = 'atlas-marker-label'
-
-  const name = document.createElement('strong')
-  name.textContent = place.name
-
-  const node = document.createElement('span')
-  node.className = 'atlas-marker-label-node'
-  node.setAttribute('aria-hidden', 'true')
-
-  const type = document.createElement('span')
-  type.className = 'atlas-marker-type'
-  type.textContent = place.type
-
-  label.append(name, node, type)
-  tooltip.appendChild(label)
-
-  const action = document.createElement('span')
-  action.className = 'atlas-marker-action'
-  action.dataset.clickable = String(Boolean(place.memorySlug))
-  action.textContent = place.memorySlug
-    ? 'Discover memory →'
-    : 'Memory in progress'
-  tooltip.appendChild(action)
-
-  control.append(face, tooltip)
-  marker.append(anchor, control)
+  control.append(face)
+  marker.append(control)
+  control.addEventListener('mouseenter', () => onMarkerEnter(place))
+  control.addEventListener('mouseleave', onMarkerLeave)
+  control.addEventListener('focus', () => onMarkerEnter(place))
+  control.addEventListener('blur', onMarkerLeave)
   control.addEventListener('click', (event) => {
     event.stopPropagation()
-    if (
-      place.memorySlug &&
-      event.target instanceof Element &&
-      event.target.closest('.atlas-marker-action')
-    ) {
-      return
-    }
     event.preventDefault()
     onSelect(place)
   })
@@ -561,16 +476,95 @@ function createMarkerElement(
   return marker
 }
 
+function AtlasTooltipOverlay({
+  place,
+  position,
+  onPointerEnter,
+  onPointerLeave,
+}: {
+  place: AtlasPlace | null
+  position: TooltipPosition | null
+  onPointerEnter: () => void
+  onPointerLeave: () => void
+}) {
+  if (!place || !position) return null
+
+  return (
+    <div className="atlas-tooltip-layer" aria-live="polite">
+      <div
+        className="atlas-tooltip-card"
+        role="tooltip"
+        aria-label={`${place.name} • ${place.type}. ${place.memorySlug ? 'Discover memory' : 'Memory in progress'}`}
+        style={{ left: `${position.x}px`, top: `${position.y}px` }}
+        onPointerEnter={onPointerEnter}
+        onPointerLeave={onPointerLeave}
+        onFocusCapture={onPointerEnter}
+        onBlurCapture={onPointerLeave}
+      >
+        <span className="atlas-tooltip-label">
+          <strong>{place.name}</strong>
+          <span className="atlas-tooltip-label-node" aria-hidden="true" />
+          <span className="atlas-tooltip-type">{place.type}</span>
+        </span>
+        {place.memorySlug ? (
+          <a
+            className="atlas-tooltip-action"
+            href={`/memories/${place.memorySlug}`}
+          >
+            Discover memory →
+          </a>
+        ) : (
+          <span className="atlas-tooltip-action">Memory in progress</span>
+        )}
+      </div>
+    </div>
+  )
+}
+
 export function SoftAtlas() {
   const globeRef = useRef<GlobeMethods | undefined>(undefined)
+  const viewportRef = useRef<HTMLDivElement>(null)
+  const tooltipClearTimerRef = useRef<number | null>(null)
   const reduceMotion = useReducedMotion()
   const [selectedPlace, setSelectedPlace] = useState<AtlasPlace | null>(null)
+  const [hoveredPlace, setHoveredPlace] = useState<AtlasPlace | null>(null)
+  const [tooltipPosition, setTooltipPosition] =
+    useState<TooltipPosition | null>(null)
   const [hasInteracted, setHasInteracted] = useState(false)
   const [isReady, setIsReady] = useState(false)
   const [projectedGlobe, setProjectedGlobe] =
     useState<GlobeScreenGeometry | null>(null)
   const [showGeometryDebug, setShowGeometryDebug] = useState(false)
   const { ref: frameRef, width, height } = useElementSize<HTMLDivElement>()
+
+  const cancelTooltipClear = useCallback(() => {
+    if (tooltipClearTimerRef.current === null) return
+    window.clearTimeout(tooltipClearTimerRef.current)
+    tooltipClearTimerRef.current = null
+  }, [])
+
+  const showTooltip = useCallback(
+    (place: AtlasPlace) => {
+      cancelTooltipClear()
+      setHoveredPlace(place)
+    },
+    [cancelTooltipClear]
+  )
+
+  const scheduleTooltipClear = useCallback(() => {
+    cancelTooltipClear()
+    tooltipClearTimerRef.current = window.setTimeout(() => {
+      setHoveredPlace(null)
+      tooltipClearTimerRef.current = null
+    }, 120)
+  }, [cancelTooltipClear])
+
+  useEffect(
+    () => () => {
+      cancelTooltipClear()
+    },
+    [cancelTooltipClear]
+  )
 
   const globeGeometry =
     projectedGlobe ??
@@ -631,6 +625,7 @@ export function SoftAtlas() {
 
   const focusPlace = useCallback(
     (place: AtlasPlace) => {
+      cancelTooltipClear()
       setSelectedPlace(place)
       setHasInteracted(true)
       const controls = globeRef.current?.controls()
@@ -640,8 +635,56 @@ export function SoftAtlas() {
         reduceMotion ? 0 : 1100
       )
     },
-    [reduceMotion]
+    [cancelTooltipClear, reduceMotion]
   )
+
+  const activeTooltipPlace = hoveredPlace ?? selectedPlace
+
+  useEffect(() => {
+    if (!activeTooltipPlace) {
+      setTooltipPosition(null)
+      return
+    }
+
+    let frame = 0
+    const updatePosition = () => {
+      const viewport = viewportRef.current
+      const marker = frameRef.current?.querySelector<HTMLElement>(
+        `[data-atlas-place="${activeTooltipPlace.slug}"]`
+      )
+
+      if (viewport && marker) {
+        const viewportRect = viewport.getBoundingClientRect()
+        const markerRect = marker.getBoundingClientRect()
+        const halfCardWidth = Math.min(
+          88,
+          Math.max(0, viewportRect.width / 2 - 8)
+        )
+        const rawX = markerRect.left - viewportRect.left + markerRect.width / 2
+        const rawY = markerRect.top - viewportRect.top + markerRect.height / 2 - 8
+        const nextPosition = {
+          x: Math.max(
+            halfCardWidth,
+            Math.min(viewportRect.width - halfCardWidth, rawX)
+          ),
+          y: Math.max(64, Math.min(viewportRect.height - 8, rawY)),
+        }
+
+        setTooltipPosition((currentPosition) =>
+          currentPosition &&
+          Math.abs(currentPosition.x - nextPosition.x) < 0.5 &&
+          Math.abs(currentPosition.y - nextPosition.y) < 0.5
+            ? currentPosition
+            : nextPosition
+        )
+      }
+
+      frame = requestAnimationFrame(updatePosition)
+    }
+
+    updatePosition()
+    return () => cancelAnimationFrame(frame)
+  }, [activeTooltipPlace, frameRef])
 
   const markerData = useMemo(
     () =>
@@ -655,9 +698,15 @@ export function SoftAtlas() {
   const markerElement = useCallback(
     (datum: object) => {
       const place = datum as AtlasPlace & { selected: boolean }
-      return createMarkerElement(place, place.selected, focusPlace)
+      return createMarkerElement(
+        place,
+        place.selected,
+        focusPlace,
+        showTooltip,
+        scheduleTooltipClear
+      )
     },
-    [focusPlace]
+    [focusPlace, scheduleTooltipClear, showTooltip]
   )
 
   const handleReady = useCallback(() => {
@@ -731,7 +780,7 @@ export function SoftAtlas() {
       const target = event.target
       if (
         target instanceof Element &&
-        target.closest('.atlas-marker-button')
+        target.closest('.atlas-marker-button, .atlas-tooltip-card')
       ) {
         return
       }
@@ -745,6 +794,7 @@ export function SoftAtlas() {
   return (
     <div className="atlas-experience">
       <div
+        ref={viewportRef}
         className="atlas-globe-viewport"
         data-testid="soft-atlas-globe-viewport"
         role="region"
@@ -772,6 +822,8 @@ export function SoftAtlas() {
                   reduceMotion={Boolean(reduceMotion)}
                   hasInteracted={hasInteracted}
                   onSelect={focusPlace}
+                  onMarkerEnter={showTooltip}
+                  onMarkerLeave={scheduleTooltipClear}
                 />
               }
             >
@@ -844,6 +896,12 @@ export function SoftAtlas() {
             </text>
           </svg>
         </div>
+        <AtlasTooltipOverlay
+          place={activeTooltipPlace}
+          position={tooltipPosition}
+          onPointerEnter={cancelTooltipClear}
+          onPointerLeave={scheduleTooltipClear}
+        />
       </div>
 
     </div>

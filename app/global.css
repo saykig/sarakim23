@@ -940,17 +940,21 @@ body:has(.soft-atlas-page) ::selection {
 }
 
 .about-accordion {
+  width: min(100%, 34rem);
   color: var(--atlas-ink-soft);
+}
+
+.about-link-row {
+  width: min(100%, 34rem);
+  margin-bottom: clamp(2.5rem, 4vw, 3.75rem);
 }
 
 .about-trigger {
   display: flex;
   width: 100%;
-  max-width: 34rem;
   align-items: center;
   justify-content: flex-start;
   border: 0;
-  border-bottom: 1px solid rgb(51 68 52 / 18%);
   background: transparent;
   color: var(--atlas-ink-soft);
   cursor: pointer;
@@ -965,6 +969,11 @@ body:has(.soft-atlas-page) ::selection {
   transform: scaleX(1.02);
   transform-origin: left center;
   transition: color 180ms ease;
+}
+
+.homepage-accordion-item {
+  width: 100%;
+  border-bottom: 1px solid rgb(51 68 52 / 18%);
 }
 
 .about-trigger:hover {

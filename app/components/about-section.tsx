@@ -10,12 +10,14 @@ import { Tooltip } from '@/components/ui/tooltip-card'
 export function AboutSection() {
   return (
     <section className="about-section" aria-label="Explore more about Sara">
-      <Accordion className="about-accordion flex w-full flex-col">
-        <Link className="about-trigger w-full py-0.5" href="/about">
+      <div className="about-link-row">
+        <Link className="about-trigger about-link w-full py-0.5" href="/about">
           A little about me
         </Link>
+      </div>
 
-        <AccordionItem value="reading">
+      <Accordion className="about-accordion flex w-full flex-col">
+        <AccordionItem className="homepage-accordion-item" value="reading">
           <AccordionTrigger className="about-trigger w-full py-0.5">
             Reading
           </AccordionTrigger>
@@ -24,7 +26,7 @@ export function AboutSection() {
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="writings">
+        <AccordionItem className="homepage-accordion-item" value="writings">
           <AccordionTrigger className="about-trigger w-full py-0.5">
             Writing
           </AccordionTrigger>
@@ -45,7 +47,7 @@ export function AboutSection() {
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="projects">
+        <AccordionItem className="homepage-accordion-item" value="projects">
           <AccordionTrigger className="about-trigger w-full py-0.5">
             Project
           </AccordionTrigger>
@@ -92,7 +94,7 @@ export function AboutSection() {
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="poetry">
+        <AccordionItem className="homepage-accordion-item" value="poetry">
           <AccordionTrigger className="about-trigger w-full py-0.5">
             Poetry
           </AccordionTrigger>
@@ -101,7 +103,7 @@ export function AboutSection() {
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="life">
+        <AccordionItem className="homepage-accordion-item" value="life">
           <AccordionTrigger className="about-trigger w-full py-0.5">
             Life
           </AccordionTrigger>

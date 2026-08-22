@@ -85,13 +85,6 @@ const places: AtlasPlace[] = [
     type: 'home',
   },
   {
-    slug: 'jungfraujoch',
-    name: 'Jungfraujoch',
-    lat: 46.5475,
-    lng: 7.9853,
-    type: 'visited',
-  },
-  {
     slug: 'mont-st-michel',
     name: 'Mont St. Michel',
     lat: 48.636,

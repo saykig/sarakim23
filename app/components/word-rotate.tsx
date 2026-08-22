@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
+import { Tooltip } from '@/components/ui/tooltip-card'
 
 const greetings = [
   { word: 'Merhaba!', hold: 320, transition: 0.24 },
@@ -35,22 +36,28 @@ export function WordRotate() {
   }, [greeting.hold, greeting.transition, index, reduceMotion])
 
   return (
-    <span className="greeting-rotate" aria-live="polite" aria-atomic="true">
-      <AnimatePresence initial={!reduceMotion} mode="wait">
-        <motion.span
-          key={greeting.word}
-          className="greeting-word"
-          initial={reduceMotion ? false : { opacity: 0, y: '-38%' }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={reduceMotion ? undefined : { opacity: 0, y: '38%' }}
-          transition={{
-            duration: reduceMotion ? 0 : greeting.transition,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-        >
-          {greeting.word}
-        </motion.span>
-      </AnimatePresence>
-    </span>
+    <Tooltip
+      containerClassName="hero-greeting-easter-egg"
+      content="all the languages I used to speak! (and still some now)"
+      variant="whisper"
+    >
+      <span className="greeting-rotate" aria-live="polite" aria-atomic="true">
+        <AnimatePresence initial={!reduceMotion} mode="wait">
+          <motion.span
+            key={greeting.word}
+            className="greeting-word"
+            initial={reduceMotion ? false : { opacity: 0, y: '-38%' }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduceMotion ? undefined : { opacity: 0, y: '38%' }}
+            transition={{
+              duration: reduceMotion ? 0 : greeting.transition,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
+            {greeting.word}
+          </motion.span>
+        </AnimatePresence>
+      </span>
+    </Tooltip>
   )
 }

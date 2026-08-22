@@ -25,6 +25,7 @@ type TooltipProps = {
   }>
   containerClassName?: string
   interactive?: boolean
+  variant?: 'default' | 'whisper'
 }
 
 function clamp(value: number, min: number, max: number) {
@@ -36,6 +37,7 @@ export function Tooltip({
   children,
   containerClassName,
   interactive = false,
+  variant = 'default',
 }: TooltipProps) {
   const tooltipId = useId()
   const cardRef = useRef<HTMLSpanElement>(null)
@@ -150,15 +152,28 @@ export function Tooltip({
             role={interactive ? 'dialog' : 'tooltip'}
             className="contact-tooltip-card"
             data-interactive={interactive ? 'true' : 'false'}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height, opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+            data-variant={variant}
+            initial={{
+              height: 0,
+              opacity: 0,
+              scale: variant === 'whisper' ? 0.96 : 1,
+            }}
+            animate={{ height, opacity: 1, scale: 1 }}
+            exit={{
+              height: 0,
+              opacity: 0,
+              scale: variant === 'whisper' ? 0.98 : 1,
+            }}
             transition={
               reduceMotion
                 ? { duration: 0 }
                 : { type: 'spring', stiffness: 200, damping: 24 }
             }
-            style={{ left: position.left, top: position.top }}
+            style={{
+              left: position.left,
+              top: position.top,
+              transformOrigin: 'top left',
+            }}
           >
             <span className="contact-tooltip-content">{content}</span>
           </motion.span>

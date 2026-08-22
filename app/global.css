@@ -295,6 +295,23 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   pointer-events: auto;
 }
 
+.contact-tooltip-card[data-variant='whisper'] {
+  width: min(14.5rem, calc(100vw - 1.5rem));
+  border-color: rgb(57 78 56 / 18%);
+  background: rgb(248 244 231 / 68%);
+  box-shadow: 0 0.3rem 0.8rem rgb(51 68 52 / 5%);
+  color: var(--atlas-ink);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.contact-tooltip-card[data-variant='whisper'] .contact-tooltip-content {
+  padding: 0.62rem 0.7rem;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  white-space: normal;
+}
+
 .contact-tooltip-content {
   display: block;
   padding: 0.72rem 0.82rem;
@@ -466,6 +483,16 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   overflow: hidden;
   padding-block: 0.08em 0.13em;
   margin-block: -0.08em -0.13em;
+}
+
+.hero-greeting-easter-egg {
+  width: fit-content;
+  justify-self: start;
+  cursor: inherit;
+}
+
+.hero-greeting-easter-egg .greeting-rotate {
+  width: auto;
 }
 
 .greeting-word {

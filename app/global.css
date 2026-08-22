@@ -198,9 +198,7 @@ table {
   stroke-width: 1.35;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 0;
-  vector-effect: non-scaling-stroke;
+  opacity: 1;
 }
 
 .home-globe-nav-latitude,
@@ -255,10 +253,10 @@ table {
 @keyframes home-globe-draw {
   0%,
   100% {
-    stroke-dashoffset: 0;
+    opacity: 1;
   }
   42% {
-    stroke-dashoffset: 0.28;
+    opacity: 0.66;
   }
 }
 
@@ -1311,7 +1309,7 @@ body:has(.about-page) ::selection {
 
 .mindscape-page-inner {
   padding-left: clamp(1.25rem, 4.5vw, 4.5rem);
-  padding-right: clamp(1.25rem, 3vw, 3rem);
+  padding-right: clamp(1.25rem, 2vw, 2rem);
 }
 
 .mindscape-page-header {
@@ -1351,7 +1349,7 @@ body:has(.about-page) ::selection {
   --mindscape-tab-color: #e6eedf;
   --mindscape-tab-rest-x: -0.45rem;
   display: flex;
-  width: calc(100% - 0.75rem);
+  width: min(100%, 8.75rem);
   min-height: 3rem;
   align-items: center;
   border: 0;
@@ -1426,7 +1424,7 @@ body:has(.about-page) ::selection {
 
 .mindscape-content {
   width: 100%;
-  max-width: 58rem;
+  max-width: 70rem;
 }
 
 .mindscape-section {
@@ -1459,14 +1457,14 @@ body:has(.about-page) ::selection {
 }
 
 .mindscape-section .about-copy {
-  max-width: 75ch;
+  max-width: 88ch;
   color: var(--atlas-ink);
   font-size: clamp(1.02rem, 1.35vw, 1.14rem);
 }
 
 .mindscape-placeholder,
 .mindscape-writing-entry {
-  max-width: 66ch;
+  max-width: 78ch;
   color: var(--atlas-ink);
   font-family: var(--font-source-sans), Arial, sans-serif;
   font-size: clamp(1rem, 1.35vw, 1.12rem);

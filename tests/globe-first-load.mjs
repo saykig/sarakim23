@@ -133,7 +133,7 @@ async function assertHomeGlobeNav(page, label) {
       sphereAnimation: sphereStyle?.animationName ?? 'none',
       sphereTransform: sphereStyle?.transform ?? 'none',
       strokeAnimation: strokeStyle?.animationName ?? 'none',
-      strokeOffset: strokeStyle?.strokeDashoffset ?? '0px',
+      strokeOpacity: strokeStyle?.opacity ?? '1',
     }
   })
 
@@ -141,7 +141,7 @@ async function assertHomeGlobeNav(page, label) {
     animatedState.sphereAnimation !== 'home-globe-turn' ||
     animatedState.sphereTransform === 'none' ||
     animatedState.strokeAnimation !== 'home-globe-draw' ||
-    animatedState.strokeOffset === '0px'
+    animatedState.strokeOpacity === '1'
   ) {
     throw new Error(
       `${label}: home globe animation did not start: ${JSON.stringify(animatedState)}`

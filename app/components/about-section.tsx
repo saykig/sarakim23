@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/core/accordion'
+import { ProjectsTransitionPanel } from './projects-transition-panel'
 import { Tooltip } from '@/components/ui/tooltip-card'
 
 export function AboutSection() {
@@ -52,45 +53,7 @@ export function AboutSection() {
             Project
           </AccordionTrigger>
           <AccordionContent className="homepage-accordion-content">
-            <div className="homepage-accordion-entries">
-              <article className="homepage-accordion-entry">
-                <Tooltip
-                  containerClassName="homepage-accordion-tooltip"
-                  content="My little public home for essays and projects on technology, policy, and global affairs—mostly where emerging technologies and the political world begin to overlap."
-                >
-                  <a className="homepage-accordion-title" href="https://cepheus-pons.org/">
-                    Cepheus
-                  </a>
-                </Tooltip>
-              </article>
-
-              <article className="homepage-accordion-entry">
-                <Tooltip
-                  containerClassName="homepage-accordion-tooltip"
-                  content="An open-source project for turning political, legal, and institutional research into structured, traceable knowledge, while keeping the source, uncertainty, and disagreement visible."
-                >
-                  <span className="homepage-accordion-title">Writ</span>
-                </Tooltip>
-                <p className="homepage-accordion-links">
-                  <a href="https://writewrit.vercel.app/">Demo</a>
-                  <a href="https://github.com/saykig/Writ">GitHub</a>
-                </p>
-              </article>
-
-              <article className="homepage-accordion-entry">
-                <Tooltip
-                  containerClassName="homepage-accordion-tooltip"
-                  content="An experiment in making research datasets easier to compare without pretending they measure the same thing. It asks where sources really align, where they only partly align, and what gets lost when we treat them as equivalent."
-                >
-                  <a
-                    className="homepage-accordion-title"
-                    href="https://github.com/saykig/Aldera"
-                  >
-                    Aldera
-                  </a>
-                </Tooltip>
-              </article>
-            </div>
+            <ProjectsTransitionPanel />
           </AccordionContent>
         </AccordionItem>
 

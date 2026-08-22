@@ -16,7 +16,9 @@ export function EmailTooltip({
   return (
     <Tooltip
       content="sarakim203@gmail.com"
-      containerClassName={containerClassName}
+      containerClassName={['email-tooltip', containerClassName]
+        .filter(Boolean)
+        .join(' ')}
     >
       <button type="button" className={className}>
         email

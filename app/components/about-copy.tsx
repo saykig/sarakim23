@@ -57,15 +57,20 @@ export function AboutCopy() {
                 better contributes to a better understanding of decision-making
                 in strategic security studies under fast-emerging technologies.
                 For example, people keep projecting that artificial
-                superintelligence (ASI) to arrive{' '}
-                <a
-                  className="about-tooltip-source"
-                  href={reflectionsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                superintelligence (ASI) will arrive{' '}
+                <Tooltip
+                  containerClassName="about-inline-tooltip"
+                  content="Sam Altman · Reflections"
                 >
-                  within the next few years
-                </a>{' '}
+                  <a
+                    className="about-tooltip-source"
+                    href={reflectionsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    within the next few years
+                  </a>
+                </Tooltip>{' '}
                 (give or take 2030). If that timeline is even remotely plausible,
                 why are our political institutions still built around decision
                 cycles designed for a much slower world?

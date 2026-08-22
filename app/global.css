@@ -305,6 +305,11 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   white-space: nowrap;
 }
 
+.email-tooltip .contact-tooltip-card {
+  width: max-content;
+  max-width: calc(100vw - 1.5rem);
+}
+
 .license-easter-egg {
   display: inline;
 }

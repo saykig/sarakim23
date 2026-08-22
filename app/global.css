@@ -787,7 +787,7 @@ body:has(.soft-atlas-page) ::selection {
   border: 1px solid color-mix(in srgb, var(--atlas-sage) 46%, transparent);
   border-radius: 50%;
   background: color-mix(in srgb, var(--atlas-sage) 12%, transparent);
-  opacity: 0.4;
+  opacity: 0.58;
   pointer-events: none;
   transform: scale(0.48);
   animation: atlas-marker-pulse 2.3s ease-out infinite;
@@ -800,12 +800,12 @@ body:has(.soft-atlas-page) ::selection {
 
 @keyframes atlas-marker-pulse {
   0% {
-    opacity: 0.44;
+    opacity: 0.68;
     transform: scale(0.48);
   }
 
   72% {
-    opacity: 0;
+    opacity: 0.12;
   }
 
   100% {
@@ -1735,7 +1735,7 @@ body:has(.about-page) ::selection {
 
   .atlas-marker-pulse {
     animation: none;
-    opacity: 0.28;
+    opacity: 0.38;
     transform: scale(0.74);
   }
 }

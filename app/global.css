@@ -1348,6 +1348,7 @@ body:has(.about-page) ::selection {
 
 .mindscape-tab {
   --mindscape-tab-color: #e6eedf;
+  --mindscape-tab-rest-x: -0.45rem;
   display: flex;
   width: calc(100% - 0.75rem);
   min-height: 3rem;
@@ -1364,10 +1365,10 @@ body:has(.about-page) ::selection {
   line-height: 1.15;
   padding: 0.72rem 0.85rem 0.72rem 1.15rem;
   text-align: left;
-  transform: translateX(-0.45rem);
+  transform: translateX(var(--mindscape-tab-rest-x));
   transform-origin: left center;
-  transition: background-color 180ms ease, color 180ms ease,
-    transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: background-color 220ms ease-out, color 220ms ease-out,
+    transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mindscape-tab + .mindscape-tab {
@@ -1397,7 +1398,7 @@ body:has(.about-page) ::selection {
     var(--atlas-sage)
   );
   color: var(--atlas-ink);
-  transform: translateX(0.2rem);
+  transform: translateX(calc(var(--mindscape-tab-rest-x) + 0.7rem));
 }
 
 .mindscape-tab[data-state='active'] {
@@ -1407,13 +1408,12 @@ body:has(.about-page) ::selection {
     var(--atlas-sage)
   );
   color: var(--atlas-ink);
-  transform: translateX(0.2rem);
+  transform: translateX(calc(var(--mindscape-tab-rest-x) + 1.125rem));
 }
 
 .mindscape-tab:focus-visible {
   outline: 1px solid var(--atlas-ink);
   outline-offset: 3px;
-  transform: translateX(0.2rem);
 }
 
 .mindscape-content {
@@ -1642,16 +1642,10 @@ body:has(.about-page) ::selection {
   }
 
   .mindscape-tab {
+    --mindscape-tab-rest-x: 0rem;
     width: calc(100% - 0.45rem);
     min-height: 3rem;
     padding: 0.64rem 0.5rem 0.64rem 0.85rem;
-    transform: translateX(0);
-  }
-
-  .mindscape-tab:hover,
-  .mindscape-tab[data-state='active'],
-  .mindscape-tab:focus-visible {
-    transform: translateX(0.22rem);
   }
 
   .mindscape-section {

@@ -809,6 +809,7 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   font-weight: 400;
   font-synthesis: none;
   letter-spacing: -0.005em;
+  text-decoration: none;
   text-align: left;
   transform: scaleX(1.02);
   transform-origin: left center;
@@ -822,6 +823,90 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
 .about-trigger:focus-visible {
   outline: 1px solid var(--atlas-ink);
   outline-offset: 4px;
+}
+
+html:has(.about-page) {
+  overflow-x: clip;
+  background: var(--atlas-paper) !important;
+  color-scheme: light;
+}
+
+body:has(.about-page) {
+  background: var(--atlas-paper) !important;
+  color: var(--atlas-copy) !important;
+}
+
+body:has(.about-page) > main {
+  min-height: calc(100vh - 2rem);
+}
+
+body:has(.about-page) ::selection {
+  background: var(--atlas-ink);
+  color: var(--atlas-cream);
+}
+
+.about-page {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  overflow: clip;
+  background: var(--atlas-paper);
+  color: var(--atlas-copy);
+}
+
+.about-page-inner {
+  width: min(100%, 80rem);
+  margin-inline: auto;
+  padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 4.5vw, 4.5rem)
+    clamp(5rem, 10vw, 8rem);
+}
+
+.about-page-header {
+  margin-bottom: clamp(3.5rem, 7vw, 6.5rem);
+}
+
+.about-page-header h1 {
+  max-width: 12ch;
+  color: var(--atlas-copy);
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: clamp(3.75rem, 8vw, 7rem);
+  font-style: normal;
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: -0.005em;
+  line-height: 0.9;
+  transform: scaleX(1.02);
+  transform-origin: left center;
+}
+
+.about-page .about-copy {
+  max-width: 68ch;
+  padding-block: 0;
+}
+
+.about-page-footer {
+  margin-top: clamp(5rem, 10vw, 9rem);
+}
+
+.about-page-footer a {
+  color: var(--atlas-ink-soft);
+  font-family: var(--font-source-sans), Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.3em;
+}
+
+.about-page-footer a:hover,
+.about-page-footer a:focus-visible {
+  color: var(--atlas-ink);
+  text-decoration-color: currentColor;
+}
+
+.about-page-footer a:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 5px;
 }
 
 .about-copy {
@@ -1005,6 +1090,22 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
 
   .about-copy {
     padding-top: 1.25rem;
+  }
+
+  .about-page-inner {
+    padding: 3.5rem 1.25rem 5rem;
+  }
+
+  .about-page-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .about-page-header h1 {
+    font-size: clamp(3.25rem, 15vw, 5rem);
+  }
+
+  .about-page .about-copy {
+    padding-top: 0;
   }
 }
 

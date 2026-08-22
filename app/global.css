@@ -883,14 +883,14 @@ body:has(.about-page) ::selection {
 }
 
 .about-page-header {
-  margin-bottom: clamp(3.5rem, 7vw, 6.5rem);
+  margin-bottom: clamp(2.25rem, 4vw, 3.75rem);
 }
 
 .about-page-header h1 {
   max-width: 12ch;
   color: var(--atlas-copy);
   font-family: var(--font-instrument-serif), Georgia, serif;
-  font-size: clamp(3.75rem, 8vw, 7rem);
+  font-size: clamp(3.25rem, 6.5vw, 5.75rem);
   font-style: normal;
   font-weight: 400;
   font-synthesis: none;
@@ -1131,11 +1131,11 @@ body:has(.about-page) ::selection {
   }
 
   .about-page-header {
-    margin-bottom: 3.5rem;
+    margin-bottom: 2.25rem;
   }
 
   .about-page-header h1 {
-    font-size: clamp(3.25rem, 15vw, 5rem);
+    font-size: clamp(2.85rem, 12vw, 4.25rem);
   }
 
   .about-page .about-copy {

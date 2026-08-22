@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { AboutCopy } from '../components/about-copy'
+import { HomeGlobeNav } from '../components/home-globe-nav'
 
 export const metadata: Metadata = {
   title: 'A little about me',
@@ -14,6 +15,7 @@ export default function AboutPage() {
       <div className="about-page-inner">
         <header className="about-page-header">
           <h1>A little about me</h1>
+          <HomeGlobeNav />
         </header>
 
         <AboutCopy />

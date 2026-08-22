@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { HomeGlobeNav } from '../../components/home-globe-nav'
 import { MemoryExperience } from '../../components/memories/memory-experience'
 import { getMemory, getPublishedMemorySlugs } from '../data'
 
@@ -45,6 +46,7 @@ export default async function MemoryPage({ params }: MemoryPageProps) {
         <Link href="/" className="memory-back-link">
           <span aria-hidden="true">←</span> Home
         </Link>
+        <HomeGlobeNav className="memory-home-globe-nav" />
         <div className="memory-heading">
           <p className="memory-heading-kicker">Place memory</p>
           <h1>{memory.name}</h1>

@@ -169,6 +169,108 @@ table {
   text-wrap: balance;
 }
 
+.home-globe-nav {
+  display: inline-grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 auto;
+  place-items: center;
+  color: var(--atlas-ink-soft, #5d694f);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.home-globe-nav-icon {
+  display: block;
+  width: 2.125rem;
+  height: 2.125rem;
+  overflow: visible;
+}
+
+.home-globe-nav-sphere {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.home-globe-nav-stroke {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.35;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  vector-effect: non-scaling-stroke;
+}
+
+.home-globe-nav-latitude,
+.home-globe-nav-meridian {
+  opacity: 0.78;
+  stroke-width: 1.15;
+}
+
+.home-globe-nav:hover .home-globe-nav-sphere,
+.home-globe-nav:focus-visible .home-globe-nav-sphere {
+  animation: home-globe-turn 680ms cubic-bezier(0.22, 0.8, 0.3, 1) both;
+}
+
+.home-globe-nav:hover .home-globe-nav-stroke,
+.home-globe-nav:focus-visible .home-globe-nav-stroke {
+  animation: home-globe-draw 680ms cubic-bezier(0.22, 0.8, 0.3, 1) both;
+}
+
+.home-globe-nav:hover .home-globe-nav-stroke-delayed,
+.home-globe-nav:focus-visible .home-globe-nav-stroke-delayed {
+  animation-delay: 55ms;
+}
+
+.home-globe-nav:focus-visible {
+  border-radius: 50%;
+  outline: 1px solid currentColor;
+  outline-offset: 1px;
+}
+
+.internal-page-heading-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+@keyframes home-globe-turn {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  38% {
+    transform: rotate(-11deg) scale(1.025);
+  }
+  72% {
+    transform: rotate(6deg) scale(0.99);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes home-globe-draw {
+  0%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+  42% {
+    stroke-dashoffset: 0.28;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-globe-nav:hover .home-globe-nav-sphere,
+  .home-globe-nav:focus-visible .home-globe-nav-sphere,
+  .home-globe-nav:hover .home-globe-nav-stroke,
+  .home-globe-nav:focus-visible .home-globe-nav-stroke {
+    animation: none;
+  }
+}
+
 :root {
   --atlas-paper: #e8ead8;
   --atlas-ocean: #dfe4cf;
@@ -975,7 +1077,14 @@ body:has(.about-page) ::selection {
 }
 
 .about-page-header {
+  position: relative;
   margin-bottom: clamp(2.25rem, 4vw, 3.75rem);
+}
+
+.about-page-header .home-globe-nav {
+  position: absolute;
+  top: -0.35rem;
+  right: 0;
 }
 
 .about-page-header h1 {
@@ -1293,6 +1402,13 @@ body:has(.memory-page) ::selection {
   font-weight: 400;
   letter-spacing: 0.045em;
   text-decoration: none;
+}
+
+.memory-home-globe-nav {
+  position: absolute;
+  z-index: 2;
+  top: clamp(1.15rem, calc(4vw - 0.35rem), 2.65rem);
+  right: clamp(1rem, calc(5vw - 0.35rem), 4.65rem);
 }
 
 .memory-back-link:hover,

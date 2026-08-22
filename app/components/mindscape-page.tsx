@@ -7,7 +7,7 @@ import { AboutCopy } from './about-copy'
 import { HomeGlobeNav } from './home-globe-nav'
 
 const mindscapeSections = [
-  { id: 'about', label: 'A little bit about me' },
+  { id: 'about', label: 'About Me' },
   { id: 'reading', label: 'Reading' },
   { id: 'writing', label: 'Writing' },
   { id: 'poetry', label: 'Poetry' },

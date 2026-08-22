@@ -1357,8 +1357,9 @@ body:has(.about-page) ::selection {
   background: var(--mindscape-tab-color);
   color: var(--atlas-ink);
   cursor: pointer;
-  font-family: var(--font-source-sans), Arial, sans-serif;
-  font-size: clamp(0.78rem, 1.2vw, 0.9rem);
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: clamp(1rem, 1.45vw, 1.12rem);
+  font-style: normal;
   font-weight: 400;
   line-height: 1.15;
   padding: 0.72rem 0.85rem 0.72rem 1.15rem;

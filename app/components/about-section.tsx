@@ -13,7 +13,7 @@ export function AboutSection() {
     <section className="about-section" aria-label="Explore more about Sara">
       <div className="about-link-row">
         <Link className="about-trigger about-link w-full py-0.5" href="/about">
-          A little about me
+          A little bit about me
         </Link>
       </div>
 

@@ -1353,8 +1353,7 @@ body:has(.about-page) ::selection {
   width: calc(100% - 0.75rem);
   min-height: 3rem;
   align-items: center;
-  border: 1px solid rgb(51 68 52 / 13%);
-  border-left: 0;
+  border: 0;
   border-radius: 0 0.55rem 0.55rem 0;
   background: var(--mindscape-tab-color);
   color: var(--atlas-ink);
@@ -1412,8 +1411,16 @@ body:has(.about-page) ::selection {
 }
 
 .mindscape-tab:focus-visible {
-  outline: 1px solid var(--atlas-ink);
-  outline-offset: 3px;
+  outline: none;
+}
+
+.mindscape-tab:focus-visible:not([data-state='active']) {
+  background: color-mix(
+    in srgb,
+    var(--mindscape-tab-color) 90%,
+    var(--atlas-sage)
+  );
+  transform: translateX(calc(var(--mindscape-tab-rest-x) + 0.7rem));
 }
 
 .mindscape-content {

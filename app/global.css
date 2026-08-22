@@ -296,7 +296,7 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
 }
 
 .contact-tooltip-card[data-variant='whisper'] {
-  width: min(14.5rem, calc(100vw - 1.5rem));
+  width: min(12rem, calc(100vw - 1.5rem));
   border-color: rgb(57 78 56 / 18%);
   background: rgb(248 244 231 / 68%);
   box-shadow: 0 0.3rem 0.8rem rgb(51 68 52 / 5%);
@@ -306,9 +306,9 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
 }
 
 .contact-tooltip-card[data-variant='whisper'] .contact-tooltip-content {
-  padding: 0.62rem 0.7rem;
-  font-size: 0.78rem;
-  line-height: 1.35;
+  padding: 0.46rem 0.55rem;
+  font-size: 0.71rem;
+  line-height: 1.3;
   white-space: normal;
 }
 

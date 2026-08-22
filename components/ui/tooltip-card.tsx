@@ -15,6 +15,8 @@ import {
 const CARD_WIDTH = 240
 const VIEWPORT_GUTTER = 12
 const POINTER_OFFSET = 12
+const WHISPER_CARD_WIDTH = 192
+const WHISPER_POINTER_OFFSET = 9
 
 type TooltipProps = {
   content: ReactNode
@@ -66,22 +68,32 @@ export function Tooltip({
   }
 
   const placeCard = (x: number, y: number, cardHeight = height) => {
+    const isWhisper = variant === 'whisper'
+    const cardWidth = isWhisper ? WHISPER_CARD_WIDTH : CARD_WIDTH
+    const pointerOffset = isWhisper ? WHISPER_POINTER_OFFSET : POINTER_OFFSET
     const maxLeft = Math.max(
       VIEWPORT_GUTTER,
-      window.innerWidth - CARD_WIDTH - VIEWPORT_GUTTER
+      window.innerWidth - cardWidth - VIEWPORT_GUTTER
     )
     const maxTop = Math.max(
       VIEWPORT_GUTTER,
       window.innerHeight - cardHeight - VIEWPORT_GUTTER
     )
-    const preferredTop =
-      y + POINTER_OFFSET + cardHeight > window.innerHeight
-        ? y - cardHeight - POINTER_OFFSET
-        : y + POINTER_OFFSET
+    const preferredLeft =
+      isWhisper && x + pointerOffset + cardWidth > window.innerWidth - VIEWPORT_GUTTER
+        ? x - cardWidth - pointerOffset
+        : x + pointerOffset
+    const preferredTop = isWhisper
+      ? y - cardHeight - pointerOffset >= VIEWPORT_GUTTER
+        ? y - cardHeight - pointerOffset
+        : y + pointerOffset
+      : y + pointerOffset + cardHeight > window.innerHeight
+        ? y - cardHeight - pointerOffset
+        : y + pointerOffset
 
     setAnchor({ x, y })
     setPosition({
-      left: clamp(x + POINTER_OFFSET, VIEWPORT_GUTTER, maxLeft),
+      left: clamp(preferredLeft, VIEWPORT_GUTTER, maxLeft),
       top: clamp(preferredTop, VIEWPORT_GUTTER, maxTop),
     })
   }

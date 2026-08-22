@@ -901,7 +901,7 @@ body:has(.about-page) ::selection {
 }
 
 .about-page .about-copy {
-  max-width: 68ch;
+  max-width: 76ch;
   padding-block: 0;
 }
 

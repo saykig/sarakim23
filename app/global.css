@@ -1309,6 +1309,197 @@ body:has(.about-page) ::selection {
   font-size: 0.92rem;
 }
 
+.mindscape-page-inner {
+  padding-left: clamp(1.25rem, 4.5vw, 4.5rem);
+}
+
+.mindscape-page-header {
+  margin-bottom: clamp(3.5rem, 7vw, 6.5rem);
+}
+
+.mindscape-page-header h1 {
+  max-width: 14ch;
+}
+
+.mindscape-layout {
+  display: grid;
+  grid-template-columns: minmax(9.5rem, 13rem) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(2.5rem, 7vw, 7rem);
+}
+
+.mindscape-index {
+  position: sticky;
+  top: clamp(1.5rem, 8vh, 5rem);
+  z-index: 4;
+  align-self: start;
+  margin-left: clamp(-1.5rem, -2vw, -0.75rem);
+}
+
+.mindscape-tabs,
+.mindscape-tabs-list {
+  display: block;
+  width: 100%;
+}
+
+.mindscape-tabs-list {
+  isolation: isolate;
+}
+
+.mindscape-tab {
+  --mindscape-tab-color: color-mix(
+    in srgb,
+    var(--atlas-sage) 22%,
+    var(--atlas-paper)
+  );
+  display: flex;
+  width: calc(100% - 0.75rem);
+  min-height: 3rem;
+  align-items: center;
+  border: 1px solid rgb(51 68 52 / 13%);
+  border-left: 0;
+  border-radius: 0 0.55rem 0.55rem 0;
+  background: var(--mindscape-tab-color);
+  color: var(--atlas-ink-soft);
+  cursor: pointer;
+  font-family: var(--font-source-sans), Arial, sans-serif;
+  font-size: clamp(0.78rem, 1.2vw, 0.9rem);
+  font-weight: 400;
+  line-height: 1.15;
+  padding: 0.72rem 0.85rem 0.72rem 1.15rem;
+  text-align: left;
+  transform: translateX(-0.45rem);
+  transform-origin: left center;
+  transition: background-color 180ms ease, color 180ms ease,
+    transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mindscape-tab + .mindscape-tab {
+  margin-top: 0.34rem;
+}
+
+.mindscape-tab:nth-child(2) {
+  --mindscape-tab-color: color-mix(
+    in srgb,
+    var(--atlas-sage) 27%,
+    var(--atlas-paper)
+  );
+}
+
+.mindscape-tab:nth-child(3) {
+  --mindscape-tab-color: color-mix(
+    in srgb,
+    var(--atlas-sage) 32%,
+    var(--atlas-paper)
+  );
+}
+
+.mindscape-tab:nth-child(4) {
+  --mindscape-tab-color: color-mix(
+    in srgb,
+    var(--atlas-sage) 25%,
+    var(--atlas-paper)
+  );
+}
+
+.mindscape-tab:nth-child(5) {
+  --mindscape-tab-color: color-mix(
+    in srgb,
+    var(--atlas-sage) 29%,
+    var(--atlas-paper)
+  );
+}
+
+.mindscape-tab:hover,
+.mindscape-tab[data-state='active'] {
+  background: color-mix(in srgb, var(--atlas-sage) 45%, var(--atlas-paper));
+  color: var(--atlas-ink);
+  transform: translateX(0.2rem);
+}
+
+.mindscape-tab:focus-visible {
+  outline: 1px solid var(--atlas-ink);
+  outline-offset: 3px;
+  transform: translateX(0.2rem);
+}
+
+.mindscape-content {
+  width: 100%;
+  max-width: 50rem;
+}
+
+.mindscape-section {
+  min-height: clamp(28rem, 68vh, 44rem);
+  scroll-margin-top: clamp(2rem, 8vh, 5rem);
+}
+
+.mindscape-section-about {
+  min-height: 0;
+  padding-bottom: clamp(7rem, 14vw, 12rem);
+}
+
+.mindscape-section + .mindscape-section {
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+.mindscape-section h2 {
+  max-width: 18ch;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--atlas-copy);
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: clamp(2.25rem, 4vw, 3.6rem);
+  font-style: normal;
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: -0.005em;
+  line-height: 0.96;
+  transform: scaleX(1.02);
+  transform-origin: left center;
+}
+
+.mindscape-section .about-copy {
+  max-width: 72ch;
+}
+
+.mindscape-placeholder,
+.mindscape-writing-entry {
+  max-width: 66ch;
+  color: var(--atlas-copy);
+  font-family: var(--font-source-sans), Arial, sans-serif;
+  font-size: clamp(1rem, 1.35vw, 1.12rem);
+  font-weight: 300;
+  line-height: 1.62;
+}
+
+.mindscape-writing-entry > a {
+  color: var(--atlas-ink-soft);
+  font-size: 1.08em;
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.22em;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.mindscape-writing-entry > a:hover,
+.mindscape-writing-entry > a:focus-visible {
+  color: var(--atlas-ink);
+  text-decoration-color: currentColor;
+}
+
+.mindscape-writing-entry > a:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 4px;
+}
+
+.mindscape-writing-entry p {
+  margin-top: 0.65rem;
+}
+
+.mindscape-section-empty {
+  min-height: clamp(22rem, 56vh, 36rem);
+}
+
 @media (max-width: 1040px) {
   .soft-atlas-hero-inner {
     grid-template-columns: minmax(25rem, 0.92fr) minmax(0, 1.08fr);
@@ -1431,6 +1622,72 @@ body:has(.about-page) ::selection {
 
   .about-page .about-copy {
     padding-top: 0;
+  }
+
+  .mindscape-page-inner {
+    padding-right: 1.25rem;
+    padding-left: 1rem;
+  }
+
+  .mindscape-page-header {
+    margin-bottom: 3.5rem;
+    padding-left: 0.25rem;
+  }
+
+  .mindscape-page-header h1 {
+    max-width: 9ch;
+  }
+
+  .mindscape-layout {
+    grid-template-columns: minmax(4.9rem, 5.4rem) minmax(0, 1fr);
+    gap: clamp(0.75rem, 3.5vw, 1.15rem);
+  }
+
+  .mindscape-index {
+    top: 1.25rem;
+    margin-left: -0.65rem;
+  }
+
+  .mindscape-tab {
+    width: calc(100% - 0.45rem);
+    min-height: 3rem;
+    padding: 0.64rem 0.5rem 0.64rem 0.85rem;
+    transform: translateX(0);
+  }
+
+  .mindscape-tab:hover,
+  .mindscape-tab[data-state='active'],
+  .mindscape-tab:focus-visible {
+    transform: translateX(0.22rem);
+  }
+
+  .mindscape-section {
+    min-height: 58vh;
+    scroll-margin-top: 1.5rem;
+  }
+
+  .mindscape-section-about {
+    min-height: 0;
+    padding-bottom: 6rem;
+  }
+
+  .mindscape-section h2 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .mindscape-section .about-copy {
+    font-size: clamp(1rem, 4.5vw, 1.12rem);
+  }
+
+  .mindscape-section-empty {
+    min-height: 50vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mindscape-tab {
+    transition: none;
   }
 }
 

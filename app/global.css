@@ -304,7 +304,7 @@ body:has(.soft-atlas-page) ::selection {
   color: var(--atlas-cream);
 }
 
-body:has(.soft-atlas-page) > main > .site-footer {
+.site-footer {
   position: relative;
   z-index: 5;
   width: 100vw;
@@ -319,11 +319,11 @@ body:has(.soft-atlas-page) > main > .site-footer {
   pointer-events: auto;
 }
 
-body:has(.soft-atlas-page) > main > .site-footer p {
+.site-footer p {
   color: inherit !important;
 }
 
-body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
+.site-footer .site-footer-inner {
   width: min(100%, 80rem);
   margin-inline: auto;
   padding: 0 clamp(2rem, 4.5vw, 4.5rem) 0.65rem;
@@ -1313,7 +1313,7 @@ body:has(.about-page) ::selection {
     padding-inline: 0;
   }
 
-  body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
+  .site-footer .site-footer-inner {
     width: calc(100vw - 2.5rem);
     padding-inline: 0;
   }
@@ -1366,8 +1366,7 @@ body:has(.memory-page) {
   color: var(--atlas-ink) !important;
 }
 
-body:has(.memory-page) > main > aside,
-body:has(.memory-page) > main > footer {
+body:has(.memory-page) > main > aside {
   display: none;
 }
 

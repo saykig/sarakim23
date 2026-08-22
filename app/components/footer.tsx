@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="site-footer mb-16">
       <div className="site-footer-inner">
         <p className="text-neutral-600 dark:text-neutral-300">
-          © {new Date().getFullYear()} MIT licensed, <LicenseEasterEgg />
+          © 2026 MIT licensed, <LicenseEasterEgg />
         </p>
       </div>
     </footer>

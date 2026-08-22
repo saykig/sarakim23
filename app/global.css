@@ -878,7 +878,7 @@ body:has(.about-page) ::selection {
 .about-page-inner {
   width: min(100%, 80rem);
   margin-inline: auto;
-  padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 4.5vw, 4.5rem)
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(2rem, 4.5vw, 4.5rem)
     clamp(5rem, 10vw, 8rem);
 }
 
@@ -1127,7 +1127,7 @@ body:has(.about-page) ::selection {
   }
 
   .about-page-inner {
-    padding: 3.5rem 1.25rem 5rem;
+    padding: 2.25rem 1.25rem 5rem;
   }
 
   .about-page-header {

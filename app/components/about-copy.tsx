@@ -59,8 +59,13 @@ export function AboutCopy() {
                 For example, people keep projecting that artificial
                 superintelligence (ASI) will arrive{' '}
                 <Tooltip
-                  containerClassName="about-inline-tooltip"
-                  content="Sam Altman · Reflections"
+                  containerClassName="about-inline-tooltip reflections-tooltip"
+                  content={
+                    <span className="reflections-tooltip-copy">
+                      <span>Sam Altman · Reflections</span>
+                      <em>click to see blog</em>
+                    </span>
+                  }
                 >
                   <a
                     className="about-tooltip-source"

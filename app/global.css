@@ -310,6 +310,23 @@ body:has(.soft-atlas-page) > main > .site-footer .site-footer-inner {
   max-width: calc(100vw - 1.5rem);
 }
 
+.reflections-tooltip .contact-tooltip-card {
+  width: max-content;
+  max-width: calc(100vw - 1.5rem);
+}
+
+.reflections-tooltip .contact-tooltip-content {
+  white-space: nowrap;
+}
+
+.reflections-tooltip-copy {
+  display: grid;
+}
+
+.reflections-tooltip-copy em {
+  font-style: italic;
+}
+
 .license-easter-egg {
   display: inline;
 }

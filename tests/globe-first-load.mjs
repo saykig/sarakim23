@@ -149,6 +149,57 @@ async function assertHomeGlobeNav(page, label) {
   }
 }
 
+async function assertMindscapeTabs(page, label) {
+  const tabs = page.getByRole('tab')
+  if ((await tabs.count()) !== 5) {
+    throw new Error(`${label}: expected five Mindscape tabs.`)
+  }
+
+  const before = await page.evaluate(() => ({
+    colors: [...document.querySelectorAll('.mindscape-tab')].map(
+      (element) => getComputedStyle(element).backgroundColor
+    ),
+    globePosition: getComputedStyle(
+      document.querySelector('.mindscape-page .home-globe-nav')
+    ).position,
+    panelCount: document.querySelectorAll('[role="tabpanel"]').length,
+    panelId: document.querySelector('[role="tabpanel"]')?.id,
+  }))
+
+  if (
+    before.globePosition !== 'fixed' ||
+    before.panelCount !== 1 ||
+    before.panelId !== 'mindscape-panel-about'
+  ) {
+    throw new Error(
+      `${label}: Mindscape resting state was incorrect: ${JSON.stringify(before)}`
+    )
+  }
+
+  await page.getByRole('tab', { name: 'Writing' }).click()
+  await page.waitForTimeout(700)
+
+  const after = await page.evaluate(() => ({
+    colors: [...document.querySelectorAll('.mindscape-tab')].map(
+      (element) => getComputedStyle(element).backgroundColor
+    ),
+    panelCount: document.querySelectorAll('[role="tabpanel"]').length,
+    panelId: document.querySelector('[role="tabpanel"]')?.id,
+    text: document.querySelector('[role="tabpanel"]')?.textContent?.trim(),
+  }))
+
+  if (
+    after.panelCount !== 1 ||
+    after.panelId !== 'mindscape-panel-writing' ||
+    !after.text?.includes('What We Owe to Each Other') ||
+    JSON.stringify(after.colors) !== JSON.stringify(before.colors)
+  ) {
+    throw new Error(
+      `${label}: Mindscape tab selection was incorrect: ${JSON.stringify(after)}`
+    )
+  }
+}
+
 async function runScenario(viewport, run, scenario, navigate) {
   const context = await browser.newContext({ viewport })
   const page = await context.newPage()
@@ -202,6 +253,10 @@ try {
         await assertHomeGlobeNav(
           page,
           `about home navigation ${viewport.name} ${viewport.width}x${viewport.height} run ${run}`
+        )
+        await assertMindscapeTabs(
+          page,
+          `Mindscape tabs ${viewport.name} ${viewport.width}x${viewport.height} run ${run}`
         )
 
         await page.goto(`${baseUrl}/blog`, {

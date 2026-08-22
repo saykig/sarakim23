@@ -1346,7 +1346,7 @@ body:has(.about-page) ::selection {
 }
 
 .mindscape-tab {
-  --mindscape-tab-color: #e6eedf;
+  --mindscape-tab-color: #d8e1d0;
   --mindscape-tab-rest-x: -0.45rem;
   display: flex;
   width: min(100%, 8.75rem);
@@ -1375,37 +1375,27 @@ body:has(.about-page) ::selection {
 }
 
 .mindscape-tab:nth-child(2) {
-  --mindscape-tab-color: #d8e5cf;
+  --mindscape-tab-color: #ccd9c2;
 }
 
 .mindscape-tab:nth-child(3) {
-  --mindscape-tab-color: #c8d8bd;
+  --mindscape-tab-color: #becdb2;
 }
 
 .mindscape-tab:nth-child(4) {
-  --mindscape-tab-color: #b5c8a8;
+  --mindscape-tab-color: #adbfa0;
 }
 
 .mindscape-tab:nth-child(5) {
-  --mindscape-tab-color: #9db488;
+  --mindscape-tab-color: #98ae84;
 }
 
 .mindscape-tab:hover {
-  background: color-mix(
-    in srgb,
-    var(--mindscape-tab-color) 94%,
-    var(--atlas-sage)
-  );
   color: var(--atlas-ink);
   transform: translateX(calc(var(--mindscape-tab-rest-x) + 0.7rem));
 }
 
 .mindscape-tab[data-state='active'] {
-  background: color-mix(
-    in srgb,
-    var(--mindscape-tab-color) 88%,
-    var(--atlas-sage)
-  );
   color: var(--atlas-ink);
   transform: translateX(calc(var(--mindscape-tab-rest-x) + 1.125rem));
 }
@@ -1415,11 +1405,6 @@ body:has(.about-page) ::selection {
 }
 
 .mindscape-tab:focus-visible:not([data-state='active']) {
-  background: color-mix(
-    in srgb,
-    var(--mindscape-tab-color) 90%,
-    var(--atlas-sage)
-  );
   transform: translateX(calc(var(--mindscape-tab-rest-x) + 0.7rem));
 }
 
@@ -1428,18 +1413,18 @@ body:has(.about-page) ::selection {
   max-width: 70rem;
 }
 
+.mindscape-transition-panel {
+  position: relative;
+  min-height: clamp(22rem, 52vh, 34rem);
+}
+
 .mindscape-section {
-  min-height: clamp(28rem, 68vh, 44rem);
-  scroll-margin-top: clamp(2rem, 8vh, 5rem);
+  min-height: 0;
 }
 
 .mindscape-section-about {
   min-height: 0;
-  padding-bottom: clamp(7rem, 14vw, 12rem);
-}
-
-.mindscape-section + .mindscape-section {
-  padding-top: clamp(2rem, 4vw, 3.5rem);
+  padding-bottom: 0;
 }
 
 .mindscape-section h2 {
@@ -1499,7 +1484,14 @@ body:has(.about-page) ::selection {
 }
 
 .mindscape-section-empty {
-  min-height: clamp(22rem, 56vh, 36rem);
+  min-height: 0;
+}
+
+.mindscape-page .home-globe-nav {
+  position: fixed;
+  z-index: 12;
+  top: clamp(1.15rem, calc(4vw - 0.35rem), 2.65rem);
+  right: clamp(1rem, calc(5vw - 0.35rem), 4.65rem);
 }
 
 @media (max-width: 1040px) {
@@ -1658,13 +1650,12 @@ body:has(.about-page) ::selection {
   }
 
   .mindscape-section {
-    min-height: 58vh;
-    scroll-margin-top: 1.5rem;
+    min-height: 0;
   }
 
   .mindscape-section-about {
     min-height: 0;
-    padding-bottom: 6rem;
+    padding-bottom: 0;
   }
 
   .mindscape-section h2 {
@@ -1677,7 +1668,16 @@ body:has(.about-page) ::selection {
   }
 
   .mindscape-section-empty {
+    min-height: 0;
+  }
+
+  .mindscape-transition-panel {
     min-height: 50vh;
+  }
+
+  .mindscape-page .home-globe-nav {
+    top: 1rem;
+    right: 0.85rem;
   }
 }
 

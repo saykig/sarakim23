@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { useReducedMotion } from 'motion/react'
+import { TransitionPanel } from '@/components/core/transition-panel'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { AboutCopy } from './about-copy'
 import { HomeGlobeNav } from './home-globe-nav'
@@ -23,64 +25,23 @@ function isMindscapeSection(value: string): value is MindscapeSectionId {
 export function MindscapePage() {
   const [activeSection, setActiveSection] =
     useState<MindscapeSectionId>('about')
+  const reduceMotion = useReducedMotion()
 
   useEffect(() => {
-    let frame = 0
-
-    const updateActiveSection = () => {
-      frame = 0
-      const pageBottom =
-        window.scrollY + window.innerHeight >=
-        document.documentElement.scrollHeight - 4
-
-      if (pageBottom) {
-        setActiveSection('life')
-        return
-      }
-
-      const readingLine = Math.max(120, window.innerHeight * 0.28)
-      let nextSection: MindscapeSectionId = 'about'
-
-      for (const section of mindscapeSections) {
-        const element = document.getElementById(section.id)
-        if (element && element.getBoundingClientRect().top <= readingLine) {
-          nextSection = section.id
-        }
-      }
-
-      setActiveSection(nextSection)
-    }
-
-    const handleScroll = () => {
-      if (!frame) frame = window.requestAnimationFrame(updateActiveSection)
-    }
-
-    updateActiveSection()
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    window.addEventListener('resize', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('resize', handleScroll)
-      if (frame) window.cancelAnimationFrame(frame)
-    }
+    const initialSection = window.location.hash.slice(1)
+    if (isMindscapeSection(initialSection)) setActiveSection(initialSection)
   }, [])
 
-  const scrollToSection = (value: string) => {
+  const selectSection = (value: string) => {
     if (!isMindscapeSection(value)) return
-
-    const section = document.getElementById(value)
-    if (!section) return
 
     setActiveSection(value)
     window.history.replaceState(null, '', `#${value}`)
-    section.scrollIntoView({
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
-        ? 'auto'
-        : 'smooth',
-      block: 'start',
-    })
   }
+
+  const activeIndex = mindscapeSections.findIndex(
+    (section) => section.id === activeSection
+  )
 
   return (
     <article className="about-page mindscape-page">
@@ -94,9 +55,9 @@ export function MindscapePage() {
           <aside className="mindscape-index" aria-label="Mindscape index">
             <Tabs
               value={activeSection}
-              onValueChange={scrollToSection}
+              onValueChange={selectSection}
               orientation="vertical"
-              activationMode="automatic"
+              activationMode="manual"
               className="mindscape-tabs"
             >
               <TabsList className="mindscape-tabs-list">
@@ -105,7 +66,7 @@ export function MindscapePage() {
                     key={section.id}
                     id={`mindscape-tab-${section.id}`}
                     value={section.id}
-                    aria-controls={section.id}
+                    aria-controls={`mindscape-panel-${section.id}`}
                     className="mindscape-tab"
                   >
                     {section.label}
@@ -116,60 +77,79 @@ export function MindscapePage() {
           </aside>
 
           <div className="mindscape-content">
-            <section
-              id="about"
-              className="mindscape-section mindscape-section-about"
-              aria-labelledby="mindscape-tab-about"
+            <TransitionPanel
+              className="mindscape-transition-panel"
+              activeIndex={activeIndex}
+              transition={{ duration: reduceMotion ? 0 : 0.24, ease: 'easeOut' }}
+              variants={{
+                enter: { opacity: 0, y: 10, filter: 'blur(1px)' },
+                center: { opacity: 1, y: 0, filter: 'blur(0px)' },
+                exit: { opacity: 0, y: -8, filter: 'blur(1px)' },
+              }}
             >
-              <h2>A little bit about me</h2>
-              <AboutCopy />
-            </section>
-
-            <section
-              id="reading"
-              className="mindscape-section"
-              aria-labelledby="mindscape-tab-reading"
-            >
-              <h2>Reading</h2>
-              <p className="mindscape-placeholder">to be continued...</p>
-            </section>
-
-            <section
-              id="writing"
-              className="mindscape-section"
-              aria-labelledby="mindscape-tab-writing"
-            >
-              <h2>Writing</h2>
-              <article className="mindscape-writing-entry">
-                <a href="https://cepheus-pons.org/essays/what-we-owe-to-each-other">
-                  What We Owe to Each Other
-                </a>
-                <p>
-                  An essay about the growing distance between the people
-                  building advanced AI and the institutions expected to govern
-                  it. It asks who holds technical knowledge, who holds public
-                  authority, and what happens when those responsibilities sit
-                  in different places.
-                </p>
-              </article>
-            </section>
-
-            <section
-              id="poetry"
-              className="mindscape-section mindscape-section-empty"
-              aria-labelledby="mindscape-tab-poetry"
-            >
-              <h2>Poetry</h2>
-            </section>
-
-            <section
-              id="life"
-              className="mindscape-section"
-              aria-labelledby="mindscape-tab-life"
-            >
-              <h2>Life</h2>
-              <p className="mindscape-placeholder">to be continued...</p>
-            </section>
+              {[
+                <section
+                  key="about"
+                  id="mindscape-panel-about"
+                  className="mindscape-section mindscape-section-about"
+                  role="tabpanel"
+                  aria-labelledby="mindscape-tab-about"
+                >
+                  <h2>A little bit about me</h2>
+                  <AboutCopy />
+                </section>,
+                <section
+                  key="reading"
+                  id="mindscape-panel-reading"
+                  className="mindscape-section"
+                  role="tabpanel"
+                  aria-labelledby="mindscape-tab-reading"
+                >
+                  <h2>Reading</h2>
+                  <p className="mindscape-placeholder">to be continued...</p>
+                </section>,
+                <section
+                  key="writing"
+                  id="mindscape-panel-writing"
+                  className="mindscape-section"
+                  role="tabpanel"
+                  aria-labelledby="mindscape-tab-writing"
+                >
+                  <h2>Writing</h2>
+                  <article className="mindscape-writing-entry">
+                    <a href="https://cepheus-pons.org/essays/what-we-owe-to-each-other">
+                      What We Owe to Each Other
+                    </a>
+                    <p>
+                      An essay about the growing distance between the people
+                      building advanced AI and the institutions expected to
+                      govern it. It asks who holds technical knowledge, who
+                      holds public authority, and what happens when those
+                      responsibilities sit in different places.
+                    </p>
+                  </article>
+                </section>,
+                <section
+                  key="poetry"
+                  id="mindscape-panel-poetry"
+                  className="mindscape-section mindscape-section-empty"
+                  role="tabpanel"
+                  aria-labelledby="mindscape-tab-poetry"
+                >
+                  <h2>Poetry</h2>
+                </section>,
+                <section
+                  key="life"
+                  id="mindscape-panel-life"
+                  className="mindscape-section"
+                  role="tabpanel"
+                  aria-labelledby="mindscape-tab-life"
+                >
+                  <h2>Life</h2>
+                  <p className="mindscape-placeholder">to be continued...</p>
+                </section>,
+              ]}
+            </TransitionPanel>
           </div>
         </div>
 

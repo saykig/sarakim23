@@ -117,7 +117,7 @@ export function AboutCopy() {
       <p>
         This website is still a work in progress, much like I am: constantly
         learning things, changing my mind, making things, collecting thoughts,
-        and meeting people who are genuinely excited about what they do
+        and meeting people who are genuinely excited about what they do.
       </p>
       <p>
         If you’re in political science, metascience, neuroeconomics,

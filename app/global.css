@@ -1311,6 +1311,7 @@ body:has(.about-page) ::selection {
 
 .mindscape-page-inner {
   padding-left: clamp(1.25rem, 4.5vw, 4.5rem);
+  padding-right: clamp(1.25rem, 3vw, 3rem);
 }
 
 .mindscape-page-header {
@@ -1323,9 +1324,9 @@ body:has(.about-page) ::selection {
 
 .mindscape-layout {
   display: grid;
-  grid-template-columns: minmax(9.5rem, 13rem) minmax(0, 1fr);
+  grid-template-columns: minmax(9.5rem, 11.5rem) minmax(0, 1fr);
   align-items: start;
-  gap: clamp(2.5rem, 7vw, 7rem);
+  gap: clamp(2rem, 4vw, 4rem);
 }
 
 .mindscape-index {
@@ -1333,7 +1334,7 @@ body:has(.about-page) ::selection {
   top: clamp(1.5rem, 8vh, 5rem);
   z-index: 4;
   align-self: start;
-  margin-left: clamp(-1.5rem, -2vw, -0.75rem);
+  margin-left: clamp(-3.25rem, -4vw, -1.5rem);
 }
 
 .mindscape-tabs,
@@ -1425,7 +1426,7 @@ body:has(.about-page) ::selection {
 
 .mindscape-content {
   width: 100%;
-  max-width: 50rem;
+  max-width: 58rem;
 }
 
 .mindscape-section {
@@ -1458,13 +1459,15 @@ body:has(.about-page) ::selection {
 }
 
 .mindscape-section .about-copy {
-  max-width: 72ch;
+  max-width: 75ch;
+  color: var(--atlas-ink);
+  font-size: clamp(1.02rem, 1.35vw, 1.14rem);
 }
 
 .mindscape-placeholder,
 .mindscape-writing-entry {
   max-width: 66ch;
-  color: var(--atlas-copy);
+  color: var(--atlas-ink);
   font-family: var(--font-source-sans), Arial, sans-serif;
   font-size: clamp(1rem, 1.35vw, 1.12rem);
   font-weight: 300;
@@ -1625,7 +1628,7 @@ body:has(.about-page) ::selection {
   }
 
   .mindscape-page-inner {
-    padding-right: 1.25rem;
+    padding-right: 1rem;
     padding-left: 1rem;
   }
 
@@ -1640,12 +1643,12 @@ body:has(.about-page) ::selection {
 
   .mindscape-layout {
     grid-template-columns: minmax(4.9rem, 5.4rem) minmax(0, 1fr);
-    gap: clamp(0.75rem, 3.5vw, 1.15rem);
+    gap: clamp(0.6rem, 3vw, 0.9rem);
   }
 
   .mindscape-index {
     top: 1.25rem;
-    margin-left: -0.65rem;
+    margin-left: -0.9rem;
   }
 
   .mindscape-tab {
@@ -1671,7 +1674,7 @@ body:has(.about-page) ::selection {
   }
 
   .mindscape-section .about-copy {
-    font-size: clamp(1rem, 4.5vw, 1.12rem);
+    font-size: clamp(1rem, 4vw, 1.08rem);
   }
 
   .mindscape-section-empty {

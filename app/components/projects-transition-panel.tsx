@@ -102,7 +102,7 @@ export function ProjectsTransitionPanel() {
                 {project.links.map((link, linkIndex) => (
                   <span key={link.href}>
                     {linkIndex > 0 ? <span aria-hidden="true"> · </span> : null}
-                    <a href={link.href}>{link.label} →</a>
+                    <a href={link.href}>{link.label}</a>
                   </span>
                 ))}
               </p>

@@ -2,17 +2,36 @@
 
 import { Tooltip } from '@/components/ui/tooltip-card'
 
+export const linkedInUrl = 'https://www.linkedin.com/in/sarakim203/'
+
+type EmailTooltipProps = {
+  className?: string
+  containerClassName?: string
+}
+
+export function EmailTooltip({
+  className = 'personal-contact-email',
+  containerClassName,
+}: EmailTooltipProps) {
+  return (
+    <Tooltip
+      content="sarakim203@gmail.com"
+      containerClassName={containerClassName}
+    >
+      <button type="button" className={className}>
+        email
+      </button>
+    </Tooltip>
+  )
+}
+
 export function ContactLinks() {
   return (
     <nav className="personal-contact-links" aria-label="Find Sara online">
-      <Tooltip content="sarakim203@gmail.com">
-        <button type="button" className="personal-contact-email">
-          email
-        </button>
-      </Tooltip>
+      <EmailTooltip />
       <span aria-hidden="true">·</span>
       <a
-        href="https://www.linkedin.com/in/sarakim203/"
+        href={linkedInUrl}
         target="_blank"
         rel="noopener noreferrer"
       >

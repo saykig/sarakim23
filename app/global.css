@@ -779,24 +779,64 @@ body:has(.soft-atlas-page) ::selection {
   transform: translate(-50%, -50%);
 }
 
+.atlas-marker-pulse {
+  position: absolute;
+  z-index: 0;
+  width: 1.375rem;
+  height: 1.375rem;
+  border: 1px solid color-mix(in srgb, var(--atlas-sage) 46%, transparent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--atlas-sage) 12%, transparent);
+  opacity: 0.4;
+  pointer-events: none;
+  transform: scale(0.48);
+  animation: atlas-marker-pulse 2.3s ease-out infinite;
+}
+
+.atlas-marker-button[data-memory-ready='true'] .atlas-marker-pulse {
+  border-color: color-mix(in srgb, var(--atlas-cream) 70%, var(--atlas-sage));
+  background: color-mix(in srgb, var(--atlas-cream) 18%, transparent);
+}
+
+@keyframes atlas-marker-pulse {
+  0% {
+    opacity: 0.44;
+    transform: scale(0.48);
+  }
+
+  72% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
 .atlas-marker-face {
   position: relative;
+  z-index: 1;
   display: grid;
-  width: 0.625rem;
-  height: 0.625rem;
+  width: 0.6875rem;
+  height: 0.6875rem;
   place-items: center;
-  border: 1px solid color-mix(in srgb, var(--atlas-sage) 68%, transparent);
+  border: 1px solid color-mix(in srgb, var(--atlas-sage) 76%, transparent);
   border-radius: 50%;
-  background: transparent;
+  background: color-mix(in srgb, var(--atlas-cream) 30%, transparent);
   transition: transform 200ms ease, border-color 200ms ease;
 }
 
 .atlas-marker-centre {
-  width: 0.25rem;
-  height: 0.25rem;
+  width: 0.28125rem;
+  height: 0.28125rem;
   border-radius: 50%;
-  background: var(--atlas-ink-soft);
+  background: var(--atlas-ink);
   transition: transform 200ms ease, background-color 200ms ease;
+}
+
+.atlas-marker-button[data-memory-ready='true'] .atlas-marker-face {
+  border-color: color-mix(in srgb, var(--atlas-cream) 72%, var(--atlas-sage));
 }
 
 .atlas-marker-button[data-selected='true'] .atlas-marker-face {
@@ -811,13 +851,19 @@ body:has(.soft-atlas-page) ::selection {
 .atlas-marker-button:focus-visible .atlas-marker-face,
 .atlas-marker-button[data-selected='true'] .atlas-marker-face {
   border-color: color-mix(in srgb, var(--atlas-sage) 48%, transparent);
-  transform: scale(1.22);
+  transform: scale(1.26);
 }
 
 .atlas-marker-button:hover .atlas-marker-centre,
 .atlas-marker-button:focus-visible .atlas-marker-centre,
 .atlas-marker-button[data-selected='true'] .atlas-marker-centre {
   transform: scale(0.92);
+}
+
+.atlas-marker-button:hover .atlas-marker-pulse,
+.atlas-marker-button:focus-visible .atlas-marker-pulse,
+.atlas-marker-button[data-selected='true'] .atlas-marker-pulse {
+  opacity: 0.55;
 }
 
 .atlas-marker-button:focus-visible {
@@ -1685,6 +1731,12 @@ body:has(.about-page) ::selection {
   .personal-contact-links a,
   .personal-contact-email {
     transition-duration: 0ms;
+  }
+
+  .atlas-marker-pulse {
+    animation: none;
+    opacity: 0.28;
+    transform: scale(0.74);
   }
 }
 

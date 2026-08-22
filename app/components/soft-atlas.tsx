@@ -233,6 +233,7 @@ function FallbackGlobe({
               }
               className="atlas-marker-button"
               data-selected={String(place.slug === selectedPlace?.slug)}
+              data-memory-ready={String(Boolean(place.memorySlug))}
               data-atlas-place={place.slug}
               aria-label={`Explore ${place.name}`}
               onMouseEnter={() => onMarkerEnter(place)}
@@ -244,6 +245,7 @@ function FallbackGlobe({
                 onSelect(place)
               }}
             >
+              <span className="atlas-marker-pulse" aria-hidden="true" />
               <span className="atlas-marker-face" aria-hidden="true">
                 <span className="atlas-marker-centre" />
               </span>
@@ -450,6 +452,7 @@ function createMarkerElement(
   }
   control.className = 'atlas-marker-button'
   control.dataset.selected = String(selected)
+  control.dataset.memoryReady = String(Boolean(place.memorySlug))
   control.dataset.atlasPlace = place.slug
   control.setAttribute('aria-label', `Explore ${place.name}`)
 
@@ -461,7 +464,11 @@ function createMarkerElement(
   centre.className = 'atlas-marker-centre'
   face.appendChild(centre)
 
-  control.append(face)
+  const pulse = document.createElement('span')
+  pulse.className = 'atlas-marker-pulse'
+  pulse.setAttribute('aria-hidden', 'true')
+
+  control.append(pulse, face)
   marker.append(control)
   control.addEventListener('mouseenter', () => onMarkerEnter(place))
   control.addEventListener('mouseleave', onMarkerLeave)

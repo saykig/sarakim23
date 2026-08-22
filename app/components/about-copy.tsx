@@ -133,7 +133,7 @@ export function AboutCopy() {
           }
         >
           <button type="button" className="about-inline-easter-egg">
-            best parts of society
+            best aspects about society
           </button>
         </Tooltip>
         .

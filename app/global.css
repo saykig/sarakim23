@@ -914,7 +914,7 @@ body:has(.about-page) ::selection {
   padding-block: 1.5rem 1rem;
   color: var(--atlas-copy);
   font-family: var(--font-source-sans), Arial, sans-serif;
-  font-size: clamp(1.03rem, 1.5vw, 1.16rem);
+  font-size: clamp(1.1rem, 1.6vw, 1.25rem);
   font-weight: 300;
   line-height: 1.62;
 }

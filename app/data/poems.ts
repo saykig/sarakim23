@@ -205,11 +205,23 @@ const poemEntries: Poem[] = [
     id: 'polaroids',
     title: 'Polaroids',
     content: {
-      kind: 'image',
-      src: '/images/poetry/polaroids.jpeg',
-      width: 1242,
-      height: 1564,
-      alt: 'The visual poem “Polaroids,” in white type on a black field.',
+      kind: 'text',
+      stanzas: [
+        lines('polaroids', 'i hang them on my wall'),
+        lines('i look at each of them', 'and wonder', 'if i could travel through them all'),
+        lines('as if every photograph', 'were somewhere', 'i could still return to'),
+        lines('sometimes i wish', 'i could grow tired of these memories'),
+        lines('but memories always have a way', 'of coming back to me'),
+        [{ text: '“i’ll be back soon,”', italic: true }, { text: 'i said' }],
+        [{ text: '“pinky promise,”', italic: true }, { text: 'i said' }],
+        lines('maybe i’ll come back one day', 'maybe i won’t'),
+        lines(
+          'maybe i keep going back',
+          'just to live a little longer',
+          'in the way things used to be'
+        ),
+        lines('even when they cannot', 'come back to me.'),
+      ],
     },
   },
   {

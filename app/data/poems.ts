@@ -31,7 +31,7 @@ export type Poem = {
 
 const lines = (...text: string[]): PoemLine[] => text.map((line) => ({ text: line }))
 
-export const poems: Poem[] = [
+const poemEntries: Poem[] = [
   {
     id: 'filed-beneath-the-moon',
     title: 'Field Beneath the Moon',
@@ -372,3 +372,26 @@ export const poems: Poem[] = [
     },
   },
 ]
+
+const poemOrder = [
+  'patterns-against-distance',
+  'i-miss',
+  'the-stars-do-not-know',
+  'polaroids',
+  'see-through',
+  'the-passage-of-time',
+  'filed-beneath-the-moon',
+  'how-will-i-know',
+  'i-wandered-through-the-sea',
+  'the-space-between-us',
+] as const
+
+export const poems = poemOrder.map((id) => {
+  const poem = poemEntries.find((entry) => entry.id === id)
+
+  if (!poem) {
+    throw new Error(`Missing poem entry for ${id}.`)
+  }
+
+  return poem
+})

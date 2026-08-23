@@ -140,13 +140,6 @@ export const poems: Poem[] = [
         lines('how will i know they’ll always be,', 'when will i know my time will be?'),
         lines('in wuthering days i wallow', 'they say', 'don’t look back,', 'nor trouble the morrow'),
         lines(
-          'yet i cannot help',
-          'but be twenty steps forward,',
-          'nineteen steps back,',
-          'as if one step',
-          'could fix the sorrow.'
-        ),
-        lines(
           'yet here i am,',
           'twenty steps forward,',
           'nineteen steps back,',

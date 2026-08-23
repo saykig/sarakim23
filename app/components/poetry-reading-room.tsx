@@ -1,58 +1,163 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { motion, useMotionValue, type MotionValue } from 'motion/react'
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+  type ReactNode,
+} from 'react'
 import type { Poem } from '@/app/data/poems'
 
 type PoetryReadingRoomProps = {
   poems: Poem[]
 }
 
+type PoetryNavigationContextValue = {
+  activePoem: string
+  moveToPoem: (id: string) => void
+  poems: Poem[]
+  trackProgress: MotionValue<number>
+}
+
+const PoetryNavigationContext =
+  createContext<PoetryNavigationContextValue | null>(null)
+
 function poemNumber(index: number) {
   return String(index + 1).padStart(2, '0')
 }
 
-export function PoetryReadingRoom({ poems }: PoetryReadingRoomProps) {
+export function PoetryNavigationProvider({
+  poems,
+  children,
+}: PoetryReadingRoomProps & { children: ReactNode }) {
   const [activePoem, setActivePoem] = useState(poems[0]?.id ?? '')
+  const trackProgress = useMotionValue(0)
 
   useEffect(() => {
     let frame = 0
 
-    const updateActivePoem = () => {
+    const updateIndex = () => {
       cancelAnimationFrame(frame)
       frame = requestAnimationFrame(() => {
-        const readingLine = window.innerHeight * 0.32
-        let nextActive = poems[0]?.id ?? ''
+        const sections = poems
+          .map((poem) => document.getElementById(poem.id))
+          .filter((section): section is HTMLElement => section !== null)
 
-        for (const poem of poems) {
-          const section = document.getElementById(poem.id)
-          if (!section || section.getBoundingClientRect().top > readingLine) break
-          nextActive = poem.id
+        if (sections.length === 0) return
+
+        const readingLine = window.innerHeight * 0.32
+        let nextActive = sections[0].id
+
+        for (const section of sections) {
+          if (section.getBoundingClientRect().top > readingLine) break
+          nextActive = section.id
         }
 
-        setActivePoem((current) => (current === nextActive ? current : nextActive))
+        const firstTop = sections[0].getBoundingClientRect().top + window.scrollY
+        const lastBottom =
+          sections[sections.length - 1].getBoundingClientRect().bottom +
+          window.scrollY
+        const currentPosition = window.scrollY + readingLine
+        const progress = Math.min(
+          1,
+          Math.max(0, (currentPosition - firstTop) / (lastBottom - firstTop))
+        )
+
+        trackProgress.set(progress)
+        setActivePoem((current) =>
+          current === nextActive ? current : nextActive
+        )
       })
     }
 
-    updateActivePoem()
-    window.addEventListener('scroll', updateActivePoem, { passive: true })
-    window.addEventListener('resize', updateActivePoem)
+    updateIndex()
+    window.addEventListener('scroll', updateIndex, { passive: true })
+    window.addEventListener('resize', updateIndex)
 
     return () => {
       cancelAnimationFrame(frame)
-      window.removeEventListener('scroll', updateActivePoem)
-      window.removeEventListener('resize', updateActivePoem)
+      window.removeEventListener('scroll', updateIndex)
+      window.removeEventListener('resize', updateIndex)
     }
-  }, [poems])
+  }, [poems, trackProgress])
 
   const moveToPoem = useCallback((id: string) => {
     const section = document.getElementById(id)
     if (!section) return
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    section.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' })
+    section.scrollIntoView({
+      behavior: reduceMotion ? 'auto' : 'smooth',
+      block: 'start',
+    })
     window.history.replaceState(null, '', `#${id}`)
     setActivePoem(id)
   }, [])
+
+  return (
+    <PoetryNavigationContext.Provider
+      value={{ activePoem, moveToPoem, poems, trackProgress }}
+    >
+      {children}
+    </PoetryNavigationContext.Provider>
+  )
+}
+
+function usePoetryNavigation() {
+  const context = useContext(PoetryNavigationContext)
+
+  if (!context) {
+    throw new Error(
+      'Poetry navigation must be rendered inside PoetryNavigationProvider.'
+    )
+  }
+
+  return context
+}
+
+export function PoetrySideIndex() {
+  const { activePoem, moveToPoem, poems, trackProgress } =
+    usePoetryNavigation()
+
+  return (
+    <nav className="poetry-reading-index" aria-label="Poem index">
+      <div className="poetry-reading-index-track">
+        <span className="poetry-reading-index-rail" aria-hidden="true" />
+        <motion.span
+          className="poetry-reading-index-progress"
+          style={{ scaleY: trackProgress }}
+          aria-hidden="true"
+        />
+        <ol>
+          {poems.map((poem, index) => {
+            const isActive = activePoem === poem.id
+            return (
+              <li key={poem.id}>
+                <a
+                  href={`#${poem.id}`}
+                  aria-current={isActive ? 'location' : undefined}
+                  onClick={(event) => {
+                    event.preventDefault()
+                    moveToPoem(poem.id)
+                  }}
+                >
+                  <span aria-hidden="true">{poemNumber(index)}</span>
+                  {poem.title}
+                </a>
+              </li>
+            )
+          })}
+        </ol>
+      </div>
+    </nav>
+  )
+}
+
+export function PoetryReadingRoom({ poems }: PoetryReadingRoomProps) {
+  const { activePoem, moveToPoem } = usePoetryNavigation()
 
   const handleAnchorClick = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     event.preventDefault()
@@ -86,26 +191,6 @@ export function PoetryReadingRoom({ poems }: PoetryReadingRoomProps) {
       </figure>
 
       <div className="poetry-reading-layout">
-        <aside className="poetry-reading-index" aria-label="Poem index">
-          <ol>
-            {poems.map((poem, index) => {
-              const isActive = activePoem === poem.id
-              return (
-                <li key={poem.id}>
-                  <a
-                    href={`#${poem.id}`}
-                    aria-current={isActive ? 'location' : undefined}
-                    onClick={(event) => handleAnchorClick(event, poem.id)}
-                  >
-                    <span aria-hidden="true">{poemNumber(index)}</span>
-                    {poem.title}
-                  </a>
-                </li>
-              )
-            })}
-          </ol>
-        </aside>
-
         <div className="poetry-mobile-index">
           <label htmlFor="poetry-mobile-select">Poem</label>
           <select

@@ -22,6 +22,7 @@ export type MindscapeSectionId = (typeof mindscapeSections)[number]['id']
 type MindscapePageProps = {
   initialSection?: MindscapeSectionId
   poetryContent?: ReactNode
+  poetryIndex?: ReactNode
   className?: string
 }
 
@@ -32,6 +33,7 @@ function isMindscapeSection(value: string): value is MindscapeSectionId {
 export function MindscapePage({
   initialSection = 'about',
   poetryContent,
+  poetryIndex,
   className = '',
 }: MindscapePageProps) {
   const [activeSection, setActiveSection] =
@@ -126,6 +128,9 @@ export function MindscapePage({
                 ))}
               </TabsList>
             </Tabs>
+            {activeSection === 'poetry' && poetryIndex ? (
+              <div className="mindscape-index-supplement">{poetryIndex}</div>
+            ) : null}
           </aside>
 
           <div className="mindscape-content">

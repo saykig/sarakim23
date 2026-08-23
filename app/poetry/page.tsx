@@ -1,7 +1,11 @@
 import type { Metadata } from 'next'
 import { Libre_Baskerville } from 'next/font/google'
 import { MindscapePage } from '@/app/components/mindscape-page'
-import { PoetryReadingRoom } from '@/app/components/poetry-reading-room'
+import {
+  PoetryNavigationProvider,
+  PoetryReadingRoom,
+  PoetrySideIndex,
+} from '@/app/components/poetry-reading-room'
 import { poems } from '@/app/data/poems'
 
 const poetrySerif = Libre_Baskerville({
@@ -20,10 +24,13 @@ export const metadata: Metadata = {
 
 export default function PoetryPage() {
   return (
-    <MindscapePage
-      initialSection="poetry"
-      className={poetrySerif.variable}
-      poetryContent={<PoetryReadingRoom poems={poems} />}
-    />
+    <PoetryNavigationProvider poems={poems}>
+      <MindscapePage
+        initialSection="poetry"
+        className={poetrySerif.variable}
+        poetryIndex={<PoetrySideIndex />}
+        poetryContent={<PoetryReadingRoom poems={poems} />}
+      />
+    </PoetryNavigationProvider>
   )
 }

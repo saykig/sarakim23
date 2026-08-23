@@ -371,6 +371,59 @@ const poemEntries: Poem[] = [
       alt: 'The visual poem “See-through,” combining spatial typography with a message screenshot.',
     },
   },
+  {
+    id: 'there-is-grace-in-the-unknown',
+    title: 'There is Grace in the Unknown',
+    content: {
+      kind: 'text',
+      stanzas: [
+        lines('i waited'),
+        lines(
+          'within that frail country called hope,',
+          'without knowledge',
+          'beneath the cloudless breadth of blue'
+        ),
+        [
+          { text: 'still,' },
+          { text: 'there i lay,', indent: 1 },
+          { text: 'low beneath the hours,', indent: 2 },
+          { text: 'while hollow feet moved through the halls', indent: 1 },
+          { text: 'and demanded a truth' },
+        ],
+        lines('in waiting,', 'and in unknowing,'),
+        lines(
+          'i turned the waves beneath his keel',
+          'one hundred and eight',
+          'stood already at the threshold of hades,',
+          'though none yet heard the door'
+        ),
+        lines(
+          'finite knowledge is a kind of grace',
+          'it descends upon the fertile earth',
+          'and crowns a woman queen',
+          'over what she can endure,',
+          'over the dead below',
+          'and the blessed fields beyond them'
+        ),
+        [
+          { text: 'but knowledge without end' },
+          { text: 'would drown each lesser mercy—' },
+          { text: 'misery, shame, and guilt', indent: 1 },
+          { text: 'would rise like bubbles from the deep,' },
+          { text: 'while every hollow left by the unknown' },
+          { text: 'grew vaster than the sea' },
+        ],
+        lines(
+          'so beauty returned',
+          'to the blessedness of waiting',
+          'for waiting was loyalty'
+        ),
+        lines('then the loom fell still', 'the sea withheld no more'),
+        lines('in waiting,', 'having kept its oath'),
+        lines('became knowing.'),
+      ],
+    },
+  },
 ]
 
 const poemOrder = [
@@ -382,6 +435,7 @@ const poemOrder = [
   'the-passage-of-time',
   'filed-beneath-the-moon',
   'how-will-i-know',
+  'there-is-grace-in-the-unknown',
   'i-wandered-through-the-sea',
   'the-space-between-us',
 ] as const

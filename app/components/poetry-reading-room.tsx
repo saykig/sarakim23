@@ -244,25 +244,38 @@ export function PoetryReadingRoom({ poems }: PoetryReadingRoomProps) {
               </header>
 
               {poem.content.kind === 'text' ? (
-                <div className="poetry-poem-text">
-                  {poem.content.stanzas.map((stanza, stanzaIndex) => (
-                    <p key={`${poem.id}-${stanzaIndex}`}>
-                      {stanza.map((line, lineIndex) => (
-                        <span
-                          key={`${poem.id}-${stanzaIndex}-${lineIndex}`}
-                          className={[
-                            line.indent ? `poetry-line-indent-${line.indent}` : '',
-                            line.italic ? 'poetry-line-italic' : '',
-                          ]
-                            .filter(Boolean)
-                            .join(' ')}
-                        >
-                          {line.text}
-                        </span>
-                      ))}
-                    </p>
-                  ))}
-                </div>
+                <>
+                  {poem.content.leadImage ? (
+                    <figure className="poetry-poem-image">
+                      <img
+                        src={poem.content.leadImage.src}
+                        alt={poem.content.leadImage.alt}
+                        width={poem.content.leadImage.width}
+                        height={poem.content.leadImage.height}
+                      />
+                    </figure>
+                  ) : null}
+
+                  <div className="poetry-poem-text">
+                    {poem.content.stanzas.map((stanza, stanzaIndex) => (
+                      <p key={`${poem.id}-${stanzaIndex}`}>
+                        {stanza.map((line, lineIndex) => (
+                          <span
+                            key={`${poem.id}-${stanzaIndex}-${lineIndex}`}
+                            className={[
+                              line.indent ? `poetry-line-indent-${line.indent}` : '',
+                              line.italic ? 'poetry-line-italic' : '',
+                            ]
+                              .filter(Boolean)
+                              .join(' ')}
+                          >
+                            {line.text}
+                          </span>
+                        ))}
+                      </p>
+                    ))}
+                  </div>
+                </>
               ) : null}
             </section>
           ))}

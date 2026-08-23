@@ -2421,6 +2421,21 @@ body:has(.memory-page) ::selection {
   line-height: 0.98;
 }
 
+.poetry-poem:has(.poetry-poem-image) .poetry-poem-heading {
+  margin-bottom: clamp(0.85rem, 1.5vw, 1.25rem);
+}
+
+.poetry-poem-image {
+  width: min(100%, 25rem);
+  margin: 0 0 clamp(1.1rem, 2vw, 1.5rem);
+}
+
+.poetry-poem-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .poetry-poem-text {
   width: min(100%, 41rem);
   color: var(--atlas-ink);

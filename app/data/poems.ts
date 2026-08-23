@@ -6,6 +6,12 @@ export type PoemLine = {
 
 export type TextPoem = {
   kind: 'text'
+  leadImage?: {
+    src: string
+    width: number
+    height: number
+    alt: string
+  }
   stanzas: PoemLine[][]
 }
 
@@ -274,6 +280,12 @@ export const poems: Poem[] = [
     title: 'The Space Between Us',
     content: {
       kind: 'text',
+      leadImage: {
+        src: '/images/poetry/the-space-between-us-moon.png',
+        width: 1024,
+        height: 1536,
+        alt: 'A crescent moon over a waterfront at dusk.',
+      },
       stanzas: [
         lines('returning to a home', 'distant yet so close'),
         lines(

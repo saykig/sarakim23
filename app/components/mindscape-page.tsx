@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 import { useReducedMotion } from 'motion/react'
 import { TransitionPanel } from '@/components/core/transition-panel'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
@@ -16,27 +17,74 @@ const mindscapeSections = [
   { id: 'life', label: 'Life' },
 ] as const
 
-type MindscapeSectionId = (typeof mindscapeSections)[number]['id']
+export type MindscapeSectionId = (typeof mindscapeSections)[number]['id']
+
+type MindscapePageProps = {
+  initialSection?: MindscapeSectionId
+  poetryContent?: ReactNode
+  className?: string
+}
 
 function isMindscapeSection(value: string): value is MindscapeSectionId {
   return mindscapeSections.some((section) => section.id === value)
 }
 
-export function MindscapePage() {
+export function MindscapePage({
+  initialSection = 'about',
+  poetryContent,
+  className = '',
+}: MindscapePageProps) {
   const [activeSection, setActiveSection] =
-    useState<MindscapeSectionId>('about')
+    useState<MindscapeSectionId>(initialSection)
   const reduceMotion = useReducedMotion()
+  const pathname = usePathname()
+  const router = useRouter()
 
   useEffect(() => {
-    const initialSection = window.location.hash.slice(1)
-    if (isMindscapeSection(initialSection)) setActiveSection(initialSection)
-  }, [])
+    if (pathname !== '/about') {
+      setActiveSection(initialSection)
+      return
+    }
+
+    const syncSectionFromHash = () => {
+      const hashSection = window.location.hash.slice(1)
+
+      if (hashSection === 'poetry') {
+        router.replace('/poetry')
+        return
+      }
+
+      setActiveSection(
+        isMindscapeSection(hashSection) ? hashSection : 'about'
+      )
+    }
+
+    syncSectionFromHash()
+    window.addEventListener('hashchange', syncSectionFromHash)
+
+    return () => window.removeEventListener('hashchange', syncSectionFromHash)
+  }, [initialSection, pathname, router])
 
   const selectSection = (value: string) => {
     if (!isMindscapeSection(value)) return
 
+    if (value === 'poetry') {
+      router.push('/poetry')
+      return
+    }
+
+    if (pathname === '/poetry') {
+      const destination = value === 'about' ? '/about' : `/about#${value}`
+      router.push(destination)
+      return
+    }
+
     setActiveSection(value)
-    window.history.replaceState(null, '', `#${value}`)
+    window.history.replaceState(
+      null,
+      '',
+      value === 'about' ? '/about' : `#${value}`
+    )
   }
 
   const activeIndex = mindscapeSections.findIndex(
@@ -44,7 +92,11 @@ export function MindscapePage() {
   )
 
   return (
-    <article className="about-page mindscape-page">
+    <article
+      className={['about-page', 'mindscape-page', className]
+        .filter(Boolean)
+        .join(' ')}
+    >
       <div className="about-page-inner mindscape-page-inner">
         <header className="about-page-header mindscape-page-header">
           <h1>Sara’s Mindscape</h1>
@@ -132,11 +184,12 @@ export function MindscapePage() {
                 <section
                   key="poetry"
                   id="mindscape-panel-poetry"
-                  className="mindscape-section mindscape-section-empty"
+                  className="mindscape-section mindscape-poetry-section"
                   role="tabpanel"
                   aria-labelledby="mindscape-tab-poetry"
                 >
                   <h2>Poetry</h2>
+                  {poetryContent}
                 </section>,
                 <section
                   key="life"

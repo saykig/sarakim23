@@ -1463,7 +1463,7 @@ body:has(.about-page) ::selection {
   padding-bottom: 0;
 }
 
-.mindscape-section h2 {
+.mindscape-section > h2 {
   max-width: 18ch;
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
   color: var(--atlas-copy);
@@ -1517,10 +1517,6 @@ body:has(.about-page) ::selection {
 
 .mindscape-writing-entry p {
   margin-top: 0.65rem;
-}
-
-.mindscape-section-empty {
-  min-height: 0;
 }
 
 .mindscape-page .home-globe-nav {
@@ -1694,17 +1690,13 @@ body:has(.about-page) ::selection {
     padding-bottom: 0;
   }
 
-  .mindscape-section h2 {
+  .mindscape-section > h2 {
     margin-bottom: 1.5rem;
     font-size: clamp(2rem, 9vw, 2.8rem);
   }
 
   .mindscape-section .about-copy {
     font-size: clamp(1rem, 4vw, 1.08rem);
-  }
-
-  .mindscape-section-empty {
-    min-height: 0;
   }
 
   .mindscape-transition-panel {
@@ -2232,62 +2224,8 @@ body:has(.memory-page) ::selection {
   }
 }
 
-html:has(.poetry-page) {
-  overflow-x: clip;
-  background: var(--atlas-paper) !important;
-  color-scheme: light;
-}
-
-body:has(.poetry-page) {
-  background: var(--atlas-paper) !important;
-  color: var(--atlas-copy) !important;
-}
-
-body:has(.poetry-page) > main {
-  min-height: calc(100vh - 2rem);
-}
-
-body:has(.poetry-page) ::selection {
-  background: var(--atlas-ink);
-  color: var(--atlas-cream);
-}
-
-.poetry-page {
-  width: 100vw;
-  margin-inline: calc(50% - 50vw);
-  overflow: clip;
-  background: var(--atlas-paper);
-  color: var(--atlas-copy);
-}
-
-.poetry-page-inner {
-  width: min(100%, 80rem);
-  margin-inline: auto;
-  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(2rem, 4.5vw, 4.5rem)
-    clamp(7rem, 12vw, 11rem);
-}
-
-.poetry-page-header {
-  position: relative;
-  margin-bottom: clamp(2rem, 3.5vw, 3.25rem);
-}
-
-.poetry-page-header h1 {
-  color: var(--atlas-copy);
-  font-family: var(--font-instrument-serif), Georgia, serif;
-  font-size: clamp(3.8rem, 7vw, 6rem);
-  font-style: normal;
-  font-weight: 400;
-  font-synthesis: none;
-  letter-spacing: -0.005em;
-  line-height: 0.9;
-}
-
-.poetry-page .poetry-home-globe-nav {
-  position: fixed;
-  z-index: 12;
-  top: clamp(1.15rem, calc(4vw - 0.35rem), 2.65rem);
-  right: clamp(1rem, calc(5vw - 0.35rem), 4.65rem);
+.mindscape-poetry-section {
+  width: 100%;
 }
 
 .poetry-opening-toc {
@@ -2445,7 +2383,7 @@ body:has(.poetry-page) ::selection {
 .poetry-poem-heading h2 {
   max-width: 16ch;
   color: var(--atlas-ink);
-  font-family: var(--font-poetry-display), 'Iowan Old Style', Georgia, serif;
+  font-family: var(--font-instrument-serif), Georgia, serif;
   font-size: clamp(2.25rem, 4.6vw, 3.8rem);
   font-style: normal;
   font-weight: 400;
@@ -2489,23 +2427,6 @@ body:has(.poetry-page) ::selection {
 }
 
 @media (max-width: 760px) {
-  .poetry-page-inner {
-    padding: 2.25rem 1.25rem 7rem;
-  }
-
-  .poetry-page-header {
-    margin-bottom: 2rem;
-  }
-
-  .poetry-page-header h1 {
-    font-size: clamp(3.25rem, 16vw, 5rem);
-  }
-
-  .poetry-page .poetry-home-globe-nav {
-    top: 1rem;
-    right: 0.85rem;
-  }
-
   .poetry-opening-toc li {
     grid-template-columns: 1.8rem minmax(0, 1fr);
     gap: 0.35rem;
@@ -2520,8 +2441,8 @@ body:has(.poetry-page) ::selection {
   }
 
   .poetry-sunset {
-    width: calc(100% + 2.5rem);
-    margin: 3.25rem -1.25rem 4rem;
+    width: 100%;
+    margin: 3.25rem 0 4rem;
   }
 
   .poetry-reading-layout {

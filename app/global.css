@@ -2467,7 +2467,7 @@ body:has(.memory-page) ::selection {
   width: min(100%, 41rem);
   color: var(--atlas-ink);
   font-family: var(--font-poetry-serif), 'Times New Roman', Times, serif;
-  font-size: clamp(0.94rem, 1.28vw, 0.96rem);
+  font-size: clamp(0.88rem, 1.2vw, 0.91rem);
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.92;
@@ -2594,7 +2594,7 @@ body:has(.memory-page) ::selection {
   }
 
   .poetry-poem-text {
-    font-size: clamp(0.94rem, 3.2vw, 0.96rem);
+    font-size: clamp(0.88rem, 3vw, 0.91rem);
   }
 }
 

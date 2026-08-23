@@ -85,8 +85,8 @@ export function AboutCopy() {
         </AccordionItem>
       </Accordion>
       <p>
-        I’m curious about where this little journey across the pale blue dot we
-        call home takes me next. Hopefully somewhere unexpected. Hopefully also
+        I’m curious about where my journey around the world takes me next.
+        Hopefully somewhere unexpected. Hopefully also
         skydiving, despite several friends warning me that this is a{' '}
         <Tooltip
           interactive

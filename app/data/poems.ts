@@ -272,11 +272,39 @@ export const poems: Poem[] = [
     id: 'the-space-between-us',
     title: 'The Space Between Us',
     content: {
-      kind: 'image',
-      src: '/images/poetry/the-space-between-us.jpeg',
-      width: 718,
-      height: 1967,
-      alt: 'The visual poem “The Space Between Us,” arranged around a twilight photograph.',
+      kind: 'text',
+      stanzas: [
+        lines('returning to a home', 'distant yet so close'),
+        lines(
+          'seeing you',
+          'is like viewing planets through a telescope'
+        ),
+        lines(
+          'maybe through all this chaos and confusion',
+          'brought down to us',
+          'on this tiny'
+        ),
+        lines('pale'),
+        lines('blue'),
+        lines('dot'),
+        lines('suspended in a sunbeam'),
+        lines(
+          'we can overcome many things,',
+          'travel through planets',
+          'and whatever lies beyond'
+        ),
+        lines(
+          'and still,',
+          'I will find peace and serenity',
+          'in your eyes'
+        ),
+        lines(
+          'as I gaze upon billions of years',
+          'of collapsing',
+          'and re-emerging stars,',
+          'concentrated in you.'
+        ),
+      ],
     },
   },
   {

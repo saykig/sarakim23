@@ -132,13 +132,18 @@ export const poems: Poem[] = [
       stanzas: [
         lines(
           'we’ve heard about the stars.',
-          'we’ve even named them.',
+          'we’ve even named them.'
+        ),
+        lines(
           'but the stars don’t know us—',
           'they don’t know me.',
-          'they don’t even know my name.',
+          'they don’t even know my name.'
+        ),
+        lines(
           'i guess then, that means',
           'i cannot exist without the stars,',
-          'but the stars continue to exist without me.'
+          'but the stars continue to exist',
+          'without me.'
         ),
       ],
     },

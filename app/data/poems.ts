@@ -390,12 +390,11 @@ const poemEntries: Poem[] = [
           { text: 'while hollow feet moved through the halls', indent: 1 },
           { text: 'and demanded a truth' },
         ],
-        lines('in waiting,', 'and in unknowing,'),
+        lines('in waiting', 'midst the unkown'),
         lines(
           'i turned the waves beneath his keel',
           'one hundred and eight',
-          'stood already at the threshold of hades,',
-          'though none yet heard the door'
+          'stood already at the threshold of hades'
         ),
         lines(
           'finite knowledge is a kind of grace',

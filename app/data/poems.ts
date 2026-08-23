@@ -338,8 +338,8 @@ export const poems: Poem[] = [
           'another beginning',
           'we cannot yet see'
         ),
+        lines('but time is an illusion—'),
         lines(
-          'but time is an illusion—',
           'it keeps us awake,',
           'teaches us to count',
           'what cannot be kept,',

@@ -2426,6 +2426,7 @@ body:has(.memory-page) ::selection {
 }
 
 .poetry-poem-image {
+  position: relative;
   width: min(100%, 25rem);
   margin: 0 0 clamp(1.1rem, 2vw, 1.5rem);
 }
@@ -2436,31 +2437,25 @@ body:has(.memory-page) ::selection {
   height: auto;
 }
 
-.poetry-photo-tooltip,
-.poetry-photo-tooltip-trigger {
-  display: block;
-  width: 100%;
-}
-
-.poetry-photo-tooltip-trigger {
-  padding: 0;
-  border: 0;
-  background: transparent;
-  cursor: default;
-}
-
-.poetry-photo-tooltip-trigger:focus-visible {
-  outline: 1px solid var(--atlas-ink-soft);
-  outline-offset: 0.25rem;
-}
-
-.poetry-photo-tooltip .contact-tooltip-card {
-  width: max-content;
-  max-width: calc(100vw - 1.5rem);
-}
-
-.poetry-photo-tooltip .contact-tooltip-content {
+.poetry-photo-location-card {
+  position: absolute;
+  bottom: 0.7rem;
+  left: 0.7rem;
+  width: fit-content;
+  max-width: calc(100% - 1.4rem);
+  margin: 0;
+  padding: 0.42rem 0.55rem;
+  border: 1px solid rgb(57 78 56 / 18%);
+  border-radius: var(--tooltip-card-radius);
+  background: rgb(248 244 231 / 72%);
+  color: var(--atlas-ink);
+  font-family: var(--font-source-sans), Arial, sans-serif;
+  font-size: 0.71rem;
+  font-weight: 350;
+  line-height: 1.3;
   white-space: nowrap;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .poetry-poem-text {

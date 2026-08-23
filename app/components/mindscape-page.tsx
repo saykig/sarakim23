@@ -14,7 +14,7 @@ const mindscapeSections = [
   { id: 'reading', label: 'Reading' },
   { id: 'writing', label: 'Writing' },
   { id: 'poetry', label: 'Poetry' },
-  { id: 'life', label: 'Life' },
+  { id: 'important-notes', label: 'Important notes' },
 ] as const
 
 export type MindscapeSectionId = (typeof mindscapeSections)[number]['id']
@@ -56,9 +56,12 @@ export function MindscapePage({
         return
       }
 
-      setActiveSection(
-        isMindscapeSection(hashSection) ? hashSection : 'about'
-      )
+      if (hashSection === 'life') {
+        router.replace('/about#important-notes')
+        return
+      }
+
+      setActiveSection(isMindscapeSection(hashSection) ? hashSection : 'about')
     }
 
     syncSectionFromHash()
@@ -197,13 +200,13 @@ export function MindscapePage({
                   {poetryContent}
                 </section>,
                 <section
-                  key="life"
-                  id="mindscape-panel-life"
+                  key="important-notes"
+                  id="mindscape-panel-important-notes"
                   className="mindscape-section"
                   role="tabpanel"
-                  aria-labelledby="mindscape-tab-life"
+                  aria-labelledby="mindscape-tab-important-notes"
                 >
-                  <h2>Life</h2>
+                  <h2>Important notes</h2>
                   <p className="mindscape-placeholder">to be continued...</p>
                 </section>,
               ]}

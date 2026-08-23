@@ -28,33 +28,45 @@ const lines = (...text: string[]): PoemLine[] => text.map((line) => ({ text: lin
 export const poems: Poem[] = [
   {
     id: 'filed-beneath-the-moon',
-    title: 'Filed Beneath the Moon',
+    title: 'Field Beneath the Moon',
     content: {
       kind: 'text',
       stanzas: [
         lines(
           'The meadow keeps a golden thread',
-          'of every footstep, every spring;',
-          'beneath the clover, softly spread,',
-          'old songs awake and learn to sing.'
+          'of every footstep',
+          'very spring'
         ),
         lines(
-          'And I, who came with empty hands,',
-          'depart with dusk upon my sleeve;',
-          'for beauty gives no harsh commands,',
-          'but teaches those who stay to grieve.'
+          'beneath the clover, softly spread',
+          'old songs awake and learn to sing'
+        ),
+        lines(
+          'And I, who came with empty hands',
+          'depart with dusk upon my sleeve'
+        ),
+        lines(
+          'for beauty gives no harsh commands',
+          'but teaches those who stay to grieve'
         ),
         lines(
           'I walked where silver nettles shone',
-          'beside the rain-soft orchard wall;',
-          'the moon had made the world her own',
-          'and named each trembling leaf and all.'
+          'beside the rain-soft orchard wall'
         ),
         lines(
-          'No voice but water, low and clear,',
-          'no lamp but dew upon the thorn;',
-          'yet something vast and bright drew near',
-          'as if the soul itself were born.'
+          'the moon had made the world her own',
+          'and named each trembling leaf and all'
+        ),
+        lines(
+          'No voice but water',
+          'low and clear,',
+          'no lamp but dew upon the thorn'
+        ),
+        lines(
+          'yet, something vast',
+          'and bright drew near',
+          'as if the soul itself',
+          'were born.'
         ),
       ],
     },

@@ -2436,6 +2436,33 @@ body:has(.memory-page) ::selection {
   height: auto;
 }
 
+.poetry-photo-tooltip,
+.poetry-photo-tooltip-trigger {
+  display: block;
+  width: 100%;
+}
+
+.poetry-photo-tooltip-trigger {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: default;
+}
+
+.poetry-photo-tooltip-trigger:focus-visible {
+  outline: 1px solid var(--atlas-ink-soft);
+  outline-offset: 0.25rem;
+}
+
+.poetry-photo-tooltip .contact-tooltip-card {
+  width: max-content;
+  max-width: calc(100vw - 1.5rem);
+}
+
+.poetry-photo-tooltip .contact-tooltip-content {
+  white-space: nowrap;
+}
+
 .poetry-poem-text {
   width: min(100%, 41rem);
   color: var(--atlas-ink);

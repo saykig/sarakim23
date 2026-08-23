@@ -2231,3 +2231,373 @@ body:has(.memory-page) ::selection {
     transition-duration: 0.01ms;
   }
 }
+
+html:has(.poetry-page) {
+  overflow-x: clip;
+  background: var(--atlas-paper) !important;
+  color-scheme: light;
+}
+
+body:has(.poetry-page) {
+  background: var(--atlas-paper) !important;
+  color: var(--atlas-copy) !important;
+}
+
+body:has(.poetry-page) > main {
+  min-height: calc(100vh - 2rem);
+}
+
+body:has(.poetry-page) ::selection {
+  background: var(--atlas-ink);
+  color: var(--atlas-cream);
+}
+
+.poetry-page {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  overflow: clip;
+  background: var(--atlas-paper);
+  color: var(--atlas-copy);
+}
+
+.poetry-page-inner {
+  width: min(100%, 80rem);
+  margin-inline: auto;
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(2rem, 4.5vw, 4.5rem)
+    clamp(7rem, 12vw, 11rem);
+}
+
+.poetry-page-header {
+  position: relative;
+  margin-bottom: clamp(2rem, 3.5vw, 3.25rem);
+}
+
+.poetry-page-header h1 {
+  color: var(--atlas-copy);
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: clamp(3.8rem, 7vw, 6rem);
+  font-style: normal;
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: -0.005em;
+  line-height: 0.9;
+}
+
+.poetry-page .poetry-home-globe-nav {
+  position: fixed;
+  z-index: 12;
+  top: clamp(1.15rem, calc(4vw - 0.35rem), 2.65rem);
+  right: clamp(1rem, calc(5vw - 0.35rem), 4.65rem);
+}
+
+.poetry-opening-toc {
+  width: min(100%, 46rem);
+}
+
+.poetry-opening-toc ol,
+.poetry-reading-index ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.poetry-opening-toc li {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.poetry-opening-toc li + li {
+  margin-top: 0.24rem;
+}
+
+.poetry-opening-number {
+  color: var(--atlas-sage);
+  font-family: var(--font-source-sans), Arial, sans-serif;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 400;
+  letter-spacing: 0.055em;
+}
+
+.poetry-opening-toc a {
+  width: fit-content;
+  color: var(--atlas-ink-soft);
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: clamp(1.34rem, 2.3vw, 1.9rem);
+  font-style: normal;
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: -0.005em;
+  line-height: 1.08;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.poetry-opening-toc a:hover,
+.poetry-opening-toc a:focus-visible {
+  color: var(--atlas-ink);
+}
+
+.poetry-opening-toc a:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 0.25rem;
+}
+
+.poetry-sunset {
+  width: 100%;
+  margin: clamp(3rem, 6vw, 5.75rem) 0 clamp(4.5rem, 7vw, 6.5rem);
+}
+
+.poetry-sunset img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.poetry-reading-layout {
+  display: grid;
+  grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(3rem, 6vw, 6rem);
+}
+
+.poetry-reading-index {
+  position: sticky;
+  top: clamp(2rem, 8vh, 5rem);
+  align-self: start;
+  color: var(--atlas-sage);
+  font-family: var(--font-source-sans), Arial, sans-serif;
+  font-size: 0.77rem;
+  font-weight: 350;
+  line-height: 1.25;
+}
+
+.poetry-reading-index li + li {
+  margin-top: 0.5rem;
+}
+
+.poetry-reading-index a {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.45rem minmax(0, 1fr);
+  gap: 0.45rem;
+  color: inherit;
+  text-decoration: none;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.poetry-reading-index a::before {
+  position: absolute;
+  top: 0.58em;
+  left: -0.75rem;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  content: '';
+  transition: width 180ms ease;
+}
+
+.poetry-reading-index a:hover,
+.poetry-reading-index a:focus-visible,
+.poetry-reading-index a[aria-current='location'] {
+  color: var(--atlas-ink);
+}
+
+.poetry-reading-index a[aria-current='location']::before {
+  width: 0.45rem;
+}
+
+.poetry-reading-index a:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 0.25rem;
+}
+
+.poetry-reading-index a > span {
+  color: var(--atlas-sage);
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.poetry-mobile-index {
+  display: none;
+}
+
+.poetry-poems {
+  width: min(100%, 45rem);
+  padding-bottom: clamp(22rem, 50vh, 30rem);
+}
+
+.poetry-poem {
+  scroll-margin-top: 4rem;
+}
+
+.poetry-poem + .poetry-poem {
+  margin-top: clamp(9rem, 15vw, 14rem);
+}
+
+.poetry-poem-heading {
+  margin-bottom: clamp(2rem, 4vw, 3.25rem);
+}
+
+.poetry-poem-heading h2 {
+  max-width: 16ch;
+  color: var(--atlas-ink);
+  font-family: var(--font-poetry-display), 'Iowan Old Style', Georgia, serif;
+  font-size: clamp(2.25rem, 4.6vw, 3.8rem);
+  font-style: normal;
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: -0.005em;
+  line-height: 0.98;
+}
+
+.poetry-poem-text {
+  width: min(100%, 41rem);
+  color: var(--atlas-ink);
+  font-family: var(--font-poetry-serif), 'Times New Roman', Times, serif;
+  font-size: clamp(1.08rem, 1.7vw, 1.28rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.92;
+}
+
+.poetry-poem-text p + p {
+  margin-top: 1.8em;
+}
+
+.poetry-poem-text p > span {
+  display: block;
+}
+
+.poetry-line-indent-1 {
+  padding-left: clamp(1rem, 4vw, 2.4rem);
+}
+
+.poetry-line-indent-2 {
+  padding-left: clamp(2rem, 8vw, 4.8rem);
+}
+
+.poetry-line-italic {
+  font-style: italic;
+}
+
+.poetry-poem-title-only .poetry-poem-heading {
+  margin-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .poetry-page-inner {
+    padding: 2.25rem 1.25rem 7rem;
+  }
+
+  .poetry-page-header {
+    margin-bottom: 2rem;
+  }
+
+  .poetry-page-header h1 {
+    font-size: clamp(3.25rem, 16vw, 5rem);
+  }
+
+  .poetry-page .poetry-home-globe-nav {
+    top: 1rem;
+    right: 0.85rem;
+  }
+
+  .poetry-opening-toc li {
+    grid-template-columns: 1.8rem minmax(0, 1fr);
+    gap: 0.35rem;
+  }
+
+  .poetry-opening-toc li + li {
+    margin-top: 0.3rem;
+  }
+
+  .poetry-opening-toc a {
+    font-size: clamp(1.28rem, 6vw, 1.6rem);
+  }
+
+  .poetry-sunset {
+    width: calc(100% + 2.5rem);
+    margin: 3.25rem -1.25rem 4rem;
+  }
+
+  .poetry-reading-layout {
+    display: block;
+  }
+
+  .poetry-reading-index {
+    display: none;
+  }
+
+  .poetry-mobile-index {
+    position: sticky;
+    z-index: 6;
+    top: 0.65rem;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0.65rem;
+    margin-right: 3.15rem;
+    margin-bottom: 2.5rem;
+    padding: 0.5rem 0.65rem;
+    background: rgb(232 234 216 / 94%);
+    color: var(--atlas-ink-soft);
+    font-family: var(--font-source-sans), Arial, sans-serif;
+    backdrop-filter: blur(8px);
+  }
+
+  .poetry-mobile-index label {
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+  }
+
+  .poetry-mobile-index select {
+    width: 100%;
+    min-height: 2.5rem;
+    border: 0;
+    border-bottom: 1px solid rgb(51 68 52 / 28%);
+    border-radius: 0;
+    background: transparent;
+    color: var(--atlas-ink);
+    font-family: var(--font-source-sans), Arial, sans-serif;
+    font-size: 0.86rem;
+    font-weight: 350;
+  }
+
+  .poetry-mobile-index select:focus-visible {
+    outline: 1px solid var(--atlas-ink);
+    outline-offset: 2px;
+  }
+
+  .poetry-poem {
+    scroll-margin-top: 5rem;
+  }
+
+  .poetry-poem + .poetry-poem {
+    margin-top: 8rem;
+  }
+
+  .poetry-poem-heading {
+    margin-bottom: 2rem;
+  }
+
+  .poetry-poem-heading h2 {
+    font-size: clamp(2.2rem, 11vw, 3.25rem);
+  }
+
+  .poetry-poem-text {
+    font-size: clamp(1rem, 4.2vw, 1.12rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poetry-opening-toc a,
+  .poetry-reading-index a,
+  .poetry-reading-index a::before {
+    transition: none;
+  }
+}

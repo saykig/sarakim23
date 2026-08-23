@@ -439,9 +439,9 @@ const poemEntries: Poem[] = [
 
 const poemOrder = [
   'patterns-against-distance',
+  'polaroids',
   'i-miss',
   'the-stars-do-not-know',
-  'polaroids',
   'see-through',
   'the-passage-of-time',
   'filed-beneath-the-moon',

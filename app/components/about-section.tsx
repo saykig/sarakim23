@@ -68,7 +68,7 @@ export function AboutSection() {
 
         <AccordionItem className="homepage-accordion-item" value="life">
           <AccordionTrigger className="about-trigger w-full py-0.5">
-            Life
+            Important notes
           </AccordionTrigger>
           <AccordionContent className="homepage-accordion-content">
             <p>to be continued...</p>

@@ -257,9 +257,9 @@ export const poems: Poem[] = [
         lines(
           'I wandered through the sea',
           'until I had gone so far',
-          'that I became a tiny creature,',
+          'that I became a tiny creature',
           'meaningless,',
-          'yet somehow meaningful,'
+          'yet somehow meaningful'
         ),
         lines(
           'held among the rise and fall',

@@ -2413,7 +2413,7 @@ body:has(.memory-page) ::selection {
   max-width: 16ch;
   color: var(--atlas-ink);
   font-family: var(--font-instrument-serif), Georgia, serif;
-  font-size: clamp(2.14rem, 4.37vw, 3.61rem);
+  font-size: clamp(1.99rem, 4.08vw, 3.37rem);
   font-style: normal;
   font-weight: 400;
   font-synthesis: none;
@@ -2467,7 +2467,7 @@ body:has(.memory-page) ::selection {
   width: min(100%, 41rem);
   color: var(--atlas-ink);
   font-family: var(--font-poetry-serif), 'Times New Roman', Times, serif;
-  font-size: clamp(1rem, 1.36vw, 1.025rem);
+  font-size: clamp(0.94rem, 1.28vw, 0.96rem);
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.92;
@@ -2586,11 +2586,11 @@ body:has(.memory-page) ::selection {
   }
 
   .poetry-poem-heading h2 {
-    font-size: clamp(2.09rem, 10.45vw, 3.09rem);
+    font-size: clamp(1.95rem, 9.75vw, 2.89rem);
   }
 
   .poetry-poem-text {
-    font-size: clamp(1rem, 3.4vw, 1.025rem);
+    font-size: clamp(0.94rem, 3.2vw, 0.96rem);
   }
 }
 

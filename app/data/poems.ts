@@ -223,7 +223,8 @@ export const poems: Poem[] = [
           'I journeyed through the waves',
           'as the moon lit up the path,',
           'as if it knew',
-          'the voyage I had taken on, and where I’d be drawn'
+          'the voyage I had taken on,',
+          'and where I’d be drawn'
         ),
         lines(
           'With fragments of the sun',

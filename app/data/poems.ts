@@ -264,13 +264,13 @@ export const poems: Poem[] = [
   },
   {
     id: 'the-passage-of-time',
-    title: 'The Passage of Time',
+    title: 'Passage of Time',
     content: {
       kind: 'image',
       src: '/images/poetry/the-passage-of-time.jpeg',
       width: 928,
       height: 1472,
-      alt: 'The visual poem “The Passage of Time,” in white type on a black field.',
+      alt: 'The visual poem “Passage of Time,” in white type on a black field.',
     },
   },
   {

@@ -307,7 +307,7 @@ export const poems: Poem[] = [
           'and whatever lies beyond'
         ),
         lines(
-          'and still,',
+          'no matter how far',
           'I will find peace and serenity',
           'in your eyes'
         ),

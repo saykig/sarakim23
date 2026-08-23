@@ -19,6 +19,7 @@ type PoetryNavigationContextValue = {
   activePoem: string
   moveToPoem: (id: string) => void
   poems: Poem[]
+  sideIndexVisible: boolean
   trackProgress: MotionValue<number>
 }
 
@@ -34,6 +35,7 @@ export function PoetryNavigationProvider({
   children,
 }: PoetryReadingRoomProps & { children: ReactNode }) {
   const [activePoem, setActivePoem] = useState(poems[0]?.id ?? '')
+  const [sideIndexVisible, setSideIndexVisible] = useState(false)
   const trackProgress = useMotionValue(0)
 
   useEffect(() => {
@@ -42,6 +44,17 @@ export function PoetryNavigationProvider({
     const updateIndex = () => {
       cancelAnimationFrame(frame)
       frame = requestAnimationFrame(() => {
+        const openingToc = document.querySelector<HTMLElement>(
+          '.poetry-opening-toc'
+        )
+        const nextSideIndexVisible =
+          !openingToc ||
+          openingToc.getBoundingClientRect().bottom <= window.innerHeight * 0.28
+
+        setSideIndexVisible((current) =>
+          current === nextSideIndexVisible ? current : nextSideIndexVisible
+        )
+
         const sections = poems
           .map((poem) => document.getElementById(poem.id))
           .filter((section): section is HTMLElement => section !== null)
@@ -99,7 +112,13 @@ export function PoetryNavigationProvider({
 
   return (
     <PoetryNavigationContext.Provider
-      value={{ activePoem, moveToPoem, poems, trackProgress }}
+      value={{
+        activePoem,
+        moveToPoem,
+        poems,
+        sideIndexVisible,
+        trackProgress,
+      }}
     >
       {children}
     </PoetryNavigationContext.Provider>
@@ -119,11 +138,16 @@ function usePoetryNavigation() {
 }
 
 export function PoetrySideIndex() {
-  const { activePoem, moveToPoem, poems, trackProgress } =
+  const { activePoem, moveToPoem, poems, sideIndexVisible, trackProgress } =
     usePoetryNavigation()
 
   return (
-    <nav className="poetry-reading-index" aria-label="Poem index">
+    <nav
+      className="poetry-reading-index"
+      aria-hidden={sideIndexVisible ? undefined : true}
+      aria-label="Poem index"
+      data-visible={sideIndexVisible}
+    >
       <div className="poetry-reading-index-track">
         <span className="poetry-reading-index-rail" aria-hidden="true" />
         <motion.span

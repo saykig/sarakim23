@@ -2311,6 +2311,20 @@ body:has(.memory-page) ::selection {
   font-size: 0.72rem;
   font-weight: 350;
   line-height: 1.25;
+  opacity: 0;
+  transform: translateY(0.65rem);
+  transition:
+    opacity 380ms ease-out,
+    transform 380ms ease-out,
+    visibility 0s linear 380ms;
+  visibility: hidden;
+}
+
+.poetry-reading-index[data-visible='true'] {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+  visibility: visible;
 }
 
 .poetry-reading-index-track {
@@ -2537,6 +2551,11 @@ body:has(.memory-page) ::selection {
 @media (prefers-reduced-motion: reduce) {
   .poetry-opening-toc a,
   .poetry-reading-index a {
+    transition: none;
+  }
+
+  .poetry-reading-index {
+    transform: none;
     transition: none;
   }
 }

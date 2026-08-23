@@ -2447,6 +2447,10 @@ body:has(.memory-page) ::selection {
   padding-left: clamp(2rem, 8vw, 4.8rem);
 }
 
+.poetry-line-indent-3 {
+  padding-left: clamp(3rem, 12vw, 7.2rem);
+}
+
 .poetry-line-italic {
   font-style: italic;
 }

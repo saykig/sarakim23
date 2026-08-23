@@ -1,6 +1,6 @@
 export type PoemLine = {
   text: string
-  indent?: 1 | 2
+  indent?: 1 | 2 | 3
   italic?: boolean
 }
 
@@ -311,11 +311,40 @@ export const poems: Poem[] = [
     id: 'the-passage-of-time',
     title: 'Passage of Time',
     content: {
-      kind: 'image',
-      src: '/images/poetry/the-passage-of-time.jpeg',
-      width: 928,
-      height: 1472,
-      alt: 'The visual poem “Passage of Time,” in white type on a black field.',
+      kind: 'text',
+      stanzas: [
+        lines('time is just an illusion', 'an empty space', 'we mistake for distance'),
+        lines(
+          'aging is just memories',
+          'of sad and happy days,',
+          'all passing',
+          'and somehow still here'
+        ),
+        lines(
+          'death is just the start of life,',
+          'another beginning',
+          'we cannot yet see'
+        ),
+        lines(
+          'but time is an illusion—',
+          'it keeps us awake,',
+          'teaches us to count',
+          'what cannot be kept,',
+          'while memories fade'
+        ),
+        lines('so cherish this moment', 'as if it were the last', 'nor the first'),
+        lines('because'),
+        [
+          { text: 'time' },
+          { text: 'is', indent: 1 },
+          { text: 'just', indent: 2 },
+          { text: 'an', indent: 1 },
+        ],
+        [
+          { text: 'illusion' },
+          { text: '.', indent: 3 },
+        ],
+      ],
     },
   },
   {

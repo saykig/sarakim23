@@ -2230,11 +2230,13 @@ body:has(.memory-page) ::selection {
 }
 
 .mindscape-poetry-section {
+  --poetry-panel-offset: clamp(1.5rem, 4vw, 4rem);
   width: 100%;
 }
 
 .poetry-opening-toc {
-  width: min(100%, 46rem);
+  width: min(calc(100% - var(--poetry-panel-offset)), 46rem);
+  margin-left: var(--poetry-panel-offset);
 }
 
 .poetry-opening-toc ol,
@@ -2289,8 +2291,9 @@ body:has(.memory-page) ::selection {
 }
 
 .poetry-sunset {
-  width: 100%;
-  margin: clamp(3rem, 6vw, 5.75rem) 0 clamp(4.5rem, 7vw, 6.5rem);
+  width: calc(100% - var(--poetry-panel-offset));
+  margin: clamp(3rem, 6vw, 5.75rem) 0 clamp(4.5rem, 7vw, 6.5rem)
+    var(--poetry-panel-offset);
 }
 
 .poetry-sunset img {
@@ -2300,6 +2303,8 @@ body:has(.memory-page) ::selection {
 }
 
 .poetry-reading-layout {
+  width: calc(100% - var(--poetry-panel-offset));
+  margin-left: var(--poetry-panel-offset);
   display: block;
 }
 
@@ -2497,6 +2502,10 @@ body:has(.memory-page) ::selection {
 }
 
 @media (max-width: 760px) {
+  .mindscape-poetry-section {
+    --poetry-panel-offset: 0rem;
+  }
+
   .mindscape-index-supplement {
     display: none;
   }

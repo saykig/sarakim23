@@ -1468,7 +1468,7 @@ body:has(.about-page) ::selection {
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
   color: var(--atlas-copy);
   font-family: var(--font-instrument-serif), Georgia, serif;
-  font-size: clamp(2.25rem, 4vw, 3.6rem);
+  font-size: clamp(2.43rem, 4.32vw, 3.89rem);
   font-style: normal;
   font-weight: 400;
   font-synthesis: none;
@@ -1692,7 +1692,7 @@ body:has(.about-page) ::selection {
 
   .mindscape-section > h2 {
     margin-bottom: 1.5rem;
-    font-size: clamp(2rem, 9vw, 2.8rem);
+    font-size: clamp(2.16rem, 9.72vw, 3.02rem);
   }
 
   .mindscape-section .about-copy {
@@ -2384,7 +2384,7 @@ body:has(.memory-page) ::selection {
   max-width: 16ch;
   color: var(--atlas-ink);
   font-family: var(--font-instrument-serif), Georgia, serif;
-  font-size: clamp(2.25rem, 4.6vw, 3.8rem);
+  font-size: clamp(2.14rem, 4.37vw, 3.61rem);
   font-style: normal;
   font-weight: 400;
   font-synthesis: none;
@@ -2396,7 +2396,7 @@ body:has(.memory-page) ::selection {
   width: min(100%, 41rem);
   color: var(--atlas-ink);
   font-family: var(--font-poetry-serif), 'Times New Roman', Times, serif;
-  font-size: clamp(1.08rem, 1.7vw, 1.28rem);
+  font-size: clamp(1rem, 1.36vw, 1.025rem);
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.92;
@@ -2507,11 +2507,11 @@ body:has(.memory-page) ::selection {
   }
 
   .poetry-poem-heading h2 {
-    font-size: clamp(2.2rem, 11vw, 3.25rem);
+    font-size: clamp(2.09rem, 10.45vw, 3.09rem);
   }
 
   .poetry-poem-text {
-    font-size: clamp(1rem, 4.2vw, 1.12rem);
+    font-size: clamp(1rem, 3.4vw, 1.025rem);
   }
 }
 

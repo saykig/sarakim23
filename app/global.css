@@ -2430,10 +2430,29 @@ body:has(.memory-page) ::selection {
   margin-bottom: clamp(0.85rem, 1.5vw, 1.25rem);
 }
 
-.poetry-poem-image {
-  position: relative;
+.poetry-photo-tooltip {
+  display: block;
   width: min(100%, 25rem);
   margin: 0 0 clamp(1.1rem, 2vw, 1.5rem);
+}
+
+.poetry-photo-tooltip-trigger {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.poetry-photo-tooltip-trigger:focus-visible {
+  outline: 1px solid var(--atlas-ink);
+  outline-offset: 0.3rem;
+}
+
+.poetry-poem-image {
+  width: 100%;
+  margin: 0;
 }
 
 .poetry-poem-image img {
@@ -2442,13 +2461,9 @@ body:has(.memory-page) ::selection {
   height: auto;
 }
 
-.poetry-photo-location-card {
-  position: absolute;
-  bottom: 0.7rem;
-  left: 0.7rem;
+.poetry-photo-tooltip .contact-tooltip-card {
   width: fit-content;
-  max-width: calc(100% - 1.4rem);
-  margin: 0;
+  max-width: calc(100vw - 1.5rem);
   padding: 0.42rem 0.55rem;
   border: 1px solid rgb(57 78 56 / 18%);
   border-radius: var(--tooltip-card-radius);
@@ -2461,6 +2476,12 @@ body:has(.memory-page) ::selection {
   white-space: nowrap;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+}
+
+.poetry-photo-tooltip .contact-tooltip-content {
+  padding: 0;
+  font: inherit;
+  white-space: nowrap;
 }
 
 .poetry-poem-text {

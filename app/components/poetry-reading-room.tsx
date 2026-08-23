@@ -10,6 +10,7 @@ import {
   type ReactNode,
 } from 'react'
 import type { Poem } from '@/app/data/poems'
+import { Tooltip } from '@/components/ui/tooltip-card'
 
 type PoetryReadingRoomProps = {
   poems: Poem[]
@@ -246,17 +247,26 @@ export function PoetryReadingRoom({ poems }: PoetryReadingRoomProps) {
               {poem.content.kind === 'text' ? (
                 <>
                   {poem.content.leadImage ? (
-                    <figure className="poetry-poem-image">
-                      <img
-                        src={poem.content.leadImage.src}
-                        alt={poem.content.leadImage.alt}
-                        width={poem.content.leadImage.width}
-                        height={poem.content.leadImage.height}
-                      />
-                      <figcaption className="poetry-photo-location-card">
-                        Florence, Italy
-                      </figcaption>
-                    </figure>
+                    <Tooltip
+                      containerClassName="poetry-photo-tooltip"
+                      content="Florence, Italy"
+                      variant="whisper"
+                    >
+                      <button
+                        type="button"
+                        className="poetry-photo-tooltip-trigger"
+                        aria-label="Show photo location"
+                      >
+                        <figure className="poetry-poem-image">
+                          <img
+                            src={poem.content.leadImage.src}
+                            alt={poem.content.leadImage.alt}
+                            width={poem.content.leadImage.width}
+                            height={poem.content.leadImage.height}
+                          />
+                        </figure>
+                      </button>
+                    </Tooltip>
                   ) : null}
 
                   <div className="poetry-poem-text">

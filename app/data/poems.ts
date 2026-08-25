@@ -309,9 +309,7 @@ const poemEntries: Poem[] = [
           'brought down to us',
           'on this tiny'
         ),
-        lines('pale'),
-        lines('blue'),
-        lines('dot'),
+        lines('pale', 'blue', 'dot'),
         lines('suspended in a sunbeam'),
         lines(
           'we can overcome many things,',
@@ -319,14 +317,14 @@ const poemEntries: Poem[] = [
           'and whatever lies beyond'
         ),
         lines(
-          'no matter how far',
+          'as I gaze upon billions of years',
+          'of collapsing and re-emerging stars'
+        ),
+        lines(
           'I will find peace and serenity',
           'in your eyes'
         ),
         lines(
-          'as I gaze upon billions of years',
-          'of collapsing',
-          'and re-emerging stars,',
           'concentrated in you.'
         ),
       ],

@@ -1878,7 +1878,7 @@ body:has(.memory-page) ::selection {
 
 .memory-photo[data-layout='right-narrow'],
 .memory-video[data-layout='right-narrow'] {
-  width: min(27rem, 29vw);
+  width: clamp(24rem, 33vw, 31rem);
   margin-top: clamp(-18rem, -15vw, -9rem);
   margin-left: auto;
   margin-right: 6vw;
@@ -1886,14 +1886,14 @@ body:has(.memory-page) ::selection {
 
 .memory-photo[data-layout='portrait-narrow'],
 .memory-video[data-layout='portrait-narrow'] {
-  width: min(23rem, 24vw);
+  width: clamp(22rem, 30vw, 28rem);
   margin-left: auto;
   margin-right: 8vw;
 }
 
 .memory-photo[data-layout='left-narrow'],
 .memory-video[data-layout='left-narrow'] {
-  width: min(29rem, 31vw);
+  width: clamp(24rem, 33vw, 30rem);
   margin-left: 12vw;
 }
 
@@ -2143,7 +2143,7 @@ body:has(.memory-page) ::selection {
   text-underline-offset: 0.3em;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 760px) {
   .memory-header {
     min-height: 68svh;
   }
@@ -2182,7 +2182,7 @@ body:has(.memory-page) ::selection {
 
   .memory-photo[data-layout='portrait-narrow'],
   .memory-video[data-layout='portrait-narrow'] {
-    width: min(58vw, 22rem);
+    width: min(64vw, 22rem);
     margin-left: auto;
   }
 
@@ -2190,7 +2190,7 @@ body:has(.memory-page) ::selection {
   .memory-photo[data-layout='left-narrow'],
   .memory-video[data-layout='left'],
   .memory-video[data-layout='left-narrow'] {
-    width: min(76vw, 27rem);
+    width: min(80vw, 27rem);
   }
 
   .memory-entry-note[data-layout='note-overlap'],

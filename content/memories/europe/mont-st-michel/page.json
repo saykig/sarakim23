@@ -6,7 +6,7 @@
   ],
   "presentation": {
     "local-mont-st-michel-causeway": {
-      "layout": "right-wide",
+      "layout": "left",
       "parallax": 4,
       "alt": "Causeway leading to Mont Saint-Michel at low tide."
     },
@@ -16,7 +16,7 @@
       "alt": "Tidal flats around Mont Saint-Michel."
     },
     "local-mont-st-michel-abbey-interior": {
-      "layout": "right-narrow",
+      "layout": "left-narrow",
       "parallax": 4,
       "alt": "Light inside Mont Saint-Michel Abbey."
     },

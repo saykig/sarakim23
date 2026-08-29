@@ -134,8 +134,8 @@
       "slug": "vatican-city",
       "name": "Vatican City",
       "originalOrder": 15,
-      "entryCount": 1,
-      "photoCount": 1,
+      "entryCount": 2,
+      "photoCount": 2,
       "manifest": "./vatican-city/index.json"
     }
   ]

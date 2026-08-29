@@ -23,6 +23,21 @@
       "mimeType": "image/jpeg",
       "bytes": 195044,
       "sha256": "f8f67db3742708ee8a78f82bc87fc11b23179266c9223ac81b504421a8bf2300"
+    },
+    {
+      "type": "photo",
+      "location": "Vatican City",
+      "sourceJournal": "Personal photo upload",
+      "sourceUrl": "local://personal-archive/70184D0E-C5B2-4523-A316-1BCAF250895C",
+      "sourceAssetId": "local-vatican-city-st-peters-basilica-dome",
+      "localPath": "/memories/europe/vatican-city/002-st-peters-basilica-dome.jpeg",
+      "originalOrder": 65,
+      "locationOrder": 2,
+      "width": 768,
+      "height": 1024,
+      "mimeType": "image/jpeg",
+      "bytes": 295084,
+      "sha256": "908f37e5b9d07098829c2018489a80236c2f04c4482757c4616a938d7e1906e0"
     }
   ]
 }

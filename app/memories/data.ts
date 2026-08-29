@@ -130,10 +130,14 @@ type ImportedCollection = {
 }
 
 type PresentationEntry = {
-  layout: string
+  layout?: string
   parallax?: number
   noteType?: EphemeraType
   relatedPhoto?: string
+  localPath?: string
+  width?: number
+  height?: number
+  alt?: string
   crop?: {
     aspectRatio: number
     objectPosition: string
@@ -343,6 +347,10 @@ export const getMemory = cache(
           entries.push({
             ...entry,
             id: entry.sourceAssetId,
+            localPath: override?.localPath ?? entry.localPath,
+            width: override?.width ?? entry.width,
+            height: override?.height ?? entry.height,
+            alt: override?.alt ?? entry.alt,
             caption: entry.caption
               ? formatImportedDisplayText(entry.caption)
               : undefined,

@@ -1,7 +1,9 @@
 {
   "schemaVersion": 1,
   "excludedPhotos": [
-    "5e1392db65b7eb5695fa1749"
+    "5e1392db65b7eb5695fa1749",
+    "5e1392cb65b7eb5695fa1745",
+    "5e13947765b7eb5695fa1750"
   ],
   "presentation": {}
 }

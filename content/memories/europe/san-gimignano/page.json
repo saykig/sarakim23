@@ -1,5 +1,8 @@
 {
   "schemaVersion": 1,
+  "excludedPhotos": [
+    "5e14f38f1a477e3140a443a2"
+  ],
   "presentation": {
     "5e14f38f1a477e3140a443a2": {
       "layout": "opening",

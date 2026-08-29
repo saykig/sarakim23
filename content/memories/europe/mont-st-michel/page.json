@@ -4,5 +4,26 @@
     "5e10962f4c6ab11201eb08af",
     "5e10963b4c6ab11201eb08b2"
   ],
-  "presentation": {}
+  "presentation": {
+    "local-mont-st-michel-causeway": {
+      "layout": "right-wide",
+      "parallax": 4,
+      "alt": "Causeway leading to Mont Saint-Michel at low tide."
+    },
+    "local-mont-st-michel-tidal-flats": {
+      "layout": "left-narrow",
+      "parallax": 5,
+      "alt": "Tidal flats around Mont Saint-Michel."
+    },
+    "local-mont-st-michel-abbey-interior": {
+      "layout": "right-narrow",
+      "parallax": 4,
+      "alt": "Light inside Mont Saint-Michel Abbey."
+    },
+    "local-mont-st-michel-abbey-exterior": {
+      "layout": "left",
+      "parallax": 5,
+      "alt": "Mont Saint-Michel Abbey exterior."
+    }
+  }
 }

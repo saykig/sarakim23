@@ -160,6 +160,66 @@
       "mimeType": "image/jpeg",
       "bytes": 843515,
       "sha256": "39a9f81596d572fcd5f073b7694999fd9cac5835d3cc970a155335b1f98b1a53"
+    },
+    {
+      "type": "photo",
+      "location": "Mont St Michel",
+      "sourceJournal": "Personal photo upload",
+      "sourceUrl": "local://personal-archive/D3B41F11-E0DF-4818-BCAA-9EA2C013D8D3",
+      "sourceAssetId": "local-mont-st-michel-causeway",
+      "localPath": "/memories/europe/mont-st-michel/008-causeway.jpg",
+      "originalOrder": 8,
+      "locationOrder": 4,
+      "width": 2748,
+      "height": 3664,
+      "mimeType": "image/jpeg",
+      "bytes": 808545,
+      "sha256": "1712750fe9b8a67804db8013071bcd1077c4124355d227ca407bae4d820041cb"
+    },
+    {
+      "type": "photo",
+      "location": "Mont St Michel",
+      "sourceJournal": "Personal photo upload",
+      "sourceUrl": "local://personal-archive/0267CC9B-8767-4979-AFBD-51A21D907C82",
+      "sourceAssetId": "local-mont-st-michel-tidal-flats",
+      "localPath": "/memories/europe/mont-st-michel/009-tidal-flats.jpg",
+      "originalOrder": 9,
+      "locationOrder": 5,
+      "width": 2774,
+      "height": 3700,
+      "mimeType": "image/jpeg",
+      "bytes": 539097,
+      "sha256": "cf1c15d6c03d05ea490ec658f10a936a93852af4e9cc4fe5c1f39add08fc341f"
+    },
+    {
+      "type": "photo",
+      "location": "Mont St Michel",
+      "sourceJournal": "Personal photo upload",
+      "sourceUrl": "local://personal-archive/855A233C-C8EC-4559-98E8-F965B14A0BCD",
+      "sourceAssetId": "local-mont-st-michel-abbey-interior",
+      "localPath": "/memories/europe/mont-st-michel/010-abbey-interior.jpg",
+      "originalOrder": 10,
+      "locationOrder": 6,
+      "width": 2127,
+      "height": 3116,
+      "mimeType": "image/jpeg",
+      "bytes": 700726,
+      "sha256": "19483224f76745dd970913455a4efc2c05dce0542e6c045591455645f8ae53ee"
+    },
+    {
+      "type": "photo",
+      "location": "Mont St Michel",
+      "sourceJournal": "Personal photo upload",
+      "sourceUrl": "local://personal-archive/7364239B-7F7E-47C6-AAAE-882742C5FDCC",
+      "sourceAssetId": "local-mont-st-michel-abbey-exterior",
+      "localPath": "/memories/europe/mont-st-michel/011-abbey-exterior.jpg",
+      "originalOrder": 11,
+      "locationOrder": 7,
+      "width": 2054,
+      "height": 2738,
+      "mimeType": "image/jpeg",
+      "bytes": 461172,
+      "sha256": "16a41c7e566b6fd4534ce257d7818ff32d2ba33294a73f2e1d114ed6e3ddd584"
     }
   ]
 }

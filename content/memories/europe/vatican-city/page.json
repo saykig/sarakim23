@@ -3,6 +3,7 @@
   "excludedPhotos": [
     "local-vatican-city-st-peters-square-fountain"
   ],
+  "hideSectionHeading": true,
   "presentation": {
     "local-vatican-city-st-peters-square": {
       "layout": "left-narrow",

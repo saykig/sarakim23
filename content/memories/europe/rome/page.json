@@ -3,6 +3,10 @@
   "excludedPhotos": [
     "5e19d5e50daaeb6f61fa0763"
   ],
+  "sectionBeforePhoto": {
+    "sourceAssetId": "5e19d5ee0daaeb6f61fa0766",
+    "name": "Vatican City"
+  },
   "presentation": {
     "5e19d5c20daaeb6f61fa075b": {
       "localPath": "/memories/europe/italy/017-colosseum.jpeg",

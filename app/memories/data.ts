@@ -147,6 +147,11 @@ type PresentationEntry = {
 type Presentation = {
   excludedPhotos?: string[]
   photoOrder?: string[]
+  hideSectionHeading?: boolean
+  sectionBeforePhoto?: {
+    sourceAssetId: string
+    name: string
+  }
   presentation: Record<string, PresentationEntry>
 }
 
@@ -311,7 +316,10 @@ export const getMemory = cache(
       const excludedPhotos = new Set(page?.excludedPhotos ?? [])
       const requestedPhotoOrder = page?.photoOrder ?? []
 
-      if (sourceIndex > 0 || destination.sectionEverySource) {
+      if (
+        (sourceIndex > 0 || destination.sectionEverySource) &&
+        !page?.hideSectionHeading
+      ) {
         entries.push({
           type: 'section',
           id: `section:${source.slug}`,
@@ -341,6 +349,14 @@ export const getMemory = cache(
       for (const entry of sourceEntries) {
         if (entry.type === 'photo') {
           if (excludedPhotos.has(entry.sourceAssetId)) continue
+
+          if (page?.sectionBeforePhoto?.sourceAssetId === entry.sourceAssetId) {
+            entries.push({
+              type: 'section',
+              id: `section:${source.slug}:${entry.sourceAssetId}`,
+              name: formatImportedDisplayText(page.sectionBeforePhoto.name),
+            })
+          }
 
           const override = presentation[entry.sourceAssetId]
           const defaultIndex = photoIndex % defaultLayouts.length

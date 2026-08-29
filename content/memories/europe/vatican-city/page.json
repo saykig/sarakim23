@@ -10,6 +10,11 @@
       "layout": "right-narrow",
       "parallax": 6,
       "alt": "Coffered dome inside St. Peter's Basilica, Vatican City."
+    },
+    "local-vatican-city-st-peters-square-fountain": {
+      "layout": "left-narrow",
+      "parallax": 5,
+      "alt": "Fountain and colonnade in St. Peter's Square, Vatican City."
     }
   }
 }

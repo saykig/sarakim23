@@ -38,6 +38,21 @@
       "mimeType": "image/jpeg",
       "bytes": 295084,
       "sha256": "908f37e5b9d07098829c2018489a80236c2f04c4482757c4616a938d7e1906e0"
+    },
+    {
+      "type": "photo",
+      "location": "Vatican City",
+      "sourceJournal": "Personal photo upload",
+      "sourceUrl": "local://personal-archive/CE080186-E0BA-4D2E-A9D5-27F4848C8080",
+      "sourceAssetId": "local-vatican-city-st-peters-square-fountain",
+      "localPath": "/memories/europe/vatican-city/003-st-peters-square-fountain.jpg",
+      "originalOrder": 66,
+      "locationOrder": 3,
+      "width": 2896,
+      "height": 3716,
+      "mimeType": "image/jpeg",
+      "bytes": 1523594,
+      "sha256": "646ee65bf540246855932e9c615f6915a33dc68bf6cbaa494cd857a129e3a46d"
     }
   ]
 }

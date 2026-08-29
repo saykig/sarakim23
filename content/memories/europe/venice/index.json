@@ -364,6 +364,21 @@
       "mimeType": "image/jpeg",
       "bytes": 413739,
       "sha256": "e965a702bfd3fe0841de7c1b04aafc43dda5ae52249158f353a5ea0369c191b9"
+    },
+    {
+      "type": "photo",
+      "location": "Venice",
+      "sourceJournal": "Personal photo upload",
+      "sourceUrl": "local://personal-archive/1E0D4F05-7820-4177-B6E7-3962DC4491B4",
+      "sourceAssetId": "local-venice-moon-over-venice",
+      "localPath": "/memories/europe/venice/035-moon-over-venice.jpeg",
+      "originalOrder": 35,
+      "locationOrder": 8,
+      "width": 706,
+      "height": 1113,
+      "mimeType": "image/jpeg",
+      "bytes": 70619,
+      "sha256": "e25813cf690530c0a4f9a13d373f52cec865f792d5f175bb0dca10b02deecffc"
     }
   ]
 }

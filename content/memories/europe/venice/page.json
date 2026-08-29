@@ -5,5 +5,11 @@
     "5e1392cb65b7eb5695fa1745",
     "5e13947765b7eb5695fa1750"
   ],
-  "presentation": {}
+  "presentation": {
+    "local-venice-moon-over-venice": {
+      "layout": "left-narrow",
+      "parallax": 5,
+      "alt": "Moon above Venice at dusk."
+    }
+  }
 }

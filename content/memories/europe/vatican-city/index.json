@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "slug": "vatican-city",
+  "name": "Vatican City",
+  "sourceHeading": {
+    "text": "Vatican City",
+    "kind": "personal-upload",
+    "documentOrder": 68
+  },
+  "entries": [
+    {
+      "type": "photo",
+      "location": "Vatican City",
+      "sourceJournal": "Personal photo upload",
+      "sourceUrl": "local://personal-archive/C9BC560A-3693-47E4-9D38-C5BA38789D61",
+      "sourceAssetId": "local-vatican-city-st-peters-square",
+      "localPath": "/memories/europe/vatican-city/001-st-peters-square.jpeg",
+      "originalOrder": 64,
+      "locationOrder": 1,
+      "caption": "St. Peter's Square",
+      "width": 768,
+      "height": 1024,
+      "mimeType": "image/jpeg",
+      "bytes": 195044,
+      "sha256": "f8f67db3742708ee8a78f82bc87fc11b23179266c9223ac81b504421a8bf2300"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "presentation": {
+    "local-vatican-city-st-peters-square": {
+      "layout": "left-narrow",
+      "parallax": 5,
+      "alt": "Statue of Saint Peter in St. Peter's Square, Vatican City."
+    }
+  }
+}

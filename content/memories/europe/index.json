@@ -129,6 +129,14 @@
       "entryCount": 9,
       "photoCount": 9,
       "manifest": "./rome/index.json"
+    },
+    {
+      "slug": "vatican-city",
+      "name": "Vatican City",
+      "originalOrder": 15,
+      "entryCount": 1,
+      "photoCount": 1,
+      "manifest": "./vatican-city/index.json"
     }
   ]
 }

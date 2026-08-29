@@ -8,6 +8,7 @@ export const italyMemorySourceSlugs = [
   'sorrento',
   'capri',
   'rome',
+  'vatican-city',
 ] as const
 
 export const groupedMemoryDestinations = [

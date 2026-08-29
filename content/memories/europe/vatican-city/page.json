@@ -1,5 +1,8 @@
 {
   "schemaVersion": 1,
+  "excludedPhotos": [
+    "local-vatican-city-st-peters-square-fountain"
+  ],
   "presentation": {
     "local-vatican-city-st-peters-square": {
       "layout": "left-narrow",

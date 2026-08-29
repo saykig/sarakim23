@@ -211,6 +211,21 @@
       "mimeType": "image/jpeg",
       "bytes": 785366,
       "sha256": "74a5465424076ce19e6000954e9a4f11f9093a10c95ff2d2743aefc07845bbb4"
+    },
+    {
+      "type": "photo",
+      "location": "Orvieto",
+      "sourceJournal": "Personal photo upload",
+      "sourceUrl": "local://personal-archive/E0A34BC5-57A4-4F03-A813-DE72F49F0A50",
+      "sourceAssetId": "local-orvieto-duomo",
+      "localPath": "/memories/europe/orvieto/042-orvieto-duomo.jpeg",
+      "originalOrder": 42,
+      "locationOrder": 5,
+      "width": 768,
+      "height": 1024,
+      "mimeType": "image/jpeg",
+      "bytes": 232335,
+      "sha256": "2e67fd2a62d40b6fb5e51684ff27107a6582a85d66a673585894db0a5e74689f"
     }
   ]
 }

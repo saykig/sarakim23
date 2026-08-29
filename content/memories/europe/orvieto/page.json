@@ -5,5 +5,11 @@
     "5e19de2f741ed5733bdf3cb3",
     "5e14f4d13316d031659eafb0"
   ],
-  "presentation": {}
+  "presentation": {
+    "local-orvieto-duomo": {
+      "layout": "left-narrow",
+      "parallax": 5,
+      "alt": "Orvieto Cathedral in Italy."
+    }
+  }
 }

@@ -1,5 +1,8 @@
 {
   "schemaVersion": 1,
+  "excludedPhotos": [
+    "5e19d5e50daaeb6f61fa0763"
+  ],
   "presentation": {
     "5e19d5c20daaeb6f61fa075b": {
       "localPath": "/memories/europe/italy/017-colosseum.jpeg",

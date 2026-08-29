@@ -269,6 +269,21 @@
       "mimeType": "image/jpeg",
       "bytes": 217566,
       "sha256": "2a11d5714e5d6b8e7828dc03712e8d88e82ba2bbd46a3a03661c47e214b2bfe9"
+    },
+    {
+      "type": "photo",
+      "location": "Interlaken",
+      "sourceJournal": "Personal photo upload",
+      "sourceUrl": "local://personal-archive/D3A2B621-9232-44EB-9908-9402754A5E2D",
+      "sourceAssetId": "local-interlaken-sunrise-alps",
+      "localPath": "/memories/europe/interlaken/025-sunrise-alps.jpeg",
+      "originalOrder": 25,
+      "locationOrder": 6,
+      "width": 1024,
+      "height": 768,
+      "mimeType": "image/jpeg",
+      "bytes": 131795,
+      "sha256": "b28f63f061fb9b7b3c0175caa53944a2e02756eb79f626c7b0a333ac8d7533f6"
     }
   ]
 }

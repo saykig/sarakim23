@@ -1,10 +1,11 @@
 {
   "schemaVersion": 1,
   "excludedPhotos": [
-    "5e19d5e50daaeb6f61fa0763"
+    "5e19d5e50daaeb6f61fa0763",
+    "5e19d5ee0daaeb6f61fa0766"
   ],
   "sectionBeforePhoto": {
-    "sourceAssetId": "5e19d5ee0daaeb6f61fa0766",
+    "sourceAssetId": "5e19d66fac414d72112e11b3",
     "name": "Vatican City"
   },
   "presentation": {

@@ -29,7 +29,6 @@
     },
     "local-interlaken-sunrise-alps": {
       "layout": "right-wide",
-      "parallax": 4,
       "alt": "Sunrise over snow-covered Alps near Interlaken."
     }
   }

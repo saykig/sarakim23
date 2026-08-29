@@ -7,6 +7,11 @@
     "5e1096594c6ab11201eb08ba"
   ],
   "presentation": {
+    "local-paris-alexander-iii-bridge": {
+      "layout": "left-narrow",
+      "parallax": 5,
+      "alt": "Locks on a sculpture at Alexander III Bridge in Paris."
+    },
     "5e10964d4c6ab11201eb08b7": {
       "layout": "right-wide",
       "parallax": 0,

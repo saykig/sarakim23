@@ -313,6 +313,22 @@
       "mimeType": "image/jpeg",
       "bytes": 514707,
       "sha256": "2db98616e5785b71bdf1b90745b8908fe4d8388d65d553adcf57841abba7d152"
+    },
+    {
+      "type": "photo",
+      "location": "Paris",
+      "sourceJournal": "Personal photo upload",
+      "sourceUrl": "local://personal-archive/F835EB71-FCAA-4558-86F8-A9EAB2F02804",
+      "sourceAssetId": "local-paris-alexander-iii-bridge",
+      "localPath": "/memories/europe/paris/014-alexander-iii-bridge.jpeg",
+      "originalOrder": 14,
+      "locationOrder": 7,
+      "caption": "Alexander III Bridge",
+      "width": 768,
+      "height": 1024,
+      "mimeType": "image/jpeg",
+      "bytes": 105050,
+      "sha256": "da2ba75828d8e7b1107daac86478b13faf4633089fb859e8667276ef849d63dc"
     }
   ]
 }

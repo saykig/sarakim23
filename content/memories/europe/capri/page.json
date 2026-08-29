@@ -4,10 +4,10 @@
     "5e1668bf91eb7b0e50ffafd3": {
       "layout": "portrait-narrow",
       "parallax": 0,
-      "crop": {
-        "aspectRatio": 0.43,
-        "objectPosition": "100% 50%"
-      }
+      "localPath": "/memories/europe/italy/014-capri-coast.jpeg",
+      "width": 525,
+      "height": 914,
+      "alt": "View across the coast of Capri, Italy."
     }
   }
 }

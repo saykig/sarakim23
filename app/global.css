@@ -2237,12 +2237,13 @@ body:has(.memory-page) ::selection {
 
 .mindscape-poetry-section {
   --poetry-panel-offset: clamp(1.5rem, 4vw, 4rem);
+  --poetry-title-gutter: 2.75rem;
   width: 100%;
 }
 
 .poetry-opening-toc {
-  width: min(calc(100% - var(--poetry-panel-offset)), 46rem);
-  margin-left: var(--poetry-panel-offset);
+  width: min(calc(100% + var(--poetry-title-gutter)), 48.75rem);
+  margin-left: calc(-1 * var(--poetry-title-gutter));
 }
 
 .poetry-opening-toc ol,
@@ -2532,6 +2533,7 @@ body:has(.memory-page) ::selection {
 @media (max-width: 760px) {
   .mindscape-poetry-section {
     --poetry-panel-offset: 0rem;
+    --poetry-title-gutter: 2.15rem;
   }
 
   .mindscape-index-supplement {

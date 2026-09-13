@@ -12,10 +12,12 @@ export default async function sitemap() {
     lastModified: post.metadata.publishedAt,
   }))
 
-  let routes = ['', '/about', '/poetry', '/blog', ...memoryRoutes].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date().toISOString().split('T')[0],
-  }))
+  let routes = ['', '/about', '/writing/poetry', '/blog', ...memoryRoutes].map(
+    (route) => ({
+      url: `${baseUrl}${route}`,
+      lastModified: new Date().toISOString().split('T')[0],
+    })
+  )
 
   return [...routes, ...blogs]
 }

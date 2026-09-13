@@ -33,6 +33,14 @@ export function AboutSection() {
           </AccordionTrigger>
           <AccordionContent className="homepage-accordion-content">
             <article className="homepage-accordion-entry">
+              <Link
+                className="homepage-accordion-title"
+                href="/writing/poetry"
+              >
+                Poetry
+              </Link>
+            </article>
+            <article className="homepage-accordion-entry">
               <Tooltip
                 containerClassName="homepage-accordion-tooltip"
                 content="An essay about the growing distance between the people building advanced AI and the institutions expected to govern it. It asks who holds technical knowledge, who holds public authority, and what happens when those responsibilities sit in different places."
@@ -56,12 +64,6 @@ export function AboutSection() {
             <ProjectsTransitionPanel />
           </AccordionContent>
         </AccordionItem>
-
-        <div className="homepage-accordion-item">
-          <Link className="about-trigger w-full py-0.5" href="/poetry">
-            Poetry
-          </Link>
-        </div>
 
         <div className="homepage-accordion-item">
           <Link

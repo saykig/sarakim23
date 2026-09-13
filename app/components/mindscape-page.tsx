@@ -13,7 +13,6 @@ const mindscapeSections = [
   { id: 'about', label: 'About Me' },
   { id: 'reading', label: 'Reading' },
   { id: 'writing', label: 'Writing' },
-  { id: 'poetry', label: 'Poetry' },
   { id: 'important-notes', label: 'Important notes' },
 ] as const
 
@@ -52,7 +51,7 @@ export function MindscapePage({
       const hashSection = window.location.hash.slice(1)
 
       if (hashSection === 'poetry') {
-        router.replace('/poetry')
+        router.replace('/writing/poetry')
         return
       }
 
@@ -73,12 +72,7 @@ export function MindscapePage({
   const selectSection = (value: string) => {
     if (!isMindscapeSection(value)) return
 
-    if (value === 'poetry') {
-      router.push('/poetry')
-      return
-    }
-
-    if (pathname === '/poetry') {
+    if (pathname === '/writing/poetry') {
       const destination = value === 'about' ? '/about' : `/about#${value}`
       router.push(destination)
       return
@@ -131,7 +125,7 @@ export function MindscapePage({
                 ))}
               </TabsList>
             </Tabs>
-            {activeSection === 'poetry' && poetryIndex ? (
+            {activeSection === 'writing' && poetryIndex ? (
               <div className="mindscape-index-supplement">{poetryIndex}</div>
             ) : null}
           </aside>
@@ -171,33 +165,42 @@ export function MindscapePage({
                 <section
                   key="writing"
                   id="mindscape-panel-writing"
-                  className="mindscape-section"
+                  className={
+                    poetryContent
+                      ? 'mindscape-section mindscape-poetry-section'
+                      : 'mindscape-section'
+                  }
                   role="tabpanel"
                   aria-labelledby="mindscape-tab-writing"
                 >
-                  <h2>Writing</h2>
-                  <article className="mindscape-writing-entry">
-                    <a href="https://cepheus-pons.org/essays/what-we-owe-to-each-other">
-                      What We Owe to Each Other
-                    </a>
-                    <p>
-                      An essay about the growing distance between the people
-                      building advanced AI and the institutions expected to
-                      govern it. It asks who holds technical knowledge, who
-                      holds public authority, and what happens when those
-                      responsibilities sit in different places.
-                    </p>
-                  </article>
-                </section>,
-                <section
-                  key="poetry"
-                  id="mindscape-panel-poetry"
-                  className="mindscape-section mindscape-poetry-section"
-                  role="tabpanel"
-                  aria-labelledby="mindscape-tab-poetry"
-                >
-                  <h2>Poetry</h2>
-                  {poetryContent}
+                  {poetryContent ? (
+                    <>
+                      <h2>Poetry</h2>
+                      {poetryContent}
+                    </>
+                  ) : (
+                    <>
+                      <h2>Writing</h2>
+                      <div className="mindscape-writing-list">
+                        <article className="mindscape-writing-entry">
+                          <Link href="/writing/poetry">Poetry</Link>
+                        </article>
+                        <article className="mindscape-writing-entry">
+                          <a href="https://cepheus-pons.org/essays/what-we-owe-to-each-other">
+                            What We Owe to Each Other
+                          </a>
+                          <p>
+                            An essay about the growing distance between the
+                            people building advanced AI and the institutions
+                            expected to govern it. It asks who holds technical
+                            knowledge, who holds public authority, and what
+                            happens when those responsibilities sit in
+                            different places.
+                          </p>
+                        </article>
+                      </div>
+                    </>
+                  )}
                 </section>,
                 <section
                   key="important-notes"

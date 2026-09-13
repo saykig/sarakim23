@@ -1422,18 +1422,14 @@ body:has(.about-page) ::selection {
 }
 
 .mindscape-tab:nth-child(2) {
-  --mindscape-tab-color: #ccd9c2;
+  --mindscape-tab-color: #c3d0b7;
 }
 
 .mindscape-tab:nth-child(3) {
-  --mindscape-tab-color: #becdb2;
+  --mindscape-tab-color: #aebf9e;
 }
 
 .mindscape-tab:nth-child(4) {
-  --mindscape-tab-color: #adbfa0;
-}
-
-.mindscape-tab:nth-child(5) {
   --mindscape-tab-color: #98ae84;
 }
 
@@ -1530,6 +1526,10 @@ body:has(.about-page) ::selection {
   margin-top: 0.65rem;
 }
 
+.mindscape-writing-entry + .mindscape-writing-entry {
+  margin-top: 1.15rem;
+}
+
 .mindscape-page .home-globe-nav {
   position: fixed;
   z-index: 12;
@@ -1558,7 +1558,8 @@ body:has(.about-page) ::selection {
 }
 
 @media (min-width: 761px) and (max-width: 1023px) {
-  body:has(.soft-atlas-page) {
+  body:has(.soft-atlas-page),
+  body:has(.about-page) {
     margin-inline: auto !important;
   }
 }

@@ -1530,34 +1530,6 @@ body:has(.about-page) ::selection {
   margin-top: 0.6rem;
 }
 
-.homepage-accordion-entry-poetry,
-.mindscape-writing-entry-poetry {
-  display: flex;
-  align-items: baseline;
-  gap: 0.65rem;
-}
-
-.writing-helper-text {
-  color: var(--atlas-sage);
-  font-family: var(--font-source-sans), Arial, sans-serif;
-  font-size: 0.78rem;
-  font-weight: 300;
-  line-height: 1.35;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(0.18rem);
-  transition: opacity 180ms ease-out,
-    transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.homepage-accordion-entry-poetry:hover .writing-helper-text,
-.homepage-accordion-entry-poetry:focus-within .writing-helper-text,
-.mindscape-writing-entry-poetry:hover .writing-helper-text,
-.mindscape-writing-entry-poetry:focus-within .writing-helper-text {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .mindscape-page .home-globe-nav {
   position: fixed;
   z-index: 12;
@@ -1749,23 +1721,8 @@ body:has(.about-page) ::selection {
   }
 }
 
-@media (max-width: 760px), (hover: none) {
-  .homepage-accordion-entry-poetry,
-  .mindscape-writing-entry-poetry {
-    display: block;
-  }
-
-  .writing-helper-text {
-    display: block;
-    margin-top: 0.16rem;
-    opacity: 1;
-    transform: none;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .mindscape-tab,
-  .writing-helper-text {
+  .mindscape-tab {
     transition: none;
   }
 }

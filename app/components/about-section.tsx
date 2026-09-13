@@ -27,31 +27,32 @@ export function AboutSection() {
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem className="homepage-accordion-item" value="writings">
-          <AccordionTrigger className="about-trigger w-full py-0.5">
+        <div className="homepage-accordion-item">
+          <Link
+            className="about-trigger w-full py-0.5"
+            href="/about#writing"
+          >
             Writing
-          </AccordionTrigger>
-          <AccordionContent className="homepage-accordion-content">
+          </Link>
+          <div className="homepage-accordion-content">
             <div className="homepage-writing-list">
-              <article className="homepage-accordion-entry homepage-accordion-entry-poetry">
-                <Link
-                  className="homepage-accordion-title"
-                  href="/writing/poetry"
-                  aria-describedby="homepage-poetry-helper"
+              <article className="homepage-accordion-entry">
+                <Tooltip
+                  containerClassName="homepage-accordion-tooltip"
+                  content="Some poems I have written over the years."
                 >
-                  Poetry
-                </Link>
-                <span
-                  id="homepage-poetry-helper"
-                  className="writing-helper-text"
-                >
-                  Some poems I have written over the years.
-                </span>
+                  <Link
+                    className="homepage-accordion-title"
+                    href="/writing/poetry"
+                  >
+                    Poetry
+                  </Link>
+                </Tooltip>
               </article>
               <article className="homepage-accordion-entry">
                 <Tooltip
                   containerClassName="homepage-accordion-tooltip"
-                  content="An essay about the growing distance between the people building advanced AI and the institutions expected to govern it. It asks who holds technical knowledge, who holds public authority, and what happens when those responsibilities sit in different places."
+                  content="An essay about the growing distance between the people building advanced AI and the institutions expected to govern it."
                 >
                   <a
                     className="homepage-accordion-title"
@@ -62,8 +63,8 @@ export function AboutSection() {
                 </Tooltip>
               </article>
             </div>
-          </AccordionContent>
-        </AccordionItem>
+          </div>
+        </div>
 
         <AccordionItem className="homepage-accordion-item" value="projects">
           <AccordionTrigger className="about-trigger w-full py-0.5">

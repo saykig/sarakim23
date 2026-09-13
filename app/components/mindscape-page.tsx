@@ -182,19 +182,13 @@ export function MindscapePage({
                     <>
                       <h2>Writing</h2>
                       <div className="mindscape-writing-list">
-                        <article className="mindscape-writing-entry mindscape-writing-entry-poetry">
-                          <Link
-                            href="/writing/poetry"
-                            aria-describedby="mindscape-poetry-helper"
-                          >
+                        <article className="mindscape-writing-entry">
+                          <Link href="/writing/poetry">
                             Poetry
                           </Link>
-                          <span
-                            id="mindscape-poetry-helper"
-                            className="writing-helper-text"
-                          >
+                          <p>
                             Some poems I have written over the years.
-                          </span>
+                          </p>
                         </article>
                         <article className="mindscape-writing-entry">
                           <a href="https://cepheus-pons.org/essays/what-we-owe-to-each-other">
@@ -203,10 +197,7 @@ export function MindscapePage({
                           <p>
                             An essay about the growing distance between the
                             people building advanced AI and the institutions
-                            expected to govern it. It asks who holds technical
-                            knowledge, who holds public authority, and what
-                            happens when those responsibilities sit in
-                            different places.
+                            expected to govern it.
                           </p>
                         </article>
                       </div>

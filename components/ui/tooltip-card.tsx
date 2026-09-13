@@ -11,6 +11,7 @@ import {
   type ReactElement,
   type ReactNode,
 } from 'react'
+import { createPortal } from 'react-dom'
 
 const CARD_WIDTH = 240
 const VIEWPORT_GUTTER = 12
@@ -45,6 +46,7 @@ export function Tooltip({
   const cardRef = useRef<HTMLSpanElement>(null)
   const hideTimeoutRef = useRef<number | null>(null)
   const reduceMotion = useReducedMotion()
+  const [hasMounted, setHasMounted] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const [height, setHeight] = useState(0)
   const [anchor, setAnchor] = useState({ x: 0, y: 0 })
@@ -105,92 +107,117 @@ export function Tooltip({
     placeCard(anchor.x, anchor.y, nextHeight)
   }, [anchor.x, anchor.y, content, isVisible])
 
-  useEffect(() => cancelScheduledHide, [])
+  useEffect(() => {
+    setHasMounted(true)
+
+    return cancelScheduledHide
+  }, [])
 
   return (
-    <span
-      className={['tooltip-card-trigger', containerClassName]
-        .filter(Boolean)
-        .join(' ')}
-      onPointerEnter={(event) => {
-        if (event.pointerType !== 'mouse') return
-        cancelScheduledHide()
-        placeCard(event.clientX, event.clientY)
-        setIsVisible(true)
-      }}
-      onPointerMove={(event) => {
-        if (event.pointerType !== 'mouse' || !isVisible) return
-        placeCard(event.clientX, event.clientY)
-      }}
-      onPointerLeave={(event) => {
-        if (event.pointerType === 'mouse') scheduleHide()
-      }}
-      onPointerDown={(event) => {
-        if (event.pointerType === 'mouse') return
-        if ((event.target as Element).closest('a')) return
-        event.preventDefault()
-        const rect = event.currentTarget.getBoundingClientRect()
-        if (!isVisible) placeCard(rect.left + rect.width / 2, rect.top)
-        setIsVisible((current) => !current)
-      }}
-      onFocus={(event) => {
-        if (!(event.target as HTMLElement).matches(':focus-visible')) return
-        const rect = event.currentTarget.getBoundingClientRect()
-        placeCard(rect.left + rect.width / 2, rect.top)
-        setIsVisible(true)
-      }}
-      onBlur={(event) => {
-        if (event.currentTarget.contains(event.relatedTarget as Node | null)) return
-        setIsVisible(false)
-      }}
-      onKeyDown={(event) => {
-        if (event.key === 'Escape') setIsVisible(false)
-      }}
-    >
-      {cloneElement(
-        children,
-        interactive
-          ? {
-              'aria-controls': tooltipId,
-              'aria-expanded': isVisible,
-            }
-          : { 'aria-describedby': tooltipId }
-      )}
-      <AnimatePresence>
-        {isVisible ? (
-          <motion.span
-            id={tooltipId}
-            ref={cardRef}
-            role={interactive ? 'dialog' : 'tooltip'}
-            className="contact-tooltip-card"
-            data-interactive={interactive ? 'true' : 'false'}
-            data-variant={variant}
-            initial={{
-              height: 0,
-              opacity: 0,
-              scale: variant === 'whisper' ? 0.96 : 1,
-            }}
-            animate={{ height, opacity: 1, scale: 1 }}
-            exit={{
-              height: 0,
-              opacity: 0,
-              scale: variant === 'whisper' ? 0.98 : 1,
-            }}
-            transition={
-              reduceMotion
-                ? { duration: 0 }
-                : { type: 'spring', stiffness: 200, damping: 24 }
-            }
-            style={{
-              left: position.left,
-              top: position.top,
-              transformOrigin: 'top left',
-            }}
-          >
-            <span className="contact-tooltip-content">{content}</span>
-          </motion.span>
-        ) : null}
-      </AnimatePresence>
-    </span>
+    <>
+      <span
+        className={['tooltip-card-trigger', containerClassName]
+          .filter(Boolean)
+          .join(' ')}
+        onPointerEnter={(event) => {
+          if (event.pointerType !== 'mouse') return
+          cancelScheduledHide()
+          placeCard(event.clientX, event.clientY)
+          setIsVisible(true)
+        }}
+        onPointerMove={(event) => {
+          if (event.pointerType !== 'mouse' || !isVisible) return
+          placeCard(event.clientX, event.clientY)
+        }}
+        onPointerLeave={(event) => {
+          if (event.pointerType === 'mouse') scheduleHide()
+        }}
+        onPointerDown={(event) => {
+          if (event.pointerType === 'mouse') return
+          if ((event.target as Element).closest('a')) return
+          event.preventDefault()
+          const rect = event.currentTarget.getBoundingClientRect()
+          if (!isVisible) placeCard(rect.left + rect.width / 2, rect.top)
+          setIsVisible((current) => !current)
+        }}
+        onFocus={(event) => {
+          if (!(event.target as HTMLElement).matches(':focus-visible')) return
+          const rect = event.currentTarget.getBoundingClientRect()
+          placeCard(rect.left + rect.width / 2, rect.top)
+          setIsVisible(true)
+        }}
+        onBlur={(event) => {
+          if (event.currentTarget.contains(event.relatedTarget as Node | null)) return
+          scheduleHide()
+        }}
+        onKeyDown={(event) => {
+          if (event.key === 'Escape') setIsVisible(false)
+        }}
+      >
+        {cloneElement(
+          children,
+          interactive
+            ? {
+                'aria-controls': tooltipId,
+                'aria-expanded': isVisible,
+              }
+            : { 'aria-describedby': tooltipId }
+        )}
+      </span>
+      {hasMounted
+        ? createPortal(
+            <AnimatePresence>
+              {isVisible ? (
+                <motion.span
+                  id={tooltipId}
+                  ref={cardRef}
+                  role={interactive ? 'dialog' : 'tooltip'}
+                  className="contact-tooltip-card"
+                  data-interactive={interactive ? 'true' : 'false'}
+                  data-variant={variant}
+                  initial={{
+                    height: 0,
+                    opacity: 0,
+                    scale: variant === 'whisper' ? 0.96 : 1,
+                  }}
+                  animate={{ height, opacity: 1, scale: 1 }}
+                  exit={{
+                    height: 0,
+                    opacity: 0,
+                    scale: variant === 'whisper' ? 0.98 : 1,
+                  }}
+                  transition={
+                    reduceMotion
+                      ? { duration: 0 }
+                      : { type: 'spring', stiffness: 200, damping: 24 }
+                  }
+                  style={{
+                    left: position.left,
+                    top: position.top,
+                    transformOrigin: 'top left',
+                  }}
+                  onPointerEnter={cancelScheduledHide}
+                  onPointerLeave={scheduleHide}
+                  onFocus={cancelScheduledHide}
+                  onBlur={(event) => {
+                    if (
+                      event.currentTarget.contains(
+                        event.relatedTarget as Node | null
+                      )
+                    ) {
+                      return
+                    }
+
+                    scheduleHide()
+                  }}
+                >
+                  <span className="contact-tooltip-content">{content}</span>
+                </motion.span>
+              ) : null}
+            </AnimatePresence>,
+            document.body
+          )
+        : null}
+    </>
   )
 }

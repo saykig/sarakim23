@@ -427,11 +427,23 @@ const poemEntries: Poem[] = [
     id: 'see-through',
     title: 'See-through',
     content: {
-      kind: 'image',
-      src: '/images/poetry/see-through.jpeg',
-      width: 786,
-      height: 1457,
-      alt: 'The visual poem “See-through,” combining spatial typography with a message screenshot.',
+      kind: 'text',
+      stanzas: [
+        lines(
+          'Through her eyes',
+          'they can see',
+          'the universe',
+          'expa n d  i n     g'
+        ),
+        lines('Through her eyes', 'they can see', 'whole lakes', 'pouring'),
+        lines('Through her eyes', 'I can see', 'what they cannot'),
+        lines('and'),
+        lines(
+          'when she doesn’t blink',
+          'it’s as if',
+          'the fires started flaming'
+        ),
+      ],
     },
   },
   {

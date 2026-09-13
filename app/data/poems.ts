@@ -123,11 +123,53 @@ const poemEntries: Poem[] = [
     id: 'i-miss',
     title: 'I miss',
     content: {
-      kind: 'image',
-      src: '/images/poetry/i-miss.jpeg',
-      width: 809,
-      height: 2106,
-      alt: 'The visual poem “I miss,” set around two photographs of remembered places.',
+      kind: 'text',
+      stanzas: [
+        lines(
+          'i miss the sunsets',
+          'when the clouds appeared their prettiest',
+          'warm colours bleeding into one another',
+          'how they gave me emotions',
+          'and memories of a home'
+        ),
+        lines(
+          'i miss the smell',
+          'of honey and lavender',
+          'on walks with my sister',
+          'past the houses of neighbours',
+          'whose streets i still remember'
+        ),
+        lines(
+          'i miss walking home from school',
+          'with the friends i loved most',
+          'and the one friend',
+          'who carried all the things',
+          'i was too afraid',
+          'to carry alone'
+        ),
+        lines(
+          'i miss the friends i made',
+          'just before leaving',
+          'how cruel it was',
+          'a hello could arrive late,',
+          'with goodbye already',
+          'waiting at the door'
+        ),
+        lines(
+          'i miss the strange feeling',
+          'of having everyone at once',
+          'before i knew that',
+          'some things begin',
+          'already leaning',
+          'toward their end'
+        ),
+        lines(
+          'i miss how slowly the days passed',
+          'how quickly the years went by'
+        ),
+        lines('i miss the times i had them all,'),
+        lines('i miss.'),
+      ],
     },
   },
   {

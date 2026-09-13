@@ -1371,7 +1371,10 @@ body:has(.about-page) ::selection {
   top: clamp(1.5rem, 8vh, 5rem);
   z-index: 4;
   align-self: start;
-  margin-left: clamp(-3.25rem, -4vw, -1.5rem);
+  margin-left: calc(
+    0.45rem - clamp(1.25rem, 4.5vw, 4.5rem) - 50vw +
+      min(50vw, 40rem)
+  );
 }
 
 .mindscape-index-supplement {
@@ -1679,12 +1682,12 @@ body:has(.about-page) ::selection {
 
   .mindscape-index {
     top: 1.25rem;
-    margin-left: -0.9rem;
+    margin-left: -1rem;
   }
 
   .mindscape-tab {
     --mindscape-tab-rest-x: 0rem;
-    width: calc(100% - 0.45rem);
+    width: calc(100% - 0.55rem);
     min-height: 3rem;
     padding: 0.64rem 0.5rem 0.64rem 0.85rem;
   }

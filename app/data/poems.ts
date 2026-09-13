@@ -131,7 +131,7 @@ const poemEntries: Poem[] = [
         width: 809,
         height: 2106,
         alt: 'Clouds over a quiet intersection at sunset.',
-        location: 'Toronto, Canada',
+        location: 'Vancouver, Canada',
         crop: 'i-miss-sunset',
       },
       stanzas: [

@@ -2465,7 +2465,7 @@ body:has(.memory-page) ::selection {
 
 .poetry-poem-image-i-miss-sunset {
   position: relative;
-  aspect-ratio: 507 / 679;
+  aspect-ratio: 500 / 670;
   overflow: hidden;
 }
 
@@ -2473,9 +2473,9 @@ body:has(.memory-page) ::selection {
   position: absolute;
   top: 0;
   left: 0;
-  width: 159.57%;
+  width: 161.8%;
   max-width: none;
-  transform: translate(-16.81%, -3.66%);
+  transform: translate(-17.31%, -3.94%);
 }
 
 .contact-tooltip-card[data-tooltip-container~='poetry-photo-tooltip'] {

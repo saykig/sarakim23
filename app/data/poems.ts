@@ -11,6 +11,8 @@ export type TextPoem = {
     width: number
     height: number
     alt: string
+    location: string
+    crop?: 'i-miss-sunset'
   }
   stanzas: PoemLine[][]
 }
@@ -124,6 +126,14 @@ const poemEntries: Poem[] = [
     title: 'I miss',
     content: {
       kind: 'text',
+      leadImage: {
+        src: '/images/poetry/i-miss.jpeg',
+        width: 809,
+        height: 2106,
+        alt: 'Clouds over a quiet intersection at sunset.',
+        location: 'Toronto, Canada',
+        crop: 'i-miss-sunset',
+      },
       stanzas: [
         lines(
           'i miss the sunsets',
@@ -339,6 +349,7 @@ const poemEntries: Poem[] = [
         width: 1024,
         height: 1536,
         alt: 'A crescent moon over a waterfront at dusk.',
+        location: 'Florence, Italy',
       },
       stanzas: [
         lines('returning to a home', 'distant yet so close'),

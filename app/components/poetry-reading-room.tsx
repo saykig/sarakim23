@@ -240,7 +240,7 @@ export function PoetryReadingRoom({ poems }: PoetryReadingRoomProps) {
                   {poem.content.leadImage ? (
                     <Tooltip
                       containerClassName="poetry-photo-tooltip"
-                      content="Florence, Italy"
+                      content={poem.content.leadImage.location}
                       variant="whisper"
                     >
                       <button
@@ -248,7 +248,13 @@ export function PoetryReadingRoom({ poems }: PoetryReadingRoomProps) {
                         className="poetry-photo-tooltip-trigger"
                         aria-label="Show photo location"
                       >
-                        <figure className="poetry-poem-image">
+                        <figure
+                          className={`poetry-poem-image ${
+                            poem.content.leadImage.crop
+                              ? `poetry-poem-image-${poem.content.leadImage.crop}`
+                              : ''
+                          }`}
+                        >
                           <img
                             src={poem.content.leadImage.src}
                             alt={poem.content.leadImage.alt}

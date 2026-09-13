@@ -27,14 +27,11 @@ export function AboutSection() {
           </AccordionContent>
         </AccordionItem>
 
-        <div className="homepage-accordion-item">
-          <Link
-            className="about-trigger w-full py-0.5"
-            href="/about#writing"
-          >
+        <AccordionItem className="homepage-accordion-item" value="writings">
+          <AccordionTrigger className="about-trigger w-full py-0.5">
             Writing
-          </Link>
-          <div className="homepage-accordion-content">
+          </AccordionTrigger>
+          <AccordionContent className="homepage-accordion-content">
             <div className="homepage-writing-list">
               <article className="homepage-accordion-entry">
                 <Tooltip
@@ -63,8 +60,8 @@ export function AboutSection() {
                 </Tooltip>
               </article>
             </div>
-          </div>
-        </div>
+          </AccordionContent>
+        </AccordionItem>
 
         <AccordionItem className="homepage-accordion-item" value="projects">
           <AccordionTrigger className="about-trigger w-full py-0.5">

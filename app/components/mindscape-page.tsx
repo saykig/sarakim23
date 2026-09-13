@@ -182,8 +182,19 @@ export function MindscapePage({
                     <>
                       <h2>Writing</h2>
                       <div className="mindscape-writing-list">
-                        <article className="mindscape-writing-entry">
-                          <Link href="/writing/poetry">Poetry</Link>
+                        <article className="mindscape-writing-entry mindscape-writing-entry-poetry">
+                          <Link
+                            href="/writing/poetry"
+                            aria-describedby="mindscape-poetry-helper"
+                          >
+                            Poetry
+                          </Link>
+                          <span
+                            id="mindscape-poetry-helper"
+                            className="writing-helper-text"
+                          >
+                            Some poems I have written over the years.
+                          </span>
                         </article>
                         <article className="mindscape-writing-entry">
                           <a href="https://cepheus-pons.org/essays/what-we-owe-to-each-other">

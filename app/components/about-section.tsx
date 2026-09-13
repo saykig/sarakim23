@@ -32,27 +32,36 @@ export function AboutSection() {
             Writing
           </AccordionTrigger>
           <AccordionContent className="homepage-accordion-content">
-            <article className="homepage-accordion-entry">
-              <Link
-                className="homepage-accordion-title"
-                href="/writing/poetry"
-              >
-                Poetry
-              </Link>
-            </article>
-            <article className="homepage-accordion-entry">
-              <Tooltip
-                containerClassName="homepage-accordion-tooltip"
-                content="An essay about the growing distance between the people building advanced AI and the institutions expected to govern it. It asks who holds technical knowledge, who holds public authority, and what happens when those responsibilities sit in different places."
-              >
-                <a
+            <div className="homepage-writing-list">
+              <article className="homepage-accordion-entry homepage-accordion-entry-poetry">
+                <Link
                   className="homepage-accordion-title"
-                  href="https://cepheus-pons.org/essays/what-we-owe-to-each-other"
+                  href="/writing/poetry"
+                  aria-describedby="homepage-poetry-helper"
                 >
-                  What We Owe to Each Other
-                </a>
-              </Tooltip>
-            </article>
+                  Poetry
+                </Link>
+                <span
+                  id="homepage-poetry-helper"
+                  className="writing-helper-text"
+                >
+                  Some poems I have written over the years.
+                </span>
+              </article>
+              <article className="homepage-accordion-entry">
+                <Tooltip
+                  containerClassName="homepage-accordion-tooltip"
+                  content="An essay about the growing distance between the people building advanced AI and the institutions expected to govern it. It asks who holds technical knowledge, who holds public authority, and what happens when those responsibilities sit in different places."
+                >
+                  <a
+                    className="homepage-accordion-title"
+                    href="https://cepheus-pons.org/essays/what-we-owe-to-each-other"
+                  >
+                    What We Owe to Each Other
+                  </a>
+                </Tooltip>
+              </article>
+            </div>
           </AccordionContent>
         </AccordionItem>
 

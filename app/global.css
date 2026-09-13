@@ -2242,6 +2242,10 @@ body:has(.memory-page) ::selection {
   width: 100%;
 }
 
+.mindscape-poetry-section > h2 {
+  margin-left: calc(-1 * var(--poetry-title-gutter));
+}
+
 .poetry-opening-toc {
   width: min(calc(100% + var(--poetry-title-gutter)), 48.75rem);
   margin-left: calc(-1 * var(--poetry-title-gutter));
@@ -2258,7 +2262,7 @@ body:has(.memory-page) ::selection {
   display: grid;
   grid-template-columns: 2.25rem minmax(0, 1fr);
   align-items: baseline;
-  gap: 0.5rem;
+  gap: calc(0.5rem + var(--poetry-panel-offset));
 }
 
 .poetry-opening-toc li + li {

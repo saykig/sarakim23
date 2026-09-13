@@ -174,6 +174,7 @@ export function Tooltip({
                   role={interactive ? 'dialog' : 'tooltip'}
                   className="contact-tooltip-card"
                   data-interactive={interactive ? 'true' : 'false'}
+                  data-tooltip-container={containerClassName || undefined}
                   data-variant={variant}
                   initial={{
                     height: 0,

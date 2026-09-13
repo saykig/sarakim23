@@ -422,17 +422,18 @@ body:has(.soft-atlas-page) ::selection {
   white-space: nowrap;
 }
 
-.email-tooltip .contact-tooltip-card {
+.contact-tooltip-card[data-tooltip-container~='email-tooltip'] {
   width: max-content;
   max-width: calc(100vw - 1.5rem);
 }
 
-.reflections-tooltip .contact-tooltip-card {
+.contact-tooltip-card[data-tooltip-container~='reflections-tooltip'] {
   width: max-content;
   max-width: calc(100vw - 1.5rem);
 }
 
-.reflections-tooltip .contact-tooltip-content {
+.contact-tooltip-card[data-tooltip-container~='reflections-tooltip']
+  .contact-tooltip-content {
   white-space: nowrap;
 }
 
@@ -1063,7 +1064,8 @@ a.homepage-accordion-title:focus-visible,
   margin-top: 0.22rem;
 }
 
-.homepage-accordion-tooltip .contact-tooltip-content {
+.contact-tooltip-card[data-tooltip-container~='homepage-accordion-tooltip']
+  .contact-tooltip-content {
   line-height: 1.45;
   white-space: normal;
 }
@@ -1300,7 +1302,8 @@ body:has(.about-page) ::selection {
   outline-offset: 0.18rem;
 }
 
-.about-inline-tooltip .contact-tooltip-content {
+.contact-tooltip-card[data-tooltip-container~='about-inline-tooltip']
+  .contact-tooltip-content {
   line-height: 1.45;
   white-space: normal;
 }
@@ -2461,7 +2464,7 @@ body:has(.memory-page) ::selection {
   height: auto;
 }
 
-.poetry-photo-tooltip .contact-tooltip-card {
+.contact-tooltip-card[data-tooltip-container~='poetry-photo-tooltip'] {
   width: fit-content;
   max-width: calc(100vw - 1.5rem);
   padding: 0.42rem 0.55rem;
@@ -2478,7 +2481,8 @@ body:has(.memory-page) ::selection {
   -webkit-backdrop-filter: blur(10px);
 }
 
-.poetry-photo-tooltip .contact-tooltip-content {
+.contact-tooltip-card[data-tooltip-container~='poetry-photo-tooltip']
+  .contact-tooltip-content {
   padding: 0;
   font: inherit;
   white-space: nowrap;

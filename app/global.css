@@ -2237,18 +2237,19 @@ body:has(.memory-page) ::selection {
 }
 
 .mindscape-poetry-section {
-  --poetry-panel-offset: clamp(1.5rem, 4vw, 4rem);
-  --poetry-title-gutter: 2.75rem;
+  --poetry-text-column-offset: clamp(1.5rem, 4vw, 4rem);
+  --poetry-index-gutter: 2.75rem;
   width: 100%;
 }
 
 .mindscape-poetry-section > h2 {
-  margin-left: calc(-1 * var(--poetry-title-gutter));
+  margin-bottom: clamp(3rem, 5vw, 4.25rem);
+  margin-left: calc(-1 * var(--poetry-index-gutter));
 }
 
 .poetry-opening-toc {
-  width: min(calc(100% + var(--poetry-title-gutter)), 48.75rem);
-  margin-left: calc(-1 * var(--poetry-title-gutter));
+  width: min(calc(100% + var(--poetry-index-gutter)), 48.75rem);
+  margin-left: calc(-1 * var(--poetry-index-gutter));
 }
 
 .poetry-opening-toc ol,
@@ -2260,9 +2261,9 @@ body:has(.memory-page) ::selection {
 
 .poetry-opening-toc li {
   display: grid;
-  grid-template-columns: 2.25rem minmax(0, 1fr);
+  grid-template-columns: var(--poetry-index-gutter) minmax(0, 1fr);
   align-items: baseline;
-  gap: calc(0.5rem + var(--poetry-panel-offset));
+  gap: var(--poetry-text-column-offset);
 }
 
 .poetry-opening-toc li + li {
@@ -2302,22 +2303,11 @@ body:has(.memory-page) ::selection {
   outline-offset: 0.25rem;
 }
 
-.poetry-sunset {
-  width: calc(100% - var(--poetry-panel-offset));
-  margin: clamp(3rem, 6vw, 5.75rem) 0 clamp(4.5rem, 7vw, 6.5rem)
-    var(--poetry-panel-offset);
-}
-
-.poetry-sunset img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 .poetry-reading-layout {
-  width: calc(100% - var(--poetry-panel-offset));
-  margin-left: var(--poetry-panel-offset);
   display: block;
+  width: calc(100% - var(--poetry-text-column-offset));
+  margin-top: clamp(5rem, 8vw, 8rem);
+  margin-left: var(--poetry-text-column-offset);
 }
 
 .poetry-reading-index {
@@ -2537,17 +2527,16 @@ body:has(.memory-page) ::selection {
 
 @media (max-width: 760px) {
   .mindscape-poetry-section {
-    --poetry-panel-offset: 0rem;
-    --poetry-title-gutter: 2.15rem;
+    --poetry-text-column-offset: 0rem;
+    --poetry-index-gutter: 2.15rem;
+  }
+
+  .mindscape-poetry-section > h2 {
+    margin-bottom: 2.25rem;
   }
 
   .mindscape-index-supplement {
     display: none;
-  }
-
-  .poetry-opening-toc li {
-    grid-template-columns: 1.8rem minmax(0, 1fr);
-    gap: 0.35rem;
   }
 
   .poetry-opening-toc li + li {
@@ -2558,13 +2547,9 @@ body:has(.memory-page) ::selection {
     font-size: clamp(1.28rem, 6vw, 1.6rem);
   }
 
-  .poetry-sunset {
-    width: 100%;
-    margin: 3.25rem 0 4rem;
-  }
-
   .poetry-reading-layout {
     display: block;
+    margin-top: 4rem;
   }
 
   .poetry-reading-index {

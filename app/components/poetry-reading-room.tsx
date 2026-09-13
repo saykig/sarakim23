@@ -206,15 +206,6 @@ export function PoetryReadingRoom({ poems }: PoetryReadingRoomProps) {
         </ol>
       </nav>
 
-      <figure className="poetry-sunset">
-        <img
-          src="/images/essays-sunset-landscape.png"
-          alt="A warm sunset settling over a quiet landscape."
-          width={1672}
-          height={941}
-        />
-      </figure>
-
       <div className="poetry-reading-layout">
         <div className="poetry-mobile-index">
           <label htmlFor="poetry-mobile-select">Poem</label>

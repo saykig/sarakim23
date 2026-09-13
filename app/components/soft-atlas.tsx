@@ -501,7 +501,7 @@ function AtlasTooltipOverlay({
       <div
         className="atlas-tooltip-card"
         role="tooltip"
-        aria-label={`${place.name} • ${place.type}. ${place.memorySlug ? 'Discover memory' : 'Memory in progress'}`}
+        aria-label={`${place.name} • ${place.type}${place.memorySlug ? '. Discover memory' : ''}`}
         style={{ left: `${position.x}px`, top: `${position.y}px` }}
         onPointerEnter={onPointerEnter}
         onPointerLeave={onPointerLeave}
@@ -520,9 +520,7 @@ function AtlasTooltipOverlay({
           >
             Discover memory →
           </a>
-        ) : (
-          <span className="atlas-tooltip-action">Memory in progress</span>
-        )}
+        ) : null}
       </div>
     </div>
   )

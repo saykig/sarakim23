@@ -161,14 +161,6 @@ const poemEntries: Poem[] = [
           'waiting at the door'
         ),
         lines(
-          'i miss the strange feeling',
-          'of having everyone at once',
-          'before i knew that',
-          'some things begin',
-          'already leaning',
-          'toward their end'
-        ),
-        lines(
           'i miss how slowly the days passed',
           'how quickly the years went by'
         ),

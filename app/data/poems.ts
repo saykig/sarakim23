@@ -92,11 +92,6 @@ const poemEntries: Poem[] = [
           'I still thought they meant something'
         ),
         lines(
-          'as if the sky believed in symmetry',
-          'when really',
-          'it was only me'
-        ),
-        lines(
           'I kept drawing lines between them',
           'as though the universe',
           'had placed them there for me'

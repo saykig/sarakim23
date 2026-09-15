@@ -194,41 +194,6 @@ const poemEntries: Poem[] = [
     },
   },
   {
-    id: 'how-will-i-know',
-    title: 'How Will I Know',
-    content: {
-      kind: 'text',
-      stanzas: [
-        lines('how will i know they’ll always be,', 'when will i know my time will be?'),
-        lines('in wuthering days i wallow', 'nor trouble the morrow'),
-        lines(
-          'yet here i am,',
-          'twenty steps forward,',
-          'nineteen steps back,',
-          'as though the one between',
-          'might spare me sorrow.'
-        ),
-        lines('how will i know the love will be', 'when gone,', 'they’ll wait for me?'),
-        lines('how will i know my love will be', 'when distance calls—', 'will my heart still be?'),
-        lines('so onward you have to go', 'onward is all you know'),
-        [{ text: '(backwards is all i know)', italic: true }],
-        lines('regardless of what follows', 'soon enough, it will be known'),
-        [
-          { text: 'and soon the sorrow' },
-          { text: 'will be overshadowed' },
-          { text: 'love beyond its means', indent: 1 },
-          { text: 'care beyond the horizons', indent: 2 },
-          { text: 'only that no heart' },
-          { text: 'was made to hold' },
-          { text: 'the whole of tomorrow' },
-        ],
-        lines('you’ll find solitude', 'in what you quest for', 'in what you call unknown'),
-        lines('soon you shall discover'),
-        lines('they will always be,', 'you will always be.'),
-      ],
-    },
-  },
-  {
     id: 'polaroids',
     title: 'Polaroids',
     content: {
@@ -399,29 +364,6 @@ const poemEntries: Poem[] = [
     },
   },
   {
-    id: 'see-through',
-    title: 'See-through',
-    content: {
-      kind: 'text',
-      stanzas: [
-        lines(
-          'Through her eyes',
-          'they can see',
-          'the universe',
-          'expa n d  i n     g'
-        ),
-        lines('Through her eyes', 'they can see', 'whole lakes', 'pouring'),
-        lines('Through her eyes', 'I can see', 'what they cannot'),
-        lines('and'),
-        lines(
-          'when she doesn’t blink',
-          'it’s as if',
-          'the fires started flaming'
-        ),
-      ],
-    },
-  },
-  {
     id: 'there-is-grace-in-the-unknown',
     title: 'There is Grace in the Unknown',
     content: {
@@ -480,10 +422,8 @@ const poemOrder = [
   'polaroids',
   'i-miss',
   'the-stars-do-not-know',
-  'see-through',
   'the-passage-of-time',
   'filed-beneath-the-moon',
-  'how-will-i-know',
   'there-is-grace-in-the-unknown',
   'i-wandered-through-the-sea',
   'the-space-between-us',

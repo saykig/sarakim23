@@ -200,7 +200,7 @@ const poemEntries: Poem[] = [
       kind: 'text',
       stanzas: [
         lines('how will i know they’ll always be,', 'when will i know my time will be?'),
-        lines('in wuthering days i wallow', 'they say', 'don’t look back,', 'nor trouble the morrow'),
+        lines('in wuthering days i wallow', 'nor trouble the morrow'),
         lines(
           'yet here i am,',
           'twenty steps forward,',
@@ -210,21 +210,9 @@ const poemEntries: Poem[] = [
         ),
         lines('how will i know the love will be', 'when gone,', 'they’ll wait for me?'),
         lines('how will i know my love will be', 'when distance calls—', 'will my heart still be?'),
-        lines('the answer is neither satisfactory', 'nor calming'),
         lines('so onward you have to go', 'onward is all you know'),
         [{ text: '(backwards is all i know)', italic: true }],
-        lines('the wuthering wallows', 'the sorrows of moors', 'today, tomorrow, and yesterday'),
-        [
-          { text: 'will either stay' },
-          { text: 'or go', indent: 1 },
-        ],
-        [
-          { text: 'regardless of what follows,' },
-          { text: 'soon enough, it will be known:' },
-          { text: 'not who will always remain,', indent: 1 },
-          { text: 'nor when our time comes' },
-          { text: 'nor should such things be known' },
-        ],
+        lines('regardless of what follows', 'soon enough, it will be known'),
         [
           { text: 'and soon the sorrow' },
           { text: 'will be overshadowed' },

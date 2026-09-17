@@ -1312,6 +1312,17 @@ body:has(.about-page) ::selection {
   display: block;
 }
 
+.contact-tooltip-card[data-tooltip-container~='lapis-tooltip']
+  .about-tooltip-lapis-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-top: 0.6rem;
+  border-radius: var(--tooltip-card-radius);
+  object-fit: cover;
+  object-position: center;
+}
+
 .about-decision-section {
   margin-top: 1.65rem;
 }

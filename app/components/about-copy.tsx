@@ -126,7 +126,7 @@ export function AboutCopy() {
         who take their curiosities seriously and stay in awe of whatever they
         uncover to be one of the{' '}
         <Tooltip
-          containerClassName="about-inline-tooltip"
+          containerClassName="about-inline-tooltip lapis-tooltip"
           content={
             <span className="about-tooltip-copy">
               When people say ‘hidden gems’ of the world, I like to think of
@@ -134,6 +134,11 @@ export function AboutCopy() {
               truth, and something almost divine, and I’ve always liked how its
               deep blue and little flecks of gold look almost like a tiny night
               sky.
+              <img
+                className="about-tooltip-lapis-image"
+                src="/images/about/lapis-lazuli.jpg"
+                alt="Close detail of lapis lazuli with gold flecks"
+              />
             </span>
           }
         >

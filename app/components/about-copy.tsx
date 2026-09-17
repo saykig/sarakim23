@@ -34,8 +34,8 @@ export function AboutCopy() {
           <AccordionContent className="about-decision-content">
             <div className="about-copy about-decision-copy">
               <p>
-                A very close friend of mine in the sciences asked me an
-                intriguing question: “Why don’t politicians share workflows? In
+                My boyfriend in the sciences asked me an intriguing question:
+                “Why don’t politicians share workflows? In
                 science, publishing a finding without showing the methodology
                 would make little sense. So why can’t we see the steps that took
                 a state actor from point A to point B in making a policy
